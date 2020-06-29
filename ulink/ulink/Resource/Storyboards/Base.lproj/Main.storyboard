@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ka9-Ka-MsO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TimeTable-->
+        <scene sceneID="V7e-rY-2Db">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="timetableStoryBoard" storyboardName="TimeTable" id="6JW-BM-LTO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="시간표" image="alarm" catalog="system" selectedImage="alarm.fill" id="Nk6-zo-J2e"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zC-FM-ZEq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831" y="-179"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="D0W-R2-HGh">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="calendarStoryBoard" storyboardName="Calendar" id="bCf-E7-h06" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="캘린더" image="calendar" catalog="system" selectedImage="calendar" id="Ko4-g5-0l6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nuj-Lz-5bq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="-7"/>
+        </scene>
+        <!--Chatting-->
+        <scene sceneID="3Kk-Q5-ubm">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="chattingStoryBoard" storyboardName="Chatting" id="kKf-Z2-N5f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="수업 채팅" image="message" catalog="system" selectedImage="message.fill" id="LT5-y6-JDh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgi-H8-6yn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831" y="171"/>
+        </scene>
+        <!--MyPage-->
+        <scene sceneID="V8x-Xx-zDN">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="mypageStoryBoard" storyboardName="MyPage" id="9Ll-jr-7ZX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="마이 페이지" image="person" catalog="system" selectedImage="person.fill" id="WYk-na-eMF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cng-pS-yJO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834" y="396"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="pk1-Yy-0wc">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Ka9-Ka-MsO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ifQ-E5-yS1">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="6JW-BM-LTO" kind="relationship" relationship="viewControllers" id="gUg-XL-N8f"/>
+                        <segue destination="bCf-E7-h06" kind="relationship" relationship="viewControllers" id="Zft-8X-pVI"/>
+                        <segue destination="kKf-Z2-N5f" kind="relationship" relationship="viewControllers" id="SIA-mW-SKF"/>
+                        <segue destination="9Ll-jr-7ZX" kind="relationship" relationship="viewControllers" id="gvb-Jp-je7"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmD-Ko-UQx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="alarm" catalog="system" width="124" height="128"/>
+        <image name="alarm.fill" catalog="system" width="124" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
+</document>

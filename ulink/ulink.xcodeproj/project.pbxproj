@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0268886C1BDB68011A000286 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D5648CBE90C0EEFA6D78E1 /* Pods_ulink.framework */; };
+		FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F24E24AA591300F304BD /* AppDelegate.swift */; };
+		FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25024AA591300F304BD /* SceneDelegate.swift */; };
+		FD45F25324AA591300F304BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25224AA591300F304BD /* ViewController.swift */; };
+		FD45F25624AA591300F304BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25424AA591300F304BD /* Main.storyboard */; };
+		FD45F25824AA591500F304BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25724AA591500F304BD /* Assets.xcassets */; };
+		FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25924AA591500F304BD /* LaunchScreen.storyboard */; };
+		FD5CCBD724AA6808009FCDDB /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBD624AA6808009FCDDB /* TimeTable.storyboard */; };
+		FD5CCBD924AA6815009FCDDB /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBD824AA6815009FCDDB /* Calendar.storyboard */; };
+		FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */; };
+		FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		69D5648CBE90C0EEFA6D78E1 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		895BEB7E28A79B3BA9968A40 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
+		B282E0FCF516A013BBB48F4A /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
+		FD45F24B24AA591300F304BD /* ulink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ulink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FD45F25024AA591300F304BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FD45F25224AA591300F304BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD45F25524AA591300F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD45F25724AA591500F304BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD45F25A24AA591500F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD45F25C24AA591500F304BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD5CCBD624AA6808009FCDDB /* TimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
+		FD5CCBD824AA6815009FCDDB /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
+		FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD45F24824AA591300F304BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0268886C1BDB68011A000286 /* Pods_ulink.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0CCC2277F9E07BB88B909132 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69D5648CBE90C0EEFA6D78E1 /* Pods_ulink.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		674E96E3FC3FBA517F3C1116 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B282E0FCF516A013BBB48F4A /* Pods-ulink.debug.xcconfig */,
+				895BEB7E28A79B3BA9968A40 /* Pods-ulink.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FD45F24224AA591300F304BD = {
+			isa = PBXGroup;
+			children = (
+				FD45F24D24AA591300F304BD /* ulink */,
+				FD45F24C24AA591300F304BD /* Products */,
+				674E96E3FC3FBA517F3C1116 /* Pods */,
+				0CCC2277F9E07BB88B909132 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FD45F24C24AA591300F304BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD45F24B24AA591300F304BD /* ulink.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD45F24D24AA591300F304BD /* ulink */ = {
+			isa = PBXGroup;
+			children = (
+				FD616CFF24AA5D2F007D54B5 /* Sources */,
+				FD616CFE24AA5A91007D54B5 /* Resource */,
+				FD45F25C24AA591500F304BD /* Info.plist */,
+			);
+			path = ulink;
+			sourceTree = "<group>";
+		};
+		FD616CFE24AA5A91007D54B5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				FD616D0024AA5D3F007D54B5 /* Storyboards */,
+				FD45F25724AA591500F304BD /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		FD616CFF24AA5D2F007D54B5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FD616D0124AA6631007D54B5 /* ViewControllers */,
+				FD45F24E24AA591300F304BD /* AppDelegate.swift */,
+				FD45F25024AA591300F304BD /* SceneDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FD616D0024AA5D3F007D54B5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FD45F25424AA591300F304BD /* Main.storyboard */,
+				FD45F25924AA591500F304BD /* LaunchScreen.storyboard */,
+				FD5CCBD624AA6808009FCDDB /* TimeTable.storyboard */,
+				FD5CCBD824AA6815009FCDDB /* Calendar.storyboard */,
+				FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */,
+				FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FD616D0124AA6631007D54B5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FD45F25224AA591300F304BD /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD45F24A24AA591300F304BD /* ulink */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD45F25F24AA591500F304BD /* Build configuration list for PBXNativeTarget "ulink" */;
+			buildPhases = (
+				B83ADA19773C79328537DFF4 /* [CP] Check Pods Manifest.lock */,
+				FD45F24724AA591300F304BD /* Sources */,
+				FD45F24824AA591300F304BD /* Frameworks */,
+				FD45F24924AA591300F304BD /* Resources */,
+				FF5C4C09D630126507D07221 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ulink;
+			productName = ulink;
+			productReference = FD45F24B24AA591300F304BD /* ulink.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD45F24324AA591300F304BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "송지훈";
+				TargetAttributes = {
+					FD45F24A24AA591300F304BD = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = FD45F24624AA591300F304BD /* Build configuration list for PBXProject "ulink" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD45F24224AA591300F304BD;
+			productRefGroup = FD45F24C24AA591300F304BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD45F24A24AA591300F304BD /* ulink */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD45F24924AA591300F304BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */,
+				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
+				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
+				FD5CCBD724AA6808009FCDDB /* TimeTable.storyboard in Resources */,
+				FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */,
+				FD5CCBD924AA6815009FCDDB /* Calendar.storyboard in Resources */,
+				FD45F25624AA591300F304BD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B83ADA19773C79328537DFF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ulink-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF5C4C09D630126507D07221 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD45F24724AA591300F304BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
+				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
+				FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FD45F25424AA591300F304BD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD45F25524AA591300F304BD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FD45F25924AA591500F304BD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD45F25A24AA591500F304BD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD45F25D24AA591500F304BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FD45F25E24AA591500F304BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD45F26024AA591500F304BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B282E0FCF516A013BBB48F4A /* Pods-ulink.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9D5M5DM3Y;
+				INFOPLIST_FILE = ulink/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD45F26124AA591500F304BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 895BEB7E28A79B3BA9968A40 /* Pods-ulink.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9D5M5DM3Y;
+				INFOPLIST_FILE = ulink/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD45F24624AA591300F304BD /* Build configuration list for PBXProject "ulink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD45F25D24AA591500F304BD /* Debug */,
+				FD45F25E24AA591500F304BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD45F25F24AA591500F304BD /* Build configuration list for PBXNativeTarget "ulink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD45F26024AA591500F304BD /* Debug */,
+				FD45F26124AA591500F304BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD45F24324AA591300F304BD /* Project object */;
+}
