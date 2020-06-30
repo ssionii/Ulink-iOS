@@ -18,6 +18,7 @@
 		FD5CCBD924AA6815009FCDDB /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBD824AA6815009FCDDB /* Calendar.storyboard */; };
 		FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */; };
 		FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */; };
+		FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FD5CCBD824AA6815009FCDDB /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				FD616CFF24AA5D2F007D54B5 /* Sources */,
 				FD616CFE24AA5A91007D54B5 /* Resource */,
 				FD45F25C24AA591500F304BD /* Info.plist */,
+				FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */,
 			);
 			path = ulink;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */,
+				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
 				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
 				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
 				FD5CCBD724AA6808009FCDDB /* TimeTable.storyboard in Resources */,
