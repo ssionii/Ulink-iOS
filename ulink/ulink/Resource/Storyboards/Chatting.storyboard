@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--수업 채팅-->
         <scene sceneID="eZA-S6-Nau">
             <objects>
                 <viewController storyboardIdentifier="chattingStoryBoard" id="XcY-du-ypt" sceneMemberID="viewController">
@@ -26,10 +26,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="efU-dX-FKS"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="수업 채팅" image="message" catalog="system" selectedImage="message.fill" id="Fj7-dT-bBS"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Cl-Uc-Lpu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="455" y="-197"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
