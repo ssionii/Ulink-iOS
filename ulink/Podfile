@@ -13,4 +13,7 @@ target 'ulink' do
   pod 'Kingfisher', '~> 5.0'
   pod 'SnapKit', '~> 5.0.0'
   pod 'Firebase/RemoteConfig'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'TextFieldEffects'
 end
