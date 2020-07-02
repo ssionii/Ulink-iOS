@@ -20,7 +20,7 @@ public protocol TimeTableDataSource {
 }
 
 @IBDesignable public class TimeTable : UIView {
-    private let controller = TimeTableViewController()
+    private let controller = TimeTableController()
     private let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     public let defaultMinHour : Int = 9
@@ -57,6 +57,9 @@ public protocol TimeTableDataSource {
         didSet { makeTimeTable() }
     }
     
+    @IBInspectable public var borderCornerRadius = CGFloat(30){
+        didSet { makeTimeTable() }
+    }
     
     // top symbol
     @IBInspectable public var numberOfDays = UIColor.black{
@@ -169,6 +172,12 @@ public protocol TimeTableDataSource {
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
         
+        for subview in subviews {
+                  if !(subview is UICollectionViewCell){
+                      subview.removeFromSuperview()
+                  }
+              }
+        
         for subview in collectionView.subviews{
             if !(subview is UICollectionView){
                 subview.removeFromSuperview()
@@ -222,13 +231,13 @@ public protocol TimeTableDataSource {
             view.layer.cornerRadius = 10
             
             let label = PaddingLabel(frame: CGRect(x: textEdgeInsets.left, y: textEdgeInsets.top, width: view.frame.width - textEdgeInsets.right, height: view.frame.height - textEdgeInsets.top))
-            var name = subjectItem.subjectName
+            let name = subjectItem.subjectName
             let attrStr = NSMutableAttributedString(string: name + "\n", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: subjectFontSize)])
             attrStr.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: subjectFontSize)], range: NSRange(0..<name.count))
             
             label.attributedText = attrStr
             label.textColor = subjectItem.textColor ?? UIColor.white
-            label.numberOfLines - 0
+            label.numberOfLines = 0
             label.textAlignment = .left
             label.lineBreakMode = NSLineBreakMode.byWordWrapping
             label.sizeToFit()
