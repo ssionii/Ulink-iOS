@@ -23,8 +23,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var pwTextField: HoshiTextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         
         
