@@ -376,6 +376,7 @@
     return _borderColors[@(FSCalendarCellStateSelected)];
 }
 
+
 - (void)setBorderRadius:(CGFloat)borderRadius
 {
     borderRadius = MAX(0.0, borderRadius);
