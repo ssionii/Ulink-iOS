@@ -9,6 +9,21 @@
 /* Begin PBXBuildFile section */
 		0268886C1BDB68011A000286 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D5648CBE90C0EEFA6D78E1 /* Pods_ulink.framework */; };
 		299BDB0F24AC41CB00C505C4 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299BDB0E24AC41CB00C505C4 /* CalendarViewController.swift */; };
+		B599E62F24ADAA320067C112 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* Subject.swift */; };
+		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
+		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
+		B599E63724ADAAB40067C112 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63624ADAAB40067C112 /* TimeTableViewController.swift */; };
+		B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63824ADAAD20067C112 /* SubjectCell.swift */; };
+		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
+		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
+		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
+		FD19DC0D24AD0356000C2AEC /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0C24AD0356000C2AEC /* APIConstant.swift */; };
+		FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0E24AD0365000C2AEC /* ChatModel.swift */; };
+		FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1124AD03D6000C2AEC /* ChattingTableViewCell.swift */; };
+		FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1324AD03FB000C2AEC /* ChattingViewController.swift */; };
+		FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1524AD04A2000C2AEC /* NetworkResult.swift */; };
+		FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */; };
+		FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */; };
 		FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F24E24AA591300F304BD /* AppDelegate.swift */; };
 		FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25024AA591300F304BD /* SceneDelegate.swift */; };
 		FD45F25324AA591300F304BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25224AA591300F304BD /* ViewController.swift */; };
@@ -19,6 +34,7 @@
 		FD5CCBD924AA6815009FCDDB /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBD824AA6815009FCDDB /* Calendar.storyboard */; };
 		FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */; };
 		FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */; };
+		FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +42,21 @@
 		69D5648CBE90C0EEFA6D78E1 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		895BEB7E28A79B3BA9968A40 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		B282E0FCF516A013BBB48F4A /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
+		B599E62E24ADAA320067C112 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		B599E63124ADAA7F0067C112 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
+		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
+		B599E63624ADAAB40067C112 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		B599E63824ADAAD20067C112 /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
+		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		FD19DC0C24AD0356000C2AEC /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		FD19DC0E24AD0365000C2AEC /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		FD19DC1124AD03D6000C2AEC /* ChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewCell.swift; sourceTree = "<group>"; };
+		FD19DC1324AD03FB000C2AEC /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		FD19DC1524AD04A2000C2AEC /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
+		FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		FD45F24B24AA591300F304BD /* ulink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ulink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD45F25024AA591300F304BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +69,7 @@
 		FD5CCBD824AA6815009FCDDB /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +92,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		299BDB1624ADCB8B00C505C4 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				299BDB0E24AC41CB00C505C4 /* CalendarViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		674E96E3FC3FBA517F3C1116 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +107,70 @@
 				895BEB7E28A79B3BA9968A40 /* Pods-ulink.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B599E62D24ADA9FB0067C112 /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				B599E63024ADAA6D0067C112 /* Subject */,
+				B599E63124ADAA7F0067C112 /* TimeTable.swift */,
+				B599E63324ADAA960067C112 /* TimeTableDay.swift */,
+				B599E63624ADAAB40067C112 /* TimeTableViewController.swift */,
+			);
+			path = TimeTable;
+			sourceTree = "<group>";
+		};
+		B599E63024ADAA6D0067C112 /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				B599E62E24ADAA320067C112 /* Subject.swift */,
+				B599E63824ADAAD20067C112 /* SubjectCell.swift */,
+			);
+			path = Subject;
+			sourceTree = "<group>";
+		};
+		FD19DC0224AD016E000C2AEC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FD19DC0C24AD0356000C2AEC /* APIConstant.swift */,
+				FD19DC1524AD04A2000C2AEC /* NetworkResult.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		FD19DC0324AD017C000C2AEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD19DC0A24AD02ED000C2AEC /* UserModel.swift */,
+				FD19DC0E24AD0365000C2AEC /* ChatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD19DC0424AD018F000C2AEC /* Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				FD19DC1324AD03FB000C2AEC /* ChattingViewController.swift */,
+				FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */,
+			);
+			path = Chatting;
+			sourceTree = "<group>";
+		};
+		FD19DC0524AD0198000C2AEC /* UserLogin */ = {
+			isa = PBXGroup;
+			children = (
+				FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */,
+				FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */,
+			);
+			path = UserLogin;
+			sourceTree = "<group>";
+		};
+		FD19DC1024AD03B5000C2AEC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FD19DC1124AD03D6000C2AEC /* ChattingTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		FD45F24224AA591300F304BD = {
@@ -93,6 +197,8 @@
 				FD616CFF24AA5D2F007D54B5 /* Sources */,
 				FD616CFE24AA5A91007D54B5 /* Resource */,
 				FD45F25C24AA591500F304BD /* Info.plist */,
+				FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */,
+				FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */,
 			);
 			path = ulink;
 			sourceTree = "<group>";
@@ -100,6 +206,8 @@
 		FD616CFE24AA5A91007D54B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FD19DC0324AD017C000C2AEC /* Model */,
+				FD19DC0224AD016E000C2AEC /* API */,
 				FD616D0024AA5D3F007D54B5 /* Storyboards */,
 				FD45F25724AA591500F304BD /* Assets.xcassets */,
 			);
@@ -109,6 +217,7 @@
 		FD616CFF24AA5D2F007D54B5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FD19DC1024AD03B5000C2AEC /* Cell */,
 				FD616D0124AA6631007D54B5 /* ViewControllers */,
 				FD45F24E24AA591300F304BD /* AppDelegate.swift */,
 				FD45F25024AA591300F304BD /* SceneDelegate.swift */,
@@ -132,8 +241,11 @@
 		FD616D0124AA6631007D54B5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				299BDB1624ADCB8B00C505C4 /* Calendar */,
+				B599E62D24ADA9FB0067C112 /* TimeTable */,
+				FD19DC0524AD0198000C2AEC /* UserLogin */,
+				FD19DC0424AD018F000C2AEC /* Chatting */,
 				FD45F25224AA591300F304BD /* ViewController.swift */,
-				299BDB0E24AC41CB00C505C4 /* CalendarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,10 +311,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */,
+				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
 				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
 				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
 				FD5CCBD724AA6808009FCDDB /* TimeTable.storyboard in Resources */,
 				FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */,
+				FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */,
 				FD5CCBD924AA6815009FCDDB /* Calendar.storyboard in Resources */,
 				FD45F25624AA591300F304BD /* Main.storyboard in Resources */,
 			);
@@ -258,9 +372,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				299BDB0F24AC41CB00C505C4 /* CalendarViewController.swift in Sources */,
+				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
+				B599E62F24ADAA320067C112 /* Subject.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
+				FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */,
+				FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */,
+				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
+				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
+				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
+				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
+				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
+				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,
+				FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */,
+				FD19DC0D24AD0356000C2AEC /* APIConstant.swift in Sources */,
 				FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */,
+				B599E63724ADAAB40067C112 /* TimeTableViewController.swift in Sources */,
+				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

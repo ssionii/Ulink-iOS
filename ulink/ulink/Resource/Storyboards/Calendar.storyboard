@@ -8,6 +8,7 @@
     </dependencies>
     <scenes>
         <!--Calendar View Controller-->
+        <!--캘린더-->
         <scene sceneID="Lxe-xM-aWz">
             <objects>
                 <viewController storyboardIdentifier="calendarStoryBoard" id="Bti-Ux-5Da" customClass="CalendarViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,10 +53,15 @@
                     <connections>
                         <outlet property="myCalendar" destination="A8A-VD-F7r" id="C4q-xF-KXM"/>
                     </connections>
+                    <tabBarItem key="tabBarItem" title="캘린더" image="calendar" catalog="system" selectedImage="calendar" id="ZpD-y0-Jk3"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLp-Ce-yHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1240.8" y="-321.58920539730138"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+    </resources>
 </document>
