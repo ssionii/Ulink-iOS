@@ -125,17 +125,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WOW~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhc-ma-pvs">
-                                <rect key="frame" x="166" y="289" width="55" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E58-PG-I2G">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFx-8P-HEF">
+                                        <rect key="frame" x="50" y="8" width="313" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="313" id="nI5-Jh-se2"/>
+                                            <constraint firstAttribute="height" constant="34" id="qvN-yz-xaL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgb-Rr-4lW">
+                                        <rect key="frame" x="8" y="8" width="38" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="1bS-2b-GDb"/>
+                                            <constraint firstAttribute="height" constant="34" id="32D-eF-c3Z"/>
+                                        </constraints>
+                                        <state key="normal" image="ioChattingBtnMore"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de6-KX-Hxb">
+                                        <rect key="frame" x="329" y="15" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="2eu-XS-dGD"/>
+                                            <constraint firstAttribute="height" constant="20" id="ZGc-LC-1RV"/>
+                                        </constraints>
+                                        <state key="normal" image="ioChattingBtnSend"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="de6-KX-Hxb" firstAttribute="top" secondItem="E58-PG-I2G" secondAttribute="top" constant="15" id="4Gl-EN-4mi"/>
+                                    <constraint firstAttribute="bottom" secondItem="lgb-Rr-4lW" secondAttribute="bottom" constant="38" id="AFq-lo-3U1"/>
+                                    <constraint firstAttribute="trailing" secondItem="cFx-8P-HEF" secondAttribute="trailing" constant="12" id="O8C-YY-HtP"/>
+                                    <constraint firstAttribute="trailing" secondItem="de6-KX-Hxb" secondAttribute="trailing" constant="26" id="QAR-AU-T1g"/>
+                                    <constraint firstAttribute="height" constant="80" id="TAo-EP-29q"/>
+                                    <constraint firstAttribute="width" constant="375" id="YEu-8Q-Zs2"/>
+                                    <constraint firstItem="lgb-Rr-4lW" firstAttribute="leading" secondItem="E58-PG-I2G" secondAttribute="leading" constant="8" id="Z46-y0-Reu"/>
+                                    <constraint firstItem="cFx-8P-HEF" firstAttribute="top" secondItem="E58-PG-I2G" secondAttribute="top" constant="8" id="e6o-Qv-brt"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mCW-Zi-TYc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E80-gn-xBJ">
+                                        <rect key="frame" x="24" y="58" width="12" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="ioChattingBtnBack"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="E58-PG-I2G" secondAttribute="bottom" id="8PH-ZR-TyS"/>
+                            <constraint firstItem="E58-PG-I2G" firstAttribute="leading" secondItem="dCy-jR-4LU" secondAttribute="leading" id="nnc-yA-hXy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dCy-jR-4LU"/>
                     </view>
+                    <connections>
+                        <outlet property="sendButton" destination="de6-KX-Hxb" id="tME-MJ-NyY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWa-62-Vr5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,6 +215,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ioChattingBtnBack" width="12" height="20"/>
+        <image name="ioChattingBtnMore" width="38" height="34"/>
+        <image name="ioChattingBtnSend" width="20" height="20"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>

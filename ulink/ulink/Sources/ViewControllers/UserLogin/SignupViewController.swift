@@ -45,8 +45,12 @@ class SignupViewController: UIViewController {
             Database.database().reference().child("users").child(uid!).setValue(values, withCompletionBlock: { (err,ref) in
                 
                 
-                if(err==nil){
+                if(err != nil){
                     print("error")
+                }
+                else
+                {
+                    self.dismiss(animated: true, completion: nil)
                 }
                 
             })
