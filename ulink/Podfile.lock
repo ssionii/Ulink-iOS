@@ -42,6 +42,7 @@ PODS:
     - FirebaseInstallations (~> 1.1)
     - GoogleUtilities/Environment (~> 6.2)
     - "GoogleUtilities/NSData+zlib (~> 6.2)"
+  - FSCalendar (2.8.1)
   - GoogleDataTransport (6.2.1)
   - GoogleDataTransportCCTSupport (3.2.0):
     - GoogleDataTransport (~> 6.1)
@@ -83,6 +84,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - Firebase/RemoteConfig
+  - FSCalendar
   - Kingfisher (~> 5.0)
   - SnapKit (~> 5.0.0)
   - TextFieldEffects
@@ -98,6 +100,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstallations
     - FirebaseRemoteConfig
+    - FSCalendar
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
@@ -120,6 +123,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 3d02ffa794ec174853c086cf87cf2dc79bd6da49
   FirebaseInstallations: 293f567159b6d66d1c990f13bb868066096c94ec
   FirebaseRemoteConfig: 63ae9d14848e645c7f070daa6af89265be48f803
+  FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
   GoogleDataTransport: 9a8a16f79feffc7f42096743de2a7c4815e84020
   GoogleDataTransportCCTSupport: 489c1265d2c85b68187a83a911913d190012158d
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
@@ -132,6 +136,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 76b9be43ac6bf62b6542c3780d2d90655ca86102
+PODFILE CHECKSUM: 8b54d8211ce803e2c70be0e6e8cf78a4c6b6e7b6
 
 COCOAPODS: 1.9.1

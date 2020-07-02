@@ -18,10 +18,10 @@
             </objects>
             <point key="canvasLocation" x="1802" y="-442"/>
         </scene>
-        <!--Calendar-->
+        <!--calendarStoryBoard-->
         <scene sceneID="D0W-R2-HGh">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="calendarStoryBoard" storyboardName="Calendar" id="bCf-E7-h06" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="calendarStoryBoard" storyboardName="Calendar" referencedIdentifier="calendarStoryBoard" id="bCf-E7-h06" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="캘린더" image="calendar" catalog="system" selectedImage="calendar" id="Ko4-g5-0l6"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuj-Lz-5bq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
