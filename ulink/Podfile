@@ -6,7 +6,7 @@ target 'ulink' do
   use_frameworks!
 
   # Pods for ulink
-  pod 'Alamofire', '~> 4.8.2'
+    pod 'Alamofire', '~> 4.8.2'
   pod 'Kingfisher', '~> 5.0'
   pod 'SnapKit', '~> 5.0.0'
   pod 'Firebase/RemoteConfig'
@@ -15,5 +15,5 @@ target 'ulink' do
   pod 'TextFieldEffects'
   pod 'FSCalendar'
   pod 'Firebase/Storage'
-  pod 'ObjectMapper', '~> 2.2'
+  pod 'ObjectMapper', '~> 3.5'
 end

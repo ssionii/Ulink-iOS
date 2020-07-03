@@ -80,7 +80,7 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
-  - ObjectMapper (2.2.9)
+  - ObjectMapper (3.5.3)
   - PromisesObjC (1.2.9)
   - Protobuf (3.12.0)
   - SnapKit (5.0.1)
@@ -94,7 +94,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FSCalendar
   - Kingfisher (~> 5.0)
-  - ObjectMapper (~> 2.2)
+  - ObjectMapper (~> 3.5)
   - SnapKit (~> 5.0.0)
   - TextFieldEffects
 
@@ -143,12 +143,12 @@ SPEC CHECKSUMS:
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
-  ObjectMapper: 63cfe41bc6f8e7c8f44344c49901b8ae7de14c52
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 02d45eda4929f1e076cf5672533762163dc39eb5
+PODFILE CHECKSUM: 75d19d00da3a2624052477b195eb013d0bcc0b62
 
 COCOAPODS: 1.9.1
