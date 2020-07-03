@@ -10,6 +10,7 @@
 		06A99E17B8E9FC87AF3F8897 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CDB44B12056CE9032DE2A /* Pods_ulink.framework */; };
 		292B1CE924AEC3B500B4EC79 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B1CE824AEC3B500B4EC79 /* CalendarViewController.swift */; };
 		292B1CEB24AEC74400B4EC79 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B1CEA24AEC74400B4EC79 /* DayCell.swift */; };
+		9D5153683B6A9DD5661D2DC9 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF0A87879B1A169995AB2C7 /* Pods_ulink.framework */; };
 		B599E62F24ADAA320067C112 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* Subject.swift */; };
 		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
@@ -28,6 +29,7 @@
 		FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */; };
 		FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */; };
 		FD19DC2F24ADDC95000C2AEC /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD19DC2E24ADDC95000C2AEC /* Calendar.storyboard */; };
+		FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC3024AE0B44000C2AEC /* ClassModel.swift */; };
 		FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F24E24AA591300F304BD /* AppDelegate.swift */; };
 		FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25024AA591300F304BD /* SceneDelegate.swift */; };
 		FD45F25324AA591300F304BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25224AA591300F304BD /* ViewController.swift */; };
@@ -45,6 +47,9 @@
 		292B1CEA24AEC74400B4EC79 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DayCell.swift; path = ../../../../../../Documents/DayCell.swift; sourceTree = "<group>"; };
 		9F8F3E901ACF1FB18C90FB40 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		A13CDB44B12056CE9032DE2A /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EEEF52B90ECDE33D3A44F93 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
+		5DF0A87879B1A169995AB2C7 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		872181BD9CBB73BCEB40CCF4 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		B599E62E24ADAA320067C112 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		B599E63124ADAA7F0067C112 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
@@ -64,6 +69,7 @@
 		FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
 		FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		FD19DC2E24ADDC95000C2AEC /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		FD19DC3024AE0B44000C2AEC /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		FD45F24B24AA591300F304BD /* ulink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ulink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD45F25024AA591300F304BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06A99E17B8E9FC87AF3F8897 /* Pods_ulink.framework in Frameworks */,
+				9D5153683B6A9DD5661D2DC9 /* Pods_ulink.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,16 +99,16 @@
 		674E96E3FC3FBA517F3C1116 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B6125663F04CA7A548F244A1 /* Pods-ulink.debug.xcconfig */,
-				9F8F3E901ACF1FB18C90FB40 /* Pods-ulink.release.xcconfig */,
+				4EEEF52B90ECDE33D3A44F93 /* Pods-ulink.debug.xcconfig */,
+				872181BD9CBB73BCEB40CCF4 /* Pods-ulink.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		67C7F21C5FA553242EBDFB40 /* Frameworks */ = {
+		94C377642A9E3EF7DB6B07FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A13CDB44B12056CE9032DE2A /* Pods_ulink.framework */,
+				5DF0A87879B1A169995AB2C7 /* Pods_ulink.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,6 +156,7 @@
 			children = (
 				FD19DC0A24AD02ED000C2AEC /* UserModel.swift */,
 				FD19DC0E24AD0365000C2AEC /* ChatModel.swift */,
+				FD19DC3024AE0B44000C2AEC /* ClassModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,7 +202,7 @@
 				FD45F24D24AA591300F304BD /* ulink */,
 				FD45F24C24AA591300F304BD /* Products */,
 				674E96E3FC3FBA517F3C1116 /* Pods */,
-				67C7F21C5FA553242EBDFB40 /* Frameworks */,
+				94C377642A9E3EF7DB6B07FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,11 +281,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD45F25F24AA591500F304BD /* Build configuration list for PBXNativeTarget "ulink" */;
 			buildPhases = (
-				B6A7E3D06F933AE454C90CD2 /* [CP] Check Pods Manifest.lock */,
+				722055D30899078EE682B9C6 /* [CP] Check Pods Manifest.lock */,
 				FD45F24724AA591300F304BD /* Sources */,
 				FD45F24824AA591300F304BD /* Frameworks */,
 				FD45F24924AA591300F304BD /* Resources */,
-				F7C222AD37D2800C10BCA783 /* [CP] Embed Pods Frameworks */,
+				5D4BB26EC5F82BE6362D47DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -342,7 +349,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B6A7E3D06F933AE454C90CD2 /* [CP] Check Pods Manifest.lock */ = {
+		5D4BB26EC5F82BE6362D47DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		722055D30899078EE682B9C6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -364,23 +388,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F7C222AD37D2800C10BCA783 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -399,6 +406,7 @@
 				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
 				292B1CEB24AEC74400B4EC79 /* DayCell.swift in Sources */,
+				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
 				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
@@ -550,7 +558,7 @@
 		};
 		FD45F26024AA591500F304BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6125663F04CA7A548F244A1 /* Pods-ulink.debug.xcconfig */;
+			baseConfigurationReference = 4EEEF52B90ECDE33D3A44F93 /* Pods-ulink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -569,7 +577,7 @@
 		};
 		FD45F26124AA591500F304BD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F8F3E901ACF1FB18C90FB40 /* Pods-ulink.release.xcconfig */;
+			baseConfigurationReference = 872181BD9CBB73BCEB40CCF4 /* Pods-ulink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
