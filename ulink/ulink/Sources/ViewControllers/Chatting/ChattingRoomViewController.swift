@@ -162,3 +162,16 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         )}
     
 }
+
+
+
+class MyMessageCell : UITableViewCell {
+    
+    
+}
+
+
+class destinationMessageCell : UITableViewCell {
+    
+}
+

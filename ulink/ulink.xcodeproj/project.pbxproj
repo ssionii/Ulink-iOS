@@ -49,12 +49,9 @@
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
 		B599E63624ADAAB40067C112 /* TimeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableController.swift; sourceTree = "<group>"; };
 		B599E63824ADAAD20067C112 /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
 		B5A2783E24ADDD3A00A0F4A4 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extenstions+UIColor.swift"; sourceTree = "<group>"; };
 		B6125663F04CA7A548F244A1 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
->>>>>>> 8aa96f6e0a6416597e666944856ef054ae110520
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
