@@ -13,10 +13,7 @@ class ChattingTableViewCell: UITableViewCell {
     
     static let identifiers : String = "ChattingCell"
 
-    @IBOutlet weak var chattingthumbnailImage: UIImageView!
-    @IBOutlet weak var chattingTitle: UILabel!
-    @IBOutlet weak var chattingStudentNumber: UILabel!
-    @IBOutlet weak var chattingBadge: UILabel!
+
     
     
     
