@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		06A99E17B8E9FC87AF3F8897 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13CDB44B12056CE9032DE2A /* Pods_ulink.framework */; };
+		292B1CE924AEC3B500B4EC79 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B1CE824AEC3B500B4EC79 /* CalendarViewController.swift */; };
+		292B1CEB24AEC74400B4EC79 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B1CEA24AEC74400B4EC79 /* DayCell.swift */; };
 		B599E62F24ADAA320067C112 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* Subject.swift */; };
 		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
@@ -25,7 +27,6 @@
 		FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1524AD04A2000C2AEC /* NetworkResult.swift */; };
 		FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */; };
 		FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */; };
-		FD19DC2D24ADDC89000C2AEC /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC2C24ADDC89000C2AEC /* CalendarViewController.swift */; };
 		FD19DC2F24ADDC95000C2AEC /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD19DC2E24ADDC95000C2AEC /* Calendar.storyboard */; };
 		FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F24E24AA591300F304BD /* AppDelegate.swift */; };
 		FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25024AA591300F304BD /* SceneDelegate.swift */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		292B1CE824AEC3B500B4EC79 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = ../../../../../../../Documents/CalendarViewController.swift; sourceTree = "<group>"; };
+		292B1CEA24AEC74400B4EC79 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DayCell.swift; path = ../../../../../../Documents/DayCell.swift; sourceTree = "<group>"; };
 		9F8F3E901ACF1FB18C90FB40 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		A13CDB44B12056CE9032DE2A /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B599E62E24ADAA320067C112 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		FD19DC1524AD04A2000C2AEC /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
 		FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
-		FD19DC2C24ADDC89000C2AEC /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		FD19DC2E24ADDC95000C2AEC /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		FD45F24B24AA591300F304BD /* ulink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ulink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				FD19DC1124AD03D6000C2AEC /* ChattingTableViewCell.swift */,
+				292B1CEA24AEC74400B4EC79 /* DayCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -181,7 +184,7 @@
 		FD19DC1B24ADD4CF000C2AEC /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				FD19DC2C24ADDC89000C2AEC /* CalendarViewController.swift */,
+				292B1CE824AEC3B500B4EC79 /* CalendarViewController.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				292B1CE924AEC3B500B4EC79 /* CalendarViewController.swift in Sources */,
 				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
 				B599E62F24ADAA320067C112 /* Subject.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
@@ -392,9 +396,9 @@
 				FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */,
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
-				FD19DC2D24ADDC89000C2AEC /* CalendarViewController.swift in Sources */,
 				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
+				292B1CEB24AEC74400B4EC79 /* DayCell.swift in Sources */,
 				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
