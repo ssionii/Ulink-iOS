@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
@@ -28,11 +28,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        monthLabel.text = String(todayMonth) + "월"
+        
         calendarCollectionView.dataSource = self
         calendarCollectionView.delegate = self
-        
-        
-        
     }
     
     func getFirstWeekDay() -> Int{
@@ -47,7 +47,17 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         return firstWeekDay
     }
     
+    //collectionview layout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
+        indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width/10, height: collectionView.frame.height/6)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    }
+    
+    //collectionview cell 띄우기
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 35
     }
@@ -61,6 +71,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         if (indexPath.row >= 0 && indexPath.row < first){
             //저번달~
+            cell.setDayCell(firstDay: numOfDate[todayMonth - 2] - first + indexPath.row)
         } else if (indexPath.row >= first && indexPath.row < last + first){
             //이번달~
             cell.setDayCell(firstDay: indexPath.row - first)
@@ -71,5 +82,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         return cell
     }
+
+
     
 }

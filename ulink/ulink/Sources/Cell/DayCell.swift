@@ -21,4 +21,5 @@ class DayCell: UICollectionViewCell {
     func setDayCell(firstDay: Int) {
         dateLabel.text = String(firstDay + 1)
     }
+    
 }
