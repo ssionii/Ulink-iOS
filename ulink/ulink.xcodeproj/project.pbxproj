@@ -11,8 +11,10 @@
 		B599E62F24ADAA320067C112 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* Subject.swift */; };
 		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
-		B599E63724ADAAB40067C112 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63624ADAAB40067C112 /* TimeTableViewController.swift */; };
+		B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63624ADAAB40067C112 /* TimeTableController.swift */; };
 		B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63824ADAAD20067C112 /* SubjectCell.swift */; };
+		B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2783E24ADDD3A00A0F4A4 /* TimeTableViewController.swift */; };
+		B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -45,8 +47,14 @@
 		B599E62E24ADAA320067C112 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		B599E63124ADAA7F0067C112 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
-		B599E63624ADAAB40067C112 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		B599E63624ADAAB40067C112 /* TimeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableController.swift; sourceTree = "<group>"; };
 		B599E63824ADAAD20067C112 /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		B5A2783E24ADDD3A00A0F4A4 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extenstions+UIColor.swift"; sourceTree = "<group>"; };
+		B6125663F04CA7A548F244A1 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> 8aa96f6e0a6416597e666944856ef054ae110520
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -109,7 +117,8 @@
 				B599E63024ADAA6D0067C112 /* Subject */,
 				B599E63124ADAA7F0067C112 /* TimeTable.swift */,
 				B599E63324ADAA960067C112 /* TimeTableDay.swift */,
-				B599E63624ADAAB40067C112 /* TimeTableViewController.swift */,
+				B599E63624ADAAB40067C112 /* TimeTableController.swift */,
+				B5A2783E24ADDD3A00A0F4A4 /* TimeTableViewController.swift */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -121,6 +130,14 @@
 				B599E63824ADAAD20067C112 /* SubjectCell.swift */,
 			);
 			path = Subject;
+			sourceTree = "<group>";
+		};
+		B5A2784024ADE0C600A0F4A4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		FD19DC0224AD016E000C2AEC /* API */ = {
@@ -197,6 +214,7 @@
 		FD45F24D24AA591300F304BD /* ulink */ = {
 			isa = PBXGroup;
 			children = (
+				B5A2784024ADE0C600A0F4A4 /* Extension */,
 				FD616CFF24AA5D2F007D54B5 /* Sources */,
 				FD616CFE24AA5A91007D54B5 /* Resource */,
 				FD45F25C24AA591500F304BD /* Info.plist */,
@@ -379,11 +397,13 @@
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
 				FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */,
 				FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */,
+				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FD19DC2D24ADDC89000C2AEC /* CalendarViewController.swift in Sources */,
 				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
+				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
@@ -391,7 +411,7 @@
 				FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */,
 				FD19DC0D24AD0356000C2AEC /* APIConstant.swift in Sources */,
 				FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */,
-				B599E63724ADAAB40067C112 /* TimeTableViewController.swift in Sources */,
+				B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
