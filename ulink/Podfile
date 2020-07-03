@@ -14,5 +14,6 @@ target 'ulink' do
   pod 'Firebase/Database'
   pod 'TextFieldEffects'
   pod 'FSCalendar'
-
+  pod 'Firebase/Storage'
+  pod 'ObjectMapper', '~> 2.2'
 end
