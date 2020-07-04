@@ -15,8 +15,14 @@ class TimeTableController: UIViewController {
     weak var collectionView : UICollectionView! {
         didSet {
             collectionView.isScrollEnabled = true
+            collectionView.bounces = false
             collectionView.register(SubjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+       
+        print("touchesBegan is called")
     }
 }
 
@@ -58,7 +64,7 @@ extension TimeTableController : UICollectionViewDataSource {
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
         let titleLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
 
-        backgroundView.layer.addBorder(edge: UIRectEdge.bottom, color: timeTable.borderColor, thickness: timeTable.borderWidth)
+//        backgroundView.layer.addBorder(edge: UIRectEdge.bottom, color: timeTable.borderColor, thickness: timeTable.borderWidth)
         backgroundView.backgroundColor = .clear
         backgroundView.tag = 9
 
@@ -76,41 +82,58 @@ extension TimeTableController : UICollectionViewDataSource {
             cell.setNeedsDisplay()
             backgroundView.backgroundColor = UIColor.clear
 
-            backgroundView.layer.addBorder(edge: UIRectEdge.top, color: timeTable.borderColor, thickness: timeTable.borderWidth)
-
         }else if indexPath.row < (timeTable.daySymbols.count + 1){
-            if indexPath.row < timeTable.daySymbols.count {
-                backgroundView.layer.addBorder(edge: UIRectEdge.top, color: timeTable.borderColor, thickness: timeTable.borderWidth)
-            }
+//            if indexPath.row < timeTable.daySymbols.count {
+//                backgroundView.layer.addBorder(edge: UIRectEdge.top, color: timeTable.borderColor, thickness: timeTable.borderWidth)
+//            }
 
-            cell.setNeedsDisplay()
-
-            titleLabel.text = timeTable.daySymbols[indexPath.row - 1]
-            titleLabel.textAlignment = .left
-            titleLabel.font = UIFont.boldSystemFont(ofSize: timeTable.symbolFontSize)
-            titleLabel.textColor = timeTable.symbolFontColor
-            backgroundView.backgroundColor = UIColor.white
+//            cell.setNeedsDisplay()
+//
+//            titleLabel.text = timeTable.daySymbols[indexPath.row - 1]
+//            titleLabel.textAlignment = .center
+//            titleLabel.font = timeTable.symbolFont
+//            titleLabel.textColor = timeTable.symbolFontColor
+//            backgroundView.backgroundColor = UIColor.white
 
         } else if indexPath.row % (timeTable.daySymbols.count + 1) == 0 {
-            backgroundView.layer.addBorder(edge: UIRectEdge.right, color: timeTable.borderColor, thickness: timeTable.borderWidth)
-            titleLabel.text = "\((timeTable.minimumSubjectStartTime ?? 9) - 1 + (indexPath.row / (timeTable.daySymbols.count + 1 )))"
-            titleLabel.textAlignment = .left
+        
+            let time = (timeTable.minimumSubjectStartTime ?? 9) - 1 + (indexPath.row / (timeTable.daySymbols.count + 1 ))
+            if  time > 12 {
+                titleLabel.text = "\(time - 12)"
+            }else{
+                titleLabel.text = "\(time)"
+            }
+            
+            titleLabel.textAlignment = .center
             titleLabel.sizeToFit()
-            titleLabel.rightInset = 3
             titleLabel.frame = CGRect(x: 0, y:0, width: cell.frame.width, height: titleLabel.frame.height)
-            titleLabel.font = UIFont.systemFont(ofSize: timeTable.symbolFontSize)
-            titleLabel.textColor = timeTable.symbolFontColor
+            titleLabel.font = timeTable.symbolTimeFont
+            titleLabel.textColor = timeTable.symbolTimeFontColor
 
         } else {
             cell.textLabel.text = ""
             cell.setNeedsDisplay()
-            backgroundView.layer.addBorder(edge: UIRectEdge.right, color: timeTable.borderColor, thickness: timeTable.borderWidth)
+            backgroundView.layer.addBorder(edge: UIRectEdge.top, color: timeTable.borderColor, thickness: timeTable.borderWidth)
             backgroundView.backgroundColor = UIColor.white
         }
 
         backgroundView.addSubview(titleLabel)
+//        backgroundView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panEmptySpace)))
+        
         cell.addSubview(backgroundView)
         return cell
+    }
+    
+    @objc func panEmptySpace(_ sender: UIPanGestureRecognizer){
+        let view = collectionView
+        
+        let touchLocation = sender.location(in: view)
+            
+        let posiX = touchLocation.x
+        let posiY = touchLocation.y
+            
+//        print(posiX)
+//        print(posiY)
     }
 }
 
@@ -146,13 +169,10 @@ extension TimeTableController : UICollectionViewDelegateFlowLayout {
         if indexPath.row == 0 {
             return CGSize(width: timeTable.widthOfTimeAxis , height: timeTable.heightOfDaySection)
         }else if indexPath.row < (timeTable.daySymbols.count + 1 ){
-            
             return CGSize(width: timeTable.averageWidth, height : timeTable.heightOfDaySection)
         }else if indexPath.row % (timeTable.daySymbols.count + 1) == 0 {
             return CGSize(width: timeTable.widthOfTimeAxis, height: timeTable.subjectItemHeight)
         }else {
-            print(timeTable.averageWidth)
-            print(timeTable.subjectItemHeight)
             return CGSize(width: timeTable.averageWidth, height: timeTable.subjectItemHeight)
         }
     }
