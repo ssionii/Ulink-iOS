@@ -16,10 +16,18 @@ class DayCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.layer.addBorder(edge: [.top], color: UIColor.veryLightPink, thickness: 1.0)
     }
     
-    func setDayCell(firstDay: Int) {
+    func setDayCell(firstDay: Int, textColor: Int) {
         dateLabel.text = String(firstDay + 1)
+        if (textColor == 0) {
+            dateLabel.textColor = UIColor.veryLightPink
+        } else if (textColor == 1){
+            dateLabel.textColor = UIColor.purpleishBlue
+        } else {
+            dateLabel.textColor = UIColor.darkGray
+        }
     }
     
 }
