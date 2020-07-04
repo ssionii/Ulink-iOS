@@ -39,6 +39,8 @@
 		FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */; };
 		FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */; };
 		FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */; };
+		FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */; };
+		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightSideMenuViewController.swift; sourceTree = "<group>"; };
+		FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 				FD19DC1324AD03FB000C2AEC /* ChattingViewController.swift */,
 				FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */,
 				FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */,
+				FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				FD19DC1124AD03D6000C2AEC /* ChattingTableViewCell.swift */,
+				FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -408,9 +414,11 @@
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
 				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,
+				FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */,
 				FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */,
 				FD19DC0D24AD0356000C2AEC /* APIConstant.swift in Sources */,
 				FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */,
+				FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */,
 				B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
 			);
