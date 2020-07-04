@@ -8,40 +8,54 @@
 
 import UIKit
 
-class TimeTableViewController: UIViewController {
+class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate{
 
-    @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var timeTableView: TimeTable!
+    @IBOutlet weak var timeTableBackgroundView: UIView!
+    @IBOutlet weak var timeTable: TimeTable!
+    
+    private var subjectList : [Subject] = []
+    private let daySymbol = [ "월", "화", "수", "목", "금"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setBackgroundView()
-        setTimeTableView()
-    }
-    
-    private func setBackgroundView(){
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.mainBackgroundTop.cgColor, UIColor.mainBackgroundBottom.cgColor]
         
-        backgroundView.layer.insertSublayer(gradient, at: 0)
+        timeTable.delegate = self
+        timeTable.dataSource = self
+        
+        setTimeTableBg()
+        setSubjectList()
+        
+    }
+
+    private func setSubjectList(){
+        let subject_1 = Subject(subjectName: "모션 그래픽스 1", roomName: "미술대학 407실", subjectDay: .tuesday, startTime: "14:00", endTime: "16:15", backgroundColor: UIColor.darkGray)
+
+        subjectList = [subject_1]
     }
     
-    private func setTimeTableView(){
-        timeTableView.layer.cornerRadius = 10
+    private func setTimeTableBg(){
+        timeTableBackgroundView.layer.cornerRadius = 30
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: Subject) {
+        return
     }
-    */
 
+
+    func subjectItems(in timeTable: TimeTable) -> [Subject] {
+        return subjectList
+    }
+
+    func numberOfDays(in timeTable: TimeTable) -> Int {
+        return self.daySymbol.count
+    }
+
+    func timeTable(timeTable: TimeTable, at dayPerIndex: Int) -> String {
+        return self.daySymbol[dayPerIndex]
+    }
+
+   
 }
