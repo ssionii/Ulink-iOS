@@ -200,6 +200,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         if (indexPath.row - first + 1 == 12){
             cell.setEvent(eventName: eventTitle, color: eventColor)
+        } else {
+            cell.clearEvent()
         }
             
         

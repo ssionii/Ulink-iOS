@@ -20,11 +20,7 @@ class DayCell: UICollectionViewCell {
         // Initialization code
         self.layer.addBorder(edge: [.top], color: UIColor.veryLightPink, thickness: 1.0)
         
-        for i in 0...4 {
-            eventLabels[i].layer.cornerRadius = 3
-            eventLabels[i].isHidden = true
-        }
-
+        clearEvent()
         
         dateLabel.backgroundColor = UIColor.white
     }
@@ -55,6 +51,13 @@ class DayCell: UICollectionViewCell {
             eventLabels[i].isHidden = false
             eventLabels[i].backgroundColor = color[i]
             eventLabels[i].setTitle(eventName[i], for: .normal)
+        }
+    }
+    
+    func clearEvent(){
+        for i in 0...4 {
+            eventLabels[i].layer.cornerRadius = 3
+            eventLabels[i].isHidden = true
         }
     }
 }
