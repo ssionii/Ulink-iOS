@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D5153683B6A9DD5661D2DC9 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF0A87879B1A169995AB2C7 /* Pods_ulink.framework */; };
+		8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */; };
 		B599E62F24ADAA320067C112 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* Subject.swift */; };
 		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
@@ -38,12 +38,13 @@
 		FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */; };
 		FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */; };
 		FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */; };
+		FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4EEEF52B90ECDE33D3A44F93 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
-		5DF0A87879B1A169995AB2C7 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		872181BD9CBB73BCEB40CCF4 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
+		0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
+		B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		B599E62E24ADAA320067C112 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		B599E63124ADAA7F0067C112 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		B599E63824ADAAD20067C112 /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
 		B5A2783E24ADDD3A00A0F4A4 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extenstions+UIColor.swift"; sourceTree = "<group>"; };
-		B6125663F04CA7A548F244A1 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -77,6 +77,7 @@
 		FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightSideMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D5153683B6A9DD5661D2DC9 /* Pods_ulink.framework in Frameworks */,
+				8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,18 +95,10 @@
 		674E96E3FC3FBA517F3C1116 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4EEEF52B90ECDE33D3A44F93 /* Pods-ulink.debug.xcconfig */,
-				872181BD9CBB73BCEB40CCF4 /* Pods-ulink.release.xcconfig */,
+				4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */,
+				B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		94C377642A9E3EF7DB6B07FE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5DF0A87879B1A169995AB2C7 /* Pods_ulink.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B599E62D24ADA9FB0067C112 /* TimeTable */ = {
@@ -137,6 +130,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		D3A4F7CDB1294EC6CB9EFD23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FD19DC0224AD016E000C2AEC /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +162,7 @@
 			children = (
 				FD19DC1324AD03FB000C2AEC /* ChattingViewController.swift */,
 				FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */,
+				FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -196,7 +198,7 @@
 				FD45F24D24AA591300F304BD /* ulink */,
 				FD45F24C24AA591300F304BD /* Products */,
 				674E96E3FC3FBA517F3C1116 /* Pods */,
-				94C377642A9E3EF7DB6B07FE /* Frameworks */,
+				D3A4F7CDB1294EC6CB9EFD23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,11 +277,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD45F25F24AA591500F304BD /* Build configuration list for PBXNativeTarget "ulink" */;
 			buildPhases = (
-				722055D30899078EE682B9C6 /* [CP] Check Pods Manifest.lock */,
+				4890382B331E2D337856DCE5 /* [CP] Check Pods Manifest.lock */,
 				FD45F24724AA591300F304BD /* Sources */,
 				FD45F24824AA591300F304BD /* Frameworks */,
 				FD45F24924AA591300F304BD /* Resources */,
-				5D4BB26EC5F82BE6362D47DF /* [CP] Embed Pods Frameworks */,
+				54E1A07A6DCAEA6EDADA8D91 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -343,24 +345,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5D4BB26EC5F82BE6362D47DF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		722055D30899078EE682B9C6 /* [CP] Check Pods Manifest.lock */ = {
+		4890382B331E2D337856DCE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -382,6 +367,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		54E1A07A6DCAEA6EDADA8D91 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ulink/Pods-ulink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -390,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
+				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				B599E62F24ADAA320067C112 /* Subject.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
 				FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */,
@@ -551,7 +554,7 @@
 		};
 		FD45F26024AA591500F304BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EEEF52B90ECDE33D3A44F93 /* Pods-ulink.debug.xcconfig */;
+			baseConfigurationReference = 4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -570,7 +573,7 @@
 		};
 		FD45F26124AA591500F304BD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 872181BD9CBB73BCEB40CCF4 /* Pods-ulink.release.xcconfig */;
+			baseConfigurationReference = B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

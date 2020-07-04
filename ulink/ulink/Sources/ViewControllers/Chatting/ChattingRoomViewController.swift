@@ -2,10 +2,10 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import SideMenu
 
 
-
-class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
 
     
@@ -29,6 +29,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         uid = Auth.auth().currentUser?.uid
         
         sendButton.addTarget(self,action:#selector(createRoom), for:.touchUpInside)
+
+        
+        
         hideBar()
 
         // Do any additional setup after loading the view.
@@ -47,7 +50,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let view = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath)
+        let view = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath)
         view.textLabel?.text = self.comments[indexPath.row].message
         
         
@@ -64,12 +67,49 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
+
+    @IBAction func sideMenuClicked(_ sender : Any) {
+        
+        let vc = storyboard!.instantiateViewController(withIdentifier: "chattingSideViewController") as! rightSideMenuViewController                    // UIViewController 지정해주고
+        let menu = SideMenuNavigationController(rootViewController: vc)     // rootViewController에 넣어준다
+        
+        menu.presentationStyle = .menuSlideIn  // 보여주는 스타일 지정
+        menu.statusBarEndAlpha = .zero          // 상태창 보여주고 싶을 때 설정
+        
+        
+        menu.menuWidth = self.view.frame.width * 0.8 // 80퍼센트 만큼 보여주기
+        
+        menu.presentDuration = 0.5 // 0.5초에 걸쳐서 나타내는거 보여주기
+        menu.dismissDuration = 0.5 // 0.5초에 걸쳐서 사라지는거 보여주기
+        menu.completionCurve = .easeInOut
+        
+        menu.blurEffectStyle = .light
+        
+        
+        
+        self.present(menu, animated: true, completion: nil)
+        
+
+    }
+    
+    
+    
+    
+    
     func hideBar(){
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
 
 
         
+    }
+    
+    func settingNavigationBar(){
+        
+        
+        
+    
+
     }
     
     @objc func createRoom(){
@@ -110,6 +150,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
             ]
 
+            
+    
         
             Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
 
@@ -174,4 +216,5 @@ class MyMessageCell : UITableViewCell {
 class destinationMessageCell : UITableViewCell {
     
 }
+
 

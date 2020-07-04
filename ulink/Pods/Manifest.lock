@@ -83,6 +83,7 @@ PODS:
   - ObjectMapper (3.5.3)
   - PromisesObjC (1.2.9)
   - Protobuf (3.12.0)
+  - SideMenu (6.4.8)
   - SnapKit (5.0.1)
   - TextFieldEffects (1.6.0)
 
@@ -95,6 +96,7 @@ DEPENDENCIES:
   - FSCalendar
   - Kingfisher (~> 5.0)
   - ObjectMapper (~> 3.5)
+  - SideMenu (~> 6.0)
   - SnapKit (~> 5.0.0)
   - TextFieldEffects
 
@@ -121,6 +123,7 @@ SPEC REPOS:
     - ObjectMapper
     - PromisesObjC
     - Protobuf
+    - SideMenu
     - SnapKit
     - TextFieldEffects
 
@@ -146,9 +149,10 @@ SPEC CHECKSUMS:
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
+  SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 75d19d00da3a2624052477b195eb013d0bcc0b62
+PODFILE CHECKSUM: 53336bc9fc785264ef1bdd6ca2395b268d477bc1
 
 COCOAPODS: 1.9.1
