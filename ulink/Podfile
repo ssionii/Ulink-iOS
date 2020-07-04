@@ -15,5 +15,7 @@ target 'ulink' do
   pod 'TextFieldEffects'
   pod 'FSCalendar'
   pod 'Firebase/Storage'
-  pod 'ObjectMapper', '~> 3.5'
+  pod 'ObjectMapper', '~> 3.5' 
+  pod 'SideMenu', '~> 6.0'
+
 end
