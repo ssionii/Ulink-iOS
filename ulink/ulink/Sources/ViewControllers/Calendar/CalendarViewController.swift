@@ -11,7 +11,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
-    
+    @IBOutlet weak var calendarSubView: UIView!
     
     var monthLabels = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
     
@@ -21,14 +21,23 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     let cal = Calendar(identifier: .gregorian)
     let today = Date()
     var todayMonth = Calendar.current.component(.month, from: Date())
+    var currentMonth: Int = 0
     var todayYear = Calendar.current.component(.year, from: Date())
+    var currentYear: Int = 0
     var todayDate = Calendar.current.component(.day, from: Date())
+    
+    let eventTitle = ["정보처리기사", "소프트웨어공학", "영상처리", "식생활문화"]
+    let eventColor = [UIColor.powderPink, UIColor.lightblue, UIColor.periwinkleBlue, UIColor.pink]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        monthLabel.text = String(todayMonth) + "월"
+        currentMonth = todayMonth
+        currentYear = todayYear
+        
+        calendarSubView.layer.cornerRadius = 30
+        monthLabel.text = String(currentMonth) + "월"
         
         if (todayYear % 4 == 0){
             numOfDate[1] = 29
@@ -43,12 +52,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     func getFirstWeekDay() -> Int{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-M-yyyy"
-        let dateString = "01-" + String(todayMonth) + "-" + String(todayYear)
+        let dateString = "01-" + String(currentMonth) + "-" + String(currentYear)
         let myDay = dateFormatter.date(from: dateString)
         let first = cal.dateComponents([.weekday], from: myDay!)
         
         let firstWeekDay = first.weekday!
-        print("firstweekday", firstWeekDay)
         return firstWeekDay
     }
     
@@ -56,12 +64,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         var last: Int
         
-        if (todayMonth == 0){
+        if (currentMonth == 0){
             last = numOfDate[11]
-        } else if (todayMonth == 1){
-            last = numOfDate[todayMonth - 1]
+        } else if (currentMonth == 1){
+            last = numOfDate[currentMonth - 1]
         } else {
-            last = numOfDate[todayMonth - 1]
+            last = numOfDate[currentMonth - 1]
         }
         
         return last
@@ -70,12 +78,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     func getLastOfLastDay() -> Int {
         var lastOfLast: Int
         
-        if (todayMonth == 0){
+        if (currentMonth == 0){
             lastOfLast = numOfDate[10]
-        } else if (todayMonth == 1){
+        } else if (currentMonth == 1){
             lastOfLast = numOfDate[11]
         } else {
-            lastOfLast = numOfDate[todayMonth - 2]
+            lastOfLast = numOfDate[currentMonth - 2]
         }
         
         return lastOfLast
@@ -83,40 +91,40 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBAction func clickNextBtn(_ sender: Any) {
         
-        if (todayMonth == 12) {
-            todayMonth = 1
-            todayYear += 1
+        if (currentMonth == 12) {
+            currentMonth = 1
+            currentYear += 1
             
-            if (todayYear % 4 == 0){
+            if (currentYear % 4 == 0){
                 numOfDate[1] = 29
             } else {
                 numOfDate[1] = 28
             }
             
         } else {
-            todayMonth += 1
+            currentMonth += 1
         }
         
-        monthLabel.text = String(todayMonth) + "월"
+        monthLabel.text = String(currentMonth) + "월"
         calendarCollectionView.reloadData()
     }
     
     @IBAction func clickPrevBtn(_ sender: Any) {
-        if (todayMonth == 1) {
-            todayMonth = 12
-            todayYear -= 1
+        if (currentMonth == 1) {
+            currentMonth = 12
+            currentYear -= 1
             
-            if (todayYear % 4 == 0){
+            if (currentYear % 4 == 0){
                 numOfDate[1] = 29
             } else {
                 numOfDate[1] = 28
             }
             
         } else {
-            todayMonth -= 1
+            currentMonth -= 1
         }
         
-        monthLabel.text = String(todayMonth) + "월"
+        monthLabel.text = String(currentMonth) + "월"
         calendarCollectionView.reloadData()
     }
     
@@ -124,7 +132,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
         indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: (collectionView.frame.width - 8)/7, height: collectionView.frame.height/6)
+        return CGSize(width: (collectionView.frame.width - 8)/7, height: 126)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -132,6 +140,10 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
@@ -166,15 +178,30 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else if (indexPath.row >= first && indexPath.row < last + first){
             //이번달~
             if ((indexPath.row % 7) == 0){
-                cell.setDayCell(firstDay: indexPath.row - first, textColor: 1)
-            } else {
-                cell.setDayCell(firstDay: indexPath.row - first, textColor: 2)
+                if (((indexPath.row - first + 1) == todayDate) && (currentMonth == todayMonth) && (currentYear == todayYear)){
+                    cell.setDayCell(firstDay: indexPath.row - first, textColor: 3)
+                } else {
+                    cell.setDayCell(firstDay: indexPath.row - first, textColor: 1)
+                }
+            }else {
+                if (((indexPath.row - first + 1) == todayDate) && (currentMonth == todayMonth) && (currentYear == todayYear)){
+                    print("currentYear", currentYear)
+                    cell.setDayCell(firstDay: indexPath.row - first, textColor: 3)
+                } else {
+                    cell.setDayCell(firstDay: indexPath.row - first, textColor: 2)
+                }
             }
+            
         } else {
             //다음달~
             cell.setDayCell(firstDay: indexPath.row - last - first, textColor: 0)
         }
+    
         
+        if (indexPath.row - first + 1 == 12){
+            cell.setEvent(eventName: eventTitle, color: eventColor)
+        }
+            
         
         return cell
     }
