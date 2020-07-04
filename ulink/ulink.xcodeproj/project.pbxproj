@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */; };
-
 		292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B1CEC24AF0AA700B4EC79 /* DayCell.swift */; };
-		9D5153683B6A9DD5661D2DC9 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF0A87879B1A169995AB2C7 /* Pods_ulink.framework */; };
+		8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */; };
 		B599E62F24ADAA320067C112 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* Subject.swift */; };
 		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
@@ -37,10 +35,11 @@
 		FD45F25624AA591300F304BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25424AA591300F304BD /* Main.storyboard */; };
 		FD45F25824AA591500F304BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25724AA591500F304BD /* Assets.xcassets */; };
 		FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25924AA591500F304BD /* LaunchScreen.storyboard */; };
-		FD5CCBD724AA6808009FCDDB /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBD624AA6808009FCDDB /* TimeTable.storyboard */; };
 		FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */; };
 		FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */; };
 		FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */; };
+		FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */; };
+		FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */; };
 		FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */; };
 		FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */; };
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
@@ -48,12 +47,9 @@
 
 /* Begin PBXFileReference section */
 		0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		292B1CEC24AF0AA700B4EC79 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
-		292B1CEC24AF0AA700B4EC79 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
-		4EEEF52B90ECDE33D3A44F93 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
-		5DF0A87879B1A169995AB2C7 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		872181BD9CBB73BCEB40CCF4 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		B599E62E24ADAA320067C112 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		B599E63124ADAA7F0067C112 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
@@ -82,10 +78,11 @@
 		FD45F25724AA591500F304BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD45F25A24AA591500F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD45F25C24AA591500F304BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD5CCBD624AA6808009FCDDB /* TimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFilter.swift; sourceTree = "<group>"; };
+		FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightSideMenuViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -193,7 +190,6 @@
 			children = (
 				FD19DC1124AD03D6000C2AEC /* ChattingTableViewCell.swift */,
 				FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */,
-
 				292B1CEC24AF0AA700B4EC79 /* DayCell.swift */,
 			);
 			path = Cell;
@@ -241,6 +237,7 @@
 		FD616CFE24AA5A91007D54B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FD6B17A024B0F83F00E8B9A8 /* Util */,
 				FD19DC0324AD017C000C2AEC /* Model */,
 				FD19DC0224AD016E000C2AEC /* API */,
 				FD616D0024AA5D3F007D54B5 /* Storyboards */,
@@ -263,10 +260,10 @@
 		FD616D0024AA5D3F007D54B5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */,
 				FD19DC2E24ADDC95000C2AEC /* Calendar.storyboard */,
 				FD45F25424AA591300F304BD /* Main.storyboard */,
 				FD45F25924AA591500F304BD /* LaunchScreen.storyboard */,
-				FD5CCBD624AA6808009FCDDB /* TimeTable.storyboard */,
 				FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */,
 				FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */,
 			);
@@ -283,6 +280,14 @@
 				FD45F25224AA591300F304BD /* ViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FD6B17A024B0F83F00E8B9A8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,9 +353,9 @@
 				FD19DC2F24ADDC95000C2AEC /* Calendar.storyboard in Resources */,
 				FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */,
 				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
+				FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */,
 				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
 				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
-				FD5CCBD724AA6808009FCDDB /* TimeTable.storyboard in Resources */,
 				FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */,
 				FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */,
 				FD45F25624AA591300F304BD /* Main.storyboard in Resources */,
@@ -421,6 +426,7 @@
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
 				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
+				FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
 				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,

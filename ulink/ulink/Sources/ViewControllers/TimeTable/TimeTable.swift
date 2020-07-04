@@ -34,6 +34,7 @@ public protocol TimeTableDataSource {
     public var dataSource : TimeTableDataSource?
 
     private var subjectCells = [SubjectCell]()
+    private var colorFilter = ColorFilter.init()
 
     public var startDay = TimeTableDay.monday {
         didSet {
@@ -55,11 +56,11 @@ public protocol TimeTableDataSource {
         }
     }
 
-    @IBInspectable public var borderWidth = CGFloat(0.25){
+    @IBInspectable public var borderWidth = CGFloat(1){
         didSet { makeTimeTable() }
     }
 
-    @IBInspectable public var borderColor = UIColor.lightGray {
+    @IBInspectable public var borderColor = UIColor.veryLightPink {
         didSet { makeTimeTable() }
     }
 
@@ -68,7 +69,7 @@ public protocol TimeTableDataSource {
     }
 
     // top symbol
-    @IBInspectable public var symbolFontColor = UIColor.brownGrey{
+    @IBInspectable public var symbolFontColor = UIColor.brownGrey {
         
         didSet { makeTimeTable() }
     }
@@ -76,8 +77,12 @@ public protocol TimeTableDataSource {
     @IBInspectable public var symbolFontSize = CGFloat(14){
         didSet { makeTimeTable() }
     }
+    
+    @IBInspectable public var symbolFont = UIFont(name: "AppleSDGothicNeo-Medium", size: 14){
+        didSet { makeTimeTable() }
+    }
 
-    @IBInspectable public var heightOfDaySection = CGFloat(28){
+    @IBInspectable public var heightOfDaySection = CGFloat(0){
         didSet { makeTimeTable() }
     }
 
@@ -102,7 +107,7 @@ public protocol TimeTableDataSource {
         return daySymbolText
     }
     
-    @IBInspectable public var widthOfTimeAxis = CGFloat(32){
+    @IBInspectable public var widthOfTimeAxis = CGFloat(19){
            didSet {
             print(widthOfTimeAxis)
             makeTimeTable() }
@@ -113,20 +118,20 @@ public protocol TimeTableDataSource {
     }
 
     // left time
-    @IBInspectable public var symbolTimeFontColor = UIColor.black{
+    @IBInspectable public var symbolTimeFontColor = UIColor.brownGreyTwo{
         didSet { makeTimeTable() }
     }
 
-    @IBInspectable public var symbolTimeFontSize = CGFloat(10){
-        didSet { makeTimeTable() }
-    }
-
+    @IBInspectable public var symbolTimeFont = UIFont(name: "AppleSDGothicNeo-Regular", size: 14){
+           didSet { makeTimeTable() }
+       }
+    
     // subject
-    @IBInspectable public var subjectFontColor = UIColor.white{
+    @IBInspectable public var subjectNameFontColor = UIColor.white{
         didSet { makeTimeTable() }
     }
 
-    @IBInspectable public var subjectFontSize = CGFloat(10){
+    @IBInspectable public var subjectNameFont = UIFont(name: "AppleSDGothicNeo-Bold", size: 12){
         didSet { makeTimeTable() }
     }
 
@@ -136,11 +141,19 @@ public protocol TimeTableDataSource {
         }
     }
     
-    private var rectEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0){
+    @IBInspectable public var subjectRoomNameFont = UIFont(name: "AppleSDGothicNeo-Bold", size: 8){
+        didSet{ makeTimeTable() }
+    }
+    
+    @IBInspectable public var subjectRoomNameFontColor = UIColor.white {
+        didSet{ makeTimeTable() }
+    }
+    
+    private var rectEdgeInsets = UIEdgeInsets(top: 3, left: 2, bottom: 2, right: 2){
         didSet { self.makeTimeTable() }
     }
 
-    private var textEdgeInsets = UIEdgeInsets(top: 6, left: 4, bottom: 0, right: 0){
+    private var textEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 0, right: 4){
         didSet { self.makeTimeTable() }
     }
 
@@ -230,7 +243,7 @@ public protocol TimeTableDataSource {
             let subjectStartHour = Int(subjectItem.startTime.split(separator: ":")[0]) ?? 09
             let subjectStartMin = Int(subjectItem.startTime.split(separator: ":")[1]) ?? 00
 
-            let subjectEndHour = Int(subjectItem.endTime.split(separator: ":")[0]) ?? 18
+            let subjectEndHour = Int(subjectItem.endTime.split(separator: ":")[0]) ?? 21
             let subjectEndMin = Int(subjectItem.endTime.split(separator: ":")[1]) ?? 00
             let averageHeight = subjectItemHeight
 
@@ -238,17 +251,18 @@ public protocol TimeTableDataSource {
             let position_x = collectionView.bounds.minX + widthOfTimeAxis + averageWidth * CGFloat(weekdayIndex) + rectEdgeInsets.left
             let position_y = collectionView.frame.minY + heightOfDaySection + averageHeight * CGFloat(subjectStartHour - minStartTimeHour) + CGFloat((CGFloat(subjectStartMin) / 60) * averageHeight) + rectEdgeInsets.top
 
-            let width = averageWidth
+            let width = averageWidth - ( rectEdgeInsets.left + rectEdgeInsets.right )
             let height = averageHeight * CGFloat(subjectEndHour - subjectStartHour) + CGFloat((CGFloat(subjectEndMin - subjectStartMin) / 60) * averageHeight) - rectEdgeInsets.top - rectEdgeInsets.bottom
 
             let view = UIView(frame: CGRect(x: position_x, y: position_y, width: width, height: height))
-            view.backgroundColor = subjectItem.backgroundColor
-            view.layer.cornerRadius = 10
+            view.backgroundColor = colorFilter.getColor(colorCode: subjectItem.backgroundColor)
+            view.layer.cornerRadius = 8
 
             let label = PaddingLabel(frame: CGRect(x: textEdgeInsets.left, y: textEdgeInsets.top, width: view.frame.width - textEdgeInsets.right, height: view.frame.height - textEdgeInsets.top))
             let name = subjectItem.subjectName
-            let attrStr = NSMutableAttributedString(string: name + "\n", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: subjectFontSize)])
-            attrStr.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: subjectFontSize)], range: NSRange(0..<name.count))
+            
+            let attrStr = NSMutableAttributedString(string: name + "\n" + subjectItem.roomName, attributes: [NSAttributedString.Key.font: subjectRoomNameFont!])
+            attrStr.setAttributes([NSAttributedString.Key.font: subjectNameFont!], range: NSRange(0..<name.count))
 
             label.attributedText = attrStr
             label.textColor = subjectItem.textColor ?? UIColor.white
@@ -261,7 +275,7 @@ public protocol TimeTableDataSource {
             label.frame = CGRect(x: textEdgeInsets.left, y: textEdgeInsets.top, width: view.frame.width - textEdgeInsets.left - textEdgeInsets.right, height: label.bounds.height)
 
             view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(lectureTapped)))
-
+            
             view.isUserInteractionEnabled = true
             view.addSubview(label)
             collectionView.addSubview(view)
@@ -271,13 +285,18 @@ public protocol TimeTableDataSource {
     }
 
     @objc func lectureTapped(_ sender: UITapGestureRecognizer){
-        let subject = subjectItems[(sender.view!).tag]
-        self.delegate?.timeTable(timeTable: self, didSelectSubject : subject)
+        
+        print((sender.view!).tag)
+//        let subject = subjectItems[(sender.view!).tag]
+//        self.delegate?.timeTable(timeTable: self, didSelectSubject : subject)
     }
+    
+
 
     public func reloadData() {
         subjectItems = self.dataSource?.subjectItems(in: self) ?? [Subject]()
     }
+    
 }
 
 extension Array {

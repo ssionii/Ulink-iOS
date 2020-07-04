@@ -10,8 +10,10 @@ import UIKit
 
 class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate{
 
-    @IBOutlet weak var timeTableBackgroundView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var topDayView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
+    
     
     private var subjectList : [Subject] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
@@ -19,24 +21,56 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
         
         timeTable.delegate = self
         timeTable.dataSource = self
         
-        setTimeTableBg()
+        setBackgroundView()
+        setTopDayView()
         setSubjectList()
+    }
+
+     override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
+    private func setBackgroundView(){
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.backgroundView.bounds
+        
+        let colorLeft = UIColor(red: 127.0 / 255.0, green: 36.0 / 255.0, blue: 252.0 / 255.0, alpha: 1.0).cgColor
+        let colorRight = UIColor(red: 95.0 / 255.0, green: 93.0 / 255.0, blue: 234.0 / 255.0, alpha: 1.0).cgColor
+        
+
+        gradientLayer.colors = [colorLeft, colorRight]
+        gradientLayer.startPoint = CGPoint(x: -0.6, y: 0)
+        gradientLayer.endPoint   = CGPoint(x: 1, y: 0.2)
+        gradientLayer.locations = [0, 1]
+        gradientLayer.shouldRasterize = true
+        
+        self.backgroundView.layer.addSublayer(gradientLayer)
         
     }
 
     private func setSubjectList(){
-        let subject_1 = Subject(subjectName: "모션 그래픽스 1", roomName: "미술대학 407실", subjectDay: .tuesday, startTime: "14:00", endTime: "16:15", backgroundColor: UIColor.darkGray)
-
-        subjectList = [subject_1]
+        let subject_1 = Subject(subjectName: "영상처리", roomName: "제1공학관 404", subjectDay: .monday, startTime: "09:00", endTime: "10:00", backgroundColor: 0)
+        let subject_2 = Subject(subjectName: "전자회로", roomName: "제1공학관 601", subjectDay: .monday, startTime: "13:00", endTime: "15:00", backgroundColor: 1)
+        let subject_3 = Subject(subjectName: "전자기학", roomName: "제1공학관 303", subjectDay: .tuesday, startTime: "13:00", endTime: "14:00", backgroundColor: 2)
+        let subject_4 = Subject(subjectName: "소설과 영화", roomName: "제2공학관 204", subjectDay: .tuesday, startTime: "14:00", endTime: "16:30", backgroundColor: 3)
+        let subject_5 = Subject(subjectName: "캡스톤 디자인", roomName: "제2공학관 304", subjectDay: .wendsday, startTime: "10:00", endTime: "13:00", backgroundColor: 4)
+        let subject_6 = Subject(subjectName: "모션그래픽스1", roomName: "미술대학 407실", subjectDay: .wendsday, startTime: "13:00", endTime: "15:30", backgroundColor: 5)
+        let subject_7 = Subject(subjectName: "모션그래픽스1", roomName: "미술대학 407실", subjectDay: .thursday, startTime: "08:00", endTime: "12:00", backgroundColor: 5)
+        
+        
+        
+        subjectList = [subject_1, subject_2, subject_3, subject_4, subject_5, subject_6, subject_7]
     }
     
-    private func setTimeTableBg(){
-        timeTableBackgroundView.layer.cornerRadius = 30
+    private func setTopDayView(){
     }
     
     

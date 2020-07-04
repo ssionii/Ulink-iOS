@@ -16,9 +16,9 @@ public struct Subject {
     public let startTime : String
     public let endTime : String
     public let textColor : UIColor?
-    public let backgroundColor : UIColor
+    public let backgroundColor : Int
 
-    public init(subjectName: String, roomName: String, subjectDay: TimeTableDay, startTime: String, endTime: String, textColor: UIColor?, backgroundColor: UIColor){
+    public init(subjectName: String, roomName: String, subjectDay: TimeTableDay, startTime: String, endTime: String, textColor: UIColor?, backgroundColor: Int){
         self.subjectName = subjectName
         self.roomName = roomName
         self.subjectDay = subjectDay
@@ -28,7 +28,7 @@ public struct Subject {
         self.backgroundColor = backgroundColor
     }
 
-    public init(subjectName: String, roomName: String, subjectDay: TimeTableDay, startTime: String, endTime: String, backgroundColor: UIColor){
+    public init(subjectName: String, roomName: String, subjectDay: TimeTableDay, startTime: String, endTime: String, backgroundColor: Int){
         self.subjectName = subjectName
         self.roomName = roomName
         self.subjectDay = subjectDay
