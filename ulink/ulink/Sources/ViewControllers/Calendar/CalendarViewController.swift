@@ -26,19 +26,22 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     var currentYear: Int = 0
     var todayDate = Calendar.current.component(.day, from: Date())
     
-    let eventTitle = ["정보처리기사", "소프트웨어공학", "영상처리", "식생활문화"]
+    let eventTitle = ["성은이개론", "소프트웨어공학", "영상처리", "식생활문화"]
     let eventColor = [UIColor.powderPink, UIColor.lightblue, UIColor.periwinkleBlue, UIColor.pink]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //처음 열었을 시 오늘 날짜가 있는 달을 띄워주도록
         currentMonth = todayMonth
         currentYear = todayYear
         
+        //view 설정
         calendarSubView.layer.cornerRadius = 30
         monthLabel.text = String(currentMonth) + "월"
         
+        //윤년 설정
         if (todayYear % 4 == 0){
             numOfDate[1] = 29
         } else {
@@ -49,6 +52,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         calendarCollectionView.delegate = self
     }
     
+    //1일이 무슨 요일인지
     func getFirstWeekDay() -> Int{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-M-yyyy"
@@ -60,6 +64,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         return firstWeekDay
     }
     
+    //현재 달의 마지막 일
     func getLastDay() -> Int{
         
         var last: Int
@@ -75,6 +80,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         return last
     }
     
+    //지난 달의 마지막 일
     func getLastOfLastDay() -> Int {
         var lastOfLast: Int
         
@@ -128,26 +134,27 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         calendarCollectionView.reloadData()
     }
     
-    //collectionview layout
+    // MARK: collectionview layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
         indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: (collectionView.frame.width - 8)/7, height: 126)
+        print("오잉 소수?", ((collectionView.frame.width - 5.0)/7.0))
+        print("가로길이", collectionView.frame.width)
+        return CGSize(width: (collectionView.frame.width - 5.0)/7.0, height: 126)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
+        return UIEdgeInsets(top: 0, left: 2.5, bottom: 0, right: 2.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 0.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 0.0
     }
     
-    //collectionview cell 띄우기
+    // MARK: collectionview cell 띄우기
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let last = getLastDay()
         let first = getFirstWeekDay() - 1
