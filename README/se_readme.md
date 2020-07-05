@@ -3,8 +3,8 @@
 ### 캘린더 구현
 
 - 캘린더뷰 디자인   
-  ![FSCalendar 삽질](./image/calendarDesign.png)
-
+  ![FSCalendar 삽질](./image/calendarDesign.png){: width="50%" height="50%"}
+  
 - 라이브러리 삽질  
      FSCalendar 라이브러리를 사용하려고 뜯어보았다.   
      ➡️ [FSCalendar 라이브러리 github](https://github.com/WenchaoD/FSCalendar)
