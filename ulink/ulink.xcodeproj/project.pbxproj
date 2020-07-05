@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B1CEC24AF0AA700B4EC79 /* DayCell.swift */; };
 		8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */; };
+		B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A224B1099700F3833B /* TimeTableSettingViewController.swift */; };
+		B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */; };
+		B51EC8A824B1C4DF00F3833B /* ListSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A724B1C4DF00F3833B /* ListSemester.swift */; };
+		B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */; };
 		B599E62F24ADAA320067C112 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* Subject.swift */; };
 		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
@@ -17,6 +21,9 @@
 		B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2783E24ADDD3A00A0F4A4 /* TimeTableViewController.swift */; };
 		B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */; };
 		B5C8A3C824AF12DE00B1B318 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C8A3C724AF12DE00B1B318 /* CalendarViewController.swift */; };
+		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
+		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
+		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -50,6 +57,10 @@
 		292B1CEC24AF0AA700B4EC79 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
+		B51EC8A224B1099700F3833B /* TimeTableSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableSettingViewController.swift; sourceTree = "<group>"; };
+		B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListViewController.swift; sourceTree = "<group>"; };
+		B51EC8A724B1C4DF00F3833B /* ListSemester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSemester.swift; sourceTree = "<group>"; };
+		B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
 		B599E62E24ADAA320067C112 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		B599E63124ADAA7F0067C112 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
@@ -58,6 +69,9 @@
 		B5A2783E24ADDD3A00A0F4A4 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extenstions+UIColor.swift"; sourceTree = "<group>"; };
 		B5C8A3C724AF12DE00B1B318 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListCell.swift; sourceTree = "<group>"; };
+		B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListHeader.swift; sourceTree = "<group>"; };
+		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -109,9 +123,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B51EC8A124B1097B00F3833B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B51EC8A224B1099700F3833B /* TimeTableSettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B51EC8A424B1BF7A00F3833B /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */,
+				B51EC8A724B1C4DF00F3833B /* ListSemester.swift */,
+				B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */,
+				B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */,
+				B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		B599E62D24ADA9FB0067C112 /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
+				B51EC8A424B1BF7A00F3833B /* List */,
+				B51EC8A124B1097B00F3833B /* Setting */,
 				B599E63024ADAA6D0067C112 /* Subject */,
 				B599E63124ADAA7F0067C112 /* TimeTable.swift */,
 				B599E63324ADAA960067C112 /* TimeTableDay.swift */,
@@ -161,6 +197,7 @@
 				FD19DC0A24AD02ED000C2AEC /* UserModel.swift */,
 				FD19DC0E24AD0365000C2AEC /* ChatModel.swift */,
 				FD19DC3024AE0B44000C2AEC /* ClassModel.swift */,
+				B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
+				B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */,
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				B599E62F24ADAA320067C112 /* Subject.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
@@ -421,11 +459,15 @@
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
+				B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
+				B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */,
 				292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */,
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
 				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
+				B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
+				B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */,
 				FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
@@ -433,6 +475,8 @@
 				FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */,
 				FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */,
 				FD19DC0D24AD0356000C2AEC /* APIConstant.swift in Sources */,
+				B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */,
+				B51EC8A824B1C4DF00F3833B /* ListSemester.swift in Sources */,
 				FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */,
 				FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */,
 				B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */,
