@@ -204,7 +204,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.setDayCell(firstDay: indexPath.row - last - first, textColor: 0)
         }
     
-        
+        //이벤트 넣기
         if (indexPath.row - first + 1 == 12){
             cell.setEvent(eventName: eventTitle, color: eventColor)
         } else {
