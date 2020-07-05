@@ -96,7 +96,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                     </button>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ctd-Ta-0l3">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ctd-Ta-0l3">
                                         <rect key="frame" x="0.0" y="79.5" width="355" height="488.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NW2-Rd-shF">
@@ -123,7 +123,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="6GY-B0-jQa">
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="6GY-B0-jQa">
                                                             <rect key="frame" x="5" y="31.5" width="48" height="16"/>
                                                             <color key="backgroundColor" red="0.30588235289999999" green="0.67450980390000004" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <accessibility key="accessibilityConfiguration">
@@ -139,7 +139,7 @@
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="2Ji-cQ-tSW">
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="2Ji-cQ-tSW">
                                                             <rect key="frame" x="5" y="50.5" width="48" height="16"/>
                                                             <color key="backgroundColor" red="0.30588235289999999" green="0.67450980390000004" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -152,7 +152,7 @@
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="5Vn-Qe-dxc">
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="5Vn-Qe-dxc">
                                                             <rect key="frame" x="5" y="69.5" width="48" height="16"/>
                                                             <color key="backgroundColor" red="0.30588235289999999" green="0.67450980390000004" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -165,7 +165,7 @@
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="gFD-ZO-xQd">
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="gFD-ZO-xQd">
                                                             <rect key="frame" x="5" y="88.5" width="48" height="16"/>
                                                             <color key="backgroundColor" red="0.30588235289999999" green="0.67450980390000004" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -178,7 +178,7 @@
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="VDF-RD-p2a">
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="VDF-RD-p2a">
                                                             <rect key="frame" x="5" y="107.5" width="48" height="16"/>
                                                             <color key="backgroundColor" red="0.30588235289999999" green="0.67450980390000004" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>

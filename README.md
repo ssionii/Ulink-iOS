@@ -14,7 +14,10 @@
 |     황성은 |   YB/iOS   |      |
  
 ### Contents
-[**Ulink-iOS Coding Convention**](README/CodingConvention.md) 
+[**Ulink-iOS Coding Convention**](README/CodingConvention.md)    
+[**Ulink-iOS Foldering**]
 
-### 기능
-[**캘린더**](README/se_readme.md)
+### 기능   
+[**시간표**]   
+[**캘린더**](README/se_readme.md)   
+[**채팅**]
