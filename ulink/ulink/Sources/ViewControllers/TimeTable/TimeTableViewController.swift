@@ -14,6 +14,29 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     @IBOutlet weak var topDayView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
     
+    @IBAction func settingBtn(_ sender: UIButton) {
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableSettingViewController") as? TimeTableSettingViewController else { return }
+        
+        nextVC.modalPresentationStyle = .fullScreen
+         self.present(nextVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func listBtn(_ sender: UIButton) {
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableListViewController") as? TimeTableListViewController else { return }
+        
+        nextVC.modalPresentationStyle = .fullScreen
+        
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.moveIn
+        transition.subtype = CATransitionSubtype.fromRight
+        view.window!.layer.add(transition, forKey: kCATransition)
+        
+        present(nextVC, animated: false, completion: nil)
+        
+    }
+    
     
     private var subjectList : [Subject] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]

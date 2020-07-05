@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "ioNotificationBtnBack.png",
       "scale" : "1x",
+      "filename" : "ioMainSettingGallery.png",
       "idiom" : "universal"
     },
     {
-      "filename" : "ioNotificationBtnBack@2x.png",
       "idiom" : "universal",
+      "filename" : "ioMainSettingGallery@2x.png",
       "scale" : "2x"
     },
     {
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "ioNotificationBtnBack@3x.png"
+      "filename" : "ioMainSettingGallery@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
