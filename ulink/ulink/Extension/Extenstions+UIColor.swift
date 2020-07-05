@@ -82,6 +82,24 @@ extension UIColor {
       return UIColor(white: 143.0 / 255.0, alpha: 1.0)
     }
 
+    @nonobjc class var pastelRed: UIColor {
+       return UIColor(red: 241.0 / 255.0, green: 72.0 / 255.0, blue: 72.0 / 255.0, alpha: 1.0)
+     }
     
+    @nonobjc class var black: UIColor {
+        return UIColor(red: 54.0 / 255.0, green: 54.0 / 255.0, blue: 54.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var borderColor: UIColor {
+      return UIColor(white: 230.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var defaultBackgroundColor: UIColor {
+      return UIColor(white: 247.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var purpleishBlueTwo: UIColor {
+      return UIColor(red: 107.0 / 255.0, green: 72.0 / 255.0, blue: 241.0 / 255.0, alpha: 1.0)
+    }
 }
 
