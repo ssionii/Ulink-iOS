@@ -110,5 +110,5 @@
     func setEvent(eventName: [String], color: [UIColor])
     ```
 
-  #### <여기까지 뷰 완성본>
+     #### <여기까지 뷰 완성본>
      <img src="./image/calComplete.png" width="40%">

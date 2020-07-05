@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A17-hE-IQV">
-                                <rect key="frame" x="10" y="50" width="355" height="568"/>
+                                <rect key="frame" x="10" y="25" width="355" height="593"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="KnF-vW-ILE">
                                         <rect key="frame" x="17" y="54.5" width="321" height="20.5"/>
@@ -95,10 +95,14 @@
                                         <state key="normal" image="ioMainScheduleIcAdd">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="showPopUp:" destination="Bti-Ux-5Da" eventType="touchUpInside" id="8sn-ab-t3X"/>
+                                        </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ctd-Ta-0l3">
-                                        <rect key="frame" x="0.0" y="79.5" width="355" height="488.5"/>
+                                        <rect key="frame" x="0.0" y="79.5" width="355" height="513.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <gestureRecognizers/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NW2-Rd-shF">
                                             <size key="itemSize" width="58" height="137"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -135,7 +139,7 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
-                                                            <state key="normal" title="아니 이것저것 써보는 거야">
+                                                            <state key="normal">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
@@ -148,7 +152,7 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
-                                                            <state key="normal" title="Button">
+                                                            <state key="normal">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
@@ -161,7 +165,7 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
-                                                            <state key="normal" title="Button">
+                                                            <state key="normal">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
@@ -174,7 +178,7 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
-                                                            <state key="normal" title="Button">
+                                                            <state key="normal">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
@@ -187,7 +191,7 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
-                                                            <state key="normal" title="Button">
+                                                            <state key="normal">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
@@ -218,9 +222,14 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="bt1-Od-0uw" appends="YES" id="W8F-iA-yMd"/>
+                                            <outletCollection property="gestureRecognizers" destination="2E2-yC-LxK" appends="YES" id="qN2-CO-9jU"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="QVg-wI-wfW" firstAttribute="centerY" secondItem="sF0-an-9yK" secondAttribute="centerY" id="DUZ-rQ-aEY"/>
                                     <constraint firstItem="Ctd-Ta-0l3" firstAttribute="leading" secondItem="A17-hE-IQV" secondAttribute="leading" id="Gf9-cX-W9Y"/>
@@ -245,7 +254,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="A17-hE-IQV" firstAttribute="top" secondItem="5Re-wJ-xAo" secondAttribute="top" constant="50" id="59T-6e-6ou"/>
+                            <constraint firstItem="A17-hE-IQV" firstAttribute="top" secondItem="5Re-wJ-xAo" secondAttribute="top" constant="25" id="59T-6e-6ou"/>
                             <constraint firstItem="5Re-wJ-xAo" firstAttribute="trailing" secondItem="A17-hE-IQV" secondAttribute="trailing" constant="10" id="a2d-zM-ufw"/>
                             <constraint firstItem="A17-hE-IQV" firstAttribute="leading" secondItem="5Re-wJ-xAo" secondAttribute="leading" constant="10" id="e24-GX-qG4"/>
                             <constraint firstItem="A17-hE-IQV" firstAttribute="bottom" secondItem="5Re-wJ-xAo" secondAttribute="bottom" id="fYT-o9-Z9o"/>
@@ -261,8 +270,91 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLp-Ce-yHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="bt1-Od-0uw">
+                    <connections>
+                        <action selector="swipeRight:" destination="Bti-Ux-5Da" id="5hD-Rj-z46"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="2E2-yC-LxK">
+                    <connections>
+                        <action selector="swipeLeft:" destination="Bti-Ux-5Da" id="ZQH-wg-zHI"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1262" y="-563"/>
+            <point key="canvasLocation" x="1388" y="-617"/>
+        </scene>
+        <!--Popup View Controller-->
+        <scene sceneID="hZr-qq-2ul">
+            <objects>
+                <viewController storyboardIdentifier="popUp" id="Vvf-Ep-VW6" customClass="PopupViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yv2-Ny-HQc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nHF-Ce-fyN">
+                                <rect key="frame" x="0.0" y="200" width="375" height="267"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gHb-V5-SQn">
+                                    <size key="itemSize" width="325" height="244"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="detailEventCell" id="Acj-mz-fwO" customClass="DetailEventCell" customModule="ulink" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="11.5" width="325" height="244"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vbq-A5-X5c">
+                                            <rect key="frame" x="0.0" y="0.0" width="325" height="244"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Do-n5-POF">
+                                                    <rect key="frame" x="141" y="119" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </collectionViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <size key="customSize" width="325" height="244"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="by6-RR-Ask" appends="YES" id="HuG-xH-6d6"/>
+                                    <outletCollection property="gestureRecognizers" destination="Y5x-mp-tVu" appends="YES" id="Akg-pV-iFc"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.49513056506849318" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nHF-Ce-fyN" firstAttribute="top" secondItem="uPd-Uz-nI3" secondAttribute="top" constant="200" id="FwD-3N-ZNd"/>
+                            <constraint firstItem="nHF-Ce-fyN" firstAttribute="leading" secondItem="uPd-Uz-nI3" secondAttribute="leading" id="Gsq-IL-Z4z"/>
+                            <constraint firstItem="uPd-Uz-nI3" firstAttribute="bottom" secondItem="nHF-Ce-fyN" secondAttribute="bottom" constant="200" id="nJm-BO-rpf"/>
+                            <constraint firstItem="uPd-Uz-nI3" firstAttribute="trailing" secondItem="nHF-Ce-fyN" secondAttribute="trailing" id="o6Z-nO-eAQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uPd-Uz-nI3"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailEventCollectionView" destination="nHF-Ce-fyN" id="mHl-tY-U6d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JPn-mi-f6l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="by6-RR-Ask">
+                    <connections>
+                        <action selector="swipeLeft:" destination="Vvf-Ep-VW6" id="0TB-TQ-H9J"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="Y5x-mp-tVu">
+                    <connections>
+                        <action selector="swipeRight:" destination="Vvf-Ep-VW6" id="ONH-am-WCO"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2058" y="-618"/>
         </scene>
     </scenes>
     <resources>

@@ -18,10 +18,8 @@ class DayCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.layer.addBorder(edge: [.top], color: UIColor.veryLightPink, thickness: 1.0)
         
         clearEvent()
-        
         dateLabel.backgroundColor = UIColor.white
     }
     
@@ -58,6 +56,14 @@ class DayCell: UICollectionViewCell {
         for i in 0...4 {
             eventLabels[i].layer.cornerRadius = 3
             eventLabels[i].isHidden = true
+        }
+    }
+    
+    func showBorder(row: Int){
+        if (row < 7){
+            self.layer.addBorder(edge: [.top], color: UIColor.clear, thickness: 1)
+        } else if (row >= 7){
+            self.layer.addBorder(edge: [.top], color: UIColor.veryLightPink, thickness: 1)
         }
     }
 }

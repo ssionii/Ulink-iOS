@@ -1,4 +1,4 @@
-# iOS Coding Convention
+# Coding Convention
 ## 네이밍
 
 ### View Controller

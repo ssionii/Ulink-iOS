@@ -13,9 +13,9 @@
 |    양시연  |   OB/iOS   |      |
 |     황성은 |   YB/iOS   |      |
  
-### Contents
+### 규칙
 [**Ulink-iOS Coding Convention**](README/CodingConvention.md)    
-[**Ulink-iOS Foldering**]
+[**Ulink-iOS Foldering**](README/foldering.md)
 
 ### 기능   
 [**시간표**]   

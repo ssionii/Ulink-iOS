@@ -92,6 +92,50 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         return lastOfLast
     }
+    @IBAction func swipeRight(_ sender: Any) {
+        if (currentMonth == 1) {
+            currentMonth = 12
+            currentYear -= 1
+            
+            if (currentYear % 4 == 0){
+                numOfDate[1] = 29
+            } else {
+                numOfDate[1] = 28
+            }
+            
+        } else {
+            currentMonth -= 1
+        }
+        
+        monthLabel.text = String(currentMonth) + "월"
+        calendarCollectionView.reloadData()
+    }
+    
+    @IBAction func swipeLeft(_ sender: Any) {
+        if (currentMonth == 12) {
+            currentMonth = 1
+            currentYear += 1
+            
+            if (currentYear % 4 == 0){
+                numOfDate[1] = 29
+            } else {
+                numOfDate[1] = 28
+            }
+            
+        } else {
+            currentMonth += 1
+        }
+        
+        monthLabel.text = String(currentMonth) + "월"
+        calendarCollectionView.reloadData()
+    }
+    
+    @IBAction func showPopUp(_ sender: Any) {
+        let popStoryBoard = UIStoryboard(name: "Calendar" , bundle: nil)
+        let popUpVC = popStoryBoard.instantiateViewController(withIdentifier: "popUp")
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        present(popUpVC, animated: true, completion: nil)
+    }
     
     @IBAction func clickNextBtn(_ sender: Any) {
         
@@ -135,8 +179,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     // MARK: collectionview layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
         indexPath: IndexPath) -> CGSize {
-        print("오잉 소수?", ((collectionView.frame.width - 5.0)/7.0))
-        print("가로길이", collectionView.frame.width)
         return CGSize(width: (collectionView.frame.width - 5.0)/7.0, height: 126)
     }
     
@@ -176,6 +218,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         let last = getLastDay()
         let lastOfLast = getLastOfLastDay()
         
+
         
         if (indexPath.row >= 0 && indexPath.row < first){
             //저번달~
@@ -208,6 +251,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.clearEvent()
         }
             
+        cell.showBorder(row: indexPath.row)
+        print("reloaded", currentMonth)
         
         return cell
     }
