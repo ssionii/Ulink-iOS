@@ -13,8 +13,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var calendarSubView: UIView!
     
-    var monthLabels = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
-    
     var numOfDate = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
     //오늘 날짜 데이터
@@ -94,6 +92,50 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         return lastOfLast
     }
+    @IBAction func swipeRight(_ sender: Any) {
+        if (currentMonth == 1) {
+            currentMonth = 12
+            currentYear -= 1
+            
+            if (currentYear % 4 == 0){
+                numOfDate[1] = 29
+            } else {
+                numOfDate[1] = 28
+            }
+            
+        } else {
+            currentMonth -= 1
+        }
+        
+        monthLabel.text = String(currentMonth) + "월"
+        calendarCollectionView.reloadData()
+    }
+    
+    @IBAction func swipeLeft(_ sender: Any) {
+        if (currentMonth == 12) {
+            currentMonth = 1
+            currentYear += 1
+            
+            if (currentYear % 4 == 0){
+                numOfDate[1] = 29
+            } else {
+                numOfDate[1] = 28
+            }
+            
+        } else {
+            currentMonth += 1
+        }
+        
+        monthLabel.text = String(currentMonth) + "월"
+        calendarCollectionView.reloadData()
+    }
+    
+    @IBAction func showPopUp(_ sender: Any) {
+        let popStoryBoard = UIStoryboard(name: "Calendar" , bundle: nil)
+        let popUpVC = popStoryBoard.instantiateViewController(withIdentifier: "detailEvent")
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        present(popUpVC, animated: true, completion: nil)
+    }
     
     @IBAction func clickNextBtn(_ sender: Any) {
         
@@ -134,11 +176,20 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         calendarCollectionView.reloadData()
     }
     
+    // MARK: cell click event
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let first = getFirstWeekDay() - 1
+        
+        
+        let last = getLastDay()
+        let lastOfLast = getLastOfLastDay()
+        
+        print(indexPath.row - first + 1)
+    }
+    
     // MARK: collectionview layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
         indexPath: IndexPath) -> CGSize {
-        print("오잉 소수?", ((collectionView.frame.width - 5.0)/7.0))
-        print("가로길이", collectionView.frame.width)
         return CGSize(width: (collectionView.frame.width - 5.0)/7.0, height: 126)
     }
     
@@ -178,6 +229,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         let last = getLastDay()
         let lastOfLast = getLastOfLastDay()
         
+
         
         if (indexPath.row >= 0 && indexPath.row < first){
             //저번달~
@@ -192,7 +244,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
                 }
             }else {
                 if (((indexPath.row - first + 1) == todayDate) && (currentMonth == todayMonth) && (currentYear == todayYear)){
-                    print("currentYear", currentYear)
                     cell.setDayCell(firstDay: indexPath.row - first, textColor: 3)
                 } else {
                     cell.setDayCell(firstDay: indexPath.row - first, textColor: 2)
@@ -204,13 +255,15 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.setDayCell(firstDay: indexPath.row - last - first, textColor: 0)
         }
     
-        
+        //이벤트 넣기
         if (indexPath.row - first + 1 == 12){
             cell.setEvent(eventName: eventTitle, color: eventColor)
         } else {
             cell.clearEvent()
         }
             
+        cell.showBorder(row: indexPath.row)
+        print("reloaded", currentMonth)
         
         return cell
     }
