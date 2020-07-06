@@ -105,23 +105,24 @@
                                             <constraint firstAttribute="height" constant="1" id="jk9-rW-UHD"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioClassBtnCal" translatesAutoresizingMaskIntoConstraints="NO" id="VM4-nm-Dym">
-                                        <rect key="frame" x="108" y="26" width="38" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQz-fT-q05">
+                                        <rect key="frame" x="108" y="28" width="38" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="38" id="C70-vO-ZPu"/>
-                                            <constraint firstAttribute="height" constant="24" id="Qnf-Md-bNx"/>
+                                            <constraint firstAttribute="width" constant="38" id="3Ad-GO-Bi8"/>
+                                            <constraint firstAttribute="height" constant="24" id="Aej-fj-SZq"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" image="ioClassBtnCal"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="wQz-fT-q05" firstAttribute="leading" secondItem="g85-Zq-ovt" secondAttribute="trailing" constant="6" id="2mB-c9-J1n"/>
                                     <constraint firstAttribute="width" constant="375" id="5ep-kI-5Io"/>
-                                    <constraint firstItem="VM4-nm-Dym" firstAttribute="leading" secondItem="g85-Zq-ovt" secondAttribute="trailing" constant="6" id="6V4-Q0-a2P"/>
                                     <constraint firstAttribute="trailing" secondItem="lZ8-CF-OfW" secondAttribute="trailing" id="JCX-HJ-fPy"/>
                                     <constraint firstAttribute="height" constant="67" id="Kb8-B9-6ze"/>
                                     <constraint firstItem="g85-Zq-ovt" firstAttribute="leading" secondItem="T7b-me-NWz" secondAttribute="leading" constant="16" id="eY4-8D-bPD"/>
-                                    <constraint firstItem="VM4-nm-Dym" firstAttribute="top" secondItem="T7b-me-NWz" secondAttribute="top" constant="26" id="fOe-p6-fip"/>
                                     <constraint firstAttribute="bottom" secondItem="lZ8-CF-OfW" secondAttribute="bottom" id="pIy-hk-mWf"/>
+                                    <constraint firstItem="wQz-fT-q05" firstAttribute="top" secondItem="T7b-me-NWz" secondAttribute="top" constant="28" id="x0S-ei-gHy"/>
                                     <constraint firstItem="g85-Zq-ovt" firstAttribute="top" secondItem="T7b-me-NWz" secondAttribute="top" constant="22" id="xu1-r0-aQ9"/>
                                 </constraints>
                             </view>
@@ -630,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Is7-bk-Kyq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3692" y="717.39130434782612"/>
+            <point key="canvasLocation" x="3298" y="651"/>
         </scene>
         <!--NoticeViewController-->
         <scene sceneID="vUL-5B-tko">
@@ -660,8 +661,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="ioChattingNoticeIcHome"/>
                                         <connections>
-                                            <action selector="homeButtonClicked:" destination="glA-yG-2q4" eventType="touchUpInside" id="H6d-kC-be8"/>
-                                            <action selector="sideMenuClicked:" destination="sue-4v-pSd" eventType="touchUpInside" id="LS2-E0-Qus"/>
+                                            <segue destination="IeY-oC-z6u" kind="push" id="f2X-kD-JQc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfH-6N-gGI">
@@ -743,16 +743,16 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7/18 앱잼 발표" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUA-mF-aaX">
-                                                                            <rect key="frame" x="7" y="6" width="100" height="19"/>
+                                                                            <rect key="frame" x="7" y="6" width="200" height="19"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="100" id="MAL-DV-OrA"/>
+                                                                                <constraint firstAttribute="width" constant="200" id="MAL-DV-OrA"/>
                                                                                 <constraint firstAttribute="height" constant="19" id="oVD-vi-TDM"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00 ~ 14:00 시험범위 1장~7장" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uD-pH-yYB">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="13:00 ~ 14:00 시험범위 1장~7장" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uD-pH-yYB">
                                                                             <rect key="frame" x="7" y="27" width="180" height="15"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="180" id="Drj-Eb-gEh"/>
@@ -1021,6 +1021,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wcv-Op-ELP"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vpO-mv-1mn"/>
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="classNoticeTableView" destination="meV-nO-ivw" id="dOs-OT-tOM"/>
@@ -1031,7 +1032,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soz-W3-omh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4592.8000000000002" y="716.04197901049486"/>
+            <point key="canvasLocation" x="5532" y="716.04197901049486"/>
         </scene>
         <!--popupViewController-->
         <scene sceneID="QgT-uS-qot">
@@ -1088,7 +1089,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEk-W3-XtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5466" y="651"/>
+            <point key="canvasLocation" x="6404" y="650.82458770614699"/>
         </scene>
         <!--수업 채팅-->
         <scene sceneID="gtU-fw-MOc">
@@ -1113,6 +1114,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpo-RB-D80" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="453.60000000000002" y="-197.45127436281859"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="1Aj-Nt-y8j">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="homeTabBarController" storyboardName="Main" id="IeY-oC-z6u" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="EnC-db-wDB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zpS-Qz-hXh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5297" y="109"/>
         </scene>
     </scenes>
     <resources>

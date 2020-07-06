@@ -25,7 +25,7 @@ class NoticeViewController: UIViewController {
         hwNoticeTableView.delegate = self
         hwNoticeTableView.dataSource = self
 //        hwNoticeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "noticeCell")
-//        
+//
 //
 //        testNoticeTableView.delegate = self
 //        testNoticeTableView.dataSource = self
@@ -42,15 +42,16 @@ class NoticeViewController: UIViewController {
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 
     @IBAction func homeButtonClicked(_ sender: Any) {
         
         
+     let homevc = self.storyboard?.instantiateViewController(identifier: "homeTabBarController")
         
-        
+        present(homevc!, animated: true, completion: nil)
     }
     
     
@@ -158,6 +159,11 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
             
             
+        let bgColorView = UIView()
+            bgColorView.backgroundColor = .noticeColorOneSelected
+            noticeCell.selectedBackgroundView = bgColorView
+
+
             noticeCell.layer.borderColor = .none
             
             

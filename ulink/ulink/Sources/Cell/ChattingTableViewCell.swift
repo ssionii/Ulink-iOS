@@ -30,6 +30,23 @@ class ChattingTableViewCell: UITableViewCell {
         
     
         
+
+    func setChattingCellData(title:String,number:String){
+            
+        
+        chattingRoomTitle.text = title
+        chattingNumberBadge.clipsToBounds = true
+        chattingNumberBadge.text = number
+        chattingNumberBadge.layer.cornerRadius = chattingNumberBadge.font.pointSize * 1.2 / 2
+        chattingNumberBadge.backgroundColor = .red
+        chattingNumberBadge.textColor = .white
+        
+        
+
+            
+            
+        }
+        
         
 
         // Configure the view for the selected state

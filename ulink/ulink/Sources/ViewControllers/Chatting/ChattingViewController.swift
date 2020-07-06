@@ -149,6 +149,10 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         
         
+
+        
+        
+        
         self.ref = Database.database().reference()
         
         
@@ -176,10 +180,22 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
 
 
         }
+        
+        chattingCell.chattingRoomTitle.text = "데이터통신기술"
+        chattingCell.chattingNumberBadge.clipsToBounds = true
+        chattingCell.chattingNumberBadge.text = "1"
+        chattingCell.chattingNumberBadge.layer.cornerRadius = chattingCell.chattingNumberBadge.font.pointSize * 1.6 / 2
+        chattingCell.chattingNumberBadge.backgroundColor = .red
+        chattingCell.chattingNumberBadge.textColor = .white
+        
+        
 
         
-    
         
+
+        
+        
+  
         
         return chattingCell
         
