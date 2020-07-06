@@ -82,6 +82,16 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         return noticeCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        let storyBoard = UIStoryboard.init(name: "Chatting", bundle: nil)
+        let popupVC = storyBoard.instantiateViewController(withIdentifier: "PopupViewController")
+        popupVC.modalPresentationStyle = .overCurrentContext
+        popupVC.modalTransitionStyle = .crossDissolve
+        present(popupVC, animated: true, completion: nil)
+    }
+    
     
     
 }

@@ -11,9 +11,10 @@ import UIKit
 class ChattingTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var chattingRoomTitle: UILabel!
     static let identifiers : String = "ChattingCell"
-
-
+    @IBOutlet weak var chattingNumberBadge: UILabel!
+    
     
     
     
@@ -26,6 +27,8 @@ class ChattingTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         
+        
+    
         
         
 
