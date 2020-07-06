@@ -11,6 +11,8 @@ import UIKit
 class DetailEventCell: UICollectionViewCell {
     static let identifier: String = "detailEventCell"
     
+    @IBOutlet weak var eventView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
