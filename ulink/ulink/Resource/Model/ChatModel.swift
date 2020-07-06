@@ -30,6 +30,7 @@ class ChatModel: Mappable {
         
     }
     
+
     public class Comment :Mappable{
         
         public var uid : String?
@@ -52,3 +53,6 @@ class ChatModel: Mappable {
         
     }
 }
+
+
+

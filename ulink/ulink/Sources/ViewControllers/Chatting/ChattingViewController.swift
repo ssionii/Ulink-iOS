@@ -34,6 +34,7 @@ class ChattingViewController: UIViewController {
         chattingListTable.dataSource = self
         chattingListTable.delegate = self
         setTableData()
+        hideNaviBar()
         
 //          Database.database().reference().child("users").observe(DataEventType.value, with: { (snapshot) in
 //
@@ -99,7 +100,7 @@ class ChattingViewController: UIViewController {
             ]
         
         
-        let data1 = ClassModel(name: "수업1", key: itemref.childByAutoId().key!)
+        let data1 = ClassModel(name: "수업1", key: itemref.childByAutoId().key!,image:.two)
         
         array_class.append(data1)
         
@@ -118,6 +119,13 @@ class ChattingViewController: UIViewController {
         
 
         
+    }
+    
+    
+    func hideNaviBar(){
+        
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
 }

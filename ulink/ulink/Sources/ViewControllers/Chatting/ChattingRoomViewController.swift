@@ -77,6 +77,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     @IBAction func backToChattingList(_ sender: Any) {
+        self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -97,12 +98,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         menu.dismissDuration = 0.8 //  사라지는ep 보여주는데 걸리는 시간
         menu.completionCurve = .easeInOut
         
-        menu.blurEffectStyle = .none
+  
 
 
-        
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        
+    
         
 
         
@@ -114,7 +113,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     
-    
+
     
     func hideBar(){
         self.tabBarController?.tabBar.isHidden = true
