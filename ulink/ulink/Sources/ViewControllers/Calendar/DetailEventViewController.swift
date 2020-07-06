@@ -1,5 +1,5 @@
 //
-//  PopupViewController.swift
+//  DetailEventViewController.swift
 //  ulink
 //
 //  Created by SeongEun on 2020/07/06.
@@ -8,17 +8,26 @@
 
 import UIKit
 
-class PopupViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class DetailEventViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     @IBOutlet weak var detailEventCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
         detailEventCollectionView.dataSource = self
         detailEventCollectionView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let x = self.detailEventCollectionView.bounds.origin.x
+        if (x < (self.detailEventCollectionView.frame.width-45) * 9){
+            self.detailEventCollectionView.setContentOffset(CGPoint(x: self.detailEventCollectionView.bounds.origin.x + self.detailEventCollectionView.frame.width - 45, y: 0), animated: false)
+        }
+
     }
     
     @IBAction func swipeLeft(_ sender: Any) {

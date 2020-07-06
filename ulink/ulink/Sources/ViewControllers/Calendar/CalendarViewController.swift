@@ -132,7 +132,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBAction func showPopUp(_ sender: Any) {
         let popStoryBoard = UIStoryboard(name: "Calendar" , bundle: nil)
-        let popUpVC = popStoryBoard.instantiateViewController(withIdentifier: "popUp")
+        let popUpVC = popStoryBoard.instantiateViewController(withIdentifier: "detailEvent")
         popUpVC.modalPresentationStyle = .overCurrentContext
         present(popUpVC, animated: true, completion: nil)
     }
@@ -174,6 +174,17 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         monthLabel.text = String(currentMonth) + "월"
         calendarCollectionView.reloadData()
+    }
+    
+    // MARK: cell click event
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let first = getFirstWeekDay() - 1
+        
+        
+        let last = getLastDay()
+        let lastOfLast = getLastOfLastDay()
+        
+        print(indexPath.row - first + 1)
     }
     
     // MARK: collectionview layout
