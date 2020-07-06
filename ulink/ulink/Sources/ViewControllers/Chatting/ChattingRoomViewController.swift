@@ -33,8 +33,22 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         hideBar()
+        setlabelBadge()
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    
+    func setlabelBadge(){
+        
+        let label = UILabel()
+        label.clipsToBounds = true
+        label.layer.cornerRadius = label.font.pointSize * 1.2 / 2
+//        label.backgroundColor = UIColor.grayColor
+//        label.textColor = UIColor.whiteColor()
+        label.text = " Some Text ";
     }
     
     
@@ -79,12 +93,18 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         menu.menuWidth = self.view.frame.width * 0.8 // 80퍼센트 만큼 보여주기
         
-        menu.presentDuration = 0.5 // 0.5초에 걸쳐서 나타내는거 보여주기
-        menu.dismissDuration = 0.5 // 0.5초에 걸쳐서 사라지는거 보여주기
+        menu.presentDuration = 0.8 //  나타내는거 보여주는데 걸리는 시간
+        menu.dismissDuration = 0.8 //  사라지는ep 보여주는데 걸리는 시간
         menu.completionCurve = .easeInOut
         
-        menu.blurEffectStyle = .light
+        menu.blurEffectStyle = .none
+
+
         
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        
+
         
         
         self.present(menu, animated: true, completion: nil)

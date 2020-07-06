@@ -9,7 +9,15 @@
 import UIKit
 
 class NoticeTableViewCell: UITableViewCell {
+    
+    static let testNoticeIdentifier : String = "testNoticeCell"
 
+
+    @IBOutlet weak var testNoticeTitle: UILabel!
+    
+    @IBOutlet weak var testNoticeSubTItle: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -17,6 +25,17 @@ class NoticeTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    
+    
+    
+    func setInformation(title:String,subtitle:String){
+        
+        
+        testNoticeTitle.text = title
+        testNoticeSubTItle.text = subtitle
+        
     }
 
 }
