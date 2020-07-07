@@ -49,6 +49,8 @@
 		FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */; };
 		FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */; };
 		FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */; };
+		FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */; };
+		FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */; };
 		FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */; };
 		FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */; };
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
@@ -101,6 +103,8 @@
 		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFilter.swift; sourceTree = "<group>"; };
 		FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
+		FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
+		FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightSideMenuViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				FD19DC0A24AD02ED000C2AEC /* UserModel.swift */,
 				FD19DC0E24AD0365000C2AEC /* ChatModel.swift */,
 				FD19DC3024AE0B44000C2AEC /* ClassModel.swift */,
+				FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */,
+
 				B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */,
 			);
 			path = Model;
@@ -213,6 +219,7 @@
 				FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */,
 				FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */,
 				FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */,
+				FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -463,6 +470,7 @@
 				FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */,
 				B5C8A3C824AF12DE00B1B318 /* CalendarViewController.swift in Sources */,
 				FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */,
+				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
@@ -489,6 +497,7 @@
 				FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */,
 				B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
+				FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

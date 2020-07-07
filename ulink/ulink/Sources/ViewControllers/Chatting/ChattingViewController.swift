@@ -25,58 +25,79 @@ class ChattingViewController: UIViewController {
 
 
     var ref : DatabaseReference!
+    var count : Int = 0
+    var chattingListRef : DatabaseReference!
     var array_class : [ClassModel] = []
     
     override func viewDidLoad(){
-      
-        super.viewDidLoad()
         
+
+      
+        
+        setChattingData()
+        
+        super.viewDidLoad()
+
         chattingListTable.dataSource = self
         chattingListTable.delegate = self
         setTableData()
+        hideNaviBar()
         
-//          Database.database().reference().child("users").observe(DataEventType.value, with: { (snapshot) in
-//
-//
-//
-//
-//
-//                self.array.removeAll()
-//
-//
-//
-//                for child in snapshot.children {
-//
-//                    let fchild = child as! DataSnapshot
-//
-//                    let userModel = UserModel()
-//
-//
-//
-//                    userModel.setValuesForKeys(fchild.value as! [String : Any])
-//                    print(userModel)
-//                    self.array.append(userModel)
-//
-//
-//
-//                }
-//
-//
-//
-//                DispatchQueue.main.async {
-//
-//                    self.chattingListTable.reloadData();
-//
-//                }
-//
-//
-//
-//        })
-//
-//          print(array)
+
         
-        
+
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    func setChattingData(){
+        
+        
+            self.ref = Database.database().reference().child("chatrooms")
+            
+            
+            
+            
+            ref.observeSingleEvent(of: .value) { (snapshot) in
+
+                let values = snapshot.value
+
+                let dic = values as! [String: [String:Any]]
+
+                for index in dic{
+
+
+
+                    if (index.value["title"] as? String != nil){
+
+                        
+                        let data = ClassModel(name: index.value["title"] as! String, key: index.key , image:.one)
+                        
+                        self.array_class.append(data)
+                        
+                        DispatchQueue.main.async{
+                            self.chattingListTable.reloadData()
+                            
+                        }           // chattingListtable을 다시 reload 해줘서 메인에서 채팅방 목록이 뜨게 해야 한다!!!
+
+                        
+                        
+                        
+
+                    }
+                    
+                }
+        }
+        
+        
+
+    }
+    
     
     func setTableData() {
         
@@ -86,7 +107,7 @@ class ChattingViewController: UIViewController {
         
         
 
-        
+            
         self.ref = Database.database().reference()
         let itemref = ref.child("classroom")
 
@@ -94,21 +115,19 @@ class ChattingViewController: UIViewController {
 
 
         let data : [String:Any] = [
-            "className": "수업 1",
-            "key" : itemref.childByAutoId().key
+            "className": "수업 2",
+            "key" : itemref.childByAutoId().key ?? ""
             ]
         
         
-        let data1 = ClassModel(name: "수업1", key: itemref.childByAutoId().key!)
-        
-        array_class.append(data1)
+
         
         
 
 
         
         
-        itemref.setValue(data)
+        itemref.childByAutoId().setValue(data)
 
 
         
@@ -118,6 +137,13 @@ class ChattingViewController: UIViewController {
         
 
         
+    }
+    
+    
+    func hideNaviBar(){
+        
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
 }
@@ -131,7 +157,7 @@ class ChattingViewController: UIViewController {
 
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return array_class.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -141,37 +167,32 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         
         
-        self.ref = Database.database().reference()
-        
-        
-        
-        
-        ref.observeSingleEvent(of: .value) { (snapshot) in
-            
-            print("접근 1")
-            let values = snapshot.value
-            
-            let dic = values as! [String: [String:Any]]
-            for index in dic{
-                print(index)
-                print("결과값")
-                print(index.value["key"])
-//                if (index.value["className"] as! String == "수업 1"){
-//                    print("접근 성공")
-//                    print(index.key)
 
-//                }
-                
-            }
+        
+        
+        
+        chattingCell.chattingRoomTitle.text = array_class[indexPath.row].className
+        
+                        
+
+        
+        
+
+
+        chattingCell.chattingNumberBadge.clipsToBounds = true
+        chattingCell.chattingNumberBadge.text = "1"
+        chattingCell.chattingNumberBadge.layer.cornerRadius = chattingCell.chattingNumberBadge.font.pointSize * 1.6 / 2
+        chattingCell.chattingNumberBadge.backgroundColor = .red
+        chattingCell.chattingNumberBadge.textColor = .white
 
 
 
-
-        }
+        
+        
 
         
-    
         
+  
         
         return chattingCell
         
@@ -186,30 +207,54 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
 //        print("Array : \(array_class)")
         
         
+        
+        
+        
+        
+        
                 
-                self.ref = Database.database().reference()
+            self.ref = Database.database().reference().child("chatrooms")
                 
                 
                 
                 
                 ref.observeSingleEvent(of: .value) { (snapshot) in
                     
+                    
 
                     let values = snapshot.value
                     
                     let dic = values as! [String: [String:Any]]
+                    
+                    
+                    
+                    self.count = 0
+                    print("현재 선택한 row : \(indexPath.row)")
+                    
                     for index in dic{
-                        if index.value["key"] != nil {
-                            print("uid 전달 성공")
-                            chattingRoomViewController.destinationUid = (index.value["key"] as! String)
+                        
+                        if indexPath.row == self.count{
+                            print("uid 전달!!")
+                            print("Current Count : \(self.count)")
+                            print("전달된 key 값 : \(index.key)")
+                            
+                            
+                            chattingRoomViewController.chattingRoomTitle = index.value["title"] as? String ?? "title 전달이 안됩니다.."
+                            print("전달된 title 값:  \(index.value["title"] as? String ?? "title 전달이 안됩니다..")")
+                            chattingRoomViewController.destinationUid = index.key
+                            
+                            
+                            self.count = self.count + 1
+                            
                         }
-                        else{
-                            print("key 값이 없어여...")
+                       else{
+                            self.count = self.count + 1
                         }
 
                     }
 
 
+                    
 
 
                 }

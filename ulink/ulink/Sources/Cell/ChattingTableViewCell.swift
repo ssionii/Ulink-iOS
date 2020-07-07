@@ -11,9 +11,10 @@ import UIKit
 class ChattingTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var chattingRoomTitle: UILabel!
     static let identifiers : String = "ChattingCell"
-
-
+    @IBOutlet weak var chattingNumberBadge: UILabel!
+    
     
     
     
@@ -26,6 +27,25 @@ class ChattingTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         
+        
+    
+        
+
+    func setChattingCellData(title:String,number:String){
+            
+        
+        chattingRoomTitle.text = title
+        chattingNumberBadge.clipsToBounds = true
+        chattingNumberBadge.text = number
+        chattingNumberBadge.layer.cornerRadius = chattingNumberBadge.font.pointSize * 1.2 / 2
+        chattingNumberBadge.backgroundColor = .red
+        chattingNumberBadge.textColor = .white
+        
+        
+
+            
+            
+        }
         
         
 
