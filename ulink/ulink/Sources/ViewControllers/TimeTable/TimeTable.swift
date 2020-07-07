@@ -21,13 +21,13 @@ public protocol TimeTableDataSource {
 
 @IBDesignable public class TimeTable : UIView {
     private var controller = TimeTableController()
-    private var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    public var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     public let defaultMinHour : Int = 9
-    public let defaultMaxHour : Int = 21
+    public let defaultMaxHour : Int = 19
 
     public var minimumSubjectStartTime : Int?
-    public var subjectItemHeight : CGFloat = 50.0
+    public var subjectItemHeight : CGFloat = 52.0
     
     public var userDaySymbol : [String]?
     public var delegate : TimeTableDelegate?
@@ -109,7 +109,6 @@ public protocol TimeTableDataSource {
     
     @IBInspectable public var widthOfTimeAxis = CGFloat(19){
            didSet {
-            print(widthOfTimeAxis)
             makeTimeTable() }
        }
 
