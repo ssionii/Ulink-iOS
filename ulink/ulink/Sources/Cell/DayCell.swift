@@ -18,10 +18,10 @@ class DayCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.layer.addBorder(edge: [.top], color: UIColor.veryLightPink, thickness: 1.0)
+        
+        self.layer.addBorder(edge: [.top], color: UIColor.veryLightPink, thickness: 1)
         
         clearEvent()
-        
         dateLabel.backgroundColor = UIColor.white
     }
     
@@ -37,6 +37,7 @@ class DayCell: UICollectionViewCell {
             dateLabel.textColor = UIColor.darkGray
             dateLabel.backgroundColor = UIColor.white
         } else {
+            //오늘
             dateLabel.textColor = UIColor.white
             dateLabel.backgroundColor = UIColor.purpleishBlue
             dateLabel.layer.cornerRadius = 7
