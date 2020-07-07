@@ -126,7 +126,7 @@ class DetailEventViewController: UIViewController, UICollectionViewDelegate, UIC
         return UICollectionViewCell() }
         
 
-        var weekday = changeWeekdayToString(weekday: currentWeekDay!)
+        let weekday = changeWeekdayToString(weekday: currentWeekDay!)
         var date = String(currentMonth!) + "월 " + String(currentDate!) + "일 "
         date.insert(contentsOf: weekday, at: date.endIndex)
         cell.setEventList(date: date, eventName: eventName, category: category, time: time)
