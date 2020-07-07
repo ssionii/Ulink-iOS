@@ -29,7 +29,7 @@ class TimeTableController: UIViewController {
 extension TimeTableController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var minStartTimeHour : Int = 09
-        var maxEndTimeHour : Int = 21
+        var maxEndTimeHour : Int = 19
 
         if timeTable.subjectItems.count < 1 {
             minStartTimeHour = timeTable.defaultMinHour

@@ -51,7 +51,6 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         timeTable.dataSource = self
         
         setBackgroundView()
-        setTopDayView()
         setSubjectList()
     }
 
@@ -93,14 +92,9 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         subjectList = [subject_1, subject_2, subject_3, subject_4, subject_5, subject_6, subject_7]
     }
     
-    private func setTopDayView(){
-    }
-    
-    
     func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: Subject) {
         return
     }
-
 
     func subjectItems(in timeTable: TimeTable) -> [Subject] {
         return subjectList
