@@ -70,15 +70,11 @@ class ChattingViewController: UIViewController {
                 let dic = values as! [String: [String:Any]]
 
                 for index in dic{
-                    print(index)
-                    print("결과값")
 
 
 
                     if (index.value["title"] as? String != nil){
-                        print("제목 : \(index.value["title"] as! String)")  // 여기서 채팅방 목록을 가져온 다음에
-                        print("키값 : \(index.key)")
-                    
+
                         
                         let data = ClassModel(name: index.value["title"] as! String, key: index.key , image:.one)
                         
@@ -88,9 +84,7 @@ class ChattingViewController: UIViewController {
                             self.chattingListTable.reloadData()
                             
                         }           // chattingListtable을 다시 reload 해줘서 메인에서 채팅방 목록이 뜨게 해야 한다!!!
-                        print("현재 배열::::")
-                        print(self.array_class)
-                        print(self.array_class.count)
+
                         
                         
                         
@@ -242,7 +236,14 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
                         if indexPath.row == self.count{
                             print("uid 전달!!")
                             print("Current Count : \(self.count)")
+                            print("전달된 key 값 : \(index.key)")
+                            
+                            
+                            chattingRoomViewController.chattingRoomTitle = index.value["title"] as? String ?? "title 전달이 안됩니다.."
+                            print("전달된 title 값:  \(index.value["title"] as? String ?? "title 전달이 안됩니다..")")
                             chattingRoomViewController.destinationUid = index.key
+                            
+                            
                             self.count = self.count + 1
                             
                         }

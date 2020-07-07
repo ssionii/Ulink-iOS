@@ -13,6 +13,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var chattingTitleLabel: UILabel!
     
     @IBOutlet weak var messageTextField: UITextField!
     var uid : String?
@@ -27,11 +28,14 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var chattingTableView: UITableView!
 
     public var destinationUid : String? // 나중에 내가 채팅할 대상의 uid
+    public var chattingRoomTitle : String?
     override func viewDidLoad() {
         
-        
+        setTitleLabel()
         super.viewDidLoad()
         uid = Auth.auth().currentUser?.uid
+        
+        
         
         sendButton.addTarget(self,action:#selector(createRoom), for:.touchUpInside)
 
@@ -39,14 +43,25 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         hideBar()
         setlabelBadge()
+        
+        checkChatRoom()
+        
+        
+        
+        
 
         // Do any additional setup after loading the view.
     }
     
     
     
+        
     
-    
+    func setTitleLabel(){
+        print("전달받은 title: \(self.chattingRoomTitle ?? "수업 채팅방")")
+        self.chattingTitleLabel.text = self.chattingRoomTitle ?? "수업 채팅방"
+    }
+        
     func loadMessage(){
         
         
@@ -226,12 +241,15 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
 
             
-            print("채팅방이 생성되었습니다~~~")
-            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("title").setValue("개발")
-            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("classUid").setValue("3")
-            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
+            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: { (err,ref) in
+                self.messageTextField.text = ""
+            })
+        
+            //            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("title").setValue("개발")
+//            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("classUid").setValue("3")
+//            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
             
-            messageTextField.text = ""
+
             
             
             
@@ -247,19 +265,78 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     func checkChatRoom() {
+        
+        
         Database.database().reference().child("chatrooms").queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value)
         { (datasnapshot) in
+            
+
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
-                
-                if let chatRoomdic = item.value as? [String:AnyObject]{
+
+                if self.destinationUid == item.key{     // 현재 내가 들어간 방과 목적지 uid가 일치한다면
                     
-                    let chatModel = ChatModel(JSON: chatRoomdic)
-                    if(chatModel?.users[self.destinationUid!] == true){
-                        self.chatRoomUid = item.key
-                        self.sendButton.isEnabled = true
-                        self.getDestinationInfo()
+                    
+                    
+                    let values = datasnapshot.value
+                    let dic = values as! [String: [String:Any]]
+                    
+                    for index in dic {
+                        
+                        
+                        if self.destinationUid == index.key
+                        {
+                            print("index : \(index)")
+                            print("해당 부분 실행")
+                            print(index.value["title"] ?? "helpme")
+                            
+                            let message = index.value["comments"] as! [String: [String:Any]]
+                            
+                            for idx in message{
+                                
+                                print(idx.value["message"] ?? "")
+                            }
+                            
+                            print("message : \(index.value["comments"])")
+                            
+                                
+                        }
+                        
                     }
+                    
+                    print("현재 방의 key 값 : \(self.destinationUid ?? "")")
+                    print("어찌됐든 접속 성공")
+                    
+                    print("item 값")
+                
+                    
+                    print(item)
+                    
+               
+
+//                    print(item.value(forKey: "comment") as? String ?? "채팅 불러오기 실패여")
+                    
+                    if let chatRoomdic = item.value as? [String:AnyObject]{
+                        
+                        let chatModel = ChatModel(JSON: chatRoomdic)
+                        if(chatModel?.users[self.destinationUid!] == true){
+                            self.chatRoomUid = item.key
+                            self.sendButton.isEnabled = true
+                            self.getDestinationInfo()
+                            print("이거 되는거임??")
+                        }
+                    }
+
+                
+                    
+     
+                    
+                    
+                    
                 }
+            
+                
+                
+                
                 
                 
                 
@@ -272,7 +349,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
             
-            
+            self.userModel = UserModel()
             
             self.userModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
             
@@ -295,8 +372,17 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                 self.comments.append(comment!)
 
             }
-
+            
+      
             self.chattingTableView.reloadData()
+            
+            if self.comments.count > 0 {
+                print("밑으로 스크롤 해~~~")
+                self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: .bottom, animated: true)
+            }
+        
+
+            
             }
         )}
     
