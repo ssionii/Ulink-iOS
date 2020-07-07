@@ -29,7 +29,7 @@ class DetailEventViewController: UIViewController, UICollectionViewDelegate, UIC
     var todayDate = Calendar.current.component(.day, from: Date())
     
     //더미데이터입니다룰루루얼쟈ㅓㅇㅍㅊ
-    let eventName = ["영상처리 과제", "되게 되게 길게 만들어볼까요 더더더더더더더", "소프트웨어개론 퀴즈"]
+    let eventName = ["영상처리 과제", "이름을 되게 길게 만들어볼까요 더더더더더더더", "소프트웨어개론 퀴즈"]
     let category = [2, 1, 0]
     let time = ["", "", "11:00"]
     

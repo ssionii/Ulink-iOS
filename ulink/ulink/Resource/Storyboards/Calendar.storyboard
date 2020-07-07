@@ -600,7 +600,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2029.5999999999999" y="-673.31334332833592"/>
+            <point key="canvasLocation" x="2018" y="-618"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Oer-ty-4nM">
@@ -635,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKw-Ju-r32" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2677.5999999999999" y="-629.2353823088456"/>
+            <point key="canvasLocation" x="2663" y="-618"/>
         </scene>
     </scenes>
     <resources>

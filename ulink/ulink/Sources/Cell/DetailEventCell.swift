@@ -31,8 +31,6 @@ class DetailEventCell: UICollectionViewCell {
         dateLabel.text = date
         for i in 0...eventName.count-1{
             
-            
-            
             eventListViews[i].isHidden = false
             eventNameLabels[i].text = eventName[i]
             if (category[i] == 0) {
@@ -47,7 +45,6 @@ class DetailEventCell: UICollectionViewCell {
             }
             timeLabels[i].text = time[i]
         }
-        
     }
     
     func clearAll(){
