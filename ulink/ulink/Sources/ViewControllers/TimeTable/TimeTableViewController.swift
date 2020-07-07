@@ -88,7 +88,6 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         let subject_7 = Subject(subjectName: "모션그래픽스1", roomName: "미술대학 407실", subjectDay: .thursday, startTime: "08:00", endTime: "12:00", backgroundColor: 5)
         
         
-        
         subjectList = [subject_1, subject_2, subject_3, subject_4, subject_5, subject_6, subject_7]
     }
     

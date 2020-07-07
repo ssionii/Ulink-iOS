@@ -119,7 +119,7 @@ extension TimeTableListViewController : UICollectionViewDataSource {
             
             return footerView
         default:
-            assert(false, "응 아니야")
+            assert(false, "안돼 돌아가")
             
         }
     }
