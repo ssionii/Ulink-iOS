@@ -12,6 +12,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var calendarSubView: UIView!
+    @IBOutlet weak var todayBtn: UIButton!
     
     var numOfDate = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
@@ -28,6 +29,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     let eventColor = [UIColor.powderPink, UIColor.lightblue, UIColor.periwinkleBlue, UIColor.pink]
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +41,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         //view 설정
         calendarSubView.layer.cornerRadius = 30
         monthLabel.text = String(currentMonth) + "월"
+        todayBtn.setTitle(String(todayDate), for: .normal)
         
         //윤년 설정
         if (todayYear % 4 == 0){
@@ -55,6 +59,18 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-M-yyyy"
         let dateString = "01-" + String(currentMonth) + "-" + String(currentYear)
+        let myDay = dateFormatter.date(from: dateString)
+        let first = cal.dateComponents([.weekday], from: myDay!)
+        
+        let firstWeekDay = first.weekday!
+        return firstWeekDay
+    }
+    
+    //요일 구하기
+    func getWeekDay(date: Int, month: Int, year: Int) -> Int{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-M-yyyy"
+        let dateString = String(date) + "-" + String(month) + "-" + String(year)
         let myDay = dateFormatter.date(from: dateString)
         let first = cal.dateComponents([.weekday], from: myDay!)
         
@@ -130,6 +146,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         calendarCollectionView.reloadData()
     }
     
+    @IBAction func backToToday(_ sender: Any) {
+        currentMonth = todayMonth
+        monthLabel.text = String(currentMonth) + "월"
+        calendarCollectionView.reloadData()
+    }
+    
     @IBAction func showPopUp(_ sender: Any) {
         let popStoryBoard = UIStoryboard(name: "Calendar" , bundle: nil)
         let popUpVC = popStoryBoard.instantiateViewController(withIdentifier: "detailEvent")
@@ -180,9 +202,19 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let first = getFirstWeekDay() - 1
         
+        //let popStoryBoard = UIStoryboard(name: "Calendar" , bundle: nil)
+        //let popUpVC = popStoryBoard.instantiateViewController(withIdentifier: "detailEvent")
+        guard let popUpVC = self.storyboard?.instantiateViewController(identifier: "detailEvent") as? DetailEventViewController else {return}
         
-        let last = getLastDay()
-        let lastOfLast = getLastOfLastDay()
+        //넘겨줄 데이타
+        popUpVC.currentYear = currentYear
+        popUpVC.currentMonth = currentMonth
+        popUpVC.currentDate = indexPath.row - first + 1
+        popUpVC.numOfDetailCells = numOfDate[currentMonth-1]
+        popUpVC.currentWeekDay = getWeekDay(date: indexPath.row - first + 1, month: currentMonth, year: currentYear)
+        
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        present(popUpVC, animated: false, completion: nil)
         
         print(indexPath.row - first + 1)
     }

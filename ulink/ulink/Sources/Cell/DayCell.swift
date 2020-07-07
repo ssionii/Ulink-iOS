@@ -35,6 +35,7 @@ class DayCell: UICollectionViewCell {
             dateLabel.textColor = UIColor.darkGray
             dateLabel.backgroundColor = UIColor.white
         } else {
+            //오늘
             dateLabel.textColor = UIColor.white
             dateLabel.backgroundColor = UIColor.purpleishBlue
             dateLabel.layer.cornerRadius = 7
