@@ -25,6 +25,7 @@ class ChattingViewController: UIViewController {
 
 
     var ref : DatabaseReference!
+    var chattingListRef : DatabaseReference!
     var array_class : [ClassModel] = []
     
     override func viewDidLoad(){
@@ -75,8 +76,38 @@ class ChattingViewController: UIViewController {
 //        })
 //
 //          print(array)
+//
+        
+    }
+    
+    
+    
+    func setChattingData(){
         
         
+        self.chattingListRef = Database.database().reference().child("chatrooms")
+        
+        chattingListRef.observe(.value) { (snapshot) in
+            
+            self.array_class.removeAll() // 처음 채팅창 목록을 초기화 한 다음에
+            
+            for child in snapshot.children {
+                
+                /                    let fchild = child as! DataSnapshot
+                //
+                //                    let userModel = UserModel()
+                
+            
+            }
+        
+
+        
+        
+        
+        
+        
+        
+        }
     }
     
     func setTableData() {
@@ -96,7 +127,7 @@ class ChattingViewController: UIViewController {
 
         let data : [String:Any] = [
             "className": "수업 1",
-            "key" : itemref.childByAutoId().key
+            "key" : itemref.childByAutoId().key ?? ""
             ]
         
         
@@ -139,7 +170,7 @@ class ChattingViewController: UIViewController {
 
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -153,7 +184,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         
         
-        self.ref = Database.database().reference()
+        self.ref = Database.database().reference().child("chatrooms")
         
         
         
@@ -164,10 +195,14 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
             let values = snapshot.value
             
             let dic = values as! [String: [String:Any]]
+
             for index in dic{
                 print(index)
                 print("결과값")
+                    
+ 
                 print(index.value["key"])
+                print(index.value["key"] ?? "key값 실패!")
 //                if (index.value["className"] as! String == "수업 1"){
 //                    print("접근 성공")
 //                    print(index.key)
@@ -182,6 +217,8 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         chattingCell.chattingRoomTitle.text = "데이터통신기술"
+        
+        
         chattingCell.chattingNumberBadge.clipsToBounds = true
         chattingCell.chattingNumberBadge.text = "1"
         chattingCell.chattingNumberBadge.layer.cornerRadius = chattingCell.chattingNumberBadge.font.pointSize * 1.6 / 2

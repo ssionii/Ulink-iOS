@@ -11,16 +11,18 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     @IBOutlet weak var sendButton: UIButton!
     
+    @IBOutlet weak var messageTextField: UITextField!
     var uid : String?
     var chatRoomUid : String?
     
     
     
     var comments : [ChatModel.Comment] = []
+    var userModel: UserModel?
     
     
     @IBOutlet weak var chattingTableView: UITableView!
-    @IBOutlet weak var messageTextField: UITextField!
+
     public var destinationUid : String? // 나중에 내가 채팅할 대상의 uid
     override func viewDidLoad() {
         
@@ -54,6 +56,12 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+
+    }
+    
+    
     
     
     
@@ -64,14 +72,42 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let view = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath)
-        view.textLabel?.text = self.comments[indexPath.row].message
         
         
-        view.layer.borderColor = .none
+        if(self.comments[indexPath.row].uid == uid)
+        {
+            let view = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
+            view.label_message.text = self.comments[indexPath.row].message
+            view.label_message.numberOfLines = 0
+            
+            view.layer.borderColor = .none
+            
+            return view
+            
+        }
+        else
+        {
+            
+            let view = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as! destinationMessageCell
+
+            view.label_name.text = userModel?.userName
+
+            view.label_message.text = self.comments[indexPath.row].message
+
+            view.label_message.numberOfLines = 0;
+            
+            view.layer.borderColor = .none
+            
+            return view
+
+            
+        }
+
+        
+  
         
         
-        return view
+        return UITableViewCell()
         
     }
     
@@ -132,6 +168,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     @objc func createRoom(){
+        
+        
 
         let createRoomInfo : Dictionary<String,Any> = [ "users" : [
 
@@ -173,6 +211,12 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
         
             Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
+            
+            messageTextField.text = ""
+            
+            
+            
+
 
         }
 
@@ -191,7 +235,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                     if(chatModel?.users[self.destinationUid!] == true){
                         self.chatRoomUid = item.key
                         self.sendButton.isEnabled = true
-                        self.getMessageList()
+                        self.getDestinationInfo()
                     }
                 }
                 
@@ -201,6 +245,18 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
+    
+    func getDestinationInfo(){
+        
+        Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+            
+            
+            
+            self.userModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
+            
+            self.getMessageList()
+        })
+    }
     
     func getMessageList() {
         
@@ -228,11 +284,18 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
 class MyMessageCell : UITableViewCell {
     
+    @IBOutlet weak var label_message:UILabel!
+    
+    
     
 }
 
 
 class destinationMessageCell : UITableViewCell {
+    @IBOutlet weak var label_message:UILabel!
+    @IBOutlet weak var label_name:UILabel!
+    
+    
     
 }
 
