@@ -5,6 +5,9 @@ import FirebaseDatabase
 import SideMenu
 
 
+
+
+
 class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
 
@@ -38,6 +41,15 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         setlabelBadge()
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    
+    
+    func loadMessage(){
+        
+        
     }
     
     
@@ -169,7 +181,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     @objc func createRoom(){
         
-        
+    
 
         let createRoomInfo : Dictionary<String,Any> = [ "users" : [
 
@@ -181,7 +193,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
         ]
 
-        if(chatRoomUid == nil){
+        if(chatRoomUid == nil){ // 방 코드가존재하지 않는다면..?
 
             self.sendButton.isEnabled = false
 
@@ -197,19 +209,26 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
             })
 
-        }else{
+        }else{      // 방이 존재한다면..?
 
             let value :Dictionary<String,Any> = [
+                
+                
 
                 "uid" : uid!,
 
                 "message" : messageTextField.text!
 
             ]
+            
+            
+            
+            
 
             
-    
-        
+            print("채팅방이 생성되었습니다~~~")
+            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("title").setValue("개발")
+            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("classUid").setValue("3")
             Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
             
             messageTextField.text = ""
@@ -222,6 +241,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     }
+    
+    
+    
 
     
     func checkChatRoom() {

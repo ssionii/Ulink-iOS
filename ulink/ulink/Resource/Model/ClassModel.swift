@@ -27,7 +27,7 @@ class ClassModel : NSObject {
         self.className = name
         self.key = key
         self.image = image
-    }   
+    }
 
 
     
