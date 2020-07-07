@@ -18,11 +18,16 @@ class ChatModel: Mappable {
         
     }
     
-    
+    public var title : String = ""
+    public var classUid: String = ""
     public var users :Dictionary<String,Bool> = [:] // 채팅방에 참여한 사람들
     public var comments : Dictionary<String,Comment> = [:] // 채팅방의 대화내용
     
     func mapping(map: Map) {
+        
+        title <- map["title"]
+        
+        classUid <- map["classUid"]
         
         users <- map["users"]
         
@@ -30,6 +35,7 @@ class ChatModel: Mappable {
         
     }
     
+
     public class Comment :Mappable{
         
         public var uid : String?
@@ -52,3 +58,6 @@ class ChatModel: Mappable {
         
     }
 }
+
+
+

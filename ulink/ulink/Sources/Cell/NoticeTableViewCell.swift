@@ -10,7 +10,9 @@ import UIKit
 
 class NoticeTableViewCell: UITableViewCell {
     
+    static let hwNoticeIdentifier : String = "noticeCell"
     static let testNoticeIdentifier : String = "testNoticeCell"
+    static let classNoticeIdentifier : String = "classNoticeCell"
 
 
     @IBOutlet weak var testNoticeTitle: UILabel!
