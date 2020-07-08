@@ -113,17 +113,18 @@ public var collectionView = UICollectionView(frame: CGRect.zero, collectionViewL
 **개발 과정**
 
 메인에 위치한 시간표 설정 아이콘을 클릭 했을 때, 전체는 어둡게 어두워지고 뷰만 애니메이션이 적용되어 위로 올라와야 했다. 이를 위해 뷰컨 전환을 할 때 밑에서 올라오는 애니메이션을 적용하지 않고 다음과 같이 개발을 진행하였다. 
-<br>
+
+
 1. 시간표 설정 뷰컨을 생성하고 제일 상단에 위치한 뷰의 배경을 어둡게 설정하고 Xcode의 inspector에서 presentation을 Over Current Context로 설정해준다.
 
 <img width="300" alt="스크린샷 2020-07-08 오전 4 16 50" src="https://user-images.githubusercontent.com/37260938/86831444-dc9a0280-c0d1-11ea-995b-04d2ca2ba5d6.png">
 
-<br>
+
 2. 밑에서 올라올 뷰를 만들고 bottom constant를 이용해 해당 뷰의 height 만큼 아래로 내린다. 예시는 다음과 같다.
 
 <img width="300" alt="스크린샷 2020-07-08 오전 4 20 06" src="https://user-images.githubusercontent.com/37260938/86831802-503c0f80-c0d2-11ea-809a-5a768f823852.png">
 
-<br>
+
 3. 뷰컨에 연결할 TimeTableSettingViewController 클래스를 생성한다. 이 클래스에서 viewWillAppear 를 통해 뷰가 나타나기 전에 설정을 변경해서 뷰가 밑에서 위로 나타날 수 있도록 한다. 자세한 코드는 아래와 같다.
 
 ```swift
@@ -248,3 +249,6 @@ private func dismissVC(){
 **어려웠던 점/새로 배운 점**
 
 메인에서 리스트 시간표로 전환을 할 때 navigation controller에서 push를 할 때 처럼 오른쪽에서 뷰컨이 나와야 해서 메인을 네비게이션으로 짜야하나,, 고민했다. 하지만 위에서 볼 수 있듯이 메인 뷰에 상단에 너무 많은 버튼과 라벨들이 있어서 그건 어렵다고 생각하였다. 그러다 CATransition을 구글링을 통해 알게 되었고, 해당 트랜지션 클래스를 통해 좀 더 편하게 원하는 것을 얻을 수 있었다.
+
+
+-- 7/8까지의 내용 --
