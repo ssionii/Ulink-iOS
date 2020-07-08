@@ -24,11 +24,14 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     var comments : [ChatModel.Comment] = []
     var userModel: UserModel?
     
+    var messageArray : [String] = []
+    
     
     @IBOutlet weak var chattingTableView: UITableView!
 
     public var destinationUid : String? // 나중에 내가 채팅할 대상의 uid
     public var chattingRoomTitle : String?
+    var roomTitle : String = ""
     override func viewDidLoad() {
         
         setTitleLabel()
@@ -285,18 +288,22 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                         
                         if self.destinationUid == index.key
                         {
-                            print("index : \(index)")
-                            print("해당 부분 실행")
+
+                            print("채팅방 제목")
                             print(index.value["title"] ?? "helpme")
+                            
+                            self.roomTitle = index.value["title"] as? String ?? "수업채팅방"
                             
                             let message = index.value["comments"] as! [String: [String:Any]]
                             
-                            for idx in message{
-                                
+                            for idx in message
+                            {
                                 print(idx.value["message"] ?? "")
+                                self.messageArray.append(idx.value["message"] as? String ?? "")
                             }
                             
-                            print("message : \(index.value["comments"])")
+                            
+               
                             
                                 
                         }
@@ -310,18 +317,20 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                     
                     print(item)
+
                     
-               
+                    
 
 //                    print(item.value(forKey: "comment") as? String ?? "채팅 불러오기 실패여")
                     
                     if let chatRoomdic = item.value as? [String:AnyObject]{
-                        
+                        print("여기는 들어오시나여?")
+  
                         let chatModel = ChatModel(JSON: chatRoomdic)
                         if(chatModel?.users[self.destinationUid!] == true){
                             self.chatRoomUid = item.key
                             self.sendButton.isEnabled = true
-                            self.getDestinationInfo()
+   
                             print("이거 되는거임??")
                         }
                     }
@@ -350,6 +359,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
             
             self.userModel = UserModel()
+
             
             self.userModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
             
