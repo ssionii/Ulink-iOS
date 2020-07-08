@@ -38,6 +38,9 @@
 
 --- 
 ### 기능별 README   
-[**시간표**](https://github.com/University-Link/Ulink-iOS/blob/develop/README/siyeon_readme.md)
-[**캘린더**](https://github.com/University-Link/Ulink-iOS/blob/develop/README/se_readme.md)   
-[**채팅**](https://github.com/University-Link/Ulink-iOS/blob/develop/README/jihun_readme.md)
+
+[**⏰시간표⏰**](https://github.com/University-Link/Ulink-iOS/blob/develop/README/siyeon_readme.md)
+
+[**🗓캘린더🗓**](https://github.com/University-Link/Ulink-iOS/blob/develop/README/se_readme.md)   
+
+[**📱채팅📱**](https://github.com/University-Link/Ulink-iOS/blob/develop/README/jihun_readme.md)
