@@ -41,6 +41,8 @@
 		FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC3024AE0B44000C2AEC /* ClassModel.swift */; };
 		FD1A4AFA24B5A0B7000120A6 /* CreateTimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */; };
 		FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */; };
+		FD1A4AFD24B60427000120A6 /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */; };
+		FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */; };
 		FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F24E24AA591300F304BD /* AppDelegate.swift */; };
 		FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25024AA591300F304BD /* SceneDelegate.swift */; };
 		FD45F25324AA591300F304BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25224AA591300F304BD /* ViewController.swift */; };
@@ -96,6 +98,8 @@
 		FD19DC3024AE0B44000C2AEC /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTimeTableCell.swift; sourceTree = "<group>"; };
 		FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTimeTableViewController.swift; sourceTree = "<group>"; };
+		FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
+		FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailTableCell.swift; sourceTree = "<group>"; };
 		FD45F24B24AA591300F304BD /* ulink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ulink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD45F25024AA591300F304BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 				FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */,
 				FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */,
 				FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */,
+				FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */,
+				FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 			files = (
 				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
 				2996A40F24B2277E007402FE /* DetailEventCell.swift in Sources */,
+				FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */,
 				B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */,
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				B599E62F24ADAA320067C112 /* Subject.swift in Sources */,
@@ -532,6 +539,7 @@
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
+				FD1A4AFD24B60427000120A6 /* NoticeDetailViewController.swift in Sources */,
 				B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
 				B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */,
