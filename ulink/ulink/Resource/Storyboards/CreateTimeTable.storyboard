@@ -46,20 +46,22 @@
                                         </constraints>
                                         <state key="normal" image="timetableaddFilterandsearchAddtimetable"/>
                                     </button>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Ul-YN-mBj">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Ul-YN-mBj">
                                         <rect key="frame" x="0.0" y="45" width="375" height="324"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="324" id="Uqp-m7-5cA"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hv0-xO-Sqv">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hv0-xO-Sqv">
                                             <size key="itemSize" width="375" height="325"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="amV-Yx-bbi" userLabel="TimeTable Cell" customClass="CreateTimeTableCell" customModule="ulink" customModuleProvider="target">
-                                                <rect key="frame" x="11" y="0.0" width="353" height="324"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createTimeTableCell" id="amV-Yx-bbi" userLabel="TimeTable Cell" customClass="CreateTimeTableCell" customModule="ulink" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="324"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TaW-H7-lQe">
                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="324"/>
@@ -133,20 +135,20 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAd-PV-1qt" customClass="TimeTable" customModule="ulink" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="75" width="353" height="249"/>
+                                                                    <rect key="frame" x="6" y="75" width="341" height="249"/>
                                                                 </view>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="324" id="0Mx-rL-VMe"/>
                                                                 <constraint firstItem="BAd-PV-1qt" firstAttribute="top" secondItem="GYP-yr-fMY" secondAttribute="bottom" id="8sM-ZE-cMk"/>
-                                                                <constraint firstItem="BAd-PV-1qt" firstAttribute="leading" secondItem="oLV-GJ-L0c" secondAttribute="leading" id="AY1-kw-8Cy"/>
+                                                                <constraint firstItem="BAd-PV-1qt" firstAttribute="leading" secondItem="oLV-GJ-L0c" secondAttribute="leading" constant="6" id="AY1-kw-8Cy"/>
                                                                 <constraint firstAttribute="trailing" secondItem="2Ji-PZ-3wx" secondAttribute="trailing" id="BfY-N8-y5B"/>
                                                                 <constraint firstAttribute="bottom" secondItem="2Ji-PZ-3wx" secondAttribute="bottom" id="CXf-Ta-rKC"/>
                                                                 <constraint firstItem="2Ji-PZ-3wx" firstAttribute="leading" secondItem="oLV-GJ-L0c" secondAttribute="leading" id="PgK-kR-DJX"/>
                                                                 <constraint firstItem="Nkf-q7-J0U" firstAttribute="centerX" secondItem="2Ji-PZ-3wx" secondAttribute="centerX" id="QOX-n1-WSU"/>
                                                                 <constraint firstItem="2Ji-PZ-3wx" firstAttribute="top" secondItem="oLV-GJ-L0c" secondAttribute="top" id="TVL-L8-d24"/>
                                                                 <constraint firstAttribute="bottom" secondItem="BAd-PV-1qt" secondAttribute="bottom" id="ULt-z6-fZs"/>
-                                                                <constraint firstAttribute="trailing" secondItem="BAd-PV-1qt" secondAttribute="trailing" id="Wfg-Ee-Ehx"/>
+                                                                <constraint firstAttribute="trailing" secondItem="BAd-PV-1qt" secondAttribute="trailing" constant="6" id="Wfg-Ee-Ehx"/>
                                                                 <constraint firstItem="Nkf-q7-J0U" firstAttribute="top" secondItem="oLV-GJ-L0c" secondAttribute="top" constant="13" id="arP-2g-EDS"/>
                                                                 <constraint firstAttribute="trailing" secondItem="GYP-yr-fMY" secondAttribute="trailing" id="dml-Aq-D3Q"/>
                                                                 <constraint firstItem="GYP-yr-fMY" firstAttribute="top" secondItem="Nkf-q7-J0U" secondAttribute="bottom" constant="4" id="hZr-BF-bVZ"/>
@@ -164,10 +166,14 @@
                                                 <size key="customSize" width="353" height="324"/>
                                                 <connections>
                                                     <outlet property="timeTable" destination="BAd-PV-1qt" id="kMT-vz-s7L"/>
-                                                    <outlet property="timeTableLabel" destination="Nkf-q7-J0U" id="vnQ-Py-d9D"/>
+                                                    <outlet property="timeTableNameLabel" destination="Nkf-q7-J0U" id="Ebg-7S-5dt"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="e8S-VY-v8G" appends="YES" id="eSb-26-Pb7"/>
+                                            <outletCollection property="gestureRecognizers" destination="uN1-ZH-V2e" appends="YES" id="jpw-7k-duc"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <constraints>
@@ -197,11 +203,22 @@
                         <viewLayoutGuide key="safeArea" id="m1q-1p-zrf"/>
                     </view>
                     <connections>
-                        <outlet property="TimeTableCollectionView" destination="7Ul-YN-mBj" id="bbo-Ad-Fr2"/>
+                        <outlet property="TimeTableCollectionView" destination="7Ul-YN-mBj" id="UBk-3L-Pfi"/>
                         <outlet property="backgroundView" destination="hv9-V9-ud6" id="dQE-2u-uPF"/>
+                        <outlet property="timeTableCollectionView" destination="7Ul-YN-mBj" id="V2U-8H-Cg5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYE-u9-FB2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="e8S-VY-v8G">
+                    <connections>
+                        <action selector="swipeLeft:" destination="xxJ-Km-bp8" id="hlD-el-DEe"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="uN1-ZH-V2e">
+                    <connections>
+                        <action selector="swipeRight:" destination="xxJ-Km-bp8" id="WQ2-Ik-cjW"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-186.40000000000001" y="98.50074962518741"/>
         </scene>

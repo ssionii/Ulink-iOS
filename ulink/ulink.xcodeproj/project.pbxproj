@@ -148,10 +148,10 @@
 		B51EC8A424B1BF7A00F3833B /* List */ = {
 			isa = PBXGroup;
 			children = (
-				B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */,
 				B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */,
 				B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */,
 				B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */,
+				B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";

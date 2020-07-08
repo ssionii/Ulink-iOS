@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CreateTimeTableCell: UICollectionViewCell {
-    
+class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTableDelegate {
+   
     static let identifier: String = "createTimeTableCell"
     
     @IBOutlet weak var timeTableNameLabel: UILabel!
@@ -17,6 +17,16 @@ class CreateTimeTableCell: UICollectionViewCell {
     
     var timeTableIdx : Int = 0
     var subjectList : [Subject] = []
+    private let daySymbol = [ "월", "화", "수", "목", "금"]
+    
+    override func awakeFromNib() {
+           super.awakeFromNib()
+           
+           setTimeTable()
+        
+           timeTable.delegate = self
+           timeTable.dataSource = self
+       }
 
     
     func setCreateTimeTableCell(idx: Int, name: String, subjectList: [Subject]){
@@ -27,7 +37,37 @@ class CreateTimeTableCell: UICollectionViewCell {
         
     }
     
-   
+    func setTimeTable(){
+//        timeTable.collectionView.layer.cornerRadius = 30
+        
+        timeTable.roundCorners([.bottomLeft, .bottomRight], radius: 30)
+        
+        timeTable.widthOfTimeAxis = 18
+    }
     
+    func timeTable(timeTable: TimeTable, at dayPerIndex: Int) -> String {
+        return daySymbol[dayPerIndex]
+    }
+       
+    func numberOfDays(in timeTable: TimeTable) -> Int {
+        return daySymbol.count
+    }
+       
+    func subjectItems(in timeTable: TimeTable) -> [Subject] {
+        return subjectList
+    }
+       
+    func timeTable(timeTable: TimeTable, didSelectSubject didSelectSubjectselectedSubject: Subject) {
+           
+    }
 }
 
+extension UIView {
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+         let mask = CAShapeLayer()
+         mask.path = path.cgPath
+         self.layer.mask = mask
+    }
+
+}

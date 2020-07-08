@@ -111,10 +111,22 @@ public protocol TimeTableDataSource {
            didSet {
             makeTimeTable() }
        }
-
-    var averageWidth : CGFloat {
-        return (collectionView.frame.width - widthOfTimeAxis) / CGFloat(daySymbols.count)
-    }
+   
+//    var averageWidth : CGFloat{
+//        get{
+//           return (self.collectionView.frame.width - self.widthOfTimeAxis) / CGFloat(self.daySymbols.count)
+//        }
+//        set{
+//            CGFloat(newValue)
+//        }
+//
+//    }
+    
+    var averageWidth : CGFloat{
+        return (self.collectionView.frame.width - self.widthOfTimeAxis) / CGFloat(self.daySymbols.count)
+         
+      }
+    
 
     // left time
     @IBInspectable public var symbolTimeFontColor = UIColor.brownGreyTwo{

@@ -131,9 +131,7 @@ extension TimeTableController : UICollectionViewDataSource {
             
         let posiX = touchLocation.x
         let posiY = touchLocation.y
-            
-//        print(posiX)
-//        print(posiY)
+ 
     }
 }
 
