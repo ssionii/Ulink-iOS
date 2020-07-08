@@ -12,7 +12,7 @@
  
 ## 개발 내용
 
-### 메인 시간표
+### 1. 메인 시간표
 **라이브러리**
 github에서 찾은 Library를 참고해서 시간표의 전체적인 구성을 그렸다.
 👉 github 주소: https://github.com/della-padula/Elliotable
