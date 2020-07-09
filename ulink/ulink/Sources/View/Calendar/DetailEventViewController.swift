@@ -38,7 +38,6 @@ class DetailEventViewController: UIViewController, UICollectionViewDelegate, UIC
         
         getMonthlyData()
         
-        
         // Do any additional setup after loading the view.
         detailEventCollectionView.dataSource = self
         detailEventCollectionView.delegate = self
