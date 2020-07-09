@@ -1844,7 +1844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dj-Nr-BkH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11135" y="713"/>
+            <point key="canvasLocation" x="10058" y="662"/>
         </scene>
         <!--수업 채팅-->
         <scene sceneID="gtU-fw-MOc">
