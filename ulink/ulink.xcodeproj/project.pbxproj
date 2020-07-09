@@ -11,11 +11,12 @@
 		2996A40D24B223A1007402FE /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2996A40C24B223A1007402FE /* DetailEventViewController.swift */; };
 		2996A40F24B2277E007402FE /* DetailEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2996A40E24B2277E007402FE /* DetailEventCell.swift */; };
 		8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */; };
+		B513511A24B76E0800BD219B /* SubjectInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511924B76E0800BD219B /* SubjectInfoCell.swift */; };
 		B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A224B1099700F3833B /* TimeTableSettingViewController.swift */; };
 		B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */; };
 		B51EC8A824B1C4DF00F3833B /* ListSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A724B1C4DF00F3833B /* ListSemester.swift */; };
 		B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */; };
-		B599E62F24ADAA320067C112 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* Subject.swift */; };
+		B599E62F24ADAA320067C112 /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* SubjectModel.swift */; };
 		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
 		B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63624ADAAB40067C112 /* TimeTableController.swift */; };
@@ -24,6 +25,7 @@
 		B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */; };
 		B5C8A3C824AF12DE00B1B318 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C8A3C724AF12DE00B1B318 /* CalendarViewController.swift */; };
 		B5D26A4124B4B76F0047A2DC /* CreateTimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D26A4024B4B76F0047A2DC /* CreateTimeTable.storyboard */; };
+		B5D26A4A24B5E7E60047A2DC /* CreateNewSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */; };
 		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
@@ -66,11 +68,12 @@
 		2996A40E24B2277E007402FE /* DetailEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventCell.swift; sourceTree = "<group>"; };
 		4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
+		B513511924B76E0800BD219B /* SubjectInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfoCell.swift; sourceTree = "<group>"; };
 		B51EC8A224B1099700F3833B /* TimeTableSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableSettingViewController.swift; sourceTree = "<group>"; };
 		B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListViewController.swift; sourceTree = "<group>"; };
 		B51EC8A724B1C4DF00F3833B /* ListSemester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSemester.swift; sourceTree = "<group>"; };
 		B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
-		B599E62E24ADAA320067C112 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		B599E62E24ADAA320067C112 /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		B599E63124ADAA7F0067C112 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
 		B599E63624ADAAB40067C112 /* TimeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableController.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extenstions+UIColor.swift"; sourceTree = "<group>"; };
 		B5C8A3C724AF12DE00B1B318 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B5D26A4024B4B76F0047A2DC /* CreateTimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateTimeTable.storyboard; sourceTree = "<group>"; };
+		B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewSheetCell.swift; sourceTree = "<group>"; };
 		B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListCell.swift; sourceTree = "<group>"; };
 		B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListHeader.swift; sourceTree = "<group>"; };
 		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
@@ -179,7 +183,9 @@
 			isa = PBXGroup;
 			children = (
 				FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */,
+				B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */,
 				FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */,
+				B513511924B76E0800BD219B /* SubjectInfoCell.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -255,7 +261,7 @@
 		FD1A4AF224B5947A000120A6 /* TimeTableModel */ = {
 			isa = PBXGroup;
 			children = (
-				B599E62E24ADAA320067C112 /* Subject.swift */,
+				B599E62E24ADAA320067C112 /* SubjectModel.swift */,
 				B51EC8A724B1C4DF00F3833B /* ListSemester.swift */,
 				B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */,
 			);
@@ -522,12 +528,14 @@
 				2996A40F24B2277E007402FE /* DetailEventCell.swift in Sources */,
 				B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */,
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
-				B599E62F24ADAA320067C112 /* Subject.swift in Sources */,
+				B599E62F24ADAA320067C112 /* SubjectModel.swift in Sources */,
+				B513511A24B76E0800BD219B /* SubjectInfoCell.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
 				FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */,
 				B5C8A3C824AF12DE00B1B318 /* CalendarViewController.swift in Sources */,
 				FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */,
 				FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */,
+				B5D26A4A24B5E7E60047A2DC /* CreateNewSheetCell.swift in Sources */,
 				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,

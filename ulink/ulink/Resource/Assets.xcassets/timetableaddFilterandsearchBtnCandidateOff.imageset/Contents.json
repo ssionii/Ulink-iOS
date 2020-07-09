@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "timetableaddFilterandsearchBadakbg.png",
       "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "timetableaddFilterandsearchBtnCandidateOff.png"
     },
     {
       "scale" : "2x",
       "idiom" : "universal",
-      "filename" : "timetableaddFilterandsearchBadakbg@2x.png"
+      "filename" : "timetableaddFilterandsearchBtnCandidateOff@2x.png"
     },
     {
-      "filename" : "timetableaddFilterandsearchBadakbg@3x.png",
       "idiom" : "universal",
+      "filename" : "timetableaddFilterandsearchBtnCandidateOff@3x.png",
       "scale" : "3x"
     }
   ],

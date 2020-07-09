@@ -16,7 +16,7 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
     @IBOutlet weak var timeTable: TimeTable!
     
     var timeTableIdx : Int = 0
-    var subjectList : [Subject] = []
+    var subjectList : [SubjectModel] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     
     override func awakeFromNib() {
@@ -29,7 +29,7 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
        }
 
     
-    func setCreateTimeTableCell(idx: Int, name: String, subjectList: [Subject]){
+    func setCreateTimeTableCell(idx: Int, name: String, subjectList: [SubjectModel]){
         
         timeTableNameLabel.text = name
         self.timeTableIdx = idx
@@ -53,11 +53,11 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
         return daySymbol.count
     }
        
-    func subjectItems(in timeTable: TimeTable) -> [Subject] {
+    func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {
         return subjectList
     }
        
-    func timeTable(timeTable: TimeTable, didSelectSubject didSelectSubjectselectedSubject: Subject) {
+    func timeTable(timeTable: TimeTable, didSelectSubject didSelectSubjectselectedSubject: SubjectModel) {
            
     }
 }

@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 public protocol TimeTableDelegate {
-    func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: Subject)
+    func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: SubjectModel)
 }
 
 public protocol TimeTableDataSource {
     func timeTable(timeTable: TimeTable, at dayPerIndex : Int) -> String
     func numberOfDays(in timeTable: TimeTable) -> Int
-    func subjectItems(in timeTable: TimeTable) -> [Subject]
+    func subjectItems(in timeTable: TimeTable) -> [SubjectModel]
 }
 
 @IBDesignable public class TimeTable : UIView {
@@ -42,7 +42,7 @@ public protocol TimeTableDataSource {
         }
     }
     
-    public var subjectItems = [Subject](){
+    public var subjectItems = [SubjectModel](){
         didSet{ makeTimeTable() }
     }
 
@@ -222,7 +222,7 @@ public protocol TimeTableDataSource {
             }
         }
 
-        let subjectItems = self.dataSource?.subjectItems(in: self) ?? [Subject]()
+        let subjectItems = self.dataSource?.subjectItems(in: self) ?? [SubjectModel]()
 
         minStartTimeHour = defaultMinHour
         maxEndTimeHour = defaultMaxHour
@@ -305,7 +305,7 @@ public protocol TimeTableDataSource {
 
 
     public func reloadData() {
-        subjectItems = self.dataSource?.subjectItems(in: self) ?? [Subject]()
+        subjectItems = self.dataSource?.subjectItems(in: self) ?? [SubjectModel]()
     }
     
 }

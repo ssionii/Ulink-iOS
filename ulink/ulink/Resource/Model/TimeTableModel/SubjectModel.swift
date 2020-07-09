@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public struct Subject {
+public struct SubjectModel {
     public let subjectName : String
     public let roomName : String
     public let subjectDay : TimeTableDay
@@ -17,6 +17,10 @@ public struct Subject {
     public let endTime : String
     public let textColor : UIColor?
     public let backgroundColor : Int
+    public let professorName: String
+    public let course : String
+    public let credit : Int
+    public let timeInfo : String
 
     public init(subjectName: String, roomName: String, subjectDay: TimeTableDay, startTime: String, endTime: String, textColor: UIColor?, backgroundColor: Int){
         self.subjectName = subjectName
@@ -26,6 +30,12 @@ public struct Subject {
         self.endTime = endTime
         self.textColor = textColor
         self.backgroundColor = backgroundColor
+        
+        self.professorName = ""
+        self.course = ""
+        self.credit = 0
+        self.timeInfo = ""
+        
     }
 
     public init(subjectName: String, roomName: String, subjectDay: TimeTableDay, startTime: String, endTime: String, backgroundColor: Int){
@@ -36,6 +46,27 @@ public struct Subject {
         self.endTime = endTime
         self.textColor = UIColor.white
         self.backgroundColor = backgroundColor
+        
+        self.professorName = ""
+        self.course = ""
+        self.credit = 0
+        self.timeInfo = ""
+    }
+    
+    public init(subjectName: String, professorName: String, timeInfo: String, roomName: String, course: String, credit: Int){
+        self.subjectName = subjectName
+        self.professorName = professorName
+        self.timeInfo = timeInfo
+        self.roomName = roomName
+        self.course = course
+        self.credit = credit
+        
+        self.subjectDay = TimeTableDay.friday
+        self.startTime = ""
+        self.endTime = ""
+        self.textColor = UIColor.white
+        self.backgroundColor = 0
+        
     }
 }
 
