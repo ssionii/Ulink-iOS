@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import TextFieldEffects
 
 class NoticeEditModeViewController: UIViewController {
 
+    @IBOutlet weak var titleEditTextField:   HoshiTextField!
     @IBOutlet weak var textAreaBorder: UIView!
     @IBAction func closeButtonClicked(_ sender: Any) {
         
@@ -21,10 +23,15 @@ class NoticeEditModeViewController: UIViewController {
 
     }
     
+    
+    
 
     
     
     func setBorder(){
+        
+        self.titleEditTextField.borderActiveColor = .mainColor
+        
     }
 
 }

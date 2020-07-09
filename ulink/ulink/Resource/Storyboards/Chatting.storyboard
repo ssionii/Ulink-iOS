@@ -1692,7 +1692,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akk-iY-tH1" customClass="MinoruTextField" customModule="TextFieldEffects">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akk-iY-tH1" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                                         <rect key="frame" x="24.5" y="44.5" width="326" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="326" id="Lnb-QE-E5j"/>
@@ -1750,7 +1750,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvE-y5-KGi">
                                                                         <rect key="frame" x="13" y="37" width="350" height="213"/>
                                                                         <subviews>
-                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wfL-wV-iNg">
+                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfL-wV-iNg">
                                                                                 <rect key="frame" x="8" y="0.0" width="334" height="213"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
@@ -1839,6 +1839,7 @@
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="textAreaBorder" destination="QvE-y5-KGi" id="ZOK-Ur-eFR"/>
+                        <outlet property="titleEditTextField" destination="Akk-iY-tH1" id="bgl-Nz-dKa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dj-Nr-BkH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
