@@ -56,6 +56,9 @@
 		FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */; };
 		FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */; };
 		FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */; };
+		FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */; };
+		FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */; };
+		FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */; };
 		FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */; };
 		FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */; };
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
@@ -115,6 +118,9 @@
 		FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditViewController.swift; sourceTree = "<group>"; };
+		FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditTableViewCell.swift; sourceTree = "<group>"; };
+		FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditModeViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightSideMenuViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -269,11 +275,9 @@
 		FD1A4AF324B59564000120A6 /* Notice */ = {
 			isa = PBXGroup;
 			children = (
-				FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */,
-				FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */,
-				FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */,
-				FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */,
-				FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */,
+				FD79B5D124B7145300020118 /* NoticeEdit */,
+				FD79B5D024B713E000020118 /* NoticeDetailList */,
+				FD79B5CE24B713C500020118 /* NoticeList */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -400,6 +404,35 @@
 				FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		FD79B5CE24B713C500020118 /* NoticeList */ = {
+			isa = PBXGroup;
+			children = (
+				FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */,
+				FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */,
+				FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */,
+			);
+			path = NoticeList;
+			sourceTree = "<group>";
+		};
+		FD79B5D024B713E000020118 /* NoticeDetailList */ = {
+			isa = PBXGroup;
+			children = (
+				FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */,
+				FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */,
+			);
+			path = NoticeDetailList;
+			sourceTree = "<group>";
+		};
+		FD79B5D124B7145300020118 /* NoticeEdit */ = {
+			isa = PBXGroup;
+			children = (
+				FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */,
+				FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */,
+				FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */,
+			);
+			path = NoticeEdit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,6 +566,7 @@
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
 				FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */,
 				B5C8A3C824AF12DE00B1B318 /* CalendarViewController.swift in Sources */,
+				FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */,
 				FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */,
 				FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */,
 				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
@@ -542,8 +576,10 @@
 				FD1A4AFD24B60427000120A6 /* NoticeDetailViewController.swift in Sources */,
 				B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
+				FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */,
 				B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */,
 				292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */,
+				FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */,
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
 				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
 				B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */,

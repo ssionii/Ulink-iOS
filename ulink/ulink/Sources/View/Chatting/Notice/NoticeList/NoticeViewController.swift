@@ -44,6 +44,11 @@ class NoticeViewController: UIViewController {
     @IBAction func detailButtonClicked(_ sender: Any) {
         
         // 더보기 탭으로 넘어가야 한다구~~~~~
+        
+        
+        guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else { return }
+        
+        self.navigationController?.pushViewController(chattingRoomViewController, animated: true)
     }
     @IBAction func backButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

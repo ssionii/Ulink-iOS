@@ -23,6 +23,15 @@ class NoticeDetailViewController: UIViewController {
 
     }
     
+    @IBAction func backButtonClicked(_ sender: Any) {
+
+    }
+    
+    
+    func hideNaviBar(){
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
     func setTableView(){
         
@@ -40,7 +49,7 @@ class NoticeDetailViewController: UIViewController {
 extension NoticeDetailViewController : UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,6 +60,17 @@ extension NoticeDetailViewController : UITableViewDelegate,UITableViewDataSource
         
         
         return noticeCell
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        guard let noticeViewController = self.storyboard?.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else { return }
+        
+        self.navigationController?.pushViewController(noticeViewController, animated: true)
+        
     }
     
     
