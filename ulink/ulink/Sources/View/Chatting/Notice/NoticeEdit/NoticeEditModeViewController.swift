@@ -50,6 +50,23 @@ class NoticeEditModeViewController: UIViewController {
     }
     
     
+    @IBAction func submitButtonClicked(_ sender: Any) {
+        
+        
+        // 여기에 내용 수정 된 코드가 들어가야 함
+        if titleEditTextField.text == ""
+        {
+            let alert = UIAlertController(title: "", message: "제목을 설정해주세요", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "확인", style: .default, handler : nil )
+
+            alert.addAction(okAction)
+
+            present(alert, animated: true, completion: nil)
+            
+        }
+        
+    }
     
     
     func setTimePicker()
