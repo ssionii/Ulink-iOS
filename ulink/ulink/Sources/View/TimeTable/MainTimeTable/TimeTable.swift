@@ -36,7 +36,7 @@ public protocol TimeTableDataSource {
     private var subjectCells = [SubjectCell]()
     private var colorFilter = ColorFilter.init()
     
-    public var tempUserScheduleList : [SubjectModel] = []
+    public var tempUserScheduleList : [TimeInfoModel] = []
     
     private var startPositionX : CGFloat = 0
     private var startPositionY : CGFloat = 0
@@ -116,16 +116,6 @@ public protocol TimeTableDataSource {
            didSet {
             makeTimeTable() }
        }
-   
-//    var averageWidth : CGFloat{
-//        get{
-//           return (self.collectionView.frame.width - self.widthOfTimeAxis) / CGFloat(self.daySymbols.count)
-//        }
-//        set{
-//            CGFloat(newValue)
-//        }
-//
-//    }
     
     var averageWidth : CGFloat{
         return (self.collectionView.frame.width - self.widthOfTimeAxis) / CGFloat(self.daySymbols.count)
@@ -172,6 +162,9 @@ public protocol TimeTableDataSource {
     private var textEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 0, right: 4){
         didSet { self.makeTimeTable() }
     }
+    
+    
+    // MARK:- function들
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -306,7 +299,7 @@ public protocol TimeTableDataSource {
     
     func makeStartPointFromDrag(input_x : CGFloat, input_y : CGFloat){
         
-        var tempUserSchedule = SubjectModel.init()
+        var tempUserSchedule = TimeInfoModel.init()
         
         for weekdayIndex in 0 ... 6 {
             let base_x = collectionView.bounds.minX + widthOfTimeAxis + averageWidth * CGFloat(weekdayIndex) + rectEdgeInsets.left
@@ -318,7 +311,7 @@ public protocol TimeTableDataSource {
             if i != 6 && self.baseXList[i] <= input_x && self.baseXList[i + 1] >= input_x {
                 
                 startPositionX = self.baseXList[i]
-                tempUserSchedule.subjectDay = TimeTableDay(rawValue: i + 1)!
+                tempUserSchedule.weekDay = TimeTableDay(rawValue: i + 1)!
                 break
             }
         }
@@ -327,15 +320,12 @@ public protocol TimeTableDataSource {
         
         for hour in 9 ... 21 {
             for min in 0 ... 3 {
-                var base_y = collectionView.frame.minY + heightOfDaySection + averageHeight * CGFloat(hour - 9) +
+                let base_y = collectionView.frame.minY + heightOfDaySection + averageHeight * CGFloat(hour - 9) +
                     CGFloat((CGFloat(min * 15) / 60) * averageHeight)
                     
                 let baseTime = String(hour) + ":" + String(min * 15)
                 baseTimeList.append(baseTime)
-                if min == 0 {
-                    base_y += rectEdgeInsets.top
-                }
-                
+    
                 baseYList.append(base_y)
             }
         }
@@ -375,11 +365,8 @@ public protocol TimeTableDataSource {
             }
         }
         
-        var height = position_y - startPositionY
-        if height > (rectEdgeInsets.top + rectEdgeInsets.bottom) {
-            height -= (rectEdgeInsets.top + rectEdgeInsets.bottom)
-        }
-        
+        let height = position_y - startPositionY
+
         let view = UIView(frame: CGRect(x: startPositionX, y: startPositionY, width: width, height: height))
         view.backgroundColor = UIColor.black
         view.alpha = 0.3
@@ -407,13 +394,18 @@ public protocol TimeTableDataSource {
                     subview.removeFromSuperview()
                 }
             }
-    
             self.tempUserScheduleList.remove(at: count - 1 )
         }
     }
 
     public func reloadData() {
         subjectItems = self.dataSource?.subjectItems(in: self) ?? [SubjectModel]()
+        
+    }
+    
+    public func reDrawTimeTable(){
+        collectionView.reloadData()
+        makeTimeTable()
     }
     
 }

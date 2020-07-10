@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeTableDataSource {
+class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeTableDataSource, AddSubjectDetailDelegate {
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
@@ -21,7 +21,18 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     }
     
     @IBAction func confirmBtn(_ sender: Any) {
+        
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectDetailViewController") as? AddSubjectDetailViewController else { return }
+        
+        nextVC.setTimeInfo(list: timeTable.tempUserScheduleList)
+        nextVC.delegate = self
+        
+         self.present(nextVC, animated: true, completion: nil)
+        
+        
     }
+    
+    
     var subjectList : [SubjectModel] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     
@@ -84,6 +95,18 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
        func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {
             return subjectList
        }
+    
+    func didPressOkButton(timeInfoList: [SubjectModel]) {
+        
+        for i in 0 ... timeInfoList.count - 1 {
+             subjectList.append(timeInfoList[i])
+//             timeTable.subjectItems.append(timeInfoList[i])
+
+        }
+        
+        timeTable.reDrawTimeTable()
+
+    }
        
 
 }
