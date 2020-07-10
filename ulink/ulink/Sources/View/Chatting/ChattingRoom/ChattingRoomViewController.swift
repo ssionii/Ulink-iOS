@@ -296,17 +296,22 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                             
                             let message = index.value["comments"] as! [String: [String:Any]]
                             
-                            for idx in message
-                            {
-                                print(idx.value["message"] ?? "")
-                                self.messageArray.append(idx.value["message"] as? String ?? "")
-                            }
+                                
+                                for idx in message
+                                {
+                                    print(idx.value["message"] ?? "")
+                                    self.messageArray.append(idx.value["message"] as? String ?? "")
+                                }
+                                
                             
+
+
                             
                
                             
                                 
                         }
+
                         
                     }
                     

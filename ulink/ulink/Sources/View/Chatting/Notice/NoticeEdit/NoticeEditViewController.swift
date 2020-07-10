@@ -23,12 +23,11 @@ class NoticeEditViewController: UIViewController {
     }
     @IBAction func EditButtonClicked(_ sender: Any) {
         
-        print("넹")
-        
+    
         
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "NoticeEditModeViewController") as? NoticeEditModeViewController else { return }
         
-        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.modalPresentationStyle = .automatic
 
         
         present(nextVC, animated: true, completion: nil)

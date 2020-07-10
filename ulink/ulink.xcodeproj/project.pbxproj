@@ -59,6 +59,8 @@
 		FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */; };
 		FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */; };
 		FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */; };
+		FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90824B7820F000E5A48 /* timeModel.swift */; };
+		FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */; };
 		FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */; };
 		FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */; };
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
@@ -121,6 +123,8 @@
 		FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditViewController.swift; sourceTree = "<group>"; };
 		FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditTableViewCell.swift; sourceTree = "<group>"; };
 		FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditModeViewController.swift; sourceTree = "<group>"; };
+		FD8EE90824B7820F000E5A48 /* timeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeModel.swift; sourceTree = "<group>"; };
+		FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerTimeModel.swift; sourceTree = "<group>"; };
 		FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightSideMenuViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -254,10 +258,11 @@
 		FD1A4AF124B59462000120A6 /* ChattingModel */ = {
 			isa = PBXGroup;
 			children = (
+				FD8EE90A24B808F6000E5A48 /* PickerModel */,
+				FD8EE90724B781DE000E5A48 /* NoticeModel */,
 				FD19DC0A24AD02ED000C2AEC /* UserModel.swift */,
 				FD19DC0E24AD0365000C2AEC /* ChatModel.swift */,
 				FD19DC3024AE0B44000C2AEC /* ClassModel.swift */,
-				FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */,
 			);
 			path = ChattingModel;
 			sourceTree = "<group>";
@@ -379,9 +384,9 @@
 				FD19DC2E24ADDC95000C2AEC /* Calendar.storyboard */,
 				FD45F25424AA591300F304BD /* Main.storyboard */,
 				FD45F25924AA591500F304BD /* LaunchScreen.storyboard */,
-				FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */,
 				FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */,
 				B5D26A4024B4B76F0047A2DC /* CreateTimeTable.storyboard */,
+				FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -433,6 +438,23 @@
 				FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */,
 			);
 			path = NoticeEdit;
+			sourceTree = "<group>";
+		};
+		FD8EE90724B781DE000E5A48 /* NoticeModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */,
+				FD8EE90824B7820F000E5A48 /* timeModel.swift */,
+			);
+			path = NoticeModel;
+			sourceTree = "<group>";
+		};
+		FD8EE90A24B808F6000E5A48 /* PickerModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */,
+			);
+			path = PickerModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,6 +586,7 @@
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				B599E62F24ADAA320067C112 /* Subject.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
+				FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */,
 				FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */,
 				B5C8A3C824AF12DE00B1B318 /* CalendarViewController.swift in Sources */,
 				FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */,
@@ -578,6 +601,7 @@
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
 				FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */,
 				B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */,
+				FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */,
 				292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */,
 				FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */,
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,

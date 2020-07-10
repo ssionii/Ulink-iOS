@@ -24,7 +24,7 @@ class NoticeDetailViewController: UIViewController {
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
-
+        dismiss(animated: true, completion: nil)
     }
     
     
