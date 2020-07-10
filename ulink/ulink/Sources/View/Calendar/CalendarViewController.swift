@@ -25,7 +25,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     var currentYear: Int = 0
     var todayDate = Calendar.current.component(.day, from: Date())
     
-    let eventTitle = ["성은이개론", "소프트웨어공학", "영상처리", "식생활문화"]
+    let eventTitle = ["성은이개론", "맹구룩", "영상처리", "식생활문화"]
     let eventColor = [UIColor.powderPink, UIColor.lightblue, UIColor.periwinkleBlue, UIColor.pink]
     
     
