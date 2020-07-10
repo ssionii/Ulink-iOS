@@ -21,7 +21,6 @@ public class TimeTableController: UIViewController {
         }
     }
     
-    public var hintTimeTableCount : Int = 1
     public func setDrag(){
     collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPress)))
     }
@@ -38,12 +37,8 @@ public class TimeTableController: UIViewController {
             self.timeTable.makeStartPointFromDrag(input_x: posiX, input_y: posiY)
         }
         
-        self.timeTable.makeHintTimeTable(input_x : posiX, input_y : posiY, count: hintTimeTableCount)
-        
-        if(sender.state == .ended){
-            hintTimeTableCount += 1
-        }
-    
+        self.timeTable.makeHintTimeTable(input_x : posiX, input_y : posiY)
+       
     }
 
 

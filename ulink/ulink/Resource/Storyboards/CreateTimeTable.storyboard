@@ -611,6 +611,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPY-fj-8BR">
                                         <rect key="frame" x="310" y="11" width="46" height="24"/>
                                         <state key="normal" image="timetableaddDrag1IcOk"/>
+                                        <connections>
+                                            <action selector="confirmBtn:" destination="2tG-54-TeJ" eventType="touchUpInside" id="2Pv-bc-gIn"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-w6-6f8">
                                         <rect key="frame" x="282" y="13" width="16" height="20"/>
@@ -619,6 +622,9 @@
                                             <constraint firstAttribute="height" constant="20" id="QY2-gl-BNx"/>
                                         </constraints>
                                         <state key="normal" image="timetableaddDragTimetableIcReplay"/>
+                                        <connections>
+                                            <action selector="backBtn:" destination="2tG-54-TeJ" eventType="touchUpInside" id="ahz-Am-2XX"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eE4-nV-N4G">
                                         <rect key="frame" x="11" y="43" width="353" height="38"/>

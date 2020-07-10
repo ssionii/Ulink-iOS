@@ -36,6 +36,8 @@ public protocol TimeTableDataSource {
     private var subjectCells = [SubjectCell]()
     private var colorFilter = ColorFilter.init()
     
+    public var tempUserScheduleList : [SubjectModel] = []
+    
     private var startPositionX : CGFloat = 0
     private var startPositionY : CGFloat = 0
 
@@ -300,8 +302,11 @@ public protocol TimeTableDataSource {
     // 드래그 부분
     var baseXList : [CGFloat] = []
     var baseYList : [CGFloat] = []
+    var baseTimeList : [String] = []
     
     func makeStartPointFromDrag(input_x : CGFloat, input_y : CGFloat){
+        
+        var tempUserSchedule = SubjectModel.init()
         
         for weekdayIndex in 0 ... 6 {
             let base_x = collectionView.bounds.minX + widthOfTimeAxis + averageWidth * CGFloat(weekdayIndex) + rectEdgeInsets.left
@@ -310,20 +315,23 @@ public protocol TimeTableDataSource {
         }
         
         for i in 0 ... 6 {
-            
             if i != 6 && self.baseXList[i] <= input_x && self.baseXList[i + 1] >= input_x {
+                
                 startPositionX = self.baseXList[i]
+                tempUserSchedule.subjectDay = TimeTableDay(rawValue: i + 1)!
                 break
-                }
+            }
         }
         
         let averageHeight = subjectItemHeight
         
-        for hour in 9 ... 20 {
+        for hour in 9 ... 21 {
             for min in 0 ... 3 {
                 var base_y = collectionView.frame.minY + heightOfDaySection + averageHeight * CGFloat(hour - 9) +
                     CGFloat((CGFloat(min * 15) / 60) * averageHeight)
                     
+                let baseTime = String(hour) + ":" + String(min * 15)
+                baseTimeList.append(baseTime)
                 if min == 0 {
                     base_y += rectEdgeInsets.top
                 }
@@ -335,17 +343,22 @@ public protocol TimeTableDataSource {
         for i in 0 ... baseYList.count - 1 {
                    
             if i != baseYList.count - 1 && baseYList[i] <= input_y && baseYList[i + 1] >= input_y {
-                    startPositionY = baseYList[i]
-                    break
+                startPositionY = baseYList[i]
+                
+                tempUserSchedule.startTime = baseTimeList[i]
+                break
             }
         }
+        
+        tempUserScheduleList.append(tempUserSchedule)
     }
         
 
-    func makeHintTimeTable(input_x : CGFloat, input_y : CGFloat, count : Int){
+    func makeHintTimeTable(input_x : CGFloat, input_y : CGFloat){
         
-       for subview in collectionView.subviews{
-            if (subview.tag == count){
+        let count = tempUserScheduleList.count
+        for subview in collectionView.subviews{
+        if (subview.tag == count){
                 subview.removeFromSuperview()
             }
         }
@@ -356,8 +369,9 @@ public protocol TimeTableDataSource {
         
         for i in 0 ... baseYList.count - 1 {
             if i != baseYList.count - 1 && baseYList[i] <= input_y && baseYList[i + 1] >= input_y {
-                    position_y = baseYList[i]
-                    break
+                position_y = baseYList[i]
+                tempUserScheduleList[count - 1].endTime = baseTimeList[i]
+                break
             }
         }
         
@@ -384,6 +398,19 @@ public protocol TimeTableDataSource {
     }
     
 
+    public func removeLastSchedule(){
+        
+        let count = tempUserScheduleList.count
+        if count > 0 {
+            for subview in collectionView.subviews{
+                if subview.tag == count {
+                    subview.removeFromSuperview()
+                }
+            }
+    
+            self.tempUserScheduleList.remove(at: count - 1 )
+        }
+    }
 
     public func reloadData() {
         subjectItems = self.dataSource?.subjectItems(in: self) ?? [SubjectModel]()

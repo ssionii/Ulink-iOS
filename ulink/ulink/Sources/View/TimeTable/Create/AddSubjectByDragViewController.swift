@@ -9,8 +9,6 @@
 import UIKit
 
 class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeTableDataSource {
-
-
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
@@ -18,7 +16,12 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func backBtn(_ sender: Any) {
+        timeTable.removeLastSchedule()
+    }
     
+    @IBAction func confirmBtn(_ sender: Any) {
+    }
     var subjectList : [SubjectModel] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     
@@ -28,8 +31,9 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         setBackgroundView()
         setTimeTableView()
         
-        timeTable.widthOfTimeAxis = 20
-        timeTable.defaultMaxHour = 20
+        timeTable.delegate = self
+        timeTable.dataSource = self
+   
       
     }
     
@@ -38,8 +42,9 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     }
     
     private func setTimeTableView(){
-        timeTable.delegate = self
-        timeTable.dataSource = self
+
+        timeTable.widthOfTimeAxis = 20
+        timeTable.defaultMaxHour = 20
 
         timeTable.controller.setDrag()
         
