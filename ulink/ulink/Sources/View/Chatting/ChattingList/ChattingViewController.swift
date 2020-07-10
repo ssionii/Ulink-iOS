@@ -126,9 +126,6 @@ class ChattingViewController: UIViewController {
 
 
         
-        
-        itemref.childByAutoId().setValue(data)
-
 
         
         

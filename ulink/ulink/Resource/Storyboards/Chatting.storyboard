@@ -160,7 +160,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="pVf-tO-ABc"/>
-                                    <constraint firstAttribute="height" constant="503" id="pYg-CN-3gJ"/>
+                                    <constraint firstAttribute="height" priority="500" constant="503" id="pYg-CN-3gJ"/>
                                 </constraints>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -245,20 +245,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E58-PG-I2G">
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFx-8P-HEF">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFx-8P-HEF">
                                         <rect key="frame" x="50" y="8" width="313" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="313" id="mnK-dc-D7B"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgb-Rr-4lW">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgb-Rr-4lW">
                                         <rect key="frame" x="8" y="8" width="38" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="ioChattingBtnMore"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de6-KX-Hxb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de6-KX-Hxb">
                                         <rect key="frame" x="329" y="15" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="ioChattingBtnSend"/>
                                     </button>
                                 </subviews>
@@ -266,8 +266,15 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="677-Ta-rjc"/>
                                     <constraint firstAttribute="height" constant="80" id="EDo-ps-xor"/>
+                                    <constraint firstItem="lgb-Rr-4lW" firstAttribute="centerY" secondItem="cFx-8P-HEF" secondAttribute="centerY" id="FE5-zo-qco"/>
+                                    <constraint firstItem="de6-KX-Hxb" firstAttribute="top" secondItem="E58-PG-I2G" secondAttribute="top" constant="15" id="JKl-2g-kLE"/>
+                                    <constraint firstAttribute="bottom" secondItem="de6-KX-Hxb" secondAttribute="bottom" constant="45" id="PXD-Cg-Q3B"/>
+                                    <constraint firstItem="cFx-8P-HEF" firstAttribute="centerY" secondItem="de6-KX-Hxb" secondAttribute="centerY" id="V6o-Jx-XJN"/>
+                                    <constraint firstAttribute="trailing" secondItem="de6-KX-Hxb" secondAttribute="trailing" constant="26" id="Z7E-rV-LQs"/>
+                                    <constraint firstItem="cFx-8P-HEF" firstAttribute="leading" secondItem="lgb-Rr-4lW" secondAttribute="trailing" constant="4" id="dLY-he-mdy"/>
+                                    <constraint firstItem="lgb-Rr-4lW" firstAttribute="leading" secondItem="E58-PG-I2G" secondAttribute="leading" constant="8" id="dq6-SV-fqf"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="fTL-ip-IzP"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="vr5-8y-Yql"/>
+                                    <constraint firstAttribute="bottom" secondItem="cFx-8P-HEF" secondAttribute="bottom" constant="38" id="j2I-aL-oea"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCW-Zi-TYc">
@@ -306,7 +313,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LX-SZ-b5D">
                                         <rect key="frame" x="127.5" y="38" width="120" height="21"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전자기학" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04w-kY-Vg7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전자기학" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04w-kY-Vg7">
                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="85" id="MjK-Fp-UIh"/>
@@ -352,17 +359,19 @@
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mCW-Zi-TYc" firstAttribute="leading" secondItem="dCy-jR-4LU" secondAttribute="leading" id="DL0-y1-zo3"/>
-                            <constraint firstItem="E58-PG-I2G" firstAttribute="bottom" secondItem="dCy-jR-4LU" secondAttribute="bottom" id="G5M-1O-MLu"/>
                             <constraint firstItem="mCW-Zi-TYc" firstAttribute="top" secondItem="dCy-jR-4LU" secondAttribute="top" id="UUi-tl-z7S"/>
                             <constraint firstItem="rqJ-Jg-CGk" firstAttribute="leading" secondItem="dCy-jR-4LU" secondAttribute="leading" id="bqg-bd-CjQ"/>
                             <constraint firstItem="E58-PG-I2G" firstAttribute="leading" secondItem="dCy-jR-4LU" secondAttribute="leading" id="cAa-xL-u3z"/>
+                            <constraint firstItem="E58-PG-I2G" firstAttribute="bottom" secondItem="dCy-jR-4LU" secondAttribute="bottom" id="diS-Y9-O9Q"/>
                             <constraint firstItem="E58-PG-I2G" firstAttribute="trailing" secondItem="dCy-jR-4LU" secondAttribute="trailing" id="fI7-yK-7ZK"/>
                             <constraint firstItem="rqJ-Jg-CGk" firstAttribute="top" secondItem="mCW-Zi-TYc" secondAttribute="bottom" constant="8" id="kab-xV-M4a"/>
+                            <constraint firstItem="E58-PG-I2G" firstAttribute="top" secondItem="rqJ-Jg-CGk" secondAttribute="bottom" constant="8" id="qE6-RV-bUe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dCy-jR-4LU"/>
                     </view>
                     <navigationItem key="navigationItem" id="2l2-1y-12A"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="diS-Y9-O9Q" id="XJi-mw-SnK"/>
                         <outlet property="chattingTableView" destination="rqJ-Jg-CGk" id="XX8-55-9g2"/>
                         <outlet property="chattingTitleLabel" destination="04w-kY-Vg7" id="OWe-iI-2G5"/>
                         <outlet property="messageTextField" destination="cFx-8P-HEF" id="LUF-9P-CgL"/>
@@ -371,7 +380,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWa-62-Vr5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3692" y="-197.45127436281859"/>
+            <point key="canvasLocation" x="3744.8000000000002" y="-251.42428785607197"/>
         </scene>
         <!--chattingSideViewController-->
         <scene sceneID="UBb-f2-6Hl">

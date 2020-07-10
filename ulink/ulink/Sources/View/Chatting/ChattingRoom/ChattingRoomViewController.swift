@@ -15,6 +15,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var chattingTitleLabel: UILabel!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageTextField: UITextField!
     var uid : String?
     var chatRoomUid : String?
@@ -57,6 +58,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         checkChatRoom()
   
         print("현재 uid : \(self.uid ?? "uid 실패")")
+        
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        
+        view.addGestureRecognizer(tap)
 
         
         
@@ -67,6 +72,72 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+        
+    }
+    
+    
+    
+    
+    @objc func keyboardWillShow(notification : Notification){
+
+
+        
+        
+        if let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue{
+            
+            self.bottomConstraint.constant = keyboardSize.height * -1
+
+        
+
+        UIView.animate(withDuration: 0 , animations: {
+
+            self.view.layoutIfNeeded()
+
+        }, completion: {
+
+            (complete) in
+
+            
+
+            if self.comments.count > 0 {
+
+                self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 1 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+
+            }
+
+        })
+
+    }
+    }
+    
+    
+    @objc func keyboardWillHide(notification: Notification){
+        
+        self.bottomConstraint.constant = 0
+        
+        self.view.layoutIfNeeded()
+        
+    }
+    
+    
+    
+    @objc func dismissKeyBoard(){
+        self.view.endEditing(true)
+    }
+    
+        
+
     
         
     
@@ -221,12 +292,18 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
 
     }
-    // 채팅방 생성 코드인데.. 방에 들어온 이상 만들 필요가 있나 싶기도 하고
-    @objc func createRoom(){
+    
+    
+
+
         
         
-        //MARK:- 버튼 눌렀을 떄 ~~~
-        
+        // 채팅방 생성 코드인데.. 방에 들어온 이상 만들 필요가 있나 싶기도 하고
+        @objc func createRoom(){
+            
+            
+            //MARK:- 버튼 눌렀을 떄 ~~~
+            
     
 
         let createRoomInfo : Dictionary<String,Any> = [ "users" : [
