@@ -38,7 +38,6 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
     }
     
     func setTimeTable(){
-//        timeTable.collectionView.layer.cornerRadius = 30
         
         timeTable.roundCorners([.bottomLeft, .bottomRight], radius: 30)
         

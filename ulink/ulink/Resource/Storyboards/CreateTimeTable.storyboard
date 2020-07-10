@@ -48,7 +48,7 @@
                                         </constraints>
                                         <state key="normal" image="timetableaddFilterandsearchAddtimetable"/>
                                         <connections>
-                                            <action selector="addTImeTableSheet:" destination="xxJ-Km-bp8" eventType="touchUpInside" id="djg-aY-5tz"/>
+                                            <action selector="addTimeTableSheet:" destination="xxJ-Km-bp8" eventType="touchUpInside" id="AOH-ih-Gf7"/>
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Ul-YN-mBj">
@@ -586,9 +586,157 @@
             </objects>
             <point key="canvasLocation" x="-186.40000000000001" y="98.275862068965523"/>
         </scene>
+        <!--Add Subject By Drag View Controller-->
+        <scene sceneID="jHB-lW-m1l">
+            <objects>
+                <viewController storyboardIdentifier="addSubjectByDragViewController" id="2tG-54-TeJ" customClass="AddSubjectByDragViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oZ3-2Y-JXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4r-Cj-BOX" userLabel="Background View">
+                                <rect key="frame" x="0.0" y="-44" width="375" height="856"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUi-LE-ja2">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lie-zh-Vrg">
+                                        <rect key="frame" x="18" y="12" width="16" height="22"/>
+                                        <state key="normal" image="timetableaddFilterandsearchCancel"/>
+                                        <connections>
+                                            <action selector="dismissBtn:" destination="2tG-54-TeJ" eventType="touchUpInside" id="iql-kD-SpZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPY-fj-8BR">
+                                        <rect key="frame" x="310" y="11" width="46" height="24"/>
+                                        <state key="normal" image="timetableaddDrag1IcOk"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-w6-6f8">
+                                        <rect key="frame" x="282" y="13" width="16" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="IxC-cT-91B"/>
+                                            <constraint firstAttribute="height" constant="20" id="QY2-gl-BNx"/>
+                                        </constraints>
+                                        <state key="normal" image="timetableaddDragTimetableIcReplay"/>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eE4-nV-N4G">
+                                        <rect key="frame" x="11" y="43" width="353" height="38"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioMainBgTop" translatesAutoresizingMaskIntoConstraints="NO" id="2y8-eB-wjb">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="38"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KX6-IK-wKR">
+                                                <rect key="frame" x="50" y="11" width="13" height="17"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yt-Xx-KdE">
+                                                <rect key="frame" x="113.66666666666667" y="11" width="13" height="17"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kX-HA-HR6">
+                                                <rect key="frame" x="177" y="11" width="13" height="17"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBx-Rp-rnG">
+                                                <rect key="frame" x="240.66666666666666" y="11" width="13" height="17"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAr-DP-Yaw">
+                                                <rect key="frame" x="304" y="11" width="13" height="17"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="2y8-eB-wjb" firstAttribute="top" secondItem="eE4-nV-N4G" secondAttribute="top" id="0SE-BQ-wEs"/>
+                                            <constraint firstItem="6kX-HA-HR6" firstAttribute="centerY" secondItem="8Yt-Xx-KdE" secondAttribute="centerY" id="2Mz-Eb-3Xv"/>
+                                            <constraint firstItem="eAr-DP-Yaw" firstAttribute="leading" secondItem="PBx-Rp-rnG" secondAttribute="trailing" constant="50.5" id="5YZ-c5-hdh"/>
+                                            <constraint firstAttribute="height" constant="38" id="A39-Ql-9kD"/>
+                                            <constraint firstItem="8Yt-Xx-KdE" firstAttribute="centerY" secondItem="KX6-IK-wKR" secondAttribute="centerY" id="BrL-OJ-cfB"/>
+                                            <constraint firstAttribute="bottom" secondItem="2y8-eB-wjb" secondAttribute="bottom" id="F7A-OS-cTA"/>
+                                            <constraint firstItem="6kX-HA-HR6" firstAttribute="leading" secondItem="8Yt-Xx-KdE" secondAttribute="trailing" constant="50.5" id="KWR-AZ-qI8"/>
+                                            <constraint firstItem="eAr-DP-Yaw" firstAttribute="centerY" secondItem="PBx-Rp-rnG" secondAttribute="centerY" id="OBz-9G-wsM"/>
+                                            <constraint firstAttribute="trailing" secondItem="2y8-eB-wjb" secondAttribute="trailing" id="PmX-GO-J7Y"/>
+                                            <constraint firstItem="PBx-Rp-rnG" firstAttribute="centerY" secondItem="6kX-HA-HR6" secondAttribute="centerY" id="R3U-P3-rvy"/>
+                                            <constraint firstAttribute="trailing" secondItem="eAr-DP-Yaw" secondAttribute="trailing" constant="36" id="SeM-r4-ZxN"/>
+                                            <constraint firstItem="PBx-Rp-rnG" firstAttribute="leading" secondItem="6kX-HA-HR6" secondAttribute="trailing" constant="50.5" id="ZnV-wW-wvE"/>
+                                            <constraint firstItem="8Yt-Xx-KdE" firstAttribute="leading" secondItem="KX6-IK-wKR" secondAttribute="trailing" constant="50.5" id="hJd-Yg-MHP"/>
+                                            <constraint firstItem="2y8-eB-wjb" firstAttribute="leading" secondItem="eE4-nV-N4G" secondAttribute="leading" id="x9n-Ag-cHw"/>
+                                            <constraint firstItem="KX6-IK-wKR" firstAttribute="top" secondItem="eE4-nV-N4G" secondAttribute="top" constant="11" id="xK2-mQ-NDa"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBz-ix-PgK">
+                                        <rect key="frame" x="11" y="81" width="353" height="687"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joy-QX-Gzv" customClass="TimeTable" customModule="ulink" customModuleProvider="target">
+                                                <rect key="frame" x="4" y="0.0" width="335" height="687"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="joy-QX-Gzv" secondAttribute="bottom" id="8FU-GQ-6Fu"/>
+                                            <constraint firstAttribute="trailing" secondItem="joy-QX-Gzv" secondAttribute="trailing" constant="14" id="Lzp-3b-pDQ"/>
+                                            <constraint firstItem="joy-QX-Gzv" firstAttribute="leading" secondItem="eBz-ix-PgK" secondAttribute="leading" constant="4" id="RA6-43-Nsb"/>
+                                            <constraint firstItem="joy-QX-Gzv" firstAttribute="top" secondItem="eBz-ix-PgK" secondAttribute="top" id="WYC-2Z-qO4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Lie-zh-Vrg" firstAttribute="leading" secondItem="TUi-LE-ja2" secondAttribute="leading" constant="18" id="NcX-fK-0ec"/>
+                                    <constraint firstAttribute="trailing" secondItem="UPY-fj-8BR" secondAttribute="trailing" constant="19" id="RLU-xH-VmJ"/>
+                                    <constraint firstItem="dVD-w6-6f8" firstAttribute="centerY" secondItem="Lie-zh-Vrg" secondAttribute="centerY" id="Sye-E7-lgM"/>
+                                    <constraint firstItem="eE4-nV-N4G" firstAttribute="top" secondItem="UPY-fj-8BR" secondAttribute="bottom" constant="8" id="VVn-eX-YGQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="eE4-nV-N4G" secondAttribute="trailing" constant="11" id="XGf-6v-iQc"/>
+                                    <constraint firstItem="Lie-zh-Vrg" firstAttribute="top" secondItem="TUi-LE-ja2" secondAttribute="top" constant="12" id="ayZ-Aj-GJu"/>
+                                    <constraint firstItem="eE4-nV-N4G" firstAttribute="leading" secondItem="TUi-LE-ja2" secondAttribute="leading" constant="11" id="dAe-IT-Toq"/>
+                                    <constraint firstItem="eBz-ix-PgK" firstAttribute="top" secondItem="eE4-nV-N4G" secondAttribute="bottom" id="f8M-TD-skD"/>
+                                    <constraint firstItem="eBz-ix-PgK" firstAttribute="top" secondItem="eE4-nV-N4G" secondAttribute="bottom" id="gvK-nV-9tB"/>
+                                    <constraint firstAttribute="bottom" secondItem="eBz-ix-PgK" secondAttribute="bottom" id="jRd-HB-StW"/>
+                                    <constraint firstItem="UPY-fj-8BR" firstAttribute="leading" secondItem="dVD-w6-6f8" secondAttribute="trailing" constant="12" id="lqY-X6-jFs"/>
+                                    <constraint firstItem="UPY-fj-8BR" firstAttribute="centerY" secondItem="Lie-zh-Vrg" secondAttribute="centerY" id="uJc-b2-Yei"/>
+                                    <constraint firstAttribute="trailing" secondItem="eBz-ix-PgK" secondAttribute="trailing" constant="11" id="yfb-hE-OLN"/>
+                                    <constraint firstItem="eBz-ix-PgK" firstAttribute="leading" secondItem="TUi-LE-ja2" secondAttribute="leading" constant="11" id="zoY-Fb-gPe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TUi-LE-ja2" firstAttribute="bottom" secondItem="bEy-qb-UpG" secondAttribute="bottom" constant="34" id="3wH-gk-GY9"/>
+                            <constraint firstItem="bEy-qb-UpG" firstAttribute="top" secondItem="TUi-LE-ja2" secondAttribute="top" id="4GG-vN-9ik"/>
+                            <constraint firstItem="bEy-qb-UpG" firstAttribute="trailing" secondItem="B4r-Cj-BOX" secondAttribute="trailing" id="Dxq-jU-8s5"/>
+                            <constraint firstItem="TUi-LE-ja2" firstAttribute="trailing" secondItem="bEy-qb-UpG" secondAttribute="trailing" id="IVo-l2-kUy"/>
+                            <constraint firstAttribute="bottom" secondItem="B4r-Cj-BOX" secondAttribute="bottom" id="RTM-uf-g9O"/>
+                            <constraint firstItem="TUi-LE-ja2" firstAttribute="leading" secondItem="bEy-qb-UpG" secondAttribute="leading" id="c24-xc-H38"/>
+                            <constraint firstItem="B4r-Cj-BOX" firstAttribute="leading" secondItem="bEy-qb-UpG" secondAttribute="leading" id="cbh-Sx-iqr"/>
+                            <constraint firstItem="B4r-Cj-BOX" firstAttribute="top" secondItem="bEy-qb-UpG" secondAttribute="top" constant="-88" id="cyI-QZ-Vxq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bEy-qb-UpG"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="B4r-Cj-BOX" id="GUN-qS-AWl"/>
+                        <outlet property="timeTable" destination="joy-QX-Gzv" id="HMI-xn-kse"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SvG-9y-JvH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="98.275862068965523"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ioMainBgTop" width="353" height="38"/>
+        <image name="timetableaddDrag1IcOk" width="46" height="24"/>
+        <image name="timetableaddDragTimetableIcReplay" width="16" height="20"/>
         <image name="timetableaddFilterandsearchAddfreely" width="71" height="24"/>
         <image name="timetableaddFilterandsearchAddtimetable" width="79" height="24"/>
         <image name="timetableaddFilterandsearchBadakbg" width="353" height="41"/>

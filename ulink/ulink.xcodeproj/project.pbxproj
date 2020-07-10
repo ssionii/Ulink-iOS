@@ -12,6 +12,7 @@
 		2996A40F24B2277E007402FE /* DetailEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2996A40E24B2277E007402FE /* DetailEventCell.swift */; };
 		8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */; };
 		B513511A24B76E0800BD219B /* SubjectInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511924B76E0800BD219B /* SubjectInfoCell.swift */; };
+		B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */; };
 		B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A224B1099700F3833B /* TimeTableSettingViewController.swift */; };
 		B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */; };
 		B51EC8A824B1C4DF00F3833B /* ListSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A724B1C4DF00F3833B /* ListSemester.swift */; };
@@ -69,6 +70,7 @@
 		4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		B513511924B76E0800BD219B /* SubjectInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfoCell.swift; sourceTree = "<group>"; };
+		B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectByDragViewController.swift; sourceTree = "<group>"; };
 		B51EC8A224B1099700F3833B /* TimeTableSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableSettingViewController.swift; sourceTree = "<group>"; };
 		B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListViewController.swift; sourceTree = "<group>"; };
 		B51EC8A724B1C4DF00F3833B /* ListSemester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSemester.swift; sourceTree = "<group>"; };
@@ -141,6 +143,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B513511D24B7BBA700BD219B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */,
+				B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */,
+				B513511924B76E0800BD219B /* SubjectInfoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		B51EC8A124B1097B00F3833B /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,10 +194,9 @@
 		B5D26A4224B4B9F70047A2DC /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */,
-				B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */,
+				B513511D24B7BBA700BD219B /* Cell */,
 				FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */,
-				B513511924B76E0800BD219B /* SubjectInfoCell.swift */,
+				B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -536,6 +547,7 @@
 				FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */,
 				FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */,
 				B5D26A4A24B5E7E60047A2DC /* CreateNewSheetCell.swift in Sources */,
+				B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */,
 				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,

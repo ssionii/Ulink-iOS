@@ -35,10 +35,13 @@ class SubjectInfoCell: UITableViewCell {
         creditLabel.text = String(credit) + "학점"
     }
     
-    func removeBorder(){
-
+    func hideBorder(){
         self.bottomBorder.alpha = 0
     }
+    
+    func showBorder(){
+           self.bottomBorder.alpha = 1
+       }
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {

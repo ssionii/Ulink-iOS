@@ -20,11 +20,11 @@ public protocol TimeTableDataSource {
 }
 
 @IBDesignable public class TimeTable : UIView {
-    private var controller = TimeTableController()
+    public var controller = TimeTableController()
     public var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    public let defaultMinHour : Int = 9
-    public let defaultMaxHour : Int = 19
+    public var defaultMinHour : Int = 9
+    public var defaultMaxHour : Int = 19
 
     public var minimumSubjectStartTime : Int?
     public var subjectItemHeight : CGFloat = 52.0
@@ -35,6 +35,9 @@ public protocol TimeTableDataSource {
 
     private var subjectCells = [SubjectCell]()
     private var colorFilter = ColorFilter.init()
+    
+    private var startPositionX : CGFloat = 0
+    private var startPositionY : CGFloat = 0
 
     public var startDay = TimeTableDay.monday {
         didSet {
@@ -290,9 +293,87 @@ public protocol TimeTableDataSource {
             view.isUserInteractionEnabled = true
             view.addSubview(label)
             collectionView.addSubview(view)
-            label.tag = index
-            view.tag = index
+
         }
+    }
+    
+    // 드래그 부분
+    var baseXList : [CGFloat] = []
+    var baseYList : [CGFloat] = []
+    
+    func makeStartPointFromDrag(input_x : CGFloat, input_y : CGFloat){
+        
+        for weekdayIndex in 0 ... 6 {
+            let base_x = collectionView.bounds.minX + widthOfTimeAxis + averageWidth * CGFloat(weekdayIndex) + rectEdgeInsets.left
+            
+            self.baseXList.append(base_x)
+        }
+        
+        for i in 0 ... 6 {
+            
+            if i != 6 && self.baseXList[i] <= input_x && self.baseXList[i + 1] >= input_x {
+                startPositionX = self.baseXList[i]
+                break
+                }
+        }
+        
+        let averageHeight = subjectItemHeight
+        
+        for hour in 9 ... 20 {
+            for min in 0 ... 3 {
+                var base_y = collectionView.frame.minY + heightOfDaySection + averageHeight * CGFloat(hour - 9) +
+                    CGFloat((CGFloat(min * 15) / 60) * averageHeight)
+                    
+                if min == 0 {
+                    base_y += rectEdgeInsets.top
+                }
+                
+                baseYList.append(base_y)
+            }
+        }
+        
+        for i in 0 ... baseYList.count - 1 {
+                   
+            if i != baseYList.count - 1 && baseYList[i] <= input_y && baseYList[i + 1] >= input_y {
+                    startPositionY = baseYList[i]
+                    break
+            }
+        }
+    }
+        
+
+    func makeHintTimeTable(input_x : CGFloat, input_y : CGFloat, count : Int){
+        
+       for subview in collectionView.subviews{
+            if (subview.tag == count){
+                subview.removeFromSuperview()
+            }
+        }
+        
+        let width = averageWidth - ( rectEdgeInsets.left + rectEdgeInsets.right )
+        
+        var position_y : CGFloat = 0
+        
+        for i in 0 ... baseYList.count - 1 {
+            if i != baseYList.count - 1 && baseYList[i] <= input_y && baseYList[i + 1] >= input_y {
+                    position_y = baseYList[i]
+                    break
+            }
+        }
+        
+        var height = position_y - startPositionY
+        if height > (rectEdgeInsets.top + rectEdgeInsets.bottom) {
+            height -= (rectEdgeInsets.top + rectEdgeInsets.bottom)
+        }
+        
+        let view = UIView(frame: CGRect(x: startPositionX, y: startPositionY, width: width, height: height))
+        view.backgroundColor = UIColor.black
+        view.alpha = 0.3
+        view.tag = count
+        view.layer.cornerRadius = 8
+        
+        collectionView.addSubview(view)
+    
     }
 
     @objc func lectureTapped(_ sender: UITapGestureRecognizer){

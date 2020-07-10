@@ -66,6 +66,10 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         let alert = UIAlertController(title: nil , message: "과목추가 방식을 선택해주세요.", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "드래그로 추가", style: .default, handler: { (_) in
                 
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectByDragViewController") as? AddSubjectByDragViewController else { return }
+                   
+                   nextVC.modalPresentationStyle = .fullScreen
+                    self.present(nextVC, animated: true, completion: nil)
             
             
             }))
@@ -80,7 +84,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
 
         
-        self.present(alert, animated: true, nil)
+        self.present(alert, animated: true, completion: nil)
         
     }
     
@@ -108,10 +112,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         subjectInfoTableView.dataSource = self
         subjectInfoTableView.delegate = self
        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.timeTableCollectionView.reloadData()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -275,8 +275,12 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
           
         subjectInfoCell.setSubjectInfoData(name: data.subjectName, professorName: data.professorName, timeInfo: data.timeInfo, room: data.roomName, category: data.course, credit: data.credit)
         
-        if indexPath.row == subjectInfoList.count - 1 {
-            subjectInfoCell.removeBorder()
+        
+        
+        if indexPath.row == subjectInfoList.count - 1{
+            subjectInfoCell.hideBorder()
+        }else{
+            subjectInfoCell.showBorder()
         }
              
           return subjectInfoCell
@@ -328,7 +332,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         let subjectInfo_3 = SubjectModel(subjectName: "후보군이라굿!", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 2)
         
-        subjectInfoList = [subjectInfo_1, subjectInfo_2, subjectInfo_3, subjectInfo_3]
+        subjectInfoList = [subjectInfo_1]
         
         
         self.subjectInfoTableView.reloadData()
