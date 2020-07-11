@@ -192,8 +192,8 @@
 		B599E62D24ADA9FB0067C112 /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
-				FD1A4AF624B595B0000120A6 /* MainTimeTable */,
 				B5D26A4224B4B9F70047A2DC /* Create */,
+				FD1A4AF624B595B0000120A6 /* MainTimeTable */,
 				B51EC8A424B1BF7A00F3833B /* List */,
 				B51EC8A124B1097B00F3833B /* Setting */,
 			);
