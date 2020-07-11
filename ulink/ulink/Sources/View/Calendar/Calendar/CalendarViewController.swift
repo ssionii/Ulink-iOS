@@ -25,7 +25,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     var currentYear: Int = 0
     var todayDate = Calendar.current.component(.day, from: Date())
     
-    let eventTitle = ["성은이개론", "소프트웨어공학", "영상처리", "식생활문화"]
+    let eventTitle = ["성은이개론", "맹구룩", "영상처리", "식생활문화"]
     let eventColor = [UIColor.powderPink, UIColor.lightblue, UIColor.periwinkleBlue, UIColor.pink]
     
     
@@ -207,12 +207,48 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         //let popUpVC = popStoryBoard.instantiateViewController(withIdentifier: "detailEvent")
         guard let popUpVC = self.storyboard?.instantiateViewController(identifier: "detailEvent") as? DetailEventViewController else {return}
         
+        var passYear = currentYear
+        var passMonth = currentMonth
+        var passDate = todayDate
+        var numOfDetailCells = 0
+        
         //넘겨줄 데이타
-        popUpVC.currentYear = currentYear
-        popUpVC.currentMonth = currentMonth
-        popUpVC.currentDate = indexPath.row - first + 1
+        if (indexPath.row >= 0 && indexPath.row < first){
+            //저번달~
+            if (currentMonth == 1) {
+                passMonth = 12
+                passYear = currentYear - 1
+                if ((passYear % 4 == 0)  && (passMonth == 1)){
+                    numOfDetailCells = 29
+                } else {
+                    numOfDetailCells = numOfDate[currentMonth - 1]
+                }
+            } else {
+                passMonth = currentMonth - 1
+            }
+            passDate = numOfDate[passMonth - 1] - first + indexPath.row + 1
+        } else if (indexPath.row >= first && indexPath.row < getLastDay() + first){
+            //이번달~
+            passYear = currentYear
+            passMonth = currentMonth
+            passDate = indexPath.row - first + 1
+        } else {
+            //다음달~
+            if (currentMonth == 12) {
+                passMonth = 1
+                passYear = currentYear + 1
+            } else {
+                passMonth = currentMonth + 1
+            }
+            passDate = indexPath.row - numOfDate[currentMonth - 1] - first + 1
+        }
+        var passWeekDay = getWeekDay(date: passDate, month: passMonth, year: passYear)
+        
+        popUpVC.currentYear = passYear
+        popUpVC.currentMonth = passMonth
+        popUpVC.currentDate = passDate
         popUpVC.numOfDetailCells = numOfDate[currentMonth-1]
-        popUpVC.currentWeekDay = getWeekDay(date: indexPath.row - first + 1, month: currentMonth, year: currentYear)
+        popUpVC.currentWeekDay = passWeekDay
         
         popUpVC.modalPresentationStyle = .overCurrentContext
         present(popUpVC, animated: false, completion: nil)
