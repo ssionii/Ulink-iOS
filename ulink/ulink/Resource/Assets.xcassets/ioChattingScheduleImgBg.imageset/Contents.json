@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "filename" : "ioNotificationBtnBack.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "ioChattingScheduleImgBg.png",
+      "idiom" : "universal"
     },
     {
-      "filename" : "ioNotificationBtnBack@2x.png",
+      "filename" : "ioChattingScheduleImgBg@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
       "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "ioNotificationBtnBack@3x.png"
+      "filename" : "ioChattingScheduleImgBg@3x.png"
     }
   ],
   "info" : {

@@ -64,9 +64,17 @@ class NoticeViewController: UIViewController {
     }
     
     
+    
+    
+    
+    
+    
+    
     func tableViewStyleSet(){
         
 
+        
+        
         
         hwNoticeTableView.separatorStyle = .none
 

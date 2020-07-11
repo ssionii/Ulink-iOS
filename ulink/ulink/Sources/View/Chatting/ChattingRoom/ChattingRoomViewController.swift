@@ -73,6 +73,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
         
