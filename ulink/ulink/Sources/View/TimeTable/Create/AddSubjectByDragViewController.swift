@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeTableDataSource, AddSubjectDetailDelegate {
     
     @IBOutlet weak var backgroundView: UIView!
@@ -27,7 +28,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         nextVC.setTimeInfo(list: timeTable.tempUserScheduleList)
         nextVC.delegate = self
         
-         self.present(nextVC, animated: true, completion: nil)
+        self.present(nextVC, animated: true, completion: nil)
         
         
     }
@@ -81,31 +82,35 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
 
     // protocol
     func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: SubjectModel) {
-           
-       }
+    }
        
-       func timeTable(timeTable: TimeTable, at dayPerIndex: Int) -> String {
-            return daySymbol[dayPerIndex]
-       }
+    func timeTable(timeTable: TimeTable, at dayPerIndex: Int) -> String {
+        return daySymbol[dayPerIndex]
+    }
        
-       func numberOfDays(in timeTable: TimeTable) -> Int {
-            return daySymbol.count
-       }
+    func numberOfDays(in timeTable: TimeTable) -> Int {
+        return daySymbol.count
+    }
        
-       func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {
-            return subjectList
-       }
+    func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {
+        return subjectList
+    }
     
     func didPressOkButton(timeInfoList: [SubjectModel]) {
         
+        let colorCount = timeTable.getColorCount()
         for i in 0 ... timeInfoList.count - 1 {
-             subjectList.append(timeInfoList[i])
-//             timeTable.subjectItems.append(timeInfoList[i])
-
+            var temp = timeInfoList[i]
+            temp.backgroundColor = colorCount
+            subjectList.append(temp)
+            
+            // timeTable.subjectItems.append(temp)
         }
-        
         timeTable.reDrawTimeTable()
-
+    }
+    
+    func didDeleteTimeInfo(num: Int) {
+        timeTable.removeSchedule(num: num)
     }
        
 

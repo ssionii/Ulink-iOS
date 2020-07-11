@@ -237,6 +237,7 @@ public protocol TimeTableDataSource {
 
                     if tempEndTimeHour > maxEndTimeHour {
                         maxEndTimeHour = tempEndTimeHour
+                        print("들어옴! \(tempEndTimeHour), \(maxEndTimeHour)")
                     }
                 }
             }
@@ -365,6 +366,8 @@ public protocol TimeTableDataSource {
             }
         }
         
+        tempUserScheduleList[count - 1].timeIdx = count
+        
         let height = position_y - startPositionY
 
         let view = UIView(frame: CGRect(x: startPositionX, y: startPositionY, width: width, height: height))
@@ -386,7 +389,6 @@ public protocol TimeTableDataSource {
     
 
     public func removeLastSchedule(){
-        
         let count = tempUserScheduleList.count
         if count > 0 {
             for subview in collectionView.subviews{
@@ -397,6 +399,20 @@ public protocol TimeTableDataSource {
             self.tempUserScheduleList.remove(at: count - 1 )
         }
     }
+    
+    public func removeSchedule(num : Int){
+        for subview in collectionView.subviews{
+            let tag = tempUserScheduleList[num - 1].timeIdx
+            
+            
+            if subview.tag == tag {
+                subview.removeFromSuperview()
+            }
+        }
+        
+        print("시간표에서 schedule 삭제: \(num - 1)")
+         self.tempUserScheduleList.remove(at: num - 1)
+    }
 
     public func reloadData() {
         subjectItems = self.dataSource?.subjectItems(in: self) ?? [SubjectModel]()
@@ -404,10 +420,31 @@ public protocol TimeTableDataSource {
     }
     
     public func reDrawTimeTable(){
-        collectionView.reloadData()
+    
+        self.tempUserScheduleList.removeAll()
         makeTimeTable()
+
     }
     
+    public func getColorCount() -> Int{
+        
+        var colorCount = 0
+        
+        let sortedSubjectItems = subjectItems.sorted(by: {$0.subjectName < $1.subjectName})
+        
+        print("sortedSubjectItems: \(sortedSubjectItems)")
+        
+        if(sortedSubjectItems.count > 1){
+            for i in 0 ... sortedSubjectItems.count - 2 {
+                if sortedSubjectItems[i].subjectName != sortedSubjectItems[i + 1].subjectName {
+                    colorCount += 1
+                }
+            }
+        }else if (sortedSubjectItems.count == 1){
+            colorCount = 1
+        }
+        return colorCount
+    }
 }
 
 extension Array {

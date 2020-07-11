@@ -23,12 +23,12 @@ class SubjectTimeInfoCell: UITableViewCell {
     @IBOutlet weak var bottomBorder: UIView!
     @IBOutlet weak var trashButton: UIButton!
     
-    private var num = 0
+    private var timeIdx = 0
     
     
     @IBAction func toTrash(_ sender: UIButton) {
         
-        self.delegate?.didPressDeleteButton(self.num, message: timeInfoLabel.text)
+        self.delegate?.didPressDeleteButton(timeIdx, message: timeInfoLabel.text)
 
     }
     
@@ -105,7 +105,7 @@ class SubjectTimeInfoCell: UITableViewCell {
     }
     
     public func setNum(num: Int){
-        self.num = num
+        self.timeIdx = num
     }
     
     public func removeBottomBorder(){

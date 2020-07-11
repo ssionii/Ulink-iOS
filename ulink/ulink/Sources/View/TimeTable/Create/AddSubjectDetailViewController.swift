@@ -10,6 +10,7 @@ import UIKit
 
 protocol AddSubjectDetailDelegate {
     func didPressOkButton(timeInfoList : [SubjectModel])
+    func didDeleteTimeInfo(num : Int)
 }
 
 class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SubjectTimeInfoCellDelegate {
@@ -102,8 +103,6 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         volunteerBtn.setImage(UIImage(named: "timetableaddTextfieldBtnVolunteerSelected"), for: .normal)
     }
     
-    
-    
     @IBAction func cancelBtn(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -150,7 +149,9 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     public func setTimeInfo(list : [TimeInfoModel]){
-        timeInfoList = list
+        
+        timeInfoList = list.sorted(by: {$0.weekDay.rawValue < $1.weekDay.rawValue})
+        
     }
 
     
@@ -185,13 +186,12 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         }
         
         if indexPath.row == timeInfoList.count - 1 {
-            print("last")
             subjectTimeInfoCell.removeBottomBorder()
         }
         
         subjectTimeInfoCell.selectionStyle = .none
         subjectTimeInfoCell.delegate = self
-        subjectTimeInfoCell.setNum(num: indexPath.row)
+        subjectTimeInfoCell.setNum(num: timeInfoList[indexPath.row].timeIdx)
         
         return subjectTimeInfoCell
     }
@@ -229,10 +229,20 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         let indexPath = IndexPath(row: tag, section: 0)
                print("tag: \(tag)")
 
-               timeInfoList.remove(at: tag)
-               subjectTimeInfoTableView.deleteRows(at: [indexPath], with: .fade)
-               
-              subjectTimeInfoTableView.reloadData()
+        var removeIdx = 0
+        
+        for i in 0 ... timeInfoList.count - 1 {
+            if timeInfoList[i].timeIdx == tag {
+                removeIdx = i
+                 print("removeIdx : \(removeIdx)")
+            }
+        }
+        
+        timeInfoList.remove(at: removeIdx)
+        
+        delegate?.didDeleteTimeInfo(num: tag)
+        subjectTimeInfoTableView.deleteRows(at: [indexPath], with: .fade)
+        subjectTimeInfoTableView.reloadData()
     }
     
     @objc func textFieldDidChange(textField: UITextField){
