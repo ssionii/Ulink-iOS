@@ -13,7 +13,7 @@ public struct TimeTableModel {
     public let name : String
     public let semester : String
     public let isMain : Int
-    public var subjectList : [Subject]
+    public var subjectList : [SubjectModel]
     
     // list에서 이용
     public init(idx: Int, name: String, semesterInput: String, isMain: Int){
@@ -40,7 +40,7 @@ public struct TimeTableModel {
            
     }
     
-    public init(idx: Int, name: String, subjectList: [Subject]){
+    public init(idx: Int, name: String, subjectList: [SubjectModel]){
         self.idx = idx
         self.name = name
         self.subjectList = subjectList
