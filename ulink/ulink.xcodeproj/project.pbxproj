@@ -15,6 +15,8 @@
 		299DACF424B78785008181FA /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF324B78785008181FA /* EventCell.swift */; };
 		299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DACFD24B813FE008181FA /* Calendar.storyboard */; };
 		299DAD0224B837B7008181FA /* EventListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0124B837B7008181FA /* EventListHeaderCell.swift */; };
+		299DAD0724B8D8E0008181FA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0624B8D8E0008181FA /* AlarmViewController.swift */; };
+		299DAD0924B8F239008181FA /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0824B8F239008181FA /* AlarmCell.swift */; };
 		8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */; };
 		B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A224B1099700F3833B /* TimeTableSettingViewController.swift */; };
 		B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */; };
@@ -73,6 +75,8 @@
 		299DACF324B78785008181FA /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		299DACFD24B813FE008181FA /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		299DAD0124B837B7008181FA /* EventListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListHeaderCell.swift; sourceTree = "<group>"; };
+		299DAD0624B8D8E0008181FA /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		299DAD0824B8F239008181FA /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		B51EC8A224B1099700F3833B /* TimeTableSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableSettingViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +140,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		299DAD0324B8D848008181FA /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				2996A40E24B2277E007402FE /* DetailEventCell.swift */,
+				B5C8A3C724AF12DE00B1B318 /* CalendarViewController.swift */,
+				2996A40C24B223A1007402FE /* DetailEventViewController.swift */,
+				292B1CEC24AF0AA700B4EC79 /* DayCell.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		299DAD0524B8D87E008181FA /* EventList */ = {
+			isa = PBXGroup;
+			children = (
+				299DACF324B78785008181FA /* EventCell.swift */,
+				299DACF124B785FE008181FA /* EventListViewController.swift */,
+				299DAD0124B837B7008181FA /* EventListHeaderCell.swift */,
+			);
+			path = EventList;
+			sourceTree = "<group>";
+		};
 		674E96E3FC3FBA517F3C1116 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,13 +266,10 @@
 		FD19DC1B24ADD4CF000C2AEC /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				292B1CEC24AF0AA700B4EC79 /* DayCell.swift */,
-				2996A40E24B2277E007402FE /* DetailEventCell.swift */,
-				B5C8A3C724AF12DE00B1B318 /* CalendarViewController.swift */,
-				2996A40C24B223A1007402FE /* DetailEventViewController.swift */,
-				299DACF124B785FE008181FA /* EventListViewController.swift */,
-				299DACF324B78785008181FA /* EventCell.swift */,
-				299DAD0124B837B7008181FA /* EventListHeaderCell.swift */,
+				299DAD0524B8D87E008181FA /* EventList */,
+				299DAD0324B8D848008181FA /* Calendar */,
+				299DAD0624B8D8E0008181FA /* AlarmViewController.swift */,
+				299DAD0824B8F239008181FA /* AlarmCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -530,10 +552,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299DAD0724B8D8E0008181FA /* AlarmViewController.swift in Sources */,
 				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
 				2996A40F24B2277E007402FE /* DetailEventCell.swift in Sources */,
 				B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */,
 				299DACF024B70AFF008181FA /* EventModel.swift in Sources */,
+				299DAD0924B8F239008181FA /* AlarmCell.swift in Sources */,
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				B599E62F24ADAA320067C112 /* Subject.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
