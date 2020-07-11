@@ -15,6 +15,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var chattingTitleLabel: UILabel!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageTextField: UITextField!
     var uid : String?
     var chatRoomUid : String?
@@ -34,6 +35,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     var roomTitle : String = ""
     override func viewDidLoad() {
         
+        
+        setBorder()
+          
+        
         setTitleLabel()
         super.viewDidLoad()
         uid = Auth.auth().currentUser?.uid
@@ -41,6 +46,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         sendButton.addTarget(self,action:#selector(createRoom), for:.touchUpInside)
+        
+        chattingTableView.delegate = self
+        chattingTableView.dataSource = self
 
         
         
@@ -48,6 +56,13 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         setlabelBadge()
         
         checkChatRoom()
+  
+        print("현재 uid : \(self.uid ?? "uid 실패")")
+        
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        
+        view.addGestureRecognizer(tap)
+
         
         
         
@@ -58,11 +73,88 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+        
+    }
+    
+    
+    
+    
+    @objc func keyboardWillShow(notification : Notification){
+
+
+        
+        
+        if let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue{
+            
+            self.bottomConstraint.constant = keyboardSize.height * -1
+
+        
+
+        UIView.animate(withDuration: 0 , animations: {
+
+            self.view.layoutIfNeeded()
+
+        }, completion: {
+
+            (complete) in
+
+            
+
+            if self.comments.count > 0 {
+
+                self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 1 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+
+            }
+
+        })
+
+    }
+    }
+    
+    
+    @objc func keyboardWillHide(notification: Notification){
+        
+        self.bottomConstraint.constant = 0
+        
+        self.view.layoutIfNeeded()
+        
+    }
+    
+    
+    
+    @objc func dismissKeyBoard(){
+        self.view.endEditing(true)
+    }
+    
+        
+
+    
         
     
     func setTitleLabel(){
-        print("전달받은 title: \(self.chattingRoomTitle ?? "수업 채팅방")")
-        self.chattingTitleLabel.text = self.chattingRoomTitle ?? "수업 채팅방"
+
+ 
+    }
+    
+    func setBorder()
+    {
+        self.chattingTableView.separatorStyle = .none
+        self.chattingTableView.backgroundColor = .ulinkGray
+        
+
+
     }
         
     func loadMessage(){
@@ -84,33 +176,43 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
+    // MARK:- table Delegate / Datasource
+    
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-
     }
     
     
     
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return comments.count
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return messageArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if(self.comments[indexPath.row].uid == uid)
+        if(uid != nil)
         {
-            let view = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
-            view.label_message.text = self.comments[indexPath.row].message
-            view.label_message.numberOfLines = 0
+//            let view = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
+//            view.label_message.text = self.comments[indexPath.row].message
+//            view.label_message.numberOfLines = 0
+//
+//            view.layer.borderColor = .none
+//
+//            return view
             
-            view.layer.borderColor = .none
+            
+            let view =  tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
+            view.label_message.text = self.messageArray[indexPath.row]
+            
+            view.backgroundColor = .ulinkGray
+            
+            
             
             return view
             
@@ -184,21 +286,26 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     func hideBar(){
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
-
-
         
     }
     
     func settingNavigationBar(){
         
         
-        
-    
 
     }
     
-    @objc func createRoom(){
+    
+
+
         
+        
+        // 채팅방 생성 코드인데.. 방에 들어온 이상 만들 필요가 있나 싶기도 하고
+        @objc func createRoom(){
+            
+            
+            //MARK:- 버튼 눌렀을 떄 ~~~
+            
     
 
         let createRoomInfo : Dictionary<String,Any> = [ "users" : [
@@ -210,29 +317,19 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             ]
 
         ]
+        
+        
+        
+        print("uid : \(uid!)")
+        print("Roomuid : \(chatRoomUid)")
+        print("message : \(messageTextField.text!)")
+        
 
-        if(chatRoomUid == nil){ // 방 코드가존재하지 않는다면..?
-
-            self.sendButton.isEnabled = false
-
-            // 방 생성 코드
-
-            Database.database().reference().child("chatrooms").childByAutoId().setValue(createRoomInfo, withCompletionBlock: { (err, ref) in
-
-                if(err == nil){
-
-                    self.checkChatRoom()
-
-                }
-
-            })
-
-        }else{      // 방이 존재한다면..?
+            // 방이 존재한다면..?
 
             let value :Dictionary<String,Any> = [
                 
-                
-
+            
                 "uid" : uid!,
 
                 "message" : messageTextField.text!
@@ -245,20 +342,24 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
             
             Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: { (err,ref) in
+                
+                
+                
+                
+
+                DispatchQueue.main.async {
+ 
+                    self.checkChatRoom()
+                    self.chattingTableView.reloadData()
+
+                }
                 self.messageTextField.text = ""
             })
         
-            //            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("title").setValue("개발")
-//            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("classUid").setValue("3")
-//            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
-            
-
-            
-            
-            
 
 
-        }
+
+        
 
     
     }
@@ -290,25 +391,48 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                         {
 
                             print("채팅방 제목")
-                            print(index.value["title"] ?? "helpme")
+                            print(index.value["title"] ?? "수업채팅방")
                             
                             self.roomTitle = index.value["title"] as? String ?? "수업채팅방"
                             
+                   
+                            self.chattingTitleLabel.text = self.roomTitle
+                            
+                            
+                            
+                            
+                            
                             let message = index.value["comments"] as! [String: [String:Any]]
                             
-                            for idx in message
-                            {
-                                print(idx.value["message"] ?? "")
-                                self.messageArray.append(idx.value["message"] as? String ?? "")
-                            }
+                            self.messageArray.removeAll()
+                                for idx in message
+                                {
+                                    print(idx.value["message"] ?? "")
+                                    self.messageArray.append(idx.value["message"] as? String ?? "")
+                                    
+                                    print("현재 메세지 어레이가 이렇습니다")
+                                    print(self.messageArray)
+                                }
                             
+                            
+        
+                            
+
+
                             
                
                             
                                 
                         }
+
                         
                     }
+                    
+                    
+                    DispatchQueue.main.async {
+                                self.chattingTableView.reloadData()
+                            }
+                                
                     
                     print("현재 방의 key 값 : \(self.destinationUid ?? "")")
                     print("어찌됐든 접속 성공")
@@ -326,8 +450,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                     if let chatRoomdic = item.value as? [String:AnyObject]{
                         print("여기는 들어오시나여?")
   
-                        let chatModel = ChatModel(JSON: chatRoomdic)
-                        if(chatModel?.users[self.destinationUid!] == true){
+            
+                        if(self.destinationUid != nil){
                             self.chatRoomUid = item.key
                             self.sendButton.isEnabled = true
    
@@ -383,6 +507,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
             }
             
+            print("현재 메세지 ")
+            print(self.comments)
+            
       
             self.chattingTableView.reloadData()
             
@@ -403,6 +530,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 class MyMessageCell : UITableViewCell {
     
     @IBOutlet weak var label_message:UILabel!
+    
+    
+    
     
     
     
