@@ -20,11 +20,21 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
         alarmTableView.dataSource = self
         alarmTableView.delegate = self
         
-        headerView.layer.addBorder(edge: [.bottom], color: UIColor.whiteThree, thickness: 1)
+        headerView.layer.addBorder(edge: [.bottom], color: UIColor.veryLightPinkTree, thickness: 1)
     }
     
+    
+    @IBAction func backToTimeTable(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: tableVeiw delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 77
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -15,8 +15,9 @@
 		299DACF424B78785008181FA /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF324B78785008181FA /* EventCell.swift */; };
 		299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DACFD24B813FE008181FA /* Calendar.storyboard */; };
 		299DAD0224B837B7008181FA /* EventListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0124B837B7008181FA /* EventListHeaderCell.swift */; };
-		299DAD0724B8D8E0008181FA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0624B8D8E0008181FA /* AlarmViewController.swift */; };
-		299DAD0924B8F239008181FA /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0824B8F239008181FA /* AlarmCell.swift */; };
+		299DAD0B24BAB8ED008181FA /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DAD0A24BAB8ED008181FA /* Alarm.storyboard */; };
+		299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0D24BABC93008181FA /* AlarmViewController.swift */; };
+		299DAD1024BABEA8008181FA /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0F24BABEA8008181FA /* AlarmCell.swift */; };
 		8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */; };
 		B513511A24B76E0800BD219B /* SubjectInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511924B76E0800BD219B /* SubjectInfoCell.swift */; };
 		B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */; };
@@ -89,8 +90,9 @@
 		299DACF324B78785008181FA /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		299DACFD24B813FE008181FA /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		299DAD0124B837B7008181FA /* EventListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListHeaderCell.swift; sourceTree = "<group>"; };
-		299DAD0624B8D8E0008181FA /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
-		299DAD0824B8F239008181FA /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		299DAD0A24BAB8ED008181FA /* Alarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alarm.storyboard; sourceTree = "<group>"; };
+		299DAD0D24BABC93008181FA /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		299DAD0F24BABEA8008181FA /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		B513511924B76E0800BD219B /* SubjectInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfoCell.swift; sourceTree = "<group>"; };
@@ -187,6 +189,15 @@
 				299DAD0124B837B7008181FA /* EventListHeaderCell.swift */,
 			);
 			path = EventList;
+			sourceTree = "<group>";
+		};
+		299DAD0C24BAB908008181FA /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				299DAD0D24BABC93008181FA /* AlarmViewController.swift */,
+				299DAD0F24BABEA8008181FA /* AlarmCell.swift */,
+			);
+			path = Alarm;
 			sourceTree = "<group>";
 		};
 		674E96E3FC3FBA517F3C1116 /* Pods */ = {
@@ -309,8 +320,6 @@
 			children = (
 				299DAD0524B8D87E008181FA /* EventList */,
 				299DAD0324B8D848008181FA /* Calendar */,
-				299DAD0624B8D8E0008181FA /* AlarmViewController.swift */,
-				299DAD0824B8F239008181FA /* AlarmCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -450,6 +459,7 @@
 				FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */,
 				B5D26A4024B4B76F0047A2DC /* CreateTimeTable.storyboard */,
 				FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */,
+				299DAD0A24BAB8ED008181FA /* Alarm.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -457,6 +467,7 @@
 		FD616D0124AA6631007D54B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				299DAD0C24BAB908008181FA /* Alarm */,
 				FD19DC1B24ADD4CF000C2AEC /* Calendar */,
 				B599E62D24ADA9FB0067C112 /* TimeTable */,
 				FD19DC0524AD0198000C2AEC /* UserLogin */,
@@ -586,6 +597,7 @@
 				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
 				299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */,
 				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
+				299DAD0B24BAB8ED008181FA /* Alarm.storyboard in Resources */,
 				B5D26A4124B4B76F0047A2DC /* CreateTimeTable.storyboard in Resources */,
 				FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */,
 				FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */,
@@ -642,13 +654,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				299DAD0724B8D8E0008181FA /* AlarmViewController.swift in Sources */,
 				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
 				2996A40F24B2277E007402FE /* DetailEventCell.swift in Sources */,
 				FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */,
 				B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */,
 				299DACF024B70AFF008181FA /* EventModel.swift in Sources */,
-				299DAD0924B8F239008181FA /* AlarmCell.swift in Sources */,
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */,
 				B599E62F24ADAA320067C112 /* SubjectModel.swift in Sources */,
@@ -667,10 +677,8 @@
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
-
 				FD1A4AFD24B60427000120A6 /* NoticeDetailViewController.swift in Sources */,
 				299DAD0224B837B7008181FA /* EventListHeaderCell.swift in Sources */,
-
 				B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */,
 				FD8EE90E24B83744000E5A48 /* MessageModel.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
@@ -692,6 +700,7 @@
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
 				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,
 				FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */,
+				299DAD1024BABEA8008181FA /* AlarmCell.swift in Sources */,
 				FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */,
 				FD19DC0D24AD0356000C2AEC /* APIConstant.swift in Sources */,
 				FD1A4AFA24B5A0B7000120A6 /* CreateTimeTableCell.swift in Sources */,
@@ -702,6 +711,7 @@
 				FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */,
 				B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
+				299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */,
 				FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -848,13 +858,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4JPTB87CQ5;
 				INFOPLIST_FILE = ulink/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
+				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -867,13 +877,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4JPTB87CQ5;
 				INFOPLIST_FILE = ulink/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
+				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
