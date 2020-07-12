@@ -35,18 +35,21 @@ class EventCell: UITableViewCell {
     
     func set(_ contentInfo: Event){
         
+        print("set 호출됨")
         
         nameLabel.text = contentInfo.name
-        timeLabel.text = contentInfo.start_time
         if (contentInfo.category == "과제"){
             categoryLabel.backgroundColor = UIColor.pink
             categoryLabel.setTitle("과제", for: .normal)
+            timeLabel.text = contentInfo.end_time
         } else if (contentInfo.category == "수업"){
             categoryLabel.backgroundColor = UIColor.robinSEgg
             categoryLabel.setTitle("수업", for: .normal)
+            timeLabel.text = ""
         } else {
             categoryLabel.backgroundColor = UIColor.periwinkleBlue
             categoryLabel.setTitle("시험", for: .normal)
+            timeLabel.text = contentInfo.start_time
         }
     }
     
