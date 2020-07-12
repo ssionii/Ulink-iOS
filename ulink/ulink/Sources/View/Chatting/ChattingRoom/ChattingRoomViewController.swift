@@ -25,7 +25,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     var comments : [ChatModel.Comment] = []
     var userModel: UserModel?
     
-    var messageArray : [String] = []
+    var messageArray : [MessageModel] = []
+    
+    var databaseRef : DatabaseReference?
+    var observe : UInt?
     
     
     @IBOutlet weak var chattingTableView: UITableView!
@@ -85,6 +88,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
+        databaseRef?.removeObserver(withHandle: observe!)
         
     }
     
@@ -196,7 +200,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if(uid != nil)
+        
+
+        if(messageArray[indexPath.row].uid == uid) // 이게 내 메세지면은
         {
 //            let view = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
 //            view.label_message.text = self.comments[indexPath.row].message
@@ -208,9 +214,18 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             
             let view =  tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
-            view.label_message.text = self.messageArray[indexPath.row]
+            view.labelMessage.text = self.messageArray[indexPath.row].message
+            
+            view.labelMessage.numberOfLines = 0
+            
+            if let time =
+                self.messageArray[indexPath.row].time{
+                view.timeLabel.text = time.toDayTime
+            }
             
             view.backgroundColor = .ulinkGray
+            
+            setReadCount(label: view.readCountLabel, position: indexPath.row)
             
             
             
@@ -220,15 +235,23 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         else
         {
             
-            let view = tableView.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as! destinationMessageCell
+            let view = tableView.dequeueReusableCell(withIdentifier: "destinationMessageCell", for: indexPath) as! destinationMessageCell
 
-            view.label_name.text = userModel?.userName
+            view.labelName.text = userModel?.userName
 
-            view.label_message.text = self.comments[indexPath.row].message
-
-            view.label_message.numberOfLines = 0;
+            view.labelMessage.text = self.messageArray[indexPath.row].message
             
+
+
+            view.labelMessage.numberOfLines = 0;
+            
+            if let time =
+                self.messageArray[indexPath.row].time{
+                view.timeLabel.text = time.toDayTime
+            }
             view.layer.borderColor = .none
+            
+              setReadCount(label: view.readCountLabel, position: indexPath.row)
             
             return view
 
@@ -332,7 +355,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
                 "uid" : uid!,
 
-                "message" : messageTextField.text!
+                "message" : messageTextField.text!,
+                
+                "timestamp" : ServerValue.timestamp()
 
             ]
             
@@ -374,14 +399,25 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         Database.database().reference().child("chatrooms").queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value)
         { (datasnapshot) in
             
-
+            
+                print("STAR")
+            print(datasnapshot)
+            
+            
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
 
+                print("item key 값 : \(item.key)")
+                print("destination UID 값 : \(self.destinationUid)")
+                
+                
+                
+                
                 if self.destinationUid == item.key{     // 현재 내가 들어간 방과 목적지 uid가 일치한다면
                     
                     
                     
                     let values = datasnapshot.value
+                    var count : Int = 0
                     let dic = values as! [String: [String:Any]]
                     
                     for index in dic {
@@ -390,6 +426,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                         if self.destinationUid == index.key
                         {
 
+                            
+                            
+                            
                             print("채팅방 제목")
                             print(index.value["title"] ?? "수업채팅방")
                             
@@ -399,23 +438,45 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                             self.chattingTitleLabel.text = self.roomTitle
                             
                             
-                            
-                            
-                            
-                            let message = index.value["comments"] as! [String: [String:Any]]
-                            
-                            self.messageArray.removeAll()
+                       
+                            if index.value["comments"] != nil{
+                                let message = index.value["comments"] as! [String: [String:Any]]
+                                
+             
+                                self.messageArray.removeAll()
                                 for idx in message
                                 {
-                                    print(idx.value["message"] ?? "")
-                                    self.messageArray.append(idx.value["message"] as? String ?? "")
+                                    count = 0
+                                    print("idx : \(idx)")
+ 
+                                    let msg = MessageModel()
+                                    msg.message = idx.value["message"] as? String ?? ""
+                                    msg.time = idx.value["timestamp"] as? Int ?? -1
+                                    msg.uid = idx.value["uid"] as? String ?? ""
+                                    
+                                    let countPeople = idx.value["readUser"] as! Dictionary<String,Any>
+                                    
+                                    for _ in countPeople
+                                    {
+                                        count = count + 1
+                                    }
+                                    
+                                    print("현재 읽은 사람 수 : \(count)")
+                                    msg.readCount = count
+                                    
+                                    
+                                    self.messageArray.append(msg)
+//                                    self.messageArray.append(idx.value["message"] as? String ?? "")
                                     
                                     print("현재 메세지 어레이가 이렇습니다")
                                     print(self.messageArray)
                                 }
+                                
+                                
+                                
+                            }
                             
-                            
-        
+
                             
 
 
@@ -454,6 +515,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                         if(self.destinationUid != nil){
                             self.chatRoomUid = item.key
                             self.sendButton.isEnabled = true
+                            self.getMessageList()
    
                             print("이거 되는거임??")
                         }
@@ -478,6 +540,29 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
+    func setReadCount(label : UILabel?, position : Int?)
+    {
+        
+        let readCount = self.messageArray[position!].readCount
+        
+        Database.database().reference().child("chatrooms").child(chatRoomUid!).child("users").observe(.value) { (datasnapshot) in
+            
+            
+            let dic = datasnapshot.value as! [String:Any]
+            
+            let noReadCount = dic.count - readCount! - 1
+
+            
+            if(noReadCount > 0){
+                label?.isHidden = false
+                label?.text = String(noReadCount)
+                
+            }else{
+                label?.isHidden = true
+            }
+        }
+    }
+    
     func getDestinationInfo(){
         
         Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
@@ -493,45 +578,87 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func getMessageList() {
         
-        Database.database().reference().child("chatrooms").child(self.chatRoomUid!).child("comments").observe(DataEventType.value, with: { (datasnapshot) in
+        databaseRef = Database.database().reference().child("chatrooms").child(self.chatRoomUid!).child("comments")
 
-            self.comments.removeAll()
+        observe =  databaseRef?.observe(.value, with: { (datasnapshot) in
 
             
+        
+            self.comments.removeAll()
+            
+            var readUserDic : Dictionary<String,AnyObject> = [:]
+            
+
+//            print("databaseRef")
+//            print(self.databaseRef)
+//               print("observe")
+//            print(self.observe)
+//
+            print("datasnapshot : \(datasnapshot)")
 
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
+                
+                let key = item.key as String
+                
 
                 let comment = ChatModel.Comment(JSON: item.value as! [String:AnyObject])
+                
+          
+                
+                comment?.readUsers[self.uid!] = true
+                readUserDic[key] = comment?.toJSON() as! NSDictionary
 
                 self.comments.append(comment!)
 
             }
             
-            print("현재 메세지 ")
-            print(self.comments)
+            let nsDic = readUserDic as NSDictionary
             
-      
-            self.chattingTableView.reloadData()
-            
-            if self.comments.count > 0 {
-                print("밑으로 스크롤 해~~~")
-                self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: .bottom, animated: true)
+            datasnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any]) { (err, ref) in
+                    self.chattingTableView.reloadData()
+                    
+//                    if self.comments.count > 0 {
+//                        print("밑으로 스크롤 해~~~")
+//                        self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: .bottom, animated: true)
+//                    }
+//
+
             }
-        
+
+      
 
             
             }
         )}
+        
+}
     
+
+
+
+extension Int{
+    
+    
+    var toDayTime : String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "HH:mm"
+        let date = Date(timeIntervalSince1970: Double(self)/1000)
+        
+        return dateFormatter.string(from: date)
+    }
 }
 
 
 
 class MyMessageCell : UITableViewCell {
     
-    @IBOutlet weak var label_message:UILabel!
+    @IBOutlet weak var labelMessage:UILabel!
     
     
+    @IBOutlet weak var readCountLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     
     
@@ -540,11 +667,14 @@ class MyMessageCell : UITableViewCell {
 
 
 class destinationMessageCell : UITableViewCell {
-    @IBOutlet weak var label_message:UILabel!
-    @IBOutlet weak var label_name:UILabel!
+    @IBOutlet weak var labelMessage:UILabel!
+    @IBOutlet weak var labelName:UILabel!
+    
+
+    @IBOutlet weak var readCountLabel: UILabel!
     
     
-    
+    @IBOutlet weak var timeLabel: UILabel!
 }
 
 

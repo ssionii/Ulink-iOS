@@ -28,15 +28,28 @@ class LoginViewController: UIViewController {
         
         
         try! Auth.auth().signOut()
+            
+            
+            self.navigationController?.navigationBar.isHidden = true
+            
 
         
         
         Auth.auth().addStateDidChangeListener{ (auth, user) in
             if(user != nil){
                 print(" login Success ")
-                let homeview = self.storyboard?.instantiateViewController(withIdentifier: "homeTabBarController")
-                homeview?.modalPresentationStyle = .fullScreen
-                self.present(homeview!, animated: true, completion: nil)
+                
+                
+                let storyboard = UIStoryboard(name:"Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "homeTabBarController")
+                
+                
+               
+                
+                
+                self.navigationController!.pushViewController(vc, animated: true)
+//                homeview?.modalPresentationStyle = .fullScreen
+//                self.present(homeview!, animated: true, completion: nil)
             }
         }
         

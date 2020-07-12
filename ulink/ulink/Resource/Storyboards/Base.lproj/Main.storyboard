@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ka9-Ka-MsO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="anN-Xf-F1d">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -26,7 +26,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuj-Lz-5bq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="-7"/>
+            <point key="canvasLocation" x="2774.4000000000001" y="-7.1964017991004505"/>
         </scene>
         <!--Chatting-->
         <scene sceneID="3Kk-Q5-ubm">
@@ -36,7 +36,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgi-H8-6yn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831" y="171"/>
+            <point key="canvasLocation" x="2768.8000000000002" y="170.91454272863569"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="V8x-Xx-zDN">
@@ -46,7 +46,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cng-pS-yJO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834" y="396"/>
+            <point key="canvasLocation" x="2772" y="395.80209895052479"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="PxO-bd-Kg0">
@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZA4-kx-q2c" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="76" y="182" width="261" height="34"/>
+                                <rect key="frame" x="76" y="226" width="261" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="261" id="H74-ft-zM3"/>
                                     <constraint firstAttribute="height" constant="34" id="ngp-91-yt2"/>
@@ -66,7 +66,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="46E-Vt-268" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="76" y="257" width="261" height="34"/>
+                                <rect key="frame" x="76" y="301" width="261" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="261" id="Q8Y-jl-2HK"/>
                                     <constraint firstAttribute="height" constant="34" id="i2t-dl-L1E"/>
@@ -75,14 +75,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQx-Db-y3r">
-                                <rect key="frame" x="167" y="377" width="95" height="30"/>
+                                <rect key="frame" x="167" y="421" width="95" height="30"/>
                                 <state key="normal" title="경각심을 가지자"/>
                                 <connections>
                                     <action selector="loginButtonClicked:" destination="mLs-Gc-w1G" eventType="touchUpInside" id="S1h-pM-oiY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a44-fg-KoJ">
-                                <rect key="frame" x="187" y="462" width="39" height="30"/>
+                                <rect key="frame" x="187" y="506" width="39" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VJi-TZ-3ca"/>
                                     <constraint firstAttribute="width" constant="39" id="rCn-m7-cc3"/>
@@ -106,6 +106,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ion-HE-PxW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="HnE-bn-xy3"/>
                     <connections>
                         <outlet property="loginButton" destination="xQx-Db-y3r" id="bpX-BJ-dcs"/>
                         <outlet property="nameTextField" destination="ZA4-kx-q2c" id="WJV-qw-PI1"/>
@@ -114,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZb-F8-Owz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1314.4000000000001" y="123.68815592203899"/>
+            <point key="canvasLocation" x="-375.19999999999999" y="123.68815592203899"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="GCn-MU-RFP">
@@ -211,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvX-oL-Mdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1314.4000000000001" y="829.83508245877067"/>
+            <point key="canvasLocation" x="63" y="915"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pk1-Yy-0wc">
@@ -232,7 +233,25 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmD-Ko-UQx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1069.5999999999999" y="137.18140929535232"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aEV-fJ-TKf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="anN-Xf-F1d" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q4Q-J2-sJB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mLs-Gc-w1G" kind="relationship" relationship="rootViewController" id="PNb-Hu-tWO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tda-Ql-2m7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1314.4000000000001" y="123.68815592203899"/>
         </scene>
     </scenes>
     <resources>

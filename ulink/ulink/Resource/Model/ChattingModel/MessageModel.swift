@@ -10,18 +10,33 @@ import Foundation
 
 
 
-class ChattingModel : NSObject {
+class MessageModel : NSObject {
     
     
-    var message : String
-    var uid : String
+    public var message : String?
+    public var uid : String?
+    public var time : Int?
+    public var readCount : Int?
+
     
     
-    init(Message : String, Uid : String)
+    init(Message : String, Uid : String, Time : Int, ReadCount : Int)
     {
         self.message = Message
         self.uid = Uid
+        self.time = Time
+        self.readCount = ReadCount
     }
+    
+    
+    override init()
+    {
+        self.message = ""
+        self.uid = ""
+        self.time = -1
+        self.readCount = -1
+    }
+
 
 
     
