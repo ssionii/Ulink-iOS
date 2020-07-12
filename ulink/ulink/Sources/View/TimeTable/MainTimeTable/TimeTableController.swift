@@ -37,7 +37,7 @@ public class TimeTableController: UIViewController {
             self.timeTable.makeStartPointFromDrag(input_x: posiX, input_y: posiY)
         }
         
-        self.timeTable.makeHintTimeTable(input_x : posiX, input_y : posiY)
+        self.timeTable.makeHintTimeTableForDrag(input_x : posiX, input_y : posiY)
        
     }
 

@@ -113,6 +113,6 @@ class SubjectTimeInfoCell: UITableViewCell {
     }
     
     public func hideTrash(){
-        trashButton.removeFromSuperview()
+        trashButton.alpha = 0
     }
 }

@@ -26,6 +26,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var candidateLabel: UILabel!
     @IBOutlet weak var candidateBottomView: UIView!
     
+    private var isCandidateView = false
 
     @IBAction func finishVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -131,6 +132,10 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     private func setSubjectInfoTableView(){
         subjectInfoTableView.bounces = false
+       
+        subjectInfoTableView.estimatedRowHeight = 86
+        subjectInfoTableView.rowHeight = UITableView.automaticDimension
+       
     }
     
     private func setButton(){
@@ -165,13 +170,64 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     
     private func setSubjectInfoList(){
-        let subjectInfo_1 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3)
         
-        let subjectInfo_2 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3)
         
-        let subjectInfo_3 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 2)
+        let tempDay = [0, 2]
+        let tempDateTime = ["09:00-13:30","09:00-13:30"]
+        
+                print("hello! \(tempDay)")
+
+        let subjectInfo_1 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", timeInfo: makeToTimeInfoFormat(day: tempDay, dateTime: tempDateTime), roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
+        
+        let subjectInfo_2 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", timeInfo: makeToTimeInfoFormat(day: [1, 3], dateTime: ["13:00-14:30","13:00-14:30"]), roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-632", day: [1, 3], dateTime: ["13:00-14:30","13:00-14:30"])
+        
+        let subjectInfo_3 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", timeInfo: makeToTimeInfoFormat(day: tempDay, dateTime: tempDateTime), roomName: "명신관614", course: "전공선택", credit:2 , subjectNum: "2016123-502",  day: tempDay, dateTime: tempDateTime)
         
         subjectInfoList = [subjectInfo_1, subjectInfo_2, subjectInfo_3]
+        
+        print("hello\(subjectInfoList[1].dateTime)")
+        
+    }
+    
+    private func makeToTimeInfoFormat(day : [Int], dateTime : [String]) -> String {
+        
+        var result = ""
+        
+        for i in 0 ... day.count - 1 {
+            switch day[i] {
+            case 0:
+                result += "월 "
+                break
+            case 1:
+                result += "화 "
+                break
+            case 2:
+                result += "수 "
+                break
+            case 3:
+                result += "목 "
+                break
+            case 4:
+                result += "금 "
+                break
+            case 5:
+                result += "토 "
+                break
+            default:
+                result += "월 "
+                break
+            }
+            
+            result += dateTime[i].split(separator: "-")[0]
+            result += " - "
+            result += dateTime[i].split(separator: "-")[1]
+            
+            if i != day.count - 1 {
+                result += ", "
+            }
+        }
+        
+        return result
         
     }
     
@@ -198,6 +254,28 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         timeTableList.append(TimeTableModel(idx: 1, name: "시간표3", subjectList: []))
         self.timeTableCollectionView.reloadData()
+        
+    }
+    
+    func drawHintTimeTable(row: Int, day: [Int], dateTime: [String]){
+    
+        let indexPath = IndexPath(row: row, section: 0)
+    
+        let timeTableCell = timeTableCollectionView.cellForItem(at: indexPath) as! CreateTimeTableCell
+        
+        timeTableCell.timeTable.reloadData()
+        
+        timeTableCell.timeTable.makeHintTimeTable(day : day, dateTime : dateTime)
+        
+    }
+    
+    func removeHintTimeTable(row: Int){
+        let indexPath = IndexPath(row: row, section: 0)
+        
+        let timeTableCell = timeTableCollectionView.cellForItem(at: indexPath) as? CreateTimeTableCell
+        timeTableCell?.timeTable.removeHintTable()
+        
+        timeTableCell?.timeTable.reloadData()
         
     }
     
@@ -266,33 +344,91 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subjectInfoList.count
-      }
+    }
       
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let subjectInfoCell : SubjectInfoCell = subjectInfoTableView.dequeueReusableCell(withIdentifier: "subjectInfoCell", for: indexPath) as? SubjectInfoCell else {return SubjectInfoCell()}
-             
-        let data = subjectInfoList[indexPath.row]
-          
-        subjectInfoCell.setSubjectInfoData(name: data.subjectName, professorName: data.professorName, timeInfo: data.timeInfo, room: data.roomName, category: data.course, credit: data.credit)
         
+        if (subjectInfoList[indexPath.row].isExpand) {
         
-        
-        if indexPath.row == subjectInfoList.count - 1{
-            subjectInfoCell.hideBorder()
-        }else{
-            subjectInfoCell.showBorder()
+            guard let subjectInfoCellExpand = subjectInfoTableView.dequeueReusableCell(withIdentifier: "subjectInfoCellExpand", for: indexPath) as? SubjectInfoCellExpand else { return SubjectInfoCellExpand() }
+            
+            let data = subjectInfoList[indexPath.row]
+              
+            subjectInfoCellExpand.setSubjectInfoData(name: data.subjectName, professorName: data.professorName, timeInfo: data.timeInfo, room: data.roomName, category: data.course, credit: data.credit, subjectNum: data.subjectNum)
+            
+            if self.isCandidateView {
+                subjectInfoCellExpand.setCandidateCell()
+            }else{
+                subjectInfoCellExpand.setMainCell()
+            }
+            
+            
+            if(subjectInfoList.count != 0){
+                if indexPath.row == subjectInfoList.count - 1 {
+                    subjectInfoCellExpand.hideBorder()
+                }
+            }
+            
+            
+            return subjectInfoCellExpand
+
+        }else {
+            
+            guard let subjectInfoCellNotExpand = subjectInfoTableView.dequeueReusableCell(withIdentifier: "subjectInfoCellNotExpand", for: indexPath) as? SubjectInfoCellNotExpand else { return SubjectInfoCellNotExpand() }
+                      
+            let data = subjectInfoList[indexPath.row]
+                        
+            subjectInfoCellNotExpand.setSubjectInfoData(name: data.subjectName, professorName: data.professorName, timeInfo: data.timeInfo, room: data.roomName, category: data.course, credit: data.credit, subjectNum: data.subjectNum)
+                      
+            return subjectInfoCellNotExpand
         }
-             
-          return subjectInfoCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 87
+        
+        if subjectInfoList[indexPath.row].isExpand {
+            return 116.0
+        }else {
+            return 86.0
+        }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        for (index, _) in subjectInfoList.enumerated() {
+            if(index == indexPath.row){
+                if subjectInfoList[index].isExpand {
+                     subjectInfoList[index].isExpand = false
+                } else {
+                       subjectInfoList[index].isExpand = true
+                }
+            }else{
+                subjectInfoList[index].isExpand = false
+            }
+        }
+        
+        
+        if indexPath.row < subjectInfoList.count {
+            if !subjectInfoList[indexPath.row].isExpand {
+                
+                print("remove!")
+                removeHintTimeTable(row: indexPath.row)
+            } else {
+                drawHintTimeTable(row: pageControlDots.currentPage, day:  subjectInfoList[indexPath.row].day,
+                    dateTime: subjectInfoList[indexPath.row].dateTime)
+            }
+        
+        }
+
+        self.subjectInfoTableView.reloadData()
+      
+    }
+
     
     // gestureRecognizer
     @objc func handleTapFilterAndSearch(recognizer: UITapGestureRecognizer) {
+        
+        isCandidateView = false
 
         // 선택 처리
         self.filterLabel.textColor = UIColor.purpleishBlueThree
@@ -303,11 +439,14 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         self.candidateImageView.image = UIImage(named: "timetableaddFilterandsearchBtnCandidateOff.png")
         self.candidateBottomView.backgroundColor = UIColor.clear
         
-       let subjectInfo_1 = SubjectModel(subjectName: "전자회로1", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3)
+        let tempDay = [0, 1]
+        let tempDateTime = ["09:00-13:30","09:00-13:30"]
         
-        let subjectInfo_2 = SubjectModel(subjectName: "전자회로", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3)
+        let subjectInfo_1 = SubjectModel(subjectName: "전자회로1", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132",  day: tempDay, dateTime: tempDateTime)
         
-        let subjectInfo_3 = SubjectModel(subjectName: "전자회로!", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 2)
+        let subjectInfo_2 = SubjectModel(subjectName: "전자회로", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132",  day: tempDay, dateTime: tempDateTime)
+        
+        let subjectInfo_3 = SubjectModel(subjectName: "전자회로!", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 2, subjectNum: "2016123-132",  day: tempDay, dateTime: tempDateTime)
         
         subjectInfoList = [subjectInfo_1, subjectInfo_2, subjectInfo_3]
         
@@ -316,6 +455,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
 
     @objc func handleTapCandidate(recognizer: UITapGestureRecognizer) {
+        
+         isCandidateView = true
 
            // 선택 처리
            self.filterLabel.textColor = UIColor.brownGreyFive
@@ -325,14 +466,18 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
            self.candidateLabel.textColor = UIColor.purpleishBlueThree
            self.candidateImageView.image = UIImage(named: "timetableaddFilterandsearchBtnCandidateOn.png")
            self.candidateBottomView.backgroundColor = UIColor.purpleishBlueThree
+        
+        let tempDay = [0, 1]
+        let tempDateTime = ["09:00-13:30","09:00-13:30"]
 
-        let subjectInfo_1 = SubjectModel(subjectName: "후보군", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3)
+        let subjectInfo_1 = SubjectModel(subjectName: "후보군", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
         
-        let subjectInfo_2 = SubjectModel(subjectName: "후보군", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3)
+        let subjectInfo_2 = SubjectModel(subjectName: "후보군", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
         
-        let subjectInfo_3 = SubjectModel(subjectName: "후보군이라굿!", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 2)
+        let subjectInfo_3 = SubjectModel(subjectName: "후보군이라굿!", professorName: "최성일", timeInfo: "월 10:00 - 12:00, 화 13:00 - 15:00", roomName: "명신관614", course: "전공선택", credit: 2, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
         
         subjectInfoList = [subjectInfo_1]
+    
         
         
         self.subjectInfoTableView.reloadData()
