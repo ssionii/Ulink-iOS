@@ -114,13 +114,6 @@ class ChattingViewController: UIViewController {
         
 
 
-        let data : [String:Any] = [
-            "className": "수업 2",
-            "key" : itemref.childByAutoId().key ?? ""
-            ]
-        
-        
-
         
         
 
