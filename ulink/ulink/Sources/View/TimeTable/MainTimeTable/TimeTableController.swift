@@ -10,24 +10,42 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class TimeTableController: UIViewController {
+public class TimeTableController: UIViewController {
     weak var timeTable: TimeTable!
     weak var collectionView : UICollectionView! {
         didSet {
             collectionView.isScrollEnabled = true
             collectionView.bounces = false
             collectionView.register(SubjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+            
         }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
-        print("touchesBegan is called")
+    public func setDrag(){
+    collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPress)))
     }
+    
+    @objc func longPress(_ sender: UILongPressGestureRecognizer){
+    
+        let view = collectionView
+        let touchLocation = sender.location(in: view)
+               
+        let posiX = touchLocation.x
+        let posiY = touchLocation.y
+        
+        if(sender.state == .began){
+            self.timeTable.makeStartPointFromDrag(input_x: posiX, input_y: posiY)
+        }
+        
+        self.timeTable.makeHintTimeTable(input_x : posiX, input_y : posiY)
+       
+    }
+
+
 }
 
 extension TimeTableController : UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var minStartTimeHour : Int = 09
         var maxEndTimeHour : Int = 19
 
@@ -59,7 +77,7 @@ extension TimeTableController : UICollectionViewDataSource {
         return (subjectCount + 1) * (timeTable.daySymbols.count + 1)
     }
 
-    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SubjectCell
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
         let titleLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
@@ -118,27 +136,16 @@ extension TimeTableController : UICollectionViewDataSource {
         }
 
         backgroundView.addSubview(titleLabel)
-//        backgroundView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panEmptySpace)))
         
         cell.addSubview(backgroundView)
         return cell
     }
     
-    @objc func panEmptySpace(_ sender: UIPanGestureRecognizer){
-        let view = collectionView
-        
-        let touchLocation = sender.location(in: view)
-            
-        let posiX = touchLocation.x
-        let posiY = touchLocation.y
-            
-//        print(posiX)
-//        print(posiY)
-    }
+   
 }
 
 extension TimeTableController : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var minStartTimeHour : Int = 24
         var maxEndTimeHour : Int = 0
 
@@ -177,16 +184,16 @@ extension TimeTableController : UICollectionViewDelegateFlowLayout {
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected : \(indexPath.row)")
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("Selected : \(indexPath.row)")
     }
 }
 

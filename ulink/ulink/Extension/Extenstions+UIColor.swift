@@ -108,6 +108,10 @@ extension UIColor {
     @nonobjc class var veryLightPink: UIColor {
       return UIColor(white: 232.0 / 255.0, alpha: 1.0)
     }
+    
+    @nonobjc class var veryLightPinkTree: UIColor {
+      return UIColor(white: 230.0 / 255.0, alpha: 1.0)
+    }
 
     @nonobjc class var brownGreyThree: UIColor {
       return UIColor(white: 143.0 / 255.0, alpha: 1.0)
@@ -131,6 +135,14 @@ extension UIColor {
     
     @nonobjc class var purpleishBlueTwo: UIColor {
       return UIColor(red: 107.0 / 255.0, green: 72.0 / 255.0, blue: 241.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var purpleishBlueThree: UIColor {
+      return UIColor(red: 103.0 / 255.0, green: 79.0 / 255.0, blue: 238.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var brownGreyFive: UIColor {
+        return UIColor(white: 152.0 / 255.0, alpha: 1.0)
     }
     
     @nonobjc class var whiteThree: UIColor {
