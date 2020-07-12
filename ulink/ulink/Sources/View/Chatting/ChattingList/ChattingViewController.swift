@@ -119,12 +119,17 @@ class ChattingViewController: UIViewController {
                 }
         }
         
+
+
+        
         
 
     }
     
     
     func setTableData() {
+        
+        
         
         
         
@@ -219,26 +224,13 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "ChattingRoomViewController") as? ChattingRoomViewController else { return }
         
+        
+        self.array_class = self.array_class.sorted(by: {$0.className! > $1.className!})
 
 //        print("Array : \(array_class)")
         
         chattingRoomViewController.destinationUid = self.array_class[indexPath.row].key
-        chattingRoomViewController.chattingRoomTitle = self.array_class[indexPath.row].className
-        
-        
-   
-//
-//
-//                Database.database().reference().child("chatrooms").queryOrderedByValue().observeSingleEvent(of: DataEventType.value)
-//                { (snapshot) in
-//
-//
-//
-//                    let values = snapshot.value
-//
-//                    let dic = values as! [String: [String:Any]]
-//
-//
+        chattingRoomViewController.tempTitle = self.array_class[indexPath.row].className
 //
 //                    self.count = 0
 //                    print("현재 선택한 row : \(indexPath.row)")
