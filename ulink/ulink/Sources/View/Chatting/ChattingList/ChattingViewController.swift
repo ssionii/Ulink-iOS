@@ -58,16 +58,37 @@ class ChattingViewController: UIViewController {
     func setChattingData(){
         
         
-            self.ref = Database.database().reference().child("chatrooms")
+
+        
+//        Database.database().reference().child("chatrooms").observeSingleEvent(of: DataEventType.value)
+        
+//        Database.database().reference().child("chatrooms").queryOrderedByKey().queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value)
+        
+        
+        Database.database().reference().child("chatrooms").observeSingleEvent(of: DataEventType.value)
+          { (snapshot) in
             
+            print("snapshot : \(snapshot)") // 여기는 순서대로 들어옵니다
+              
+        
             
+         //   snapshot 자체는 정상적으로 들어온다
             
-            
-            ref.observeSingleEvent(of: .value) { (snapshot) in
 
                 let values = snapshot.value
+            
 
-                let dic = values as! [String: [String:Any]]
+                let dic = values as! [String: [String:Any]] // 여기서 순서가 망가지는거임
+            
+                // 그러면 어떻게 해야할까
+                //
+                let dicOrdered = dic.keys.sorted(by: <)
+            
+            
+                print("ordered DIC : \(dicOrdered)")
+                
+                print("DIC 을 자세히 보자 : \(dic)") // Dictionary로 저장될때 달라지는거임... d여기를 건드려야 한다!
+
 
                 for index in dic{
 
@@ -75,11 +96,15 @@ class ChattingViewController: UIViewController {
 
                     if (index.value["title"] as? String != nil){
 
-                        
+
                         let data = ClassModel(name: index.value["title"] as! String, key: index.key , image:.one)
+
                         
+                        print("1: \(index.value["title"] as! String)")
                         self.array_class.append(data)
                         
+                                                
+
                         DispatchQueue.main.async{
                             self.chattingListTable.reloadData()
                             
@@ -197,58 +222,54 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
 
 //        print("Array : \(array_class)")
         
+        chattingRoomViewController.destinationUid = self.array_class[indexPath.row].key
+        chattingRoomViewController.chattingRoomTitle = self.array_class[indexPath.row].className
         
         
-        
-        
-        
-        
-                
-            self.ref = Database.database().reference().child("chatrooms")
-                
-                
-                
-                
-                ref.observeSingleEvent(of: .value) { (snapshot) in
-                    
-                    
-
-                    let values = snapshot.value
-                    
-                    let dic = values as! [String: [String:Any]]
-                    
-                    
-                    
-                    self.count = 0
-                    print("현재 선택한 row : \(indexPath.row)")
-                    
-                    for index in dic{
-                        
-                        if indexPath.row == self.count{
-                            print("uid 전달!!")
-                            print("Current Count : \(self.count)")
-                            print("전달된 key 값 : \(index.key)")
-                            
-                            
-                            chattingRoomViewController.chattingRoomTitle = index.value["title"] as? String ?? "title 전달이 안됩니다.."
-                            print("전달된 title 값:  \(index.value["title"] as? String ?? "title 전달이 안됩니다..")")
-                            chattingRoomViewController.destinationUid = index.key
-                            
-                            
-                            self.count = self.count + 1
-                            
-                        }
-                       else{
-                            self.count = self.count + 1
-                        }
-
-                    }
-
-
-                    
-
-
-                }
+   
+//
+//
+//                Database.database().reference().child("chatrooms").queryOrderedByValue().observeSingleEvent(of: DataEventType.value)
+//                { (snapshot) in
+//
+//
+//
+//                    let values = snapshot.value
+//
+//                    let dic = values as! [String: [String:Any]]
+//
+//
+//
+//                    self.count = 0
+//                    print("현재 선택한 row : \(indexPath.row)")
+//
+//                    for index in dic{
+//
+//                        if indexPath.row == self.count{
+//                            print("uid 전달!!")
+//                            print("Current Count : \(self.count)")
+//                            print("전달된 key 값 : \(index.key)")
+//
+//
+//                            chattingRoomViewController.chattingRoomTitle = index.value["title"] as? String ?? "title 전달이 안됩니다.."
+//                            print("전달된 title 값:  \(index.value["title"] as? String ?? "title 전달이 안됩니다..")")
+//                            chattingRoomViewController.destinationUid = index.key
+//
+//
+//                            self.count = self.count + 1
+//
+//                        }
+//                       else{
+//                            self.count = self.count + 1
+//                        }
+//
+//                    }
+//
+//
+//
+//
+//
+//                }
 
         
 
