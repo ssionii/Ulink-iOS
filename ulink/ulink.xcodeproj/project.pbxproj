@@ -76,6 +76,7 @@
 		FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */; };
 		FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */; };
 		FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */; };
+		FD717F0C24BC22AE005C81AE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD717F0B24BC22AE005C81AE /* MyPageViewController.swift */; };
 		FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */; };
 		FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */; };
 		FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */; };
@@ -161,6 +162,7 @@
 		FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		FD717F0B24BC22AE005C81AE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditViewController.swift; sourceTree = "<group>"; };
 		FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditTableViewCell.swift; sourceTree = "<group>"; };
 		FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditModeViewController.swift; sourceTree = "<group>"; };
@@ -513,11 +515,12 @@
 				29AC521824BC60780007E019 /* Review */,
 				29AC520F24BB9DC60007E019 /* Search */,
 				299DAD0C24BAB908008181FA /* Alarm */,
+				FD45F25224AA591300F304BD /* ViewController.swift */,
+				FD717F0A24BC229B005C81AE /* MyPage */,
 				FD19DC1B24ADD4CF000C2AEC /* Calendar */,
 				B599E62D24ADA9FB0067C112 /* TimeTable */,
 				FD19DC0524AD0198000C2AEC /* UserLogin */,
 				FD19DC0424AD018F000C2AEC /* Chatting */,
-				FD45F25224AA591300F304BD /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,6 +531,14 @@
 				FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		FD717F0A24BC229B005C81AE /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				FD717F0B24BC22AE005C81AE /* MyPageViewController.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		FD79B5CE24B713C500020118 /* NoticeList */ = {
@@ -759,6 +770,8 @@
 				B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */,
 				B51EC8A824B1C4DF00F3833B /* ListSemester.swift in Sources */,
 				FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */,
+				2996A40D24B223A1007402FE /* DetailEventViewController.swift in Sources */,
+				FD717F0C24BC22AE005C81AE /* MyPageViewController.swift in Sources */,
 				FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */,
 				B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
