@@ -56,11 +56,11 @@
                                     <color key="titleColor" red="0.4039215686" green="0.30980392159999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="testBtn:" destination="ALv-dz-LJA" eventType="touchUpInside" id="bX1-nP-ZSA"/>
+                                    <action selector="changeSearchType:" destination="ALv-dz-LJA" eventType="touchUpInside" id="BjL-Ef-5YI"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lb2-bB-XVb">
-                                <rect key="frame" x="21" y="57" width="333" height="610"/>
+                                <rect key="frame" x="21" y="57" width="333" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="A1q-py-eYC">
                                     <rect key="frame" x="0.0" y="0.0" width="333" height="20"/>
@@ -72,19 +72,24 @@
                                             <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체삭제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P43-Jf-PXy">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvY-vP-fRS">
                                             <rect key="frame" x="291" y="0.0" width="42" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="RyW-sD-dFF"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <state key="normal" title="전체삭제"/>
+                                            <connections>
+                                                <action selector="deleteAll:" destination="ALv-dz-LJA" eventType="touchUpInside" id="pS2-lQ-cco"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
-                                        <constraint firstItem="P43-Jf-PXy" firstAttribute="top" secondItem="A1q-py-eYC" secondAttribute="top" id="QaF-dn-8o5"/>
+                                        <constraint firstAttribute="trailing" secondItem="VvY-vP-fRS" secondAttribute="trailing" id="1fK-9Z-IZ6"/>
                                         <constraint firstItem="DWo-OH-cwJ" firstAttribute="top" secondItem="A1q-py-eYC" secondAttribute="top" id="hei-3p-ciw"/>
                                         <constraint firstItem="DWo-OH-cwJ" firstAttribute="leading" secondItem="A1q-py-eYC" secondAttribute="leading" id="mOJ-kh-Fqa"/>
-                                        <constraint firstAttribute="trailing" secondItem="P43-Jf-PXy" secondAttribute="trailing" id="pfT-av-gTt"/>
+                                        <constraint firstItem="VvY-vP-fRS" firstAttribute="top" secondItem="A1q-py-eYC" secondAttribute="top" id="uJ8-Z6-PGO"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -147,6 +152,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-6x-xNA">
+                                <rect key="frame" x="0.0" y="475" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -160,12 +169,14 @@
                             <constraint firstItem="E4e-Cj-wJH" firstAttribute="trailing" secondItem="VE6-IE-1yZ" secondAttribute="trailing" constant="16" id="nqW-8D-wlj"/>
                             <constraint firstItem="Lb2-bB-XVb" firstAttribute="top" secondItem="wCM-Pc-9YU" secondAttribute="bottom" constant="19" id="oAx-Ob-ndy"/>
                             <constraint firstItem="K6M-Ps-9KV" firstAttribute="leading" secondItem="E4e-Cj-wJH" secondAttribute="leading" constant="13" id="yZf-Ov-xog"/>
-                            <constraint firstItem="E4e-Cj-wJH" firstAttribute="bottom" secondItem="Lb2-bB-XVb" secondAttribute="bottom" id="zUc-uv-Qvb"/>
+                            <constraint firstItem="E4e-Cj-wJH" firstAttribute="bottom" secondItem="Lb2-bB-XVb" secondAttribute="bottom" constant="200" id="zUc-uv-Qvb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E4e-Cj-wJH"/>
                     </view>
                     <connections>
+                        <outlet property="deleteAllBtn" destination="VvY-vP-fRS" id="saw-0W-ngS"/>
                         <outlet property="headerView" destination="A1q-py-eYC" id="jj9-rS-uDh"/>
+                        <outlet property="recentLabel" destination="DWo-OH-cwJ" id="87z-vI-rx9"/>
                         <outlet property="searchTableView" destination="Lb2-bB-XVb" id="L5C-Uh-l5G"/>
                         <outlet property="searchTextField" destination="AaM-NB-BVl" id="6KU-m1-KQD"/>
                         <outlet property="searchView" destination="wCM-Pc-9YU" id="2pT-pz-NYu"/>
@@ -173,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="poA-ZG-RSh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4474" y="-1577"/>
+            <point key="canvasLocation" x="-4756" y="-1696.1019490254873"/>
         </scene>
     </scenes>
     <resources>

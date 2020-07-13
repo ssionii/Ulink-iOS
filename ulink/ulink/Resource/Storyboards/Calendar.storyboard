@@ -238,7 +238,7 @@
                                             <color key="titleColor" red="0.4039215686" green="0.30980392159999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="F9S-cs-vI9" kind="show" id="WGY-Z6-0SO"/>
+                                            <segue destination="F9S-cs-vI9" kind="presentation" id="WGY-Z6-0SO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -417,7 +417,7 @@
                 <swipeGestureRecognizer direction="left" id="by6-RR-Ask"/>
                 <swipeGestureRecognizer direction="right" id="Y5x-mp-tVu"/>
             </objects>
-            <point key="canvasLocation" x="1631" y="-1408"/>
+            <point key="canvasLocation" x="1775" y="-1278"/>
         </scene>
         <!--Search-->
         <scene sceneID="jFm-wj-5A6">
@@ -593,7 +593,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2297" y="-724"/>
+            <point key="canvasLocation" x="2153" y="-618"/>
         </scene>
     </scenes>
     <resources>

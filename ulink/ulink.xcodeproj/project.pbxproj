@@ -24,6 +24,7 @@
 		29AC521524BB9E720007E019 /* RealTimeSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521424BB9E720007E019 /* RealTimeSearchCell.swift */; };
 		29AC521724BC60250007E019 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AC521624BC60250007E019 /* Review.storyboard */; };
 		29AC521A24BC60910007E019 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521924BC60910007E019 /* ReviewViewController.swift */; };
+		29AC521C24BCE60A0007E019 /* SearchPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521B24BCE60A0007E019 /* SearchPickerViewController.swift */; };
 		8F83FB66AD3FD38DC68E8A6E /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */; };
 		B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */; };
 		B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511E24B86BE700BD219B /* AddSubjectDetailViewController.swift */; };
@@ -107,6 +108,7 @@
 		29AC521424BB9E720007E019 /* RealTimeSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeSearchCell.swift; sourceTree = "<group>"; };
 		29AC521624BC60250007E019 /* Review.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		29AC521924BC60910007E019 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		29AC521B24BCE60A0007E019 /* SearchPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPickerViewController.swift; sourceTree = "<group>"; };
 		55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		925CCBD7FDB6FCC72DBB5D65 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 				29AC521024BB9E040007E019 /* SearchViewController.swift */,
 				29AC521224BB9E5D0007E019 /* SearchedCell.swift */,
 				29AC521424BB9E720007E019 /* RealTimeSearchCell.swift */,
+				29AC521B24BCE60A0007E019 /* SearchPickerViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
 				299DACF224B785FE008181FA /* EventListViewController.swift in Sources */,
 				29AC521324BB9E5D0007E019 /* SearchedCell.swift in Sources */,
+				29AC521C24BCE60A0007E019 /* SearchPickerViewController.swift in Sources */,
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
 				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,
 				29AC521524BB9E720007E019 /* RealTimeSearchCell.swift in Sources */,

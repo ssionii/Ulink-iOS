@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SearchedCell: UITableViewCell {
     
@@ -26,8 +27,14 @@ class SearchedCell: UITableViewCell {
     }
     
     //이름
-    func set(){
-        
+    func set(_ row: Int){
+        print("1")
+        let realm = try! Realm()
+        print("2")
+        let savedDates = realm.objects(SearchedListData.self)
+        print("3")
+
+        lectureTitleLabel.text = savedDates[row].searched
     }
 
 }

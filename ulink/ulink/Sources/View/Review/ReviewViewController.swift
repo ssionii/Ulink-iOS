@@ -17,4 +17,7 @@ class ReviewViewController: UIViewController {
 
         backGroundView.backgroundColor = UIColor.purpleishBlueFour
     }
+    @IBAction func makeReview(_ sender: Any) {
+        
+    }
 }
