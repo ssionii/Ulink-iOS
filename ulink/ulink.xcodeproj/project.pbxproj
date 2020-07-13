@@ -34,6 +34,8 @@
 		B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */; };
 		B55F0ED624BCAC0E007048A6 /* SubjectInfoCellExpand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55F0ED524BCAC0D007048A6 /* SubjectInfoCellExpand.swift */; };
 		B55F0ED824BCACBF007048A6 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55F0ED724BCACBF007048A6 /* AlarmCell.swift */; };
+		B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */; };
+		B595298F24BCD592008139E6 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595298E24BCD592008139E6 /* CustomPickerViewController.swift */; };
 		B599E62F24ADAA320067C112 /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* SubjectModel.swift */; };
 		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
@@ -119,6 +121,8 @@
 		B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
 		B55F0ED524BCAC0D007048A6 /* SubjectInfoCellExpand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectInfoCellExpand.swift; sourceTree = "<group>"; };
 		B55F0ED724BCACBF007048A6 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlarmCell.swift; path = ulink/AlarmCell.swift; sourceTree = SOURCE_ROOT; };
+		B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeInfoCell.swift; sourceTree = "<group>"; };
+		B595298E24BCD592008139E6 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		B599E62E24ADAA320067C112 /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		B599E63124ADAA7F0067C112 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */,
 				B599FAD524BB3B5B005DB6E7 /* SubjectInfoCellNotExpand.swift */,
 				B599FADA24BCA908005DB6E7 /* SubjectTimeInfoCell.swift */,
+				B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */,
 				B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */,
 				B513511E24B86BE700BD219B /* AddSubjectDetailViewController.swift */,
+				B595298E24BCD592008139E6 /* CustomPickerViewController.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -723,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */,
 				29AC521124BB9E040007E019 /* SearchViewController.swift in Sources */,
 				299DAD1224BAF26D008181FA /* DetailEventViewController.swift in Sources */,
 				B55F0ED624BCAC0E007048A6 /* SubjectInfoCellExpand.swift in Sources */,
@@ -788,6 +795,7 @@
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
 				299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */,
 				FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */,
+				B595298F24BCD592008139E6 /* CustomPickerViewController.swift in Sources */,
 				29AC520E24BB838A0007E019 /* Databases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -74,14 +74,21 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                 
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectByDragViewController") as? AddSubjectByDragViewController else { return }
                    
-                   nextVC.modalPresentationStyle = .fullScreen
-                    self.present(nextVC, animated: true, completion: nil)
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true, completion: nil)
             
             
             }))
 
         alert.addAction(UIAlertAction(title: "직접 입력", style: .default, handler: { (_) in
               
+
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectDetailViewController") as? AddSubjectDetailViewController else { return }
+            
+            nextVC.setTimeInfo(list: [])
+            nextVC.isFromDrag = false
+            
+            self.present(nextVC, animated: true, completion: nil)
             
             
             }))
@@ -137,6 +144,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
        
         subjectInfoTableView.estimatedRowHeight = 86
         subjectInfoTableView.rowHeight = UITableView.automaticDimension
+    
        
     }
     
