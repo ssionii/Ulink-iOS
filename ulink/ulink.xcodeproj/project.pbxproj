@@ -71,6 +71,8 @@
 		FD717F0C24BC22AE005C81AE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD717F0B24BC22AE005C81AE /* MyPageViewController.swift */; };
 		FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */; };
 		FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */; };
+		FD7C730E24BCA4C4003ADAE8 /* SignInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C730D24BCA4C4003ADAE8 /* SignInData.swift */; };
+		FD7C731224BCA5E1003ADAE8 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C731124BCA5E1003ADAE8 /* LoginService.swift */; };
 		FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */; };
 		FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90824B7820F000E5A48 /* timeModel.swift */; };
 		FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */; };
@@ -149,6 +151,8 @@
 		FD717F0B24BC22AE005C81AE /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditViewController.swift; sourceTree = "<group>"; };
 		FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditTableViewCell.swift; sourceTree = "<group>"; };
+		FD7C730D24BCA4C4003ADAE8 /* SignInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInData.swift; sourceTree = "<group>"; };
+		FD7C731124BCA5E1003ADAE8 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditModeViewController.swift; sourceTree = "<group>"; };
 		FD8EE90824B7820F000E5A48 /* timeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeModel.swift; sourceTree = "<group>"; };
 		FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerTimeModel.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 		FD19DC0324AD017C000C2AEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD7C730C24BCA4AD003ADAE8 /* LoginModel */,
 				FD1A4AF724B59626000120A6 /* CalendarModel */,
 				FD1A4AF224B5947A000120A6 /* TimeTableModel */,
 				FD1A4AF124B59462000120A6 /* ChattingModel */,
@@ -423,6 +428,7 @@
 		FD616CFE24AA5A91007D54B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FD7C730F24BCA5C0003ADAE8 /* Network */,
 				FD6B17A024B0F83F00E8B9A8 /* Util */,
 				FD19DC0324AD017C000C2AEC /* Model */,
 				FD19DC0224AD016E000C2AEC /* API */,
@@ -512,6 +518,30 @@
 				FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */,
 			);
 			path = NoticeEdit;
+			sourceTree = "<group>";
+		};
+		FD7C730C24BCA4AD003ADAE8 /* LoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD7C730D24BCA4C4003ADAE8 /* SignInData.swift */,
+			);
+			path = LoginModel;
+			sourceTree = "<group>";
+		};
+		FD7C730F24BCA5C0003ADAE8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FD7C731024BCA5D5003ADAE8 /* Login */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FD7C731024BCA5D5003ADAE8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FD7C731124BCA5E1003ADAE8 /* LoginService.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		FD8EE90724B781DE000E5A48 /* NoticeModel */ = {
@@ -662,6 +692,7 @@
 				299DAD0924B8F239008181FA /* AlarmCell.swift in Sources */,
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */,
+				FD7C731224BCA5E1003ADAE8 /* LoginService.swift in Sources */,
 				B599E62F24ADAA320067C112 /* SubjectModel.swift in Sources */,
 				B513511A24B76E0800BD219B /* SubjectInfoCell.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
@@ -672,6 +703,7 @@
 				FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */,
 				FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */,
 				B5D26A4A24B5E7E60047A2DC /* CreateNewSheetCell.swift in Sources */,
+				FD7C730E24BCA4C4003ADAE8 /* SignInData.swift in Sources */,
 				B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */,
 				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
 				B513512124B86E7800BD219B /* SubjectTimeInfoCell.swift in Sources */,

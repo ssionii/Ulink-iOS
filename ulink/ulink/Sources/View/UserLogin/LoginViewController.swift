@@ -7,10 +7,11 @@
 //
 
 import UIKit
-import TextFieldEffects
 import FirebaseDatabase
 import Firebase
 import FirebaseAuth
+import Alamofire
+
 
 
 
@@ -137,20 +138,79 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         
-        Auth.auth().signIn(withEmail: nameTextField.text!, password: pwTextField.text!) {( user, err) in
-
-            if(err != nil) {
-
-                let alert = UIAlertController(title: "에러", message: err.debugDescription, preferredStyle: UIAlertController.Style.alert)
-
-                alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
-
-                self.present(alert, animated: true, completion: nil)
-
+//        Auth.auth().signIn(withEmail: nameTextField.text!, password: pwTextField.text!) {( user, err) in
+//
+//            if(err != nil) {
+//
+//                let alert = UIAlertController(title: "에러", message: err.debugDescription, preferredStyle: UIAlertController.Style.alert)
+//
+//                alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+//
+//                self.present(alert, animated: true, completion: nil)
+//
+//            }
+//
+//        }
+        
+        
+        
+        
+        
+        
+        
+        
+            
+            guard let inputID = nameTextField.text else { return }
+            guard let inputPWD = pwTextField.text else { return }
+            
+        
+        
+            LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+                switch networkResult {
+                    
+                    
+       // MARK:- 서버 접속 성공 했을때
+                case .success(let token):
+                    guard let token = token as? String else { return }
+                    UserDefaults.standard.set(token, forKey: "token")
+                    
+                    
+                     let storyboard = UIStoryboard(name:"Main", bundle: nil)
+                     let vc = storyboard.instantiateViewController(withIdentifier: "homeTabBarController")
+                     
+                     
+                    
+                     
+                     
+                     self.navigationController!.pushViewController(vc, animated: true)
+                    
+                    
+                    
+        
+                case .requestErr(let message):
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "로그인 실패", message: message,
+                                                                preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                    
+                    
+                    
+                case .pathErr: print("path")
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
             }
-
-        }
+        
+        
+     
+            
+            
+        
     }
+    
+    
     
 
     
