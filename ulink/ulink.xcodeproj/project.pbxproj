@@ -82,6 +82,7 @@
 		FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */; };
 		FD7C730E24BCA4C4003ADAE8 /* SignInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C730D24BCA4C4003ADAE8 /* SignInData.swift */; };
 		FD7C731224BCA5E1003ADAE8 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C731124BCA5E1003ADAE8 /* LoginService.swift */; };
+		FD7C731424BCC70B003ADAE8 /* LoginSuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C731324BCC70B003ADAE8 /* LoginSuccessData.swift */; };
 		FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */; };
 		FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90824B7820F000E5A48 /* timeModel.swift */; };
 		FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */; };
@@ -171,6 +172,7 @@
 		FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditTableViewCell.swift; sourceTree = "<group>"; };
 		FD7C730D24BCA4C4003ADAE8 /* SignInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInData.swift; sourceTree = "<group>"; };
 		FD7C731124BCA5E1003ADAE8 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		FD7C731324BCC70B003ADAE8 /* LoginSuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSuccessData.swift; sourceTree = "<group>"; };
 		FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditModeViewController.swift; sourceTree = "<group>"; };
 		FD8EE90824B7820F000E5A48 /* timeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeModel.swift; sourceTree = "<group>"; };
 		FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerTimeModel.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 			isa = PBXGroup;
 			children = (
 				FD7C730D24BCA4C4003ADAE8 /* SignInData.swift */,
+				FD7C731324BCC70B003ADAE8 /* LoginSuccessData.swift */,
 			);
 			path = LoginModel;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */,
 				B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */,
 				299DACF024B70AFF008181FA /* EventModel.swift in Sources */,
+				FD7C731424BCC70B003ADAE8 /* LoginSuccessData.swift in Sources */,
 				B599FAD624BB3B5B005DB6E7 /* SubjectInfoCellNotExpand.swift in Sources */,
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */,

@@ -11,7 +11,7 @@ import FirebaseDatabase
 import Firebase
 import FirebaseAuth
 import Alamofire
-
+import SwiftyJSON
 
 
 
@@ -170,9 +170,14 @@ class LoginViewController: UIViewController {
                     
                     
        // MARK:- 서버 접속 성공 했을때
-                case .success(let token):
+                case .success(let token,let uid) :
+
+    
                     guard let token = token as? String else { return }
                     UserDefaults.standard.set(token, forKey: "token")
+                    
+                    guard let uid = uid as? String else {return}
+                    print("현재 uid : \(uid)")
                     
                     
                      let storyboard = UIStoryboard(name:"Main", bundle: nil)
@@ -199,9 +204,7 @@ class LoginViewController: UIViewController {
                     
                     
                 case .pathErr:
-                    
-                    guard let message = message as? String else { return }
-                    let alertViewController = UIAlertController(title: "로그인 실패", message: message,
+                    let alertViewController = UIAlertController(title: "로그인 실패", message: "로그인 정보를 다시 확인해주세요",
                                                                 preferredStyle: .alert)
                     let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                     alertViewController.addAction(action)
@@ -209,7 +212,7 @@ class LoginViewController: UIViewController {
                 case .serverErr: print("serverErr")
                 case .networkFail: print("networkFail")
                 }
-            }
+        }
         
         
      

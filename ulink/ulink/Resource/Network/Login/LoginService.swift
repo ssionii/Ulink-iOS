@@ -52,8 +52,12 @@ struct LoginService {
     
     private func isUser(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
+        
+
+        
         guard let decodedData = try? decoder.decode(SigninData.self, from: data) else { return .pathErr }
         guard let tokenData = decodedData.data else { return .requestErr(decodedData.message) }
-        return .success(tokenData.accessToken)
+
+        return .success(tokenData.accessToken,tokenData.uid)
     }
 }
