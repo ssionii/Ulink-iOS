@@ -117,9 +117,6 @@ open class SideMenuNavigationController: UINavigationController {
         }
         return newValue
     }
-    
-    
-    
 
     private weak var _sideMenuManager: SideMenuManager?
     private weak var foundViewController: UIViewController?
@@ -558,15 +555,12 @@ private extension SideMenuNavigationController {
             !UIAccessibility.isReduceTransparencyEnabled else {
                 return
         }
-        
-        // yourView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-
 
         originalBackgroundColor = originalBackgroundColor ?? view.backgroundColor
 
         let blurEffect = UIBlurEffect(style: blurEffectStyle)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        view.backgroundColor = UIColor.clear
         if let tableViewController = topViewController as? UITableViewController {
             tableViewController.tableView.backgroundView = blurView
             tableViewController.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)

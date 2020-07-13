@@ -14,6 +14,9 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     @IBOutlet weak var topDayView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
     
+    private var subjectList : [SubjectModel] = []
+    private let daySymbol = [ "월", "화", "수", "목", "금"]
+    
     @IBAction func settingBtn(_ sender: UIButton) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableSettingViewController") as? TimeTableSettingViewController else { return }
         
@@ -36,10 +39,6 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         present(nextVC, animated: false, completion: nil)
         
     }
-    
-    
-    private var subjectList : [SubjectModel] = []
-    private let daySymbol = [ "월", "화", "수", "목", "금"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -345,7 +345,7 @@ public protocol TimeTableDataSource {
     }
         
 
-    func makeHintTimeTable(input_x : CGFloat, input_y : CGFloat){
+    func makeHintTimeTableForDrag(input_x : CGFloat, input_y : CGFloat){
         
         let count = tempUserScheduleList.count
         for subview in collectionView.subviews{
@@ -378,6 +378,76 @@ public protocol TimeTableDataSource {
         
         collectionView.addSubview(view)
     
+    }
+
+    func makeHintTimeTable(day: [Int], dateTime: [String]){
+        
+        collectionView.reloadData()
+        let minStartTimeHour : Int = defaultMinHour
+        
+        var upperPosiY = collectionView.frame.height
+    
+        if day.count > 0 {
+            for i in 0 ... day.count - 1 {
+                
+                let startTime = dateTime[i].split(separator: "-")[0]
+                let endTime  = dateTime[i].split(separator: "-")[1]
+                
+                let weekdayIndex = day[i]
+                
+                let subjectStartHour = Int(startTime.split(separator: ":")[0]) ?? 09
+                let subjectStartMin = Int(startTime.split(separator: ":")[1]) ?? 00
+                let subjectEndHour = Int(endTime.split(separator: ":")[0]) ?? 21
+                let subjectEndMin = Int(endTime.split(separator: ":")[1]) ?? 00
+                
+                let averageHeight = subjectItemHeight
+                
+                let position_x = collectionView.bounds.minX + widthOfTimeAxis + averageWidth * CGFloat(weekdayIndex) + rectEdgeInsets.left
+                let position_y = collectionView.frame.minY + heightOfDaySection + averageHeight * CGFloat(subjectStartHour - minStartTimeHour) + CGFloat((CGFloat(subjectStartMin) / 60) * averageHeight) + rectEdgeInsets.top
+            
+                if position_y < upperPosiY {
+                    upperPosiY = position_y
+                }
+                
+                let width = averageWidth - ( rectEdgeInsets.left + rectEdgeInsets.right )
+                let height = averageHeight * CGFloat(subjectEndHour - subjectStartHour) + CGFloat((CGFloat(subjectEndMin - subjectStartMin) / 60) * averageHeight) - rectEdgeInsets.top - rectEdgeInsets.bottom
+
+                let view = UIView(frame: CGRect(x: position_x, y: position_y, width: width, height: height))
+                view.backgroundColor = UIColor.black
+                view.alpha = 0.3
+//                view.tag = removeTag
+//                removeTag += 1
+
+                view.layer.cornerRadius = 8
+                
+                collectionView.addSubview(view)
+                
+               
+            }
+        }
+        
+        collectionView.setNeedsDisplay()
+        
+        collectionView.scrollRectToVisible(CGRect(x: 0, y: upperPosiY, width: collectionView.frame.width, height: collectionView.frame.height), animated: true)
+        
+    }
+    
+    func removeHintTable(){
+        
+        collectionView.reloadData()
+        collectionView.collectionViewLayout.invalidateLayout()
+
+        for subview in collectionView.subviews{
+            if !(subview is UICollectionViewCell){
+                subview.removeFromSuperview()
+            }
+        }
+
+        for subview in subviews {
+            if !(subview is UICollectionView){
+                subview.removeFromSuperview()
+            }
+        }
     }
 
     @objc func lectureTapped(_ sender: UITapGestureRecognizer){
