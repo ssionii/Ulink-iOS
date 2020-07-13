@@ -37,7 +37,7 @@ public class TimeTableController: UIViewController {
             self.timeTable.makeStartPointFromDrag(input_x: posiX, input_y: posiY)
         }
         
-        self.timeTable.makeHintTimeTable(input_x : posiX, input_y : posiY)
+        self.timeTable.makeHintTimeTableForDrag(input_x : posiX, input_y : posiY)
        
     }
 
@@ -53,14 +53,14 @@ extension TimeTableController : UICollectionViewDataSource {
             minStartTimeHour = timeTable.defaultMinHour
             maxEndTimeHour = timeTable.defaultMaxHour
         }else {
-            for(index, subjectItem) in timeTable.subjectItems.enumerated(){
+            for(_, subjectItem) in timeTable.subjectItems.enumerated(){
                 let tempStartTimeHour = Int(subjectItem.startTime.split(separator: ":")[0]) ?? 24
                 let tempEndTimeHour = Int(subjectItem.endTime.split(separator: ":")[0]) ?? 00
 
-                if index < 1 {
-                    minStartTimeHour = tempStartTimeHour
-                    maxEndTimeHour = tempEndTimeHour
-                }else{
+//                if index < 1 {
+//                    minStartTimeHour = tempStartTimeHour
+//                    maxEndTimeHour = tempEndTimeHour
+//                }else{
                     if tempStartTimeHour < minStartTimeHour{
                         minStartTimeHour = tempStartTimeHour
                     }
@@ -68,7 +68,7 @@ extension TimeTableController : UICollectionViewDataSource {
                     if tempEndTimeHour > maxEndTimeHour {
                         maxEndTimeHour = tempEndTimeHour
                     }
-                }
+//                }
             }
             maxEndTimeHour += 1
         }

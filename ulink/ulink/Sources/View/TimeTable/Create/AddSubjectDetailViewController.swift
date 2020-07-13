@@ -22,7 +22,8 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     private var subjectName = ""
     
     @IBOutlet weak var subjectTimeInfoTableView: UITableView!
-    @IBOutlet weak var subjectTimeInfoTableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     // 간편 제목 설정 버튼
     @IBOutlet weak var clubBtn: UIButton!
@@ -139,13 +140,43 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
 
         subjectTimeInfoTableView.bounces = false
-        subjectTimeInfoTableViewHeight.constant = CGFloat(defatulTimeInfoTableViewHeight * timeInfoList.count) + 357
-        
         directNameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard)))
 
         
         subjectTimeInfoTableView.delegate = self
         subjectTimeInfoTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification : Notification){
+        if let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue{
+               
+            self.bottomConstraint.constant = keyboardSize.height
+
+           UIView.animate(withDuration: 0 , animations: {
+               self.view.layoutIfNeeded()
+
+           }, completion: nil)
+            
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification){
+           
+        self.bottomConstraint.constant = 0
+        self.view.layoutIfNeeded()
+           
+    }
+    
+    @objc func dismissKeyBoard(){
+        self.view.endEditing(true)
     }
     
     public func setTimeInfo(list : [TimeInfoModel]){
