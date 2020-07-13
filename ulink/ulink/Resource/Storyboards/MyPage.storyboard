@@ -237,11 +237,11 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUU-h7-0Cz">
-                                                        <rect key="frame" x="10" y="21" width="82" height="17"/>
+                                                        <rect key="frame" x="10" y="21" width="82" height="18"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="개인정보 관리">
                                                                 <attributes>
-                                                                    <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
+                                                                    <font key="NSFont" metaFont="system" size="15"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
@@ -284,11 +284,11 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fji-JE-CPp">
-                                                        <rect key="frame" x="10" y="21" width="39" height="17"/>
+                                                        <rect key="frame" x="10" y="21" width="39" height="18"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="쪽지함">
                                                                 <attributes>
-                                                                    <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
+                                                                    <font key="NSFont" metaFont="system" size="15"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
@@ -331,11 +331,11 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHN-3c-IRf">
-                                                        <rect key="frame" x="10" y="21" width="52" height="17"/>
+                                                        <rect key="frame" x="10" y="21" width="52" height="18"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="문의하기">
                                                                 <attributes>
-                                                                    <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
+                                                                    <font key="NSFont" metaFont="system" size="15"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
