@@ -17,14 +17,23 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var cellColorView: UIView!
     
+    //오늘 날짜 데이터
+    let cal = Calendar(identifier: .gregorian)
+    let today = Date()
+    var todayMonth = Calendar.current.component(.month, from: Date())
+    var todayYear = Calendar.current.component(.year, from: Date())
+    var todayDate = Calendar.current.component(.day, from: Date())
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cellColorView.backgroundColor = UIColor.paleGreyTwo
+        cellColorView.backgroundColor = UIColor.whiteThree
         
         // Initialization code
         categoryLabel.layer.cornerRadius = 11
         cellColorView.layer.cornerRadius = 19
+        
+        self.selectedBackgroundView?.backgroundColor = UIColor.clear
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,8 +43,6 @@ class EventCell: UITableViewCell {
     }
     
     func set(_ contentInfo: Event){
-        
-        print("set 호출됨")
         
         nameLabel.text = contentInfo.name
         if (contentInfo.category == "과제"){
@@ -52,12 +59,30 @@ class EventCell: UITableViewCell {
             timeLabel.text = contentInfo.start_time
         }
     }
+
+    func getDday(date: String) -> Int{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let myDay = dateFormatter.date(from: date)
+        
+        let start = cal.startOfDay(for: today)
+        print(start)
+        let end = cal.startOfDay(for: myDay!)
+        print(end)
+        
+        let components = cal.dateComponents([.day], from: start, to: end)
+        
+        print(components)
+        
+        return components.day!
+    }
     
-    func changeViewColor(isToday: Bool){
-        if (isToday == false){
+    func changeViewColor(_ dateInfo: String){
+        var dDay = getDday(date: dateInfo)
+        print(dateInfo)
+        if (dDay == 0){
+            print("들어왓어")
             cellColorView.backgroundColor = UIColor.paleGreyTwo
-        } else {
-            cellColorView.backgroundColor = UIColor.whiteThree
         }
     }
 }

@@ -41,10 +41,14 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let colorView = UIView()
+               colorView.backgroundColor = UIColor.clear
+        UITableViewCell.appearance().selectedBackgroundView = colorView
+        
         //더미더ㅣㅁ
         dummydummyData = [Event(name: "소프트웨어공학", color: 1, notice_idx: 1, category: "시험", start_time: "9:00", end_time: "11:45", title: "중간고사"), Event(name: "창의적사고", color: 2, notice_idx: 1, category: "과제", start_time: "00:00", end_time: "23:59", title: "레포트 제출"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강"), Event(name: "소프트웨어공학", color: 1, notice_idx: 1, category: "시험", start_time: "9:00", end_time: "11:45", title: "중간고사")]
         
-        dummyData = [EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-12", event: dummydummyData), EventList(date: "2020-08-29", event: dummydummyData)]
+        dummyData = [EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-13", event: dummydummyData), EventList(date: "2020-08-29", event: dummydummyData)]
         
         popUpView.layer.cornerRadius = 20
         
@@ -59,7 +63,7 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         let touch = touches.first
-        if touch?.view != self.detailEventTableView
+        if touch?.view != self.popUpView
         { self.dismiss(animated: false, completion: nil) }
     }
     
@@ -114,12 +118,24 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell else {
         return UITableViewCell() }
         
-        cell.set(dummydummyData[indexPath.row])
+        
+        cell.set(dummyData[indexPath.section].event[indexPath.row])
+        cell.changeViewColor(dummyData[indexPath.section].date)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return detailEventTableView.frame.height/5
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let sb = UIStoryboard(name: "Chatting", bundle: nil)
+        
+        guard let popUpVC = sb.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else {return}
+        
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        present(popUpVC, animated: true, completion: nil)
     }
 }

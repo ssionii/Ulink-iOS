@@ -19,8 +19,13 @@
 		299DAD1224BAF26D008181FA /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD1124BAF26C008181FA /* DetailEventViewController.swift */; };
 		299DAD1424BAF2EC008181FA /* DetailEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD1324BAF2EC008181FA /* DetailEventCell.swift */; };
 		29AC520924BB0BBE0007E019 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AC520824BB0BBE0007E019 /* Search.storyboard */; };
-		29AC520B24BB1C2F0007E019 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC520A24BB1C2F0007E019 /* SearchViewController.swift */; };
-		8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */; };
+		29AC520E24BB838A0007E019 /* Databases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC520D24BB838A0007E019 /* Databases.swift */; };
+		29AC521124BB9E040007E019 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521024BB9E040007E019 /* SearchViewController.swift */; };
+		29AC521324BB9E5D0007E019 /* SearchedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521224BB9E5D0007E019 /* SearchedCell.swift */; };
+		29AC521524BB9E720007E019 /* RealTimeSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521424BB9E720007E019 /* RealTimeSearchCell.swift */; };
+		29AC521724BC60250007E019 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AC521624BC60250007E019 /* Review.storyboard */; };
+		29AC521A24BC60910007E019 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521924BC60910007E019 /* ReviewViewController.swift */; };
+		8F83FB66AD3FD38DC68E8A6E /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */; };
 		B513511A24B76E0800BD219B /* SubjectInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511924B76E0800BD219B /* SubjectInfoCell.swift */; };
 		B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */; };
 		B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511E24B86BE700BD219B /* AddSubjectDetailViewController.swift */; };
@@ -83,7 +88,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		292B1CEC24AF0AA700B4EC79 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		299DACEF24B70AFF008181FA /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = ulink/Sources/View/Calendar/EventModel.swift; sourceTree = SOURCE_ROOT; };
 		299DACF124B785FE008181FA /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
@@ -96,9 +100,15 @@
 		299DAD1124BAF26C008181FA /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		299DAD1324BAF2EC008181FA /* DetailEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventCell.swift; sourceTree = "<group>"; };
 		29AC520824BB0BBE0007E019 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		29AC520A24BB1C2F0007E019 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
-		B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
+		29AC520D24BB838A0007E019 /* Databases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Databases.swift; sourceTree = "<group>"; };
+		29AC521024BB9E040007E019 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		29AC521224BB9E5D0007E019 /* SearchedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedCell.swift; sourceTree = "<group>"; };
+		29AC521424BB9E720007E019 /* RealTimeSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeSearchCell.swift; sourceTree = "<group>"; };
+		29AC521624BC60250007E019 /* Review.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
+		29AC521924BC60910007E019 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
+		925CCBD7FDB6FCC72DBB5D65 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
+		9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B513511924B76E0800BD219B /* SubjectInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfoCell.swift; sourceTree = "<group>"; };
 		B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectByDragViewController.swift; sourceTree = "<group>"; };
 		B513511E24B86BE700BD219B /* AddSubjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectDetailViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FCDCD3C2FCFB4C0002CBF75 /* Pods_ulink.framework in Frameworks */,
+				8F83FB66AD3FD38DC68E8A6E /* Pods_ulink.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,11 +214,45 @@
 			path = Alarm;
 			sourceTree = "<group>";
 		};
+		29AC520C24BB82DF0007E019 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				29AC520D24BB838A0007E019 /* Databases.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		29AC520F24BB9DC60007E019 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				29AC521024BB9E040007E019 /* SearchViewController.swift */,
+				29AC521224BB9E5D0007E019 /* SearchedCell.swift */,
+				29AC521424BB9E720007E019 /* RealTimeSearchCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		29AC521824BC60780007E019 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				29AC521924BC60910007E019 /* ReviewViewController.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		41A1ADDA0FE96FE18C4B1BB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		674E96E3FC3FBA517F3C1116 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */,
-				B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */,
+				925CCBD7FDB6FCC72DBB5D65 /* Pods-ulink.debug.xcconfig */,
+				55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -271,14 +315,6 @@
 				B513511E24B86BE700BD219B /* AddSubjectDetailViewController.swift */,
 			);
 			path = Create;
-			sourceTree = "<group>";
-		};
-		D3A4F7CDB1294EC6CB9EFD23 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0A4B5C39F0AFA31CC889C01E /* Pods_ulink.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FD19DC0224AD016E000C2AEC /* API */ = {
@@ -406,7 +442,7 @@
 				FD45F24D24AA591300F304BD /* ulink */,
 				FD45F24C24AA591300F304BD /* Products */,
 				674E96E3FC3FBA517F3C1116 /* Pods */,
-				D3A4F7CDB1294EC6CB9EFD23 /* Frameworks */,
+				41A1ADDA0FE96FE18C4B1BB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -434,6 +470,7 @@
 		FD616CFE24AA5A91007D54B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				29AC520C24BB82DF0007E019 /* Database */,
 				FD6B17A024B0F83F00E8B9A8 /* Util */,
 				FD19DC0324AD017C000C2AEC /* Model */,
 				FD19DC0224AD016E000C2AEC /* API */,
@@ -465,6 +502,7 @@
 				FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */,
 				299DAD0A24BAB8ED008181FA /* Alarm.storyboard */,
 				29AC520824BB0BBE0007E019 /* Search.storyboard */,
+				29AC521624BC60250007E019 /* Review.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -472,13 +510,14 @@
 		FD616D0124AA6631007D54B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				29AC521824BC60780007E019 /* Review */,
+				29AC520F24BB9DC60007E019 /* Search */,
 				299DAD0C24BAB908008181FA /* Alarm */,
 				FD19DC1B24ADD4CF000C2AEC /* Calendar */,
 				B599E62D24ADA9FB0067C112 /* TimeTable */,
 				FD19DC0524AD0198000C2AEC /* UserLogin */,
 				FD19DC0424AD018F000C2AEC /* Chatting */,
 				FD45F25224AA591300F304BD /* ViewController.swift */,
-				29AC520A24BB1C2F0007E019 /* SearchViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -544,11 +583,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD45F25F24AA591500F304BD /* Build configuration list for PBXNativeTarget "ulink" */;
 			buildPhases = (
-				4890382B331E2D337856DCE5 /* [CP] Check Pods Manifest.lock */,
+				26332F99CD6D236AF62CE08C /* [CP] Check Pods Manifest.lock */,
 				FD45F24724AA591300F304BD /* Sources */,
 				FD45F24824AA591300F304BD /* Frameworks */,
 				FD45F24924AA591300F304BD /* Resources */,
-				54E1A07A6DCAEA6EDADA8D91 /* [CP] Embed Pods Frameworks */,
+				9F38C775004615FEBDA21D26 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -599,6 +638,7 @@
 			files = (
 				FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */,
 				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
+				29AC521724BC60250007E019 /* Review.storyboard in Resources */,
 				FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */,
 				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
 				299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */,
@@ -615,7 +655,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4890382B331E2D337856DCE5 /* [CP] Check Pods Manifest.lock */ = {
+		26332F99CD6D236AF62CE08C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -637,7 +677,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		54E1A07A6DCAEA6EDADA8D91 /* [CP] Embed Pods Frameworks */ = {
+		9F38C775004615FEBDA21D26 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -661,6 +701,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29AC521124BB9E040007E019 /* SearchViewController.swift in Sources */,
 				299DAD1224BAF26D008181FA /* DetailEventViewController.swift in Sources */,
 				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
 				FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */,
@@ -691,7 +732,6 @@
 				FD8EE90E24B83744000E5A48 /* MessageModel.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
 				FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */,
-				29AC520B24BB1C2F0007E019 /* SearchViewController.swift in Sources */,
 				B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */,
 				FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */,
 				299DACF424B78785008181FA /* EventCell.swift in Sources */,
@@ -699,6 +739,7 @@
 				B513512324B8BCD100BD219B /* TimeInfoModel.swift in Sources */,
 				FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */,
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
+				29AC521A24BC60910007E019 /* ReviewViewController.swift in Sources */,
 				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
 				B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
@@ -706,8 +747,10 @@
 				FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
 				299DACF224B785FE008181FA /* EventListViewController.swift in Sources */,
+				29AC521324BB9E5D0007E019 /* SearchedCell.swift in Sources */,
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
 				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,
+				29AC521524BB9E720007E019 /* RealTimeSearchCell.swift in Sources */,
 				FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */,
 				299DAD1024BABEA8008181FA /* AlarmCell.swift in Sources */,
 				FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */,
@@ -721,6 +764,7 @@
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
 				299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */,
 				FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */,
+				29AC520E24BB838A0007E019 /* Databases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,7 +906,7 @@
 		};
 		FD45F26024AA591500F304BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4341E30B5DC34D43503419EF /* Pods-ulink.debug.xcconfig */;
+			baseConfigurationReference = 925CCBD7FDB6FCC72DBB5D65 /* Pods-ulink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -881,7 +925,7 @@
 		};
 		FD45F26124AA591500F304BD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B305299F468407FD6C1FCE47 /* Pods-ulink.release.xcconfig */;
+			baseConfigurationReference = 55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
