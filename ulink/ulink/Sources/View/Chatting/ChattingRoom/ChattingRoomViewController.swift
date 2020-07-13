@@ -13,12 +13,14 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     @IBOutlet weak var sendButton: UIButton!
-    @IBOutlet weak var chattingTitleLabel: UILabel!
+    @IBOutlet weak var chattingTitleLabel: UILabel! // 채팅방 제목 라벨
     
+    @IBOutlet weak var chattingUserNumberLabel: UILabel! // 현재 채팅방에 몇명 있는지 나타내는 라벨
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageTextField: UITextField!
     var uid : String?
     var chatRoomUid : String?
+
     
     
     
@@ -34,15 +36,23 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var chattingTableView: UITableView!
 
     public var destinationUid : String? // 나중에 내가 채팅할 대상의 uid
+    public var tempTitle : String?
     public var chattingRoomTitle : String?
+
     var roomTitle : String = ""
+    
+    
+    
+    
+    
+    
+    //MARK:- Life Cycle 부분
     override func viewDidLoad() {
         
         
         setBorder()
           
         
-        setTitleLabel()
         super.viewDidLoad()
         uid = Auth.auth().currentUser?.uid
         
@@ -56,10 +66,11 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         hideBar()
-        setlabelBadge()
-        
+//        setChattingRoomInfo()
+
         checkChatRoom()
-  
+        
+   
         print("현재 uid : \(self.uid ?? "uid 실패")")
         
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
@@ -93,7 +104,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
-    
+    //MARK:- 키보드 액션 부분
     
     @objc func keyboardWillShow(notification : Notification){
 
@@ -144,13 +155,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
         
 
-    
-        
-    
-    func setTitleLabel(){
 
- 
-    }
     
     func setBorder()
     {
@@ -161,23 +166,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     }
         
-    func loadMessage(){
-        
-        
-    }
+
     
     
-    
-    
-    func setlabelBadge(){
-        
-        let label = UILabel()
-        label.clipsToBounds = true
-        label.layer.cornerRadius = label.font.pointSize * 1.2 / 2
-//        label.backgroundColor = UIColor.grayColor
-//        label.textColor = UIColor.whiteColor()
-        label.text = " Some Text ";
-    }
+
     
     
     // MARK:- table Delegate / Datasource
@@ -199,6 +191,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+        
+
         
         
 
@@ -229,6 +224,12 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             
             
+
+
+            
+            
+            
+            
             return view
             
         }
@@ -237,7 +238,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let view = tableView.dequeueReusableCell(withIdentifier: "destinationMessageCell", for: indexPath) as! destinationMessageCell
 
-            view.labelName.text = userModel?.userName
+            view.labelName.text = "뜨거운 감자" // 일단 유저 이름 구분은 나중에 해보자
 
             view.labelMessage.text = self.messageArray[indexPath.row].message
             
@@ -257,6 +258,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
             
         }
+        
+        
+        
+        
 
         
   
@@ -265,6 +270,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         return UITableViewCell()
         
     }
+    
+    
+    // MARK:-
     
     
     @IBAction func backToChattingList(_ sender: Any) {
@@ -312,13 +320,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
     }
     
-    func settingNavigationBar(){
-        
-        
-
-    }
-    
-    
+ 
 
 
         
@@ -327,6 +329,13 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         @objc func createRoom(){
             
             
+            
+            
+            
+            if (self.messageTextField.text == "" ) // 메세지 비면 전송못하게 해야 혀...
+            {
+                return
+            }
             //MARK:- 버튼 눌렀을 떄 ~~~
             
     
@@ -376,8 +385,16 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
  
                     self.checkChatRoom()
                     self.chattingTableView.reloadData()
+                    
+//                    
+//                          let indexPath = IndexPath(row: self.chattingTableView.numberOfRows(inSection: 0), section: 0)
+//
+//                          self.chattingTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+
 
                 }
+                
+
                 self.messageTextField.text = ""
             })
         
@@ -390,65 +407,110 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
+    // 추가적으로 받아와야할 정보?
+    // title은 그대로 가져가야 하고
+    // 채팅창 메세지는 계속 리프레시 되어야하고,
+    
+    
+    func setChattingRoomInfo() { // 전송 버튼을 누르거나 채팅방에 들어왔을떄 해당함수를 실행시켜서 메세지를 다시 받아와보자
+        
+           Database.database().reference().child("chatrooms").child(chatRoomUid!).child("users").observe(.value) { (datasnapshot) in
+            
+            
+            
+            let dic = datasnapshot.value as! [String:Any]
+            
+            let numberInChattingRoom = dic.count - 1 // 몇 명 있는지 나타내는 변수
+            self.chattingUserNumberLabel.text  = String(numberInChattingRoom)
+            
+    
+        
+            self.chattingUserNumberLabel.text = String(numberInChattingRoom)
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+        }
+            
+            
+        
+        
+        
+    }
+    
     
 
     
     func checkChatRoom() {
         
         
-        Database.database().reference().child("chatrooms").queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value)
+
+        
+        Database.database().reference().child("chatrooms").observeSingleEvent(of: DataEventType.value)
         { (datasnapshot) in
             
             
-                print("STAR")
-            print(datasnapshot)
-            
             
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
-
-                print("item key 값 : \(item.key)")
-                print("destination UID 값 : \(self.destinationUid)")
                 
                 
                 
+                if self.destinationUid == item.key{     // 해당 방의 정보만 불러와야 한다!
+                    
                 
-                if self.destinationUid == item.key{     // 현재 내가 들어간 방과 목적지 uid가 일치한다면
+                    
                     
                     
                     
                     let values = datasnapshot.value
-                    var count : Int = 0
-                    let dic = values as! [String: [String:Any]]
                     
-                    for index in dic {
+                    var count : Int = 0
+                    
+                    
+                    
+                    print("datasnapshot : \(datasnapshot.value)")
+                    print("item : \(item)")
+                    
+                    
+                    
+                    let dic = values as! [String: [String:Any]] // 애 또 순서 파괴된다...
+                    print("dic : \(dic)")
+                    
+                    
+                    for index in dic { // 이걸 두번 도니까 순서 나가는거제..
+                        
+                    //여기서 무슨 느낌이냐면 바로 먹고 나가야됨
                         
                         
-                        if self.destinationUid == index.key
+                        if index.value["title"] as? String == self.tempTitle // 같은 제목에 있는 거만 불러와야됨
                         {
-
                             
-                            
-                            
-                            print("채팅방 제목")
-                            print(index.value["title"] ?? "수업채팅방")
                             
                             self.roomTitle = index.value["title"] as? String ?? "수업채팅방"
                             
-                   
+                            
                             self.chattingTitleLabel.text = self.roomTitle
                             
                             
-                       
+                            
                             if index.value["comments"] != nil{
                                 let message = index.value["comments"] as! [String: [String:Any]]
                                 
-             
+                                
                                 self.messageArray.removeAll()
                                 for idx in message
                                 {
                                     count = 0
                                     print("idx : \(idx)")
- 
+                                    
+                                    
                                     let msg = MessageModel()
                                     msg.message = idx.value["message"] as? String ?? ""
                                     msg.time = idx.value["timestamp"] as? Int ?? -1
@@ -466,10 +528,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                                     
                                     
                                     self.messageArray.append(msg)
-//                                    self.messageArray.append(idx.value["message"] as? String ?? "")
+                                    //                                    self.messageArray.append(idx.value["message"] as? String ?? "")
                                     
-                                    print("현재 메세지 어레이가 이렇습니다")
-                                    print(self.messageArray)
+
                                 }
                                 
                                 
@@ -477,56 +538,52 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                             }
                             
 
-                            
-
-
-                            
-               
-                            
                                 
+
+
+                                
+                   
+                                
+                                    
+                            
+
+                            self.chattingTableView.reloadData()
                         }
+                        
+                        
+                        self.messageArray = self.messageArray.sorted(by: {$0.time! < $1.time!}) // 시간순으로 정렬
+                        
+                        
+
+
+   
+                                    
+ 
+                        
 
                         
-                    }
-                    
-                    
-                    DispatchQueue.main.async {
-                                self.chattingTableView.reloadData()
+                        
+
+                        
+                        if let chatRoomdic = item.value as? [String:AnyObject]{
+       
+      
+                
+                            if(self.destinationUid != nil){
+                                self.chatRoomUid = item.key
+                                self.sendButton.isEnabled = true
+                                self.getMessageList()
+       
+
                             }
-                                
-                    
-                    print("현재 방의 key 값 : \(self.destinationUid ?? "")")
-                    print("어찌됐든 접속 성공")
-                    
-                    print("item 값")
-                
-                    
-                    print(item)
-
-                    
-                    
-
-//                    print(item.value(forKey: "comment") as? String ?? "채팅 불러오기 실패여")
-                    
-                    if let chatRoomdic = item.value as? [String:AnyObject]{
-                        print("여기는 들어오시나여?")
-  
-            
-                        if(self.destinationUid != nil){
-                            self.chatRoomUid = item.key
-                            self.sendButton.isEnabled = true
-                            self.getMessageList()
-   
-                            print("이거 되는거임??")
                         }
-                    }
 
-                
                     
+                        
      
                     
                     
-                    
+                    }
                 }
             
                 
@@ -536,7 +593,12 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 
             }
+            
+            
         }
+        
+        
+        
     }
     
     
@@ -551,6 +613,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             let dic = datasnapshot.value as! [String:Any]
             
             let noReadCount = dic.count - readCount! - 1
+            
+            self.chattingUserNumberLabel.text  = String(dic.count - 1)
 
             
             if(noReadCount > 0){
@@ -563,18 +627,18 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         }
     }
     
-    func getDestinationInfo(){
-        
-        Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
-            
-            self.userModel = UserModel()
-
-            
-            self.userModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
-            
-            self.getMessageList()
-        })
-    }
+//    func getDestinationInfo(){
+//
+//        Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+//
+//            self.userModel = UserModel()
+//
+//
+//            self.userModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
+//
+//            self.getMessageList()
+//        })
+//    }
     
     func getMessageList() {
         
@@ -589,12 +653,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             var readUserDic : Dictionary<String,AnyObject> = [:]
             
 
-//            print("databaseRef")
-//            print(self.databaseRef)
-//               print("observe")
-//            print(self.observe)
-//
-            print("datasnapshot : \(datasnapshot)")
+
 
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
                 
@@ -617,11 +676,11 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             datasnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any]) { (err, ref) in
                     self.chattingTableView.reloadData()
                     
-//                    if self.comments.count > 0 {
+//                    if self.messageArray.count > 0 {
 //                        print("밑으로 스크롤 해~~~")
 //                        self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: .bottom, animated: true)
 //                    }
-//
+
 
             }
 
