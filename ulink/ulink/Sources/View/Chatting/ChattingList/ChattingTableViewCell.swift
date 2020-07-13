@@ -15,6 +15,7 @@ class ChattingTableViewCell: UITableViewCell {
     static let identifiers : String = "ChattingCell"
     @IBOutlet weak var chattingNumberBadge: UILabel!
     
+    @IBOutlet weak var chattingUserCountLabel: UILabel!
     
     
     

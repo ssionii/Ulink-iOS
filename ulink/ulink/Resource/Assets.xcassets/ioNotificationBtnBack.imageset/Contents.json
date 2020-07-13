@@ -2,8 +2,8 @@
   "images" : [
     {
       "filename" : "ioNotificationBtnBack.png",
-      "scale" : "1x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "1x"
     },
     {
       "filename" : "ioNotificationBtnBack@2x.png",
@@ -12,8 +12,8 @@
     },
     {
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "ioNotificationBtnBack@3x.png"
+      "filename" : "ioNotificationBtnBack@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

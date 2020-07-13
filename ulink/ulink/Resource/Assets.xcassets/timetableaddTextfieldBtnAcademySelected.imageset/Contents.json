@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "timetableaddTextfieldBtnAcademySelected.png",
+      "scale" : "1x",
+      "idiom" : "universal"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "timetableaddTextfieldBtnAcademySelected@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "timetableaddTextfieldBtnAcademySelected@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
