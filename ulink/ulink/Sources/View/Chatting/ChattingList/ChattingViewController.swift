@@ -198,7 +198,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "ChattingRoomViewController") as? ChattingRoomViewController else { return }
         
         
-        self.array_class = self.array_class.sorted(by: {$0.className! > $1.className!})
+        self.array_class = self.array_class.sorted(by: {$0.className! < $1.className!})
 
 //        print("Array : \(array_class)")
         
