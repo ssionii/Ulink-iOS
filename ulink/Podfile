@@ -19,4 +19,6 @@ target 'ulink' do
   pod 'SideMenu', '~> 6.0'
   pod 'RealmSwift' 
   pod 'SwiftyJSON','~>4.0'
+  pod 'BEMCheckBox'
+
 end
