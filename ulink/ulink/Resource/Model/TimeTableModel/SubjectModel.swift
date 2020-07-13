@@ -20,7 +20,6 @@ public struct SubjectModel {
     public var professorName: String
     public var course : String
     public var credit : Int
-    public var timeInfo : String
     public var subjectNum : String
     
     public var day : [TimeTableDay.RawValue]
@@ -40,7 +39,6 @@ public struct SubjectModel {
         self.professorName = ""
         self.course = ""
         self.credit = 0
-        self.timeInfo = ""
         self.isExpand = false
         self.subjectNum = ""
         self.day = []
@@ -60,17 +58,15 @@ public struct SubjectModel {
         self.professorName = ""
         self.course = ""
         self.credit = 0
-        self.timeInfo = ""
         self.isExpand = false
         self.subjectNum = ""
         self.day = []
                self.dateTime = []
     }
     
-    public init(subjectName: String, professorName: String, timeInfo: String, roomName: String, course: String, credit: Int, subjectNum: String, day: [Int], dateTime: [String]){
+    public init(subjectName: String, professorName: String, roomName: String, course: String, credit: Int, subjectNum: String, day: [Int], dateTime: [String]){
         self.subjectName = subjectName
         self.professorName = professorName
-        self.timeInfo = timeInfo
         self.roomName = roomName
         self.course = course
         self.credit = credit
@@ -90,7 +86,6 @@ public struct SubjectModel {
     public init(){
         self.subjectName = ""
         self.professorName = ""
-        self.timeInfo = ""
         self.roomName = ""
         self.course = ""
         self.credit = 0

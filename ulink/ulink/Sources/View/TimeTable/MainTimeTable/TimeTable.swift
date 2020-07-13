@@ -40,9 +40,6 @@ public protocol TimeTableDataSource {
     
     private var startPositionX : CGFloat = 0
     private var startPositionY : CGFloat = 0
-    
-    private var removeTag = 100
-    private var scrollIndex = 7
 
     public var startDay = TimeTableDay.monday {
         didSet {
@@ -376,8 +373,7 @@ public protocol TimeTableDataSource {
         let view = UIView(frame: CGRect(x: startPositionX, y: startPositionY, width: width, height: height))
         view.backgroundColor = UIColor.black
         view.alpha = 0.3
-        view.tag = removeTag
-        removeTag += 1
+        view.tag = count
         view.layer.cornerRadius = 8
         
         collectionView.addSubview(view)
@@ -386,11 +382,11 @@ public protocol TimeTableDataSource {
 
     func makeHintTimeTable(day: [Int], dateTime: [String]){
         
+        collectionView.reloadData()
         let minStartTimeHour : Int = defaultMinHour
         
         var upperPosiY = collectionView.frame.height
     
-        print(dateTime)
         if day.count > 0 {
             for i in 0 ... day.count - 1 {
                 
@@ -419,9 +415,9 @@ public protocol TimeTableDataSource {
                 let view = UIView(frame: CGRect(x: position_x, y: position_y, width: width, height: height))
                 view.backgroundColor = UIColor.black
                 view.alpha = 0.3
-                view.tag = 100
-                
-                print("tag : \(view.tag)")
+//                view.tag = removeTag
+//                removeTag += 1
+
                 view.layer.cornerRadius = 8
                 
                 collectionView.addSubview(view)
@@ -430,15 +426,25 @@ public protocol TimeTableDataSource {
             }
         }
         
+        collectionView.setNeedsDisplay()
+        
         collectionView.scrollRectToVisible(CGRect(x: 0, y: upperPosiY, width: collectionView.frame.width, height: collectionView.frame.height), animated: true)
         
     }
     
     func removeHintTable(){
         
-       for subview in collectionView.subviews{
-        print(subview.tag)
-            if subview.tag >= 100 {
+        collectionView.reloadData()
+        collectionView.collectionViewLayout.invalidateLayout()
+
+        for subview in collectionView.subviews{
+            if !(subview is UICollectionViewCell){
+                subview.removeFromSuperview()
+            }
+        }
+
+        for subview in subviews {
+            if !(subview is UICollectionView){
                 subview.removeFromSuperview()
             }
         }
