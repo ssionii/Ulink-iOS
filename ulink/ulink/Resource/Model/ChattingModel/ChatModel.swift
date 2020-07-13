@@ -23,6 +23,7 @@ class ChatModel: Mappable {
     public var users :Dictionary<String,Bool> = [:] // 채팅방에 참여한 사람들
     public var comments : Dictionary<String,Comment> = [:] // 채팅방의 대화내용
     
+    
     func mapping(map: Map) {
         
         title <- map["title"]
@@ -42,6 +43,10 @@ class ChatModel: Mappable {
         
         public var message : String?
         
+        public var timestamp: Int?
+        
+        public var readUsers: Dictionary<String,Bool> = [:]
+        
         public required init?(map: Map) {
             
             
@@ -53,6 +58,10 @@ class ChatModel: Mappable {
             uid <- map["uid"]
             
             message <- map["message"]
+            
+            timestamp <- map["timestamp"]
+            
+            readUsers <- map["readUser"]
             
         }
         

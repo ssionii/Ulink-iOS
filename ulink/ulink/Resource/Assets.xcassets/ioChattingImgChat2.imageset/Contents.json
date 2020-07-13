@@ -2,50 +2,22 @@
   "images" : [
     {
       "filename" : "ioChattingImgChat2.png",
-      "idiom" : "universal",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 4,
-          "left" : 14,
-          "right" : 10,
-          "top" : 5
-        },
-        "center" : {
-          "height" : 2,
-          "mode" : "tile",
-          "width" : 1
-        },
-        "mode" : "9-part"
-      },
-      "scale" : "1x"
+      "scale" : "1x",
+      "idiom" : "universal"
     },
     {
-      "filename" : "ioChattingImgChat2@2x.png",
       "idiom" : "universal",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 58,
-          "left" : 28,
-          "right" : 19,
-          "top" : 9
-        },
-        "center" : {
-          "height" : 38,
-          "mode" : "tile",
-          "width" : 1
-        },
-        "mode" : "9-part"
-      },
+      "filename" : "ioChattingImgChat2@2x.png",
       "scale" : "2x"
     },
     {
-      "filename" : "ioChattingImgChat2@3x.png",
+      "scale" : "3x",
       "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "ioChattingImgChat2@3x.png"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   }
 }

@@ -14,33 +14,123 @@ import FirebaseAuth
 
 
 
+
+
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var mainLogoImage: UIImageView!
+    @IBOutlet weak var viewTopConstraint: NSLayoutConstraint!
     
     let remoteConfig = RemoteConfig.remoteConfig()
     
-    @IBOutlet weak var nameTextField: HoshiTextField!
-    @IBOutlet weak var pwTextField: HoshiTextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+   
+    
+    
+    
+//MARK:- Life Cycle 부분
     
         override func viewDidLoad() {
         super.viewDidLoad()
         
         
         try! Auth.auth().signOut()
+            
+            
+            self.navigationController?.navigationBar.isHidden = true
+            
 
+            
+            
+            let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+            
+            view.addGestureRecognizer(tap)
         
         
         Auth.auth().addStateDidChangeListener{ (auth, user) in
             if(user != nil){
                 print(" login Success ")
-                let homeview = self.storyboard?.instantiateViewController(withIdentifier: "homeTabBarController")
-                homeview?.modalPresentationStyle = .fullScreen
-                self.present(homeview!, animated: true, completion: nil)
+                
+                
+                let storyboard = UIStoryboard(name:"Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "homeTabBarController")
+                
+                
+               
+                
+                
+                self.navigationController!.pushViewController(vc, animated: true)
+//                homeview?.modalPresentationStyle = .fullScreen
+//                self.present(homeview!, animated: true, completion: nil)
             }
         }
         
 
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+
+        
+    }
+    
+    
+    //MARK:- 키보드 액션 부분
+    
+    @objc func keyboardWillShow(notification : Notification){
+
+
+        
+        
+        if let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue{
+            
+            self.mainLogoImage.alpha = 0
+            self.viewTopConstraint.constant = -15
+
+        
+
+        UIView.animate(withDuration: 0 , animations: {
+
+            self.view.layoutIfNeeded()
+
+        }, completion: {
+
+            (complete) in
+
+            
+
+         
+
+        })
+
+    }
+    }
+    
+    
+    @objc func keyboardWillHide(notification: Notification){
+        
+        self.mainLogoImage.alpha = 1
+        self.viewTopConstraint.constant = 80
+        
+        self.view.layoutIfNeeded()
+        
+    }
+    
+    
+    
+    @objc func dismissKeyBoard(){
+        self.view.endEditing(true)
     }
     
     

@@ -359,7 +359,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         if (subjectInfoList[indexPath.row].isExpand) {
         
-            guard let subjectInfoCellExpand = subjectInfoTableView.dequeueReusableCell(withIdentifier: "subjectInfoCellExpand", for: indexPath) as? SubjectInfoCellExpand else { return SubjectInfoCellExpand() }
+            guard let subjectInfoCellExpand =    subjectInfoTableView.dequeueReusableCell(withIdentifier: "subjectInfoCellExpand", for: indexPath) as? SubjectInfoCellExpand else { return SubjectInfoCellExpand() }
             
             let data = subjectInfoList[indexPath.row]
               
