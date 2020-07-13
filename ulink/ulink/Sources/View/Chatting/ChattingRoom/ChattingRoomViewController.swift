@@ -221,6 +221,12 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             
             
+
+
+            
+            
+            
+            
             return view
             
         }
@@ -249,6 +255,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
             
         }
+        
+        
+        
+        
 
         
   
@@ -372,8 +382,16 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
  
                     self.checkChatRoom()
                     self.chattingTableView.reloadData()
+                    
+//                    
+//                          let indexPath = IndexPath(row: self.chattingTableView.numberOfRows(inSection: 0), section: 0)
+//
+//                          self.chattingTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+
 
                 }
+                
+
                 self.messageTextField.text = ""
             })
         
@@ -400,6 +418,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             let dic = datasnapshot.value as! [String:Any]
             
             let numberInChattingRoom = dic.count - 1 // 몇 명 있는지 나타내는 변수
+            self.chattingUserNumberLabel.text  = String(numberInChattingRoom)
             
     
         
@@ -534,26 +553,17 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                         
 
 
-                        
-                        DispatchQueue.main.async {
-                                    self.chattingTableView.reloadData()
-                                }
+   
                                     
+ 
                         
-                        print("현재 방의 key 값 : \(self.destinationUid ?? "")")
-                        print("어찌됐든 접속 성공")
-                        
-                        print("item 값")
-                    
-                        
-                        print(item)
 
                         
                         
 
                         
                         if let chatRoomdic = item.value as? [String:AnyObject]{
-                            print("여기는 들어오시나여?")
+       
       
                 
                             if(self.destinationUid != nil){
@@ -561,7 +571,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                                 self.sendButton.isEnabled = true
                                 self.getMessageList()
        
-                                print("이거 되는거임??")
+
                             }
                         }
 
@@ -600,6 +610,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             let dic = datasnapshot.value as! [String:Any]
             
             let noReadCount = dic.count - readCount! - 1
+            
+            self.chattingUserNumberLabel.text  = String(dic.count - 1)
 
             
             if(noReadCount > 0){

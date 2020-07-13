@@ -29,6 +29,8 @@ class ChattingViewController: UIViewController {
     var chattingListRef : DatabaseReference!
     var array_class : [ClassModel] = []
     
+    @IBOutlet weak var chattingUserCountLabel: UILabel!
+    
     override func viewDidLoad(){
         
 
@@ -40,7 +42,6 @@ class ChattingViewController: UIViewController {
 
         chattingListTable.dataSource = self
         chattingListTable.delegate = self
-        setTableData()
         hideNaviBar()
         
 
@@ -126,40 +127,7 @@ class ChattingViewController: UIViewController {
 
     }
     
-    
-    func setTableData() {
-        
-        
-        
-        
-        
-        
-        
-        
 
-            
-        self.ref = Database.database().reference()
-        let itemref = ref.child("classroom")
-
-        
-
-
-        
-        
-
-
-        
-
-        
-        
-        
-
-        
-
-        
-    }
-    
-    
     func hideNaviBar(){
         
         
@@ -186,14 +154,19 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         
         
+        Database.database().reference().child("chatrooms").child(array_class[indexPath.row].key!).child("users").observe(.value) { (datasnapshot) in
+            
+            
+            let dic = datasnapshot.value as! [String:Any]
+            
         
-
         
         
-        
+        chattingCell.chattingUserCountLabel.text = "현재 인원 :" + String(dic.count - 1)
+        }
         chattingCell.chattingRoomTitle.text = array_class[indexPath.row].className
         
-                        
+        
 
         
         

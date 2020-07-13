@@ -48,10 +48,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(3/20)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UN-s3-gOC">
-                                                    <rect key="frame" x="71" y="41" width="60" height="19"/>
+                                                    <rect key="frame" x="71" y="41" width="120" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="VaZ-NU-o06"/>
-                                                        <constraint firstAttribute="width" constant="60" id="y7i-5b-0MH"/>
+                                                        <constraint firstAttribute="width" constant="120" id="y7i-5b-0MH"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,6 +82,7 @@
                                         <connections>
                                             <outlet property="chattingNumberBadge" destination="uen-FL-jYr" id="vuF-ZQ-IrJ"/>
                                             <outlet property="chattingRoomTitle" destination="3ar-1H-6ND" id="A8g-eH-Gbw"/>
+                                            <outlet property="chattingUserCountLabel" destination="1UN-s3-gOC" id="Wzb-Wh-Zmg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
