@@ -38,5 +38,5 @@ struct SigninData: Codable {
 
 
 struct TokenData: Codable{
-    let accessToken: String
+    let uid, accessToken: String
 }

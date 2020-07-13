@@ -188,6 +188,7 @@ class LoginViewController: UIViewController {
                     
         
                 case .requestErr(let message):
+                    print("REQUEST ERROR")
                     guard let message = message as? String else { return }
                     let alertViewController = UIAlertController(title: "로그인 실패", message: message,
                                                                 preferredStyle: .alert)
@@ -197,7 +198,14 @@ class LoginViewController: UIViewController {
                     
                     
                     
-                case .pathErr: print("path")
+                case .pathErr:
+                    
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "로그인 실패", message: message,
+                                                                preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
                 case .serverErr: print("serverErr")
                 case .networkFail: print("networkFail")
                 }

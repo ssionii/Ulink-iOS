@@ -90,6 +90,7 @@ PODS:
     - Realm (= 5.2.0)
   - SideMenu (6.4.8)
   - SnapKit (5.0.1)
+  - SwiftyJSON (4.3.0)
   - TextFieldEffects (1.6.0)
 
 DEPENDENCIES:
@@ -104,6 +105,7 @@ DEPENDENCIES:
   - RealmSwift
   - SideMenu (~> 6.0)
   - SnapKit (~> 5.0.0)
+  - SwiftyJSON (~> 4.0)
   - TextFieldEffects
 
 SPEC REPOS:
@@ -133,6 +135,7 @@ SPEC REPOS:
     - RealmSwift
     - SideMenu
     - SnapKit
+    - SwiftyJSON
     - TextFieldEffects
 
 SPEC CHECKSUMS:
@@ -161,8 +164,9 @@ SPEC CHECKSUMS:
   RealmSwift: bf0ab78b52c5bafba8b3ad73be8dfb4c1ea5cf01
   SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 828ca4964e4c06f32b4657ab370be27c9f0f537e
+PODFILE CHECKSUM: bc543d29ec8bf1b0dff343ff29b944e21c62eab7
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

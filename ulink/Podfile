@@ -18,5 +18,5 @@ target 'ulink' do
   pod 'ObjectMapper', '~> 3.5' 
   pod 'SideMenu', '~> 6.0'
   pod 'RealmSwift' 
-
+  pod 'SwiftyJSON','~>4.0'
 end
