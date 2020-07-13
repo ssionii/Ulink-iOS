@@ -43,6 +43,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     
+    
+    
+    
     //MARK:- Life Cycle 부분
     override func viewDidLoad() {
         
