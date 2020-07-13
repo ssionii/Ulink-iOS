@@ -8,12 +8,17 @@
 
 import UIKit
 
-class DetailEventViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class DetailEventViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var detailEventCollectionView: UICollectionView!
+    
+    
+    @IBOutlet weak var popUpView: UIView!
     @IBOutlet var backView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var detailEventTableView: UITableView!
     
-    var started = false //시작할때 위치 찾기 한번만~
+    var dummydummyData: [Event] = []
+    var dummyData: [EventList] = []
     
     var numOfDetailCells: Int?
     var currentYear: Int?
@@ -36,32 +41,30 @@ class DetailEventViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getMonthlyData()
+        let colorView = UIView()
+               colorView.backgroundColor = UIColor.clear
+        UITableViewCell.appearance().selectedBackgroundView = colorView
         
-        // Do any additional setup after loading the view.
-        detailEventCollectionView.dataSource = self
-        detailEventCollectionView.delegate = self
+        //더미더ㅣㅁ
+        dummydummyData = [Event(name: "소프트웨어공학", color: 1, notice_idx: 1, category: "시험", start_time: "9:00", end_time: "11:45", title: "중간고사"), Event(name: "창의적사고", color: 2, notice_idx: 1, category: "과제", start_time: "00:00", end_time: "23:59", title: "레포트 제출"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강"), Event(name: "소프트웨어공학", color: 1, notice_idx: 1, category: "시험", start_time: "9:00", end_time: "11:45", title: "중간고사")]
+        
+        dummyData = [EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-13", event: dummydummyData), EventList(date: "2020-08-29", event: dummydummyData)]
+        
+        popUpView.layer.cornerRadius = 20
+        
+        detailEventTableView.delegate = self
+        detailEventTableView.dataSource = self
+        
+        getMonthlyData()
+        setDateLabel()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         let touch = touches.first
-        if touch?.view != self.detailEventCollectionView
+        if touch?.view != self.popUpView
         { self.dismiss(animated: false, completion: nil) }
-    }
-    
-    @IBAction func swipeLeft(_ sender: Any) {
-        let x = self.detailEventCollectionView.bounds.origin.x
-        if (x < (self.detailEventCollectionView.frame.width-45) * 2){
-            self.detailEventCollectionView.setContentOffset(CGPoint(x: self.detailEventCollectionView.bounds.origin.x + self.detailEventCollectionView.frame.width - 45, y: 0), animated: true)
-        }
-    }
-    
-    @IBAction func swipeRight(_ sender: Any) {
-        let x = self.detailEventCollectionView.bounds.origin.x
-        if (x > 0){
-            self.detailEventCollectionView.setContentOffset(CGPoint(x: self.detailEventCollectionView.bounds.origin.x - self.detailEventCollectionView.frame.width + 45, y: 0), animated: true)
-        }
     }
     
     func getMonthlyData(){
@@ -70,8 +73,13 @@ class DetailEventViewController: UIViewController, UICollectionViewDelegate, UIC
         guard let currentMonth = self.currentMonth else {return}
         guard let currentDate = self.currentDate else {return}
         guard let currentWeekDay = self.currentWeekDay else {return}
-        
-        print("개수", numOfDetailCells, "년", currentYear, "월", currentMonth, "일", currentDate)
+    }
+    
+    func setDateLabel(){
+        let weekday = changeWeekdayToString(weekday: currentWeekDay!)
+        var date = String(currentMonth!) + "월 " + String(currentDate!) + "일 "
+        date.insert(contentsOf: weekday, at: date.endIndex)
+        dateLabel.text = date
     }
     
     func changeWeekdayToString(weekday: Int) -> String{
@@ -96,49 +104,38 @@ class DetailEventViewController: UIViewController, UICollectionViewDelegate, UIC
         }
 
         //var dateString = String(currentMonth?) + "월 " + String(currentDate?) + "일 "
-        
-        
         return stringWeekday
     }
     
-    // MARK: collectionview layout
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
-        indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 60, height: collectionView.frame.height)
+    // MARK: tableview
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("셀 수 지정")
+        return 6
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
-    }
-    
-    // MARK: collectionview cell
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailEventCell.identifier, for: indexPath) as? DetailEventCell else {
-        return UICollectionViewCell() }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("셀 지정")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell else {
+        return UITableViewCell() }
         
-
-        let weekday = changeWeekdayToString(weekday: currentWeekDay!)
-        var date = String(currentMonth!) + "월 " + String(currentDate!) + "일 "
-        date.insert(contentsOf: weekday, at: date.endIndex)
-        cell.setEventList(date: date, eventName: eventName, category: category, time: time)
+        
+        cell.set(dummyData[indexPath.section].event[indexPath.row])
+        cell.changeViewColor(dummyData[indexPath.section].date)
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if (started == false){
-            started = true
-            self.detailEventCollectionView.setContentOffset(CGPoint(x: self.detailEventCollectionView.bounds.origin.x + self.detailEventCollectionView.frame.width - 45, y: 0), animated: false)
-        }
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return detailEventTableView.frame.height/5
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let sb = UIStoryboard(name: "Chatting", bundle: nil)
+        
+        guard let popUpVC = sb.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else {return}
+        
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        present(popUpVC, animated: true, completion: nil)
+    }
 }

@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "ioMainFiltersettingSearchIcX.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "ioMainFiltersettingSearchIcX@2x.png"
+    },
+    {
+      "filename" : "ioMainFiltersettingSearchIcX@3x.png",
+      "scale" : "3x",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

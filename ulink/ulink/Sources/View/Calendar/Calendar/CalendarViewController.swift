@@ -148,6 +148,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     //오늘이 포함된 달로 돌아오기
     @IBAction func backToToday(_ sender: Any) {
+        currentYear = todayYear
         currentMonth = todayMonth
         monthLabel.text = String(currentMonth) + "월"
         calendarCollectionView.reloadData()
