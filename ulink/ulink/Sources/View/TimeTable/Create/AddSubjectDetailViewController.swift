@@ -13,13 +13,16 @@ protocol AddSubjectDetailDelegate {
     func didDeleteTimeInfo(num : Int)
 }
 
-class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SubjectTimeInfoCellDelegate {
-    
+class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SubjectTimeInfoCellDelegate, AddTimeInfoCellDelegate, CustomPickerViewDelegate{
+
     public var delegate: AddSubjectDetailDelegate?
     
     public var timeInfoList : [TimeInfoModel] = []
     public let defatulTimeInfoTableViewHeight = 46
     private var subjectName = ""
+    private var editTimeInfoIdx = 0
+    public var isFromDrag = false
+
     
     @IBOutlet weak var subjectTimeInfoTableView: UITableView!
     @IBOutlet weak var backgroundView: UIView!
@@ -144,6 +147,7 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard)))
 
+    
         
         subjectTimeInfoTableView.delegate = self
         subjectTimeInfoTableView.dataSource = self
@@ -154,7 +158,7 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
+
     @objc func keyboardWillShow(notification : Notification){
         if let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue{
                
@@ -184,7 +188,6 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         timeInfoList = list.sorted(by: {$0.weekDay.rawValue < $1.weekDay.rawValue})
         
     }
-
     
     public func resetButton(){
         clubBtn.setImage(UIImage(named: "timetableaddTextfieldBtnCircleUnselected"), for: .normal)
@@ -202,35 +205,75 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     // protocol
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timeInfoList.count
+        if isFromDrag {
+            return timeInfoList.count
+        } else {
+            return timeInfoList.count + 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let subjectTimeInfoCell : SubjectTimeInfoCell = subjectTimeInfoTableView.dequeueReusableCell(withIdentifier: "subjectTimeInfoCell", for: indexPath) as? SubjectTimeInfoCell else {return SubjectTimeInfoCell()}
-             
-        let data = timeInfoList[indexPath.row]
-          
-        subjectTimeInfoCell.setTimeInfoText(weekDay: data.weekDay, start: data.startTime, end: data.endTime)
         
-        if indexPath.row == 0 && timeInfoList.count == 1 {
-            subjectTimeInfoCell.hideTrash()
+        if !isFromDrag {
+            if timeInfoList.count == 0 || indexPath.row == timeInfoList.count - 1 {
+                
+                guard let addTimeInfoCell : AddTimeInfoCell = subjectTimeInfoTableView.dequeueReusableCell(withIdentifier: "addTimeInfoCell", for: indexPath) as? AddTimeInfoCell else {return AddTimeInfoCell()}
+                     
+                addTimeInfoCell.selectionStyle = .none
+                addTimeInfoCell.delegate = self
+                
+                return addTimeInfoCell
+                
+            } else {
+                guard let subjectTimeInfoCell : SubjectTimeInfoCell = subjectTimeInfoTableView.dequeueReusableCell(withIdentifier: "subjectTimeInfoCell", for: indexPath) as? SubjectTimeInfoCell else {return SubjectTimeInfoCell()}
+                     
+                let data = timeInfoList[indexPath.row]
+                  
+                subjectTimeInfoCell.setTimeInfoText(weekDay: data.weekDay, start: data.startTime, end: data.endTime)
+                
+                if indexPath.row == 0 && timeInfoList.count == 1 {
+                    subjectTimeInfoCell.hideTrash()
+                }
+                
+                if indexPath.row == timeInfoList.count - 1 {
+                    subjectTimeInfoCell.removeBottomBorder()
+                }
+                
+                subjectTimeInfoCell.selectionStyle = .none
+                subjectTimeInfoCell.delegate = self
+                subjectTimeInfoCell.setNum(num: timeInfoList[indexPath.row].timeIdx)
+                
+                return subjectTimeInfoCell
+            }
+        }else {
+            guard let subjectTimeInfoCell : SubjectTimeInfoCell = subjectTimeInfoTableView.dequeueReusableCell(withIdentifier: "subjectTimeInfoCell", for: indexPath) as? SubjectTimeInfoCell else {return SubjectTimeInfoCell()}
+                 
+            let data = timeInfoList[indexPath.row]
+              
+            subjectTimeInfoCell.setTimeInfoText(weekDay: data.weekDay, start: data.startTime, end: data.endTime)
+            
+            if indexPath.row == 0 && timeInfoList.count == 1 {
+                subjectTimeInfoCell.hideTrash()
+            }
+            
+            if indexPath.row == timeInfoList.count - 1 {
+                subjectTimeInfoCell.removeBottomBorder()
+            }
+            
+            subjectTimeInfoCell.selectionStyle = .none
+            subjectTimeInfoCell.delegate = self
+            subjectTimeInfoCell.setNum(num: timeInfoList[indexPath.row].timeIdx)
+            
+            return subjectTimeInfoCell
         }
         
-        if indexPath.row == timeInfoList.count - 1 {
-            subjectTimeInfoCell.removeBottomBorder()
-        }
-        
-        subjectTimeInfoCell.selectionStyle = .none
-        subjectTimeInfoCell.delegate = self
-        subjectTimeInfoCell.setNum(num: timeInfoList[indexPath.row].timeIdx)
-        
-        return subjectTimeInfoCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(defatulTimeInfoTableViewHeight)
     }
     
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         true
     }
@@ -255,6 +298,24 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
        
     }
     
+    func didPressEditButton(_ idx: Int) {
+        
+        self.editTimeInfoIdx = idx - 1
+        
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "customPickerViewController") as? CustomPickerViewController else { return }
+        nextVC.delegate = self
+
+        self.present(nextVC, animated: true, completion: nil)
+    }
+    
+    func didPressAddBtn(idx: Int) {
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "customPickerViewController") as? CustomPickerViewController else { return }
+        nextVC.delegate = self
+
+        self.present(nextVC, animated: true, completion: nil)
+    }
+    
+    
     func removeTimeInfoCell(tag: Int){
     
         let indexPath = IndexPath(row: tag, section: 0)
@@ -276,6 +337,21 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         subjectTimeInfoTableView.reloadData()
     }
     
+    func didPressOkBtn(selectWeekDay: Int?, startHour: String, startMin: String, endHour: String, endMin: String) {
+        
+        var timeTableDay = TimeTableDay.init(rawValue: selectWeekDay ?? 1) ?? TimeTableDay.init(rawValue: 1)
+        
+        
+        self.timeInfoList[self.editTimeInfoIdx].weekDay = timeTableDay!
+        self.timeInfoList[self.editTimeInfoIdx].startTime = startHour + ":" + startMin
+        self.timeInfoList[self.editTimeInfoIdx].endTime = endHour + ":" + endMin
+        
+        print(self.editTimeInfoIdx)
+        
+        self.subjectTimeInfoTableView.reloadData()
+    }
+    
+    // recognizer
     @objc func textFieldDidChange(textField: UITextField){
         if textField.text != "" {
             subjectName = textField.text!

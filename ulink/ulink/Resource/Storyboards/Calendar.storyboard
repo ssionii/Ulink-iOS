@@ -277,7 +277,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Re-wJ-xAo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="캘린더" image="calendar" catalog="system" selectedImage="calendar" id="ZpD-y0-Jk3"/>
+                    <tabBarItem key="tabBarItem" title="캘린더" image="tabbarIcCalanderUnselected" selectedImage="tabbarIcCalanderSelected" id="ZpD-y0-Jk3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarCollectionView" destination="Ctd-Ta-0l3" id="4Bz-hD-4AP"/>
@@ -597,12 +597,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="ioMainScheduleBtnQuestion" width="27" height="27"/>
         <image name="ioMainScheduleBtnToday" width="29" height="29"/>
         <image name="ioMainScheduleBtnTodo" width="43" height="32"/>
         <image name="ioMainScheduleIcLeft" width="46" height="26"/>
         <image name="ioMainScheduleIcRight" width="46" height="26"/>
         <image name="ioNotificationBtnBack" width="36" height="36"/>
+        <image name="tabbarIcCalanderSelected" width="24" height="25"/>
+        <image name="tabbarIcCalanderUnselected" width="24" height="25"/>
     </resources>
 </document>

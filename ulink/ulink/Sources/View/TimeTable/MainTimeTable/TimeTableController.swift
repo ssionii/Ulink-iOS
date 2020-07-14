@@ -194,6 +194,7 @@ extension TimeTableController : UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        print("Selected : \(indexPath.row)")
+        
     }
 }
 
