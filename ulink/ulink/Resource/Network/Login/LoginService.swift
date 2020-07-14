@@ -22,9 +22,12 @@ struct LoginService {
         let header: HTTPHeaders = ["Content-Type": "application/json"]
         let dataRequest = Alamofire.request(APIConstants.signinURL, method  : .post, parameters: makeParameter(id, pwd), encoding:
             JSONEncoding.default, headers: header)
+        
+        
         dataRequest.responseData { dataResponse in
             switch dataResponse.result {
             case .success:
+
                 guard let statusCode = dataResponse.response?.statusCode else { return }
                 guard let value = dataResponse.result.value else { return }
                 let networkResult = self.judge(by: statusCode, value)
@@ -49,8 +52,12 @@ struct LoginService {
     
     private func isUser(by data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
+        
+
+        
         guard let decodedData = try? decoder.decode(SigninData.self, from: data) else { return .pathErr }
         guard let tokenData = decodedData.data else { return .requestErr(decodedData.message) }
-        return .success(tokenData.accessToken)
+
+        return .success(tokenData.accessToken,tokenData.uid)
     }
 }

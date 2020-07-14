@@ -1937,13 +1937,14 @@
             </objects>
             <point key="canvasLocation" x="10056.799999999999" y="661.16941529235385"/>
         </scene>
-        <!--수업 채팅-->
+        <!--수업-->
         <scene sceneID="gtU-fw-MOc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ya1-Ok-NsV" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="수업 채팅" image="message" catalog="system" selectedImage="message.fill" id="Fj7-dT-bBS"/>
+                    <tabBarItem key="tabBarItem" title="수업" image="tabbarIcClassUnselected" selectedImage="tabbarIcClassSelected" id="vxT-3o-teL"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yWB-Ls-gCM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2009,8 +2010,8 @@
         <image name="ioMainImgLogo" width="86" height="30"/>
         <image name="ioNotificationBtnBack" width="36" height="36"/>
         <image name="ioNotificationIcAssignmemt" width="28" height="28"/>
-        <image name="message" catalog="system" width="128" height="113"/>
-        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="tabbarIcClassSelected" width="30" height="24"/>
+        <image name="tabbarIcClassUnselected" width="30" height="24"/>
         <image name="xmark.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>
