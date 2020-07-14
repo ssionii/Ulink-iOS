@@ -146,7 +146,7 @@ class MyPageViewController: UIViewController {
     
     @objc func releasePart() {
         
-        print("???")
+
         
         let alert = UIAlertController(title: "", message: "이후 릴리즈 단계에서 구현될 기능입니다", preferredStyle: UIAlertController.Style.alert)
 
