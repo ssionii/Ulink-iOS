@@ -45,13 +45,10 @@ class DayCell: UICollectionViewCell {
         }
     }
     
-    func setEvent(eventName: [String], color: [UIColor]){
-        print("eventColor", color)
-        print("eventcount", color.count)
-        for i in 0...color.count-1 {
+    func setEvent(eventName: [NoticeData]){
+        for i in 0...eventName.count-1 {
             eventLabels[i].isHidden = false
-            eventLabels[i].backgroundColor = color[i]
-            eventLabels[i].setTitle(eventName[i], for: .normal)
+            eventLabels[i].setTitle(eventName[i].name, for: .normal)
         }
     }
     

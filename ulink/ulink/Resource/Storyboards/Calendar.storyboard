@@ -229,7 +229,7 @@
                                         <rect key="frame" x="20" y="12.5" width="27" height="27"/>
                                         <state key="normal" image="ioMainScheduleBtnQuestion"/>
                                         <connections>
-                                            <action selector="showNotice:" destination="Bti-Ux-5Da" eventType="touchUpInside" id="h0e-G0-7dN"/>
+                                            <segue destination="gHb-Ug-Jrr" kind="show" id="xdy-cu-ayG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEe-az-hyi">
@@ -303,7 +303,7 @@
         <!--Detail Event View Controller-->
         <scene sceneID="hZr-qq-2ul">
             <objects>
-                <viewController storyboardIdentifier="detailEvent" id="Vvf-Ep-VW6" customClass="DetailEventViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="detailEvent" storyboardIdentifier="detailEvent" id="Vvf-Ep-VW6" customClass="DetailEventViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yv2-Ny-HQc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -427,7 +427,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hD-RI-u9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="131"/>
+            <point key="canvasLocation" x="834" y="-703"/>
         </scene>
         <!--Event List View Controller-->
         <scene sceneID="eDp-Kc-oh6">

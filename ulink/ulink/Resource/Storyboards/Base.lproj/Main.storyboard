@@ -42,7 +42,7 @@
         <scene sceneID="V8x-Xx-zDN">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="mypageStoryBoard" storyboardName="MyPage" id="9Ll-jr-7ZX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="마이 페이지" image="tabbarIcMypageUnselected" landscapeImage="square.and.arrow.up" catalog="system" selectedImage="tabbarIcMypageSelected" id="WYk-na-eMF"/>
+                    <tabBarItem key="tabBarItem" title="마이 페이지" landscapeImage="square.and.arrow.up" catalog="system" id="WYk-na-eMF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cng-pS-yJO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,7 +361,5 @@
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="tabbarIcClassSelected" width="30" height="24"/>
         <image name="tabbarIcClassUnselected" width="30" height="24"/>
-        <image name="tabbarIcMypageSelected" width="22" height="23"/>
-        <image name="tabbarIcMypageUnselected" width="22" height="23"/>
     </resources>
 </document>

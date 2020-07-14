@@ -26,6 +26,8 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     var currentDate: Int?
     var currentWeekDay: Int?
     
+    var noticeList: [NoticeData]?
+    
     //오늘 날짜 데이터
     let cal = Calendar(identifier: .gregorian)
     let today = Date()
@@ -57,14 +59,17 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         
         getMonthlyData()
         setDateLabel()
-        
+        setupGestureRecognizer()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        let touch = touches.first
-        if touch?.view != self.popUpView
-        { self.dismiss(animated: false, completion: nil) }
+    func setupGestureRecognizer() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(_ tap: UIGestureRecognizer) {
+        self.dismiss(animated: false)
     }
     
     func getMonthlyData(){
@@ -73,6 +78,8 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         guard let currentMonth = self.currentMonth else {return}
         guard let currentDate = self.currentDate else {return}
         guard let currentWeekDay = self.currentWeekDay else {return}
+        guard let noticeList = self.noticeList else {return}
+        
     }
     
     func setDateLabel(){
@@ -109,15 +116,18 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return noticeList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell else {
         return UITableViewCell() }
         
-        
-        cell.set(dummyData[indexPath.section].event[indexPath.row])
+        print(noticeList)
+        //cell.set(dummyData[indexPath.section].event[indexPath.row])
+        if let notice = noticeList?[indexPath.row]{
+            cell.set(notice)
+        }
         cell.changeViewColor(dummyData[indexPath.section].date)
         
         return cell
@@ -128,12 +138,18 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let sb = UIStoryboard(name: "Chatting", bundle: nil)
         
         guard let popUpVC = sb.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else {return}
         
         popUpVC.modalPresentationStyle = .overCurrentContext
         present(popUpVC, animated: true, completion: nil)
+        
+    }
+}
+
+extension DetailEventViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return !(touch.view?.isDescendant(of: popUpView) ?? false)
     }
 }

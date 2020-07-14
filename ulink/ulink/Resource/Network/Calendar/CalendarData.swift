@@ -13,7 +13,7 @@ struct CalendarData: Codable {
     let status: Int
     let success: Bool
     let message: String
-    var data: SecondData?
+    var data: [SecondData]?
     
     enum CodingKeys: String, CodingKey{
         case status = "status"
@@ -27,13 +27,13 @@ struct CalendarData: Codable {
         status = (try? values.decode(Int.self, forKey: .status)) ?? -1
         success = (try? values.decode(Bool.self, forKey: .success)) ?? false
         message = (try? values.decode(String.self, forKey: .message)) ?? ""
-        data = (try? values.decode(SecondData.self, forKey: .data)) ?? nil
+        data = (try? values.decode([SecondData].self, forKey: .data)) ?? nil
     }
 }
 
 struct SecondData: Codable {
     var date: String
-    var notice: NoticeData?
+    var notice: [NoticeData]?
     
     enum CodingKeys: String, CodingKey{
         case date = "date"
@@ -43,7 +43,7 @@ struct SecondData: Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         date = (try? values.decode(String.self, forKey: .date)) ?? ""
-        notice = (try? values.decode(NoticeData.self, forKey: .notice)) ?? nil
+        notice = (try? values.decode([NoticeData].self, forKey: .notice)) ?? nil
     }
 }
 

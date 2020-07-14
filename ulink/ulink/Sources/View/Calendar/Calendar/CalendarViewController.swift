@@ -25,10 +25,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     var currentYear: Int = 0
     var todayDate = Calendar.current.component(.day, from: Date())
     
-    let eventTitle = ["성은이개론", "맹구룩", "영상처리", "식생활문화"]
-    let eventColor = [UIColor.powderPink, UIColor.lightblue, UIColor.periwinkleBlue, UIColor.pink]
-    
-    
+    var serverData: [SecondData]?
     
     
     override func viewDidLoad() {
@@ -38,6 +35,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         currentMonth = todayMonth
         currentYear = todayYear
         
+        getDataFromServer()
         //view 설정
         calendarSubView.layer.cornerRadius = 30
         monthLabel.text = String(currentMonth) + "월"
@@ -49,10 +47,39 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else {
             numOfDate[1] = 28
         }
-        
         calendarCollectionView.dataSource = self
         calendarCollectionView.delegate = self
+    }
+    
+    // MARK: SERVER 통신
+    func getDataFromServer(){
         
+        var qDay = getLastOfLastDay() - getFirstWeekDay() + 2
+        var startQuery = String(currentYear) + "-" + String(currentMonth - 1) + "-" + String(qDay)
+        
+        var qDay2 = 7 - getWeekDay(date: getLastDay(), month: currentMonth, year: currentYear)
+        var endQuery = String(currentYear) + "-" + String(currentMonth + 1) + "-" + String(qDay2)
+        
+        print(startQuery, "-", endQuery)
+        
+        CalendarService.shared.openCalendarData(start: startQuery, end: endQuery){
+                    networkResult in
+                    switch networkResult {
+                    case .success(let tokenData):
+                        
+                        guard let token = tokenData as? [SecondData] else {return}
+                        self.serverData = token
+                        self.calendarCollectionView.reloadData()
+                    case .requestErr:
+                        print("requestErr")
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+        }
     }
     
     //1일이 무슨 요일인지
@@ -128,24 +155,24 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         calendarCollectionView.reloadData()
     }
     
-    @IBAction func showNotice(_ sender: Any) {
-        
-        let imageView = UIImageView(frame: CGRect(x: 29, y: 16, width: 210, height: 274))
-        imageView.image = UIImage(named: "ioMainScheduleQuestionmarkBtnImgText")
-        
-        let alert = UIAlertController(title: "", message: nil, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.view.addSubview(imageView)
-        
-        let height = NSLayoutConstraint(item: alert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.2, constant: 350)
-        let width = NSLayoutConstraint(item: alert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 257)
-        alert.view.addConstraint(height)
-        alert.view.addConstraint(width)
-
-        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
-
-        self.present(alert, animated: true, completion: nil)
-    }
+//    @IBAction func showNotice(_ sender: Any) {
+//        
+//        let imageView = UIImageView(frame: CGRect(x: 29, y: 16, width: 210, height: 274))
+//        imageView.image = UIImage(named: "ioMainScheduleQuestionmarkBtnImgText")
+//        
+//        let alert = UIAlertController(title: "", message: nil, preferredStyle: UIAlertController.Style.alert)
+//        
+//        alert.view.addSubview(imageView)
+//        
+//        let height = NSLayoutConstraint(item: alert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.2, constant: 350)
+//        let width = NSLayoutConstraint(item: alert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 257)
+//        alert.view.addConstraint(height)
+//        alert.view.addConstraint(width)
+//
+//        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+//
+//        self.present(alert, animated: true, completion: nil)
+//    }
     
     
     @IBAction func swipeLeft(_ sender: Any) {
@@ -201,6 +228,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         monthLabel.text = String(currentMonth) + "월"
         calendarCollectionView.reloadData()
         
+        getDataFromServer()
     }
     
     @IBAction func clickPrevBtn(_ sender: Any) {
@@ -221,6 +249,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         monthLabel.text = String(currentMonth) + "월"
         calendarCollectionView.reloadData()
         
+        getDataFromServer()
     }
     
     // MARK: cell click event
@@ -234,6 +263,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         var passYear = currentYear
         var passMonth = currentMonth
         var passDate = todayDate
+        var passList: [NoticeData]?
         var numOfDetailCells = 0
         
         //넘겨줄 데이타
@@ -266,6 +296,19 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
             passDate = indexPath.row - numOfDate[currentMonth - 1] - first + 1
         }
+        
+        if let serverData = serverData{
+            for i in 0...serverData.count-1{
+                var dateArr = serverData[i].date.components(separatedBy: "-")
+                if (indexPath.row - first + 1 == Int(dateArr[2]) && currentMonth == Int(dateArr[1])){
+                    if let notice = serverData[i].notice{
+                        passList = notice
+                        break
+                    }
+                }
+            }
+        }
+        
         var passWeekDay = getWeekDay(date: passDate, month: passMonth, year: passYear)
         
         popUpVC.currentYear = passYear
@@ -273,11 +316,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         popUpVC.currentDate = passDate
         popUpVC.numOfDetailCells = numOfDate[currentMonth-1]
         popUpVC.currentWeekDay = passWeekDay
+        popUpVC.noticeList = passList
         
         popUpVC.modalPresentationStyle = .overCurrentContext
         present(popUpVC, animated: false, completion: nil)
         
-        print(indexPath.row - first + 1)
     }
     
     // MARK: collectionview layout
@@ -345,13 +388,21 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.setDayCell(firstDay: indexPath.row - last - first, textColor: 0)
         }
     
-        //이벤트 넣기
-        if (indexPath.row - first + 1 == 12){
-            cell.setEvent(eventName: eventTitle, color: eventColor)
-        } else {
-            cell.clearEvent()
-        }
         
+        //이벤트 넣기
+        if let serverData = serverData{
+            for i in 0...serverData.count-1{
+                var dateArr = serverData[i].date.components(separatedBy: "-")
+                if (indexPath.row - first + 1 == Int(dateArr[2]) && currentMonth == Int(dateArr[1])){
+                    if let notice = serverData[i].notice{
+                        cell.setEvent(eventName: notice)
+                        break
+                    }
+                }else {
+                    cell.clearEvent()
+                }
+            }
+        }
         return cell
     }
 
