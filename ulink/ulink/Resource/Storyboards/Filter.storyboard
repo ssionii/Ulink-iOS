@@ -343,10 +343,10 @@
             </objects>
             <point key="canvasLocation" x="95.200000000000003" y="92.203898050974516"/>
         </scene>
-        <!--Major Filter View Controller-->
+        <!--majorFilterViewController-->
         <scene sceneID="yyq-kI-ldi">
             <objects>
-                <viewController id="nSd-Ib-cRe" customClass="MajorFilterViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="majorFilterViewController" storyboardIdentifier="majorFilterViewController" title="majorFilterViewController" id="nSd-Ib-cRe" customClass="MajorFilterViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vjj-p8-QVa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -418,41 +418,34 @@
                                     <constraint firstAttribute="width" constant="375" id="xh3-DZ-E40"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tem-0s-BFi" customClass="MajorFilterTableViewCell" customModule="ulink" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="filterCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" id="tem-0s-BFi" customClass="MajorFilterTableViewCell" customModule="ulink" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tem-0s-BFi" id="9NS-JT-U0W" customClass="MajorFilterTableViewCell" customModule="ulink" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바이오시스템" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfc-9V-HrM">
-                                                    <rect key="frame" x="21" y="19" width="88.5" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmA-hG-E6e">
+                                                    <rect key="frame" x="335" y="20" width="20" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="ioMainMajorsettingBtnRoundUnselected"/>
+                                                    <connections>
+                                                        <action selector="checkButtonClicked:" destination="tem-0s-BFi" eventType="touchUpInside" id="OX1-8N-QY4"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="바이오시스템" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfc-9V-HrM">
+                                                    <rect key="frame" x="22" y="19" width="176" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBP-Bb-Eon">
-                                                    <rect key="frame" x="121.5" y="19" width="42" height="22"/>
-                                                    <state key="normal" image="ioMajorsettingIcMymajor"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmA-hG-E6e">
-                                                    <rect key="frame" x="335" y="20" width="20" height="22"/>
-                                                    <state key="normal" image="ioMainMajorsettingBtnRoundUnselected"/>
-                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="mBP-Bb-Eon" firstAttribute="leading" secondItem="Gfc-9V-HrM" secondAttribute="trailing" constant="12" id="1FH-Ou-M2x"/>
-                                                <constraint firstItem="mBP-Bb-Eon" firstAttribute="top" secondItem="9NS-JT-U0W" secondAttribute="topMargin" constant="8" id="dei-1a-IIm"/>
-                                                <constraint firstItem="Gfc-9V-HrM" firstAttribute="top" secondItem="9NS-JT-U0W" secondAttribute="top" constant="19" id="mRr-qV-Ifl"/>
-                                                <constraint firstItem="RmA-hG-E6e" firstAttribute="top" secondItem="9NS-JT-U0W" secondAttribute="top" constant="20" id="oDp-xb-Y5K"/>
-                                                <constraint firstItem="Gfc-9V-HrM" firstAttribute="leading" secondItem="9NS-JT-U0W" secondAttribute="leading" constant="21" id="pZS-1e-INP"/>
-                                                <constraint firstAttribute="trailing" secondItem="RmA-hG-E6e" secondAttribute="trailing" constant="20" id="pq2-Nj-JwV"/>
-                                            </constraints>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="categoryNameLabel" destination="Gfc-9V-HrM" id="ehO-3t-Q5Y"/>
                                             <outlet property="checkButtonImage" destination="RmA-hG-E6e" id="v2t-eZ-foZ"/>
-                                            <outlet property="myMajorButton" destination="mBP-Bb-Eon" id="FpE-vI-qb1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -497,6 +490,5 @@
         <image name="ioMainFiltersettingGrade3Unselected" width="39" height="39"/>
         <image name="ioMainFiltersettingGrade4Unselected" width="39" height="39"/>
         <image name="ioMainMajorsettingBtnRoundUnselected" width="20" height="20"/>
-        <image name="ioMajorsettingIcMymajor" width="42" height="21"/>
     </resources>
 </document>

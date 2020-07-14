@@ -168,6 +168,14 @@
                                     <segue destination="7mq-ot-sFQ" kind="presentation" modalPresentationStyle="fullScreen" id="nLs-NH-50A"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eei-qx-8Nc">
+                                <rect key="frame" x="288" y="555" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="zhz-qr-grh" kind="presentation" modalPresentationStyle="fullScreen" id="ek9-aP-igX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -195,6 +203,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZb-F8-Owz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-375.19999999999999" y="123.68815592203899"/>
+        </scene>
+        <!--majorFilterViewController-->
+        <scene sceneID="Dh7-gb-ovz">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="majorFilterViewController" storyboardName="Filter" referencedIdentifier="majorFilterViewController" id="zhz-qr-grh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCj-Sb-5hT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="332" y="304"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="GCn-MU-RFP">
