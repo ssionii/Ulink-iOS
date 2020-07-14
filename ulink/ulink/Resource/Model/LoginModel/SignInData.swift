@@ -17,8 +17,6 @@ struct SigninData: Codable {
     let message: String
     var data: TokenData?
     
-    
-    
     enum CodingKeys: String, CodingKey{
         case status = "status"
         case success = "success"
