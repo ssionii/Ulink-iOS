@@ -17,15 +17,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var searchTableView: UITableView!
     
-    @IBOutlet weak var typePickerView: UIPickerView!
-    
     @IBOutlet weak var recentLabel: UILabel!
     @IBOutlet weak var deleteAllBtn: UIButton!
     
+    @IBOutlet weak var typeBtn: UIButton!
     //디비 불러온다
     let searchedData = SearchedListData()
     var currentText: String = ""
     let realm = try! Realm()
+    
+    var type = "과목명"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     }
     
     @IBAction func changeSearchType(_ sender: Any) {
+        
+        if (type == "과목명"){
+            type = "교수명"
+            typeBtn.setTitle(type, for: .normal)
+        } else {
+            type = "과목명"
+            typeBtn.setTitle(type, for: .normal)
+        }
         
     }
     

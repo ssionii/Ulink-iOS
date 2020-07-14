@@ -66,22 +66,16 @@ class EventCell: UITableViewCell {
         let myDay = dateFormatter.date(from: date)
         
         let start = cal.startOfDay(for: today)
-        print(start)
         let end = cal.startOfDay(for: myDay!)
-        print(end)
         
         let components = cal.dateComponents([.day], from: start, to: end)
-        
-        print(components)
         
         return components.day!
     }
     
     func changeViewColor(_ dateInfo: String){
         var dDay = getDday(date: dateInfo)
-        print(dateInfo)
         if (dDay == 0){
-            print("들어왓어")
             cellColorView.backgroundColor = UIColor.paleGreyTwo
         }
     }
