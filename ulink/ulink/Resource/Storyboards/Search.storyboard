@@ -56,7 +56,7 @@
                                     <color key="titleColor" red="0.4039215686" green="0.30980392159999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="testBtn:" destination="ALv-dz-LJA" eventType="touchUpInside" id="bX1-nP-ZSA"/>
+                                    <action selector="changeSearchType:" destination="ALv-dz-LJA" eventType="touchUpInside" id="BjL-Ef-5YI"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lb2-bB-XVb">
@@ -72,19 +72,24 @@
                                             <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체삭제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P43-Jf-PXy">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvY-vP-fRS">
                                             <rect key="frame" x="291" y="0.0" width="42" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="RyW-sD-dFF"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <state key="normal" title="전체삭제"/>
+                                            <connections>
+                                                <action selector="deleteAll:" destination="ALv-dz-LJA" eventType="touchUpInside" id="pS2-lQ-cco"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
-                                        <constraint firstItem="P43-Jf-PXy" firstAttribute="top" secondItem="A1q-py-eYC" secondAttribute="top" id="QaF-dn-8o5"/>
+                                        <constraint firstAttribute="trailing" secondItem="VvY-vP-fRS" secondAttribute="trailing" id="1fK-9Z-IZ6"/>
                                         <constraint firstItem="DWo-OH-cwJ" firstAttribute="top" secondItem="A1q-py-eYC" secondAttribute="top" id="hei-3p-ciw"/>
                                         <constraint firstItem="DWo-OH-cwJ" firstAttribute="leading" secondItem="A1q-py-eYC" secondAttribute="leading" id="mOJ-kh-Fqa"/>
-                                        <constraint firstAttribute="trailing" secondItem="P43-Jf-PXy" secondAttribute="trailing" id="pfT-av-gTt"/>
+                                        <constraint firstItem="VvY-vP-fRS" firstAttribute="top" secondItem="A1q-py-eYC" secondAttribute="top" id="uJ8-Z6-PGO"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -165,15 +170,146 @@
                         <viewLayoutGuide key="safeArea" id="E4e-Cj-wJH"/>
                     </view>
                     <connections>
+                        <outlet property="deleteAllBtn" destination="VvY-vP-fRS" id="saw-0W-ngS"/>
                         <outlet property="headerView" destination="A1q-py-eYC" id="jj9-rS-uDh"/>
+                        <outlet property="recentLabel" destination="DWo-OH-cwJ" id="87z-vI-rx9"/>
                         <outlet property="searchTableView" destination="Lb2-bB-XVb" id="L5C-Uh-l5G"/>
                         <outlet property="searchTextField" destination="AaM-NB-BVl" id="6KU-m1-KQD"/>
                         <outlet property="searchView" destination="wCM-Pc-9YU" id="2pT-pz-NYu"/>
+                        <outlet property="typeBtn" destination="VE6-IE-1yZ" id="gOi-rx-EVN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="poA-ZG-RSh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4474" y="-1577"/>
+            <point key="canvasLocation" x="-4756" y="-1696.1019490254873"/>
+        </scene>
+        <!--Grade Select View Controller-->
+        <scene sceneID="nvq-bz-CTU">
+            <objects>
+                <viewController storyboardIdentifier="gradeSelect" modalPresentationStyle="overCurrentContext" id="eRI-x4-XyD" customClass="GradeSelectViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VbD-qw-9mK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zl7-qj-1Kp">
+                                <rect key="frame" x="24" y="165.5" width="327" height="336"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="qUK-a1-Sbr">
+                                        <rect key="frame" x="60" y="130" width="207" height="186"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YF-I6-VNT">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                                <state key="normal" title="1학년">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectGrade1:" destination="eRI-x4-XyD" eventType="touchUpInside" id="JjH-bY-mNK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djq-pa-6kR">
+                                                <rect key="frame" x="0.0" y="39" width="207" height="30"/>
+                                                <state key="normal" title="2학년">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectGrade2:" destination="eRI-x4-XyD" eventType="touchUpInside" id="VWN-tw-sw5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUo-lK-q7t">
+                                                <rect key="frame" x="0.0" y="78" width="207" height="30"/>
+                                                <color key="backgroundColor" red="0.4039215686" green="0.30980392159999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <state key="normal" title="3학년">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectGrade3:" destination="eRI-x4-XyD" eventType="touchUpInside" id="Gjf-6r-B6b"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAJ-z1-pFI">
+                                                <rect key="frame" x="0.0" y="117" width="207" height="30"/>
+                                                <color key="backgroundColor" red="0.4039215686" green="0.30980392159999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <state key="normal" title="4학년">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectGrade4:" destination="eRI-x4-XyD" eventType="touchUpInside" id="rrs-pS-pBJ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GJ-qK-Lvo">
+                                                <rect key="frame" x="0.0" y="156" width="207" height="30"/>
+                                                <color key="backgroundColor" red="0.4039215686" green="0.30980392159999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <state key="normal" title="5학년">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectGrade5:" destination="eRI-x4-XyD" eventType="touchUpInside" id="d8r-2d-7JC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학년 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1T-Ad-v67">
+                                        <rect key="frame" x="135.5" y="104" width="56" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timetableaddPopupIcSchool" translatesAutoresizingMaskIntoConstraints="NO" id="Omm-Am-2Wb">
+                                        <rect key="frame" x="151.5" y="79" width="24" height="24"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 학년에 따른 맞춤수업을 제공합니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjq-uB-8QH">
+                                        <rect key="frame" x="43" y="30" width="241" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김윤지님의 전공은 ‘전자공학과’ 입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIt-3r-8wd">
+                                        <rect key="frame" x="47.5" y="51" width="232.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="e1T-Ad-v67" firstAttribute="centerX" secondItem="Zl7-qj-1Kp" secondAttribute="centerX" id="4GM-fS-zCw"/>
+                                    <constraint firstItem="Omm-Am-2Wb" firstAttribute="top" secondItem="tIt-3r-8wd" secondAttribute="bottom" constant="10" id="5ZE-Kz-niU"/>
+                                    <constraint firstItem="qUK-a1-Sbr" firstAttribute="centerX" secondItem="Zl7-qj-1Kp" secondAttribute="centerX" id="D6y-2a-0Ff"/>
+                                    <constraint firstItem="e1T-Ad-v67" firstAttribute="top" secondItem="Omm-Am-2Wb" secondAttribute="bottom" constant="1" id="G5n-HA-g9p"/>
+                                    <constraint firstItem="zjq-uB-8QH" firstAttribute="centerX" secondItem="Zl7-qj-1Kp" secondAttribute="centerX" id="LXj-QL-MX7"/>
+                                    <constraint firstAttribute="height" constant="336" id="MnP-QG-cP7"/>
+                                    <constraint firstItem="qUK-a1-Sbr" firstAttribute="leading" secondItem="Zl7-qj-1Kp" secondAttribute="leading" constant="60" id="Sc5-AG-6pd"/>
+                                    <constraint firstItem="zjq-uB-8QH" firstAttribute="top" secondItem="Zl7-qj-1Kp" secondAttribute="top" constant="30" id="Wgs-hY-gjx"/>
+                                    <constraint firstAttribute="bottom" secondItem="qUK-a1-Sbr" secondAttribute="bottom" constant="20" id="XiW-4x-p6u"/>
+                                    <constraint firstItem="tIt-3r-8wd" firstAttribute="centerX" secondItem="Zl7-qj-1Kp" secondAttribute="centerX" id="dfQ-kX-bJi"/>
+                                    <constraint firstItem="tIt-3r-8wd" firstAttribute="top" secondItem="zjq-uB-8QH" secondAttribute="bottom" constant="3" id="hdr-w1-2tX"/>
+                                    <constraint firstItem="qUK-a1-Sbr" firstAttribute="top" secondItem="e1T-Ad-v67" secondAttribute="bottom" constant="8" id="li7-Mx-2JB"/>
+                                    <constraint firstAttribute="trailing" secondItem="qUK-a1-Sbr" secondAttribute="trailing" constant="60" id="mjA-Fw-4Ro"/>
+                                    <constraint firstItem="Omm-Am-2Wb" firstAttribute="centerX" secondItem="Zl7-qj-1Kp" secondAttribute="centerX" id="qMC-5T-Rq1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.29598326702256256" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zl7-qj-1Kp" firstAttribute="centerY" secondItem="yTt-rh-E6V" secondAttribute="centerY" id="On8-dr-mbn"/>
+                            <constraint firstItem="Zl7-qj-1Kp" firstAttribute="leading" secondItem="yTt-rh-E6V" secondAttribute="leading" constant="24" id="QPy-rs-Ddh"/>
+                            <constraint firstItem="yTt-rh-E6V" firstAttribute="trailing" secondItem="Zl7-qj-1Kp" secondAttribute="trailing" constant="24" id="oiZ-WK-cWJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yTt-rh-E6V"/>
+                    </view>
+                    <connections>
+                        <outlet property="backView" destination="Zl7-qj-1Kp" id="fEE-sQ-0Dx"/>
+                        <outlet property="stringLabel" destination="tIt-3r-8wd" id="bPT-t1-9lf"/>
+                        <outletCollection property="gradeBtn" destination="3YF-I6-VNT" collectionClass="NSMutableArray" id="SuK-Kh-85k"/>
+                        <outletCollection property="gradeBtn" destination="djq-pa-6kR" collectionClass="NSMutableArray" id="tBf-iN-IK1"/>
+                        <outletCollection property="gradeBtn" destination="nUo-lK-q7t" collectionClass="NSMutableArray" id="Qrs-3z-cYA"/>
+                        <outletCollection property="gradeBtn" destination="UAJ-z1-pFI" collectionClass="NSMutableArray" id="foV-FP-akp"/>
+                        <outletCollection property="gradeBtn" destination="6GJ-qK-Lvo" collectionClass="NSMutableArray" id="kXu-7U-mgw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="28X-XQ-Tol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4522.3999999999996" y="-986.35682158920542"/>
         </scene>
     </scenes>
     <resources>
@@ -182,5 +318,6 @@
         <image name="ioMainFiltersettingSearchIc" width="14" height="13"/>
         <image name="ioMainFiltersettingSearchIcX" width="24" height="24"/>
         <image name="ioNotificationBtnBack" width="36" height="36"/>
+        <image name="timetableaddPopupIcSchool" width="24" height="24"/>
     </resources>
 </document>

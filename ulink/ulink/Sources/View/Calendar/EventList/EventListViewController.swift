@@ -36,13 +36,11 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         //더미더ㅣㅁ
         dummydummyData = [Event(name: "소프트웨어공학", color: 1, notice_idx: 1, category: "시험", start_time: "9:00", end_time: "11:45", title: "중간고사"), Event(name: "창의적사고", color: 2, notice_idx: 1, category: "과제", start_time: "00:00", end_time: "23:59", title: "레포트 제출"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강")]
         
-        dummyData = [EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-13", event: dummydummyData), EventList(date: "2020-08-29", event: dummydummyData)]
+        dummyData = [EventList(date: "2020-07-09", event: dummydummyData), EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-13", event: dummydummyData), EventList(date: "2020-08-29", event: dummydummyData)]
         
         eventListTableView.dataSource = self
         eventListTableView.delegate = self
     }
-    
-    
     
     func disableStickyHeader(){
         let dummyViewHeight = CGFloat(40)
@@ -75,11 +73,6 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventListHeaderCell.identifier) as? EventListHeaderCell else {
         return UITableViewCell() }
-        
-        //셀 클릭 색ㄱ깔 없애기
-        let colorView = UIView()
-        colorView.backgroundColor = UIColor.clear
-        UITableViewCell.appearance().selectedBackgroundView = colorView
         
         cell.set(dummyData[section])
         return cell

@@ -52,6 +52,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         calendarCollectionView.dataSource = self
         calendarCollectionView.delegate = self
+        
     }
     
     //1일이 무슨 요일인지
@@ -127,6 +128,26 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         calendarCollectionView.reloadData()
     }
     
+    @IBAction func showNotice(_ sender: Any) {
+        
+        let imageView = UIImageView(frame: CGRect(x: 29, y: 16, width: 210, height: 274))
+        imageView.image = UIImage(named: "ioMainScheduleQuestionmarkBtnImgText")
+        
+        let alert = UIAlertController(title: "", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.view.addSubview(imageView)
+        
+        let height = NSLayoutConstraint(item: alert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.2, constant: 350)
+        let width = NSLayoutConstraint(item: alert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 257)
+        alert.view.addConstraint(height)
+        alert.view.addConstraint(width)
+
+        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func swipeLeft(_ sender: Any) {
         if (currentMonth == 12) {
             currentMonth = 1
@@ -179,6 +200,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         monthLabel.text = String(currentMonth) + "월"
         calendarCollectionView.reloadData()
+        
     }
     
     @IBAction func clickPrevBtn(_ sender: Any) {
@@ -198,6 +220,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         monthLabel.text = String(currentMonth) + "월"
         calendarCollectionView.reloadData()
+        
     }
     
     // MARK: cell click event
@@ -295,11 +318,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let first = getFirstWeekDay() - 1
         
-        
         let last = getLastDay()
         let lastOfLast = getLastOfLastDay()
-        
-
         
         if (indexPath.row >= 0 && indexPath.row < first){
             //저번달~
@@ -335,6 +355,20 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
 
-
     
 }
+
+
+
+/*
+ 
+ 성은이의 통신을 위한 주석
+ 지난달 placeholder ~ 다음달 placeholder 까지의 데이터 request
+ =>
+ currentMonth - 1 월 lastOfLast - first + 1 일
+ ~
+ currentMonth + 1 월 7 - last의 요일 일
+  
+ last의 요일 : getWeekDay(lastoflast)
+ 
+ */
