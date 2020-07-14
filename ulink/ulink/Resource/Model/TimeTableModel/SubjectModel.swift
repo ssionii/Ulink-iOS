@@ -10,7 +10,10 @@ import Foundation
 import UIKit
 
 public struct SubjectModel {
+    public var subjectIdx : Int
     public var subjectName : String
+    public var content : String
+    
     public var roomName : String
     public var subjectDay : TimeTableDay
     public var startTime : String
@@ -23,9 +26,36 @@ public struct SubjectModel {
     public var subjectNum : String
     public var day : [TimeTableDay.RawValue]
     public var dateTime : [String]
+    public var isSubject : Bool
+    
     
     public var isExpand : Bool
+    
+    // main에서 쓰는 init
+    public init(idx: Int, name: String, startTime: String, endTime: String, day: Int, content: String, color: Int, subject: Bool) {
+        self.subjectIdx = idx
+        self.subjectName = name
+        self.startTime = startTime
+        self.endTime = endTime
+        self.subjectDay = TimeTableDay.init(rawValue: day)!
+        self.content = content
+        self.backgroundColor = color
+        self.isSubject = subject
+        self.textColor = UIColor.white
+        
+        self.roomName = ""
+        self.professorName = ""
+        self.course = ""
+        self.credit = 0
+        self.subjectNum = ""
+        self.day = []
+        self.dateTime = []
+        self.isExpand = false
+    }
+      
 
+    
+    
     public init(subjectName: String, roomName: String, subjectDay: TimeTableDay, startTime: String, endTime: String, textColor: UIColor?, backgroundColor: Int){
         self.subjectName = subjectName
         self.roomName = roomName
@@ -35,6 +65,9 @@ public struct SubjectModel {
         self.textColor = textColor
         self.backgroundColor = backgroundColor
         
+        self.subjectIdx = 0
+        self.isSubject = false
+        self.content = ""
         self.professorName = ""
         self.course = ""
         self.credit = 0
@@ -54,13 +87,16 @@ public struct SubjectModel {
         self.textColor = UIColor.white
         self.backgroundColor = backgroundColor
         
+        self.subjectIdx = 0
+        self.isSubject = false
+        self.content = ""
         self.professorName = ""
         self.course = ""
         self.credit = 0
         self.isExpand = false
         self.subjectNum = ""
         self.day = []
-               self.dateTime = []
+        self.dateTime = []
     }
     
     public init(subjectName: String, professorName: String, roomName: String, course: String, credit: Int, subjectNum: String, day: [Int], dateTime: [String]){
@@ -73,6 +109,9 @@ public struct SubjectModel {
         self.day = day
         self.dateTime = dateTime
         
+        self.subjectIdx = 0
+        self.isSubject = false
+        self.content = ""
         self.subjectDay = TimeTableDay.friday
         self.startTime = ""
         self.endTime = ""
@@ -89,6 +128,9 @@ public struct SubjectModel {
             self.day = day
             self.dateTime = dateTime
            
+            self.subjectIdx = 0
+            self.isSubject = false
+            self.content = ""
             self.subjectDay = TimeTableDay.monday
             self.startTime = ""
             self.endTime = ""
@@ -99,8 +141,9 @@ public struct SubjectModel {
             self.isExpand = false
             self.subjectNum = ""
            
-       }
+    }
     
+  
     public init(subjectName: String, roomName: String, professorName: String, subjectDay: Int, startTime : String, endTime:String, backgroundColor: Int, day: [Int], dateTime : [String]){
          self.subjectName = subjectName
          self.roomName = roomName
@@ -118,6 +161,9 @@ public struct SubjectModel {
          self.credit = 0
          self.isExpand = false
          self.subjectNum = ""
+        self.subjectIdx = 0
+        self.isSubject = false
+        self.content = ""
         
     }
     
@@ -136,6 +182,9 @@ public struct SubjectModel {
         self.subjectNum = ""
         self.day = []
         self.dateTime = []
+        self.subjectIdx = 0
+        self.isSubject = false
+        self.content = ""
     }
 }
 

@@ -32,6 +32,8 @@
 		B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */; };
 		B51EC8A824B1C4DF00F3833B /* ListSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A724B1C4DF00F3833B /* ListSemester.swift */; };
 		B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */; };
+		B52F9DE524BDA7E300B57CA1 /* TimeTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F9DE424BDA7E300B57CA1 /* TimeTableService.swift */; };
+		B52F9DE824BDA94800B57CA1 /* TimeTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F9DE724BDA94800B57CA1 /* TimeTableResponse.swift */; };
 		B55F0ED624BCAC0E007048A6 /* SubjectInfoCellExpand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55F0ED524BCAC0D007048A6 /* SubjectInfoCellExpand.swift */; };
 		B55F0ED824BCACBF007048A6 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55F0ED724BCACBF007048A6 /* AlarmCell.swift */; };
 		B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */; };
@@ -127,6 +129,8 @@
 		B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListViewController.swift; sourceTree = "<group>"; };
 		B51EC8A724B1C4DF00F3833B /* ListSemester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSemester.swift; sourceTree = "<group>"; };
 		B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
+		B52F9DE424BDA7E300B57CA1 /* TimeTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableService.swift; sourceTree = "<group>"; };
+		B52F9DE724BDA94800B57CA1 /* TimeTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableResponse.swift; sourceTree = "<group>"; };
 		B55F0ED524BCAC0D007048A6 /* SubjectInfoCellExpand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectInfoCellExpand.swift; sourceTree = "<group>"; };
 		B55F0ED724BCACBF007048A6 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlarmCell.swift; path = ulink/AlarmCell.swift; sourceTree = SOURCE_ROOT; };
 		B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeInfoCell.swift; sourceTree = "<group>"; };
@@ -313,6 +317,22 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		B52F9DE324BDA7D500B57CA1 /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				B52F9DE424BDA7E300B57CA1 /* TimeTableService.swift */,
+			);
+			path = TimeTable;
+			sourceTree = "<group>";
+		};
+		B52F9DE624BDA93A00B57CA1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B52F9DE724BDA94800B57CA1 /* TimeTableResponse.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		B595299024BCFCD6008139E6 /* SubjectDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +445,7 @@
 		FD1A4AF224B5947A000120A6 /* TimeTableModel */ = {
 			isa = PBXGroup;
 			children = (
+				B52F9DE624BDA93A00B57CA1 /* Data */,
 				B599E62E24ADAA320067C112 /* SubjectModel.swift */,
 				B51EC8A724B1C4DF00F3833B /* ListSemester.swift */,
 				B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */,
@@ -628,6 +649,7 @@
 		FD7C730F24BCA5C0003ADAE8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B52F9DE324BDA7D500B57CA1 /* TimeTable */,
 				FD7C731024BCA5D5003ADAE8 /* Login */,
 			);
 			path = Network;
@@ -843,6 +865,7 @@
 				B55F0ED824BCACBF007048A6 /* AlarmCell.swift in Sources */,
 				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
 				B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */,
+				B52F9DE824BDA94800B57CA1 /* TimeTableResponse.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
 				B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */,
 				FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */,
@@ -863,6 +886,7 @@
 				B599FADB24BCA908005DB6E7 /* SubjectTimeInfoCell.swift in Sources */,
 				FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */,
 				B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */,
+				B52F9DE524BDA7E300B57CA1 /* TimeTableService.swift in Sources */,
 				FDFA3A8524BCF27600CB8939 /* MajorFilterViewController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
 				299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */,

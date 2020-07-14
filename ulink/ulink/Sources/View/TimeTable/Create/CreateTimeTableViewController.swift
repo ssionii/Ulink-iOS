@@ -28,7 +28,11 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     private var isCandidateView = false
     
-    private var timeTableList : [TimeTableModel] = []
+    private var timeTableList : [TimeTableModel] = [] {
+        didSet {
+            self.timeTableCollectionView.reloadData()
+        }
+    }
     private var subjectInfoList : [SubjectModel] = []
        
     private let daySymbol = [ "월", "화", "수", "목", "금"]
@@ -38,33 +42,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
     
     @IBAction func addTimeTableSheet(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "시간표 이름을 입력해 주세요.", message: nil, preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "확인", style: .default) { (_) in
-            if let txtField = alertController.textFields?.first, let text = txtField.text {
-        
-                let newTimeTableSheet = TimeTableModel(idx: 0, name: text, subjectList: [])
-                self.timeTableList.append(newTimeTableSheet)
-                
-                DispatchQueue.global().sync {
-                    self.timeTableCollectionView.reloadData()
-                }
-                
-                print("이동할 곳: ", self.timeTableCollectionView.numberOfItems(inSection: 0) - 2)
-                self.timeTableCollectionView.scrollToItem(at: IndexPath(item: self.timeTableCollectionView.numberOfItems(inSection: 0) -  2, section: 0), at: .right, animated: true)
-                
-                UIView.animate(withDuration: 0.2, animations: {
-                     self.timeTableCollectionView.contentOffset.x = 11
-                })
-                
-            }
-        }
-        let cancelAction = UIAlertAction(title: "취소", style: .destructive) { (_) in }
-        alertController.addTextField { (textField) in
-            textField.placeholder = "시간표 이름"
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(confirmAction)
-        self.present(alertController, animated: true, completion: nil)
+        addTimeTable()
     }
     
     @IBAction func addSubjectDirect(_ sender: UIButton) {
@@ -111,7 +89,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         setTimeTableList()
         setSubjectInfoList()
         
-        setSearchView()
+        
         setButton()
         setSubjectInfoTableView()
         // setCollectionView()
@@ -129,14 +107,9 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
     
     private func setCollectionView(){
-        timeTableCollectionView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft)))
-        
-        timeTableCollectionView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(swipeRight)))
-    }
-    
-    private func setSearchView(){
-        
-        
+//        timeTableCollectionView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft)))
+//
+//        timeTableCollectionView.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(swipeRight)))
     }
     
     private func setSubjectInfoTableView(){
@@ -181,11 +154,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     private func setSubjectInfoList(){
         
-        
         let tempDay = [0, 2]
         let tempDateTime = ["09:00-13:30","09:00-13:30"]
-        
-                print("hello! \(tempDay)")
 
         let subjectInfo_1 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
         
@@ -198,6 +168,32 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         print("hello\(subjectInfoList[1].dateTime)")
         
     }
+    
+    private func addTimeTable(){
+        let alertController = UIAlertController(title: "시간표 이름을 입력해 주세요.", message: nil, preferredStyle: .alert)
+              let confirmAction = UIAlertAction(title: "확인", style: .default) { (_) in
+                  if let txtField = alertController.textFields?.first, let text = txtField.text {
+              
+                    let newTimeTableSheet = TimeTableModel(idx: 0, name: text, subjectList: [])
+                    self.timeTableList.append(newTimeTableSheet)
+                      
+                    self.timeTableCollectionView.reloadData()
+                    
+                      
+                    print("이동할 곳", self.timeTableList.count - 1)
+                    self.timeTableCollectionView.scrollToItem(at: IndexPath(item: self.timeTableList.count - 1, section: 0), at: .centeredHorizontally, animated: true)
+                      
+                  }
+              }
+              let cancelAction = UIAlertAction(title: "취소", style: .destructive) { (_) in }
+              alertController.addTextField { (textField) in
+                  textField.placeholder = "시간표 이름"
+              }
+              alertController.addAction(cancelAction)
+              alertController.addAction(confirmAction)
+              self.present(alertController, animated: true, completion: nil)
+    }
+    
 //
 //    private func makeToTimeInfoFormat(day : [Int], dateTime : [String]) -> String {
 //
@@ -260,13 +256,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
     }
     
-    func addEmptyTimeTable(){
-        
-        timeTableList.append(TimeTableModel(idx: 1, name: "시간표3", subjectList: []))
-        self.timeTableCollectionView.reloadData()
-        
-    }
-    
     func drawHintTimeTable(row: Int, day: [Int], dateTime: [String]){
     
         let indexPath = IndexPath(row: row, section: 0)
@@ -286,9 +275,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         timeTableCell?.timeTable.reloadData()
         timeTableCell?.timeTable.removeHintTable()
-        
-     
-        
     }
     
     
@@ -330,19 +316,17 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-           return 11
+           return 22
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == timeTableList.count {
-          
-            self.timeTableList.append(TimeTableModel(idx: 1, name: "시간표3", subjectList: []))
             
+            addTimeTable()
+
             DispatchQueue.global().sync {
                 self.timeTableCollectionView.reloadData()
             }
-    
-            print("timeTableList: \(timeTableList)")
         
         }
     }
@@ -362,7 +346,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         if (subjectInfoList[indexPath.row].isExpand) {
         
-            guard let subjectInfoCellExpand =    subjectInfoTableView.dequeueReusableCell(withIdentifier: "subjectInfoCellExpand", for: indexPath) as? SubjectInfoCellExpand else { return SubjectInfoCellExpand() }
+            guard let subjectInfoCellExpand =  subjectInfoTableView.dequeueReusableCell(withIdentifier: "subjectInfoCellExpand", for: indexPath) as? SubjectInfoCellExpand else { return SubjectInfoCellExpand() }
             
             let data = subjectInfoList[indexPath.row]
               
@@ -382,19 +366,18 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             }
             
             subjectInfoCellExpand.delegate = self
-            subjectInfoCellExpand.enrollBtn.tag = indexPath.row
             
             
             return subjectInfoCellExpand
 
         }else {
-            
+
             guard let subjectInfoCellNotExpand = subjectInfoTableView.dequeueReusableCell(withIdentifier: "subjectInfoCellNotExpand", for: indexPath) as? SubjectInfoCellNotExpand else { return SubjectInfoCellNotExpand() }
-                      
+
             let data = subjectInfoList[indexPath.row]
-                        
+
             subjectInfoCellNotExpand.setSubjectInfoData(name: data.subjectName, professorName: data.professorName, room: data.roomName, category: data.course, credit: data.credit, subjectNum: data.subjectNum, day: data.day, dateTime: data.dateTime)
-                      
+
             return subjectInfoCellNotExpand
         }
     }
@@ -413,26 +396,25 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         for (index, _) in subjectInfoList.enumerated() {
             if(index == indexPath.row){
                 if subjectInfoList[index].isExpand {
-                     subjectInfoList[index].isExpand = false
+                    subjectInfoList[index].isExpand = false
                 } else {
-                       subjectInfoList[index].isExpand = true
+                    subjectInfoList[index].isExpand = true
                 }
             }else{
                 subjectInfoList[index].isExpand = false
+
             }
         }
-        
-        
+
+
         if indexPath.row < subjectInfoList.count {
             if !subjectInfoList[indexPath.row].isExpand {
-                
-                print("remove!")
-                removeHintTimeTable(row: indexPath.row)
+                removeHintTimeTable(row: pageControlDots.currentPage)
             } else {
                 drawHintTimeTable(row: pageControlDots.currentPage, day:  subjectInfoList[indexPath.row].day,
                     dateTime: subjectInfoList[indexPath.row].dateTime)
             }
-        
+
         }
 
         self.subjectInfoTableView.reloadData()

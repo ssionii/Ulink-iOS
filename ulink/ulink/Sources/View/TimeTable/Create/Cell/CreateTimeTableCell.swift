@@ -59,6 +59,11 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
     func timeTable(timeTable: TimeTable, didSelectSubject didSelectSubjectselectedSubject: SubjectModel) {
            
     }
+    
+    func timeTableHintCount(hintCount: Int) {
+           
+    }
+       
 }
 
 extension UIView {

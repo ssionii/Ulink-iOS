@@ -9,6 +9,8 @@
 import UIKit
 
 class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate{
+   
+    
 
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var topDayView: UIView!
@@ -51,7 +53,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         timeTable.dataSource = self
         
         setBackgroundView()
-        makeDummySubjectList()
+        getMainTimeTable()
     }
 
      override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -77,23 +79,29 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         self.backgroundView.layer.addSublayer(gradientLayer)
         
     }
-
+    
     private func setSubjectList(){
         
-        for (index, subject) in subjectDummyList.enumerated() {
-            for i in 0 ... subject.day.count - 1 {
-                let start = subject.dateTime[i].split(separator: "-")[0]
-                let end = subject.dateTime[i].split(separator: "-")[1]
-                
-                let subjectItem = SubjectModel(subjectName: subject.subjectName, roomName: subject.roomName, professorName: subject.professorName, subjectDay: subject.day[i], startTime: String(start), endTime: String(end), backgroundColor: subject.backgroundColor, day: subject.day, dateTime: subject.dateTime)
-                
-                subjectList.append(subjectItem)
-            }
-        }
+        
     }
     
-    private func makeDummySubjectList(){
     
+//    private func setSubjectList(){
+//
+//        for (_, subject) in subjectDummyList.enumerated() {
+//            for i in 0 ... subject.day.count - 1 {
+//                let start = subject.dateTime[i].split(separator: "-")[0]
+//                let end = subject.dateTime[i].split(separator: "-")[1]
+//
+//                let subjectItem = SubjectModel(subjectName: subject.subjectName, roomName: subject.roomName, professorName: subject.professorName, subjectDay: subject.day[i], startTime: String(start), endTime: String(end), backgroundColor: subject.backgroundColor, day: subject.day, dateTime: subject.dateTime)
+//
+//                subjectList.append(subjectItem)
+//            }
+//        }
+//    }
+//
+    private func makeDummySubjectList(){
+        
         let dummy_1 = SubjectModel(subjectName: "영상처리", roomName: "제1공학관 404", professorName: "양시연", backgroundColor: 0, day: [1], dateTime: ["09:00-10:00"])
         let dummy_2 = SubjectModel(subjectName: "전자회로", roomName: "제1공학관 601", professorName: "양시연", backgroundColor: 1, day: [1], dateTime: ["13:00-15:00"])
         let dummy_3 = SubjectModel(subjectName: "전자기학", roomName: "제1공학관 303", professorName: "양시연", backgroundColor: 2, day: [2], dateTime: ["13:00-14:00"])
@@ -119,6 +127,10 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         self.present(nextVC, animated: true, completion: nil)
         
     }
+    
+    func timeTableHintCount(hintCount: Int) {
+    
+    }
 
     func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {
         return subjectList
@@ -131,6 +143,44 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     func timeTable(timeTable: TimeTable, at dayPerIndex: Int) -> String {
         return self.daySymbol[dayPerIndex]
     }
+    
+    
+    // 통신
+    
+    func getMainTimeTable(){
+       TimeTableService.shared.getMainTimeTable { networkResult in
+                      switch networkResult {
+                          
+                          
+             // MARK:- 서버 접속 성공 했을때
+                      case .success(let timeTable, let subjectList) :
+                        self.subjectList = subjectList as! [SubjectModel]
+                        print(subjectList)
+                        self.timeTable.reloadData()
+                        
+                        break
+                      case .requestErr(let message):
+                          print("REQUEST ERROR")
+//                          guard let message = message as? String else { return }
+//                          let alertViewController = UIAlertController(title: "로그인 실패", message: message,
+//                                                                      preferredStyle: .alert)
+//                          let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+//                          alertViewController.addAction(action)
+//                          self.present(alertViewController, animated: true, completion: nil)
+                          break
+                      case .pathErr: break
+//                          let alertViewController = UIAlertController(title: "로그인 실패", message: "로그인 정보를 다시 확인해주세요",
+//                                                                      preferredStyle: .alert)
+//                          let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+//                          alertViewController.addAction(action)
+//                          self.present(alertViewController, animated: true, completion: nil)
+                      case .serverErr: print("serverErr")
+                      case .networkFail: print("networkFail")
+                      }
+              }
+    }
+    
+    
 
    
 }

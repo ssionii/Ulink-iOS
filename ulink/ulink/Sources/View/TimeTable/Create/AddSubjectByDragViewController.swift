@@ -11,6 +11,7 @@ import UIKit
 
 class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeTableDataSource, AddSubjectDetailDelegate {
     
+    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
     @IBAction func dismissBtn(_ sender: Any) {
@@ -30,8 +31,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         nextVC.delegate = self
         
         self.present(nextVC, animated: true, completion: nil)
-        
-        
+    
     }
     
     
@@ -84,6 +84,16 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     // protocol
     func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: SubjectModel) {
     }
+    
+    func timeTableHintCount(hintCount: Int) {
+        if hintCount > 0 {
+            // 추가 버튼
+            print("추가")
+        } else {
+            // 확정 버튼
+            print("확정")
+        }
+    }
        
     func timeTable(timeTable: TimeTable, at dayPerIndex: Int) -> String {
         return daySymbol[dayPerIndex]
@@ -105,13 +115,14 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
             temp.backgroundColor = colorCount
             subjectList.append(temp)
             
-            // timeTable.subjectItems.append(temp)
         }
         timeTable.reDrawTimeTable()
+        
+       print("확정")
     }
     
     func didDeleteTimeInfo(num: Int) {
-        timeTable.removeSchedule(num: num)
+        timeTable.removeSchedule(num: num + 1)
     }
        
 

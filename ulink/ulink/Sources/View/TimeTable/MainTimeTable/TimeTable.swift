@@ -11,6 +11,7 @@ import UIKit
 
 public protocol TimeTableDelegate {
     func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: SubjectModel)
+    func timeTableHintCount(hintCount : Int)
 }
 
 public protocol TimeTableDataSource {
@@ -344,6 +345,7 @@ public protocol TimeTableDataSource {
         }
         
         tempUserScheduleList.append(tempUserSchedule)
+        delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
     }
         
 
@@ -450,6 +452,7 @@ public protocol TimeTableDataSource {
                 subview.removeFromSuperview()
             }
         }
+        
     }
 
     @objc func lectureTapped(_ sender: UITapGestureRecognizer){
@@ -477,12 +480,13 @@ public protocol TimeTableDataSource {
             }
             self.tempUserScheduleList.remove(at: count - 1 )
         }
+        
+        delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
     }
     
     public func removeSchedule(num : Int){
         for subview in collectionView.subviews{
             let tag = tempUserScheduleList[num - 1].timeIdx
-            
             
             if subview.tag == tag {
                 subview.removeFromSuperview()
@@ -491,6 +495,9 @@ public protocol TimeTableDataSource {
         
         print("시간표에서 schedule 삭제: \(num - 1)")
          self.tempUserScheduleList.remove(at: num - 1)
+        
+        delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
+        
     }
 
     public func reloadData() {

@@ -42,16 +42,22 @@ class SubjectInfoCellExpand: UITableViewCell {
     
     
     @IBAction func showReview(_ sender: Any) {
+        
+        print("showReview")
+        
         delegate?.showReview(subjectIdx: self.subjectIdx)
     }
     
     @IBAction func storeCandidate(_ sender: Any) {
+        
+        print("stroeCandidate")
+        
         delegate?.storeCandidate(subjectIdx: self.subjectIdx)
     }
     
     @IBAction func enrollSubject(_ sender: Any) {
         
-        print("hi")
+        print("showReview")
         
         var subjectList = [SubjectModel]()
         
@@ -159,14 +165,7 @@ class SubjectInfoCellExpand: UITableViewCell {
         candidateBtn.isEnabled = true
         candidateBtn.alpha = 1
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-        
-        print("hello")
-    }
     
 
 
