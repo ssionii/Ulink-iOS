@@ -36,6 +36,7 @@
 		B55F0ED824BCACBF007048A6 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55F0ED724BCACBF007048A6 /* AlarmCell.swift */; };
 		B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */; };
 		B595298F24BCD592008139E6 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595298E24BCD592008139E6 /* CustomPickerViewController.swift */; };
+		B595299224BCFCF3008139E6 /* SubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595299124BCFCF3008139E6 /* SubjectDetailViewController.swift */; };
 		B599E62F24ADAA320067C112 /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E62E24ADAA320067C112 /* SubjectModel.swift */; };
 		B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63124ADAA7F0067C112 /* TimeTable.swift */; };
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
@@ -123,6 +124,7 @@
 		B55F0ED724BCACBF007048A6 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlarmCell.swift; path = ulink/AlarmCell.swift; sourceTree = SOURCE_ROOT; };
 		B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeInfoCell.swift; sourceTree = "<group>"; };
 		B595298E24BCD592008139E6 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
+		B595299124BCFCF3008139E6 /* SubjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewController.swift; sourceTree = "<group>"; };
 		B599E62E24ADAA320067C112 /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		B599E63124ADAA7F0067C112 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
@@ -297,9 +299,18 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		B595299024BCFCD6008139E6 /* SubjectDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B595299124BCFCF3008139E6 /* SubjectDetailViewController.swift */,
+			);
+			path = SubjectDetail;
+			sourceTree = "<group>";
+		};
 		B599E62D24ADA9FB0067C112 /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
+				B595299024BCFCD6008139E6 /* SubjectDetail */,
 				B5D26A4224B4B9F70047A2DC /* Create */,
 				FD1A4AF624B595B0000120A6 /* MainTimeTable */,
 				B51EC8A424B1BF7A00F3833B /* List */,
@@ -767,6 +778,7 @@
 				292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */,
 				B513512324B8BCD100BD219B /* TimeInfoModel.swift in Sources */,
 				FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */,
+				B595299224BCFCF3008139E6 /* SubjectDetailViewController.swift in Sources */,
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
 				29AC521A24BC60910007E019 /* ReviewViewController.swift in Sources */,
 				B55F0ED824BCACBF007048A6 /* AlarmCell.swift in Sources */,
