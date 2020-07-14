@@ -67,7 +67,7 @@ struct NoticeService {
         
         let hwNotice = data["assignment"]
         let testNotice = data["exam"]
-        let classNotice = data["class"]
+        let classNotice = data["lecture"]
         
         var noticeModelList = [[SubjectNoticeData]]()
         
@@ -79,7 +79,7 @@ struct NoticeService {
         
         var numberOfNotice : [Int] = [0,0,0]
 
-        
+    
         for i in 0...hwNotice.arrayValue.count-1
         {
             

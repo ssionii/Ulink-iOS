@@ -9,6 +9,9 @@
 import UIKit
 
 class NoticeEditViewController: UIViewController {
+    
+    
+    
 
     
     @IBAction func BackButtonClicked(_ sender: Any) {
@@ -36,21 +39,140 @@ class NoticeEditViewController: UIViewController {
         
         
     }
+    
+    
+     var cateogoryIdx : Int = 0 // 카테고리 판별하기 위한 변수
+     var noticeIdx : Int = 1    // 공지사항 구별하기 위해 쓰는 변수
+    
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
+    @IBOutlet weak var memoContentTextLabel: UITextView!
+    
+    
     override func viewDidLoad() {
+        setTitle()
+        getNoticeDetailData()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setTitle()
+    {
+        
+        if cateogoryIdx == 1
+        {
+            self.categoryLabel.text = "과제 공지"
+        }
+        else if cateogoryIdx == 2
+        {
+            
+            self.categoryLabel.text = "시험 공지"
+        }
+        
+        else if cateogoryIdx == 3
+        {
+            self.categoryLabel.text = "수업 공지"
+            
+        }
+        else
+        {
+            self.categoryLabel.text = "공지"
+        }
+        
     }
-    */
+    
+    
+    
+    func getNoticeDetailData(){
+        
+        NoticeDetailService.shared.getSubjectDetailNotice(noticeIdx: self.noticeIdx) { networkResult in // noticeIdx 정보 설정
+            print("현재 notice IDX :\(self.noticeIdx)")
+
+            switch networkResult{
+                
+                
+            case .success(let noticeList, _):
+                
+                
+                
+                guard let noticeList = noticeList as? SubjectNoticeData else { return }
+                
+                
+                //MARK:- 타이틀 설정
+                self.titleLabel.text = noticeList.title
+                
+                
+                // MARK:- 날짜 정보 설정
+                
+                let dateArray = noticeList.date.components(separatedBy: "-")
+                
+                print("date Array")
+                
+                self.dateLabel.text = dateArray[0] + "년 " + dateArray[1] + "월 " + dateArray[2] + "일"
+                
+                
+                // MARK:- 시간 정보 설정
+                var subtitle : String = ""
+                
+                
+                subtitle = noticeList.startTime + " ~ " + noticeList.endTime
+                
+                
+                if noticeList.startTime == "-1"
+                {
+                    subtitle =  "~ " + noticeList.endTime
+                }
+                
+                if noticeList.endTime == "-1"
+                {
+                    subtitle = ""
+                }
+                
+                
+                
+                self.timeLabel.text = subtitle
+                
+                //MARK:- 메모 정보 설정
+                
+                self.memoContentTextLabel.text = noticeList.content
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            default:
+                print("fail")
+                
+                
+            }
+            
+              
+          
+
+
+              
+          }
+          
+        
+        
+    }
+    
+    
+    
+
 
 }

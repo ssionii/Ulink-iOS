@@ -32,7 +32,7 @@ class NoticeTableViewCell: UITableViewCell {
     
     
     
-    func setInformation(title:String,start:String,end:String, date : String){
+    func setInformation( title:String,start:String,end:String, date : String){
         
         var subtitle : String = ""
         

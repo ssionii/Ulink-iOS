@@ -17,6 +17,7 @@ public struct SubjectNoticeData{
     public let startTime : String
     public let endTime : String
     public let date : String
+    public let content : String
     
     
     public init(idx : Int, Title : String, start : String, end : String, dateTime : String)
@@ -27,8 +28,20 @@ public struct SubjectNoticeData{
         self.startTime = start
         self.endTime = end
         self.date = dateTime
+        self.content = ""
     }
     
+    
+    public init(idx : Int, Title : String, start : String, end : String, dateTime : String, contents : String)
+    {
+        
+        self.noticeIdx = idx
+        self.title = Title
+        self.startTime = start
+        self.endTime = end
+        self.date = dateTime
+        self.content = contents
+    }
 }
 
 

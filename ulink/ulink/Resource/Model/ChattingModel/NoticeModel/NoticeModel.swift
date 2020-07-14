@@ -15,15 +15,17 @@ struct noticeInformation{
     var startTime : String
     var endTime : String
     var date : String
+    var noticeIdx : Int
     
     
-    init(title: String, start:String, end : String, Date : String)
+    init(title: String, start:String, end : String, Date : String, idx : Int)
     {
         
         self.title = title
         self.startTime = start
         self.endTime = end
         self.date = Date
+        self.noticeIdx = idx
 
     }
 }
