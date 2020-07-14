@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "ioMainFiltersettingBtnWedemptyUnselected.png"
+    },
+    {
+      "scale" : "2x",
+      "idiom" : "universal",
+      "filename" : "ioMainFiltersettingBtnWedemptyUnselected@2x.png"
+    },
+    {
+      "filename" : "ioMainFiltersettingBtnWedemptyUnselected@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

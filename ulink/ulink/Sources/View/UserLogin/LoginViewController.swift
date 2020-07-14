@@ -7,19 +7,27 @@
 //
 
 import UIKit
-import TextFieldEffects
 import FirebaseDatabase
 import Firebase
 import FirebaseAuth
+import Alamofire
+import SwiftyJSON
+
+
+
 
 
 
 
 
 class LoginViewController: UIViewController {
+    
+
 
     @IBOutlet weak var mainLogoImage: UIImageView!
     @IBOutlet weak var viewTopConstraint: NSLayoutConstraint!
+
+    
     
     let remoteConfig = RemoteConfig.remoteConfig()
     
@@ -27,16 +35,19 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
    
+    @IBOutlet weak var rememberIDButton: UIButton!
     
     
     
 //MARK:- Life Cycle 부분
     
         override func viewDidLoad() {
+            
+            checkCount()
         super.viewDidLoad()
         
         
-        try! Auth.auth().signOut()
+//        try! Auth.auth().signOut()
             
             
             self.navigationController?.navigationBar.isHidden = true
@@ -49,23 +60,23 @@ class LoginViewController: UIViewController {
             view.addGestureRecognizer(tap)
         
         
-        Auth.auth().addStateDidChangeListener{ (auth, user) in
-            if(user != nil){
-                print(" login Success ")
-                
-                
-                let storyboard = UIStoryboard(name:"Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "homeTabBarController")
-                
-                
-               
-                
-                
-                self.navigationController!.pushViewController(vc, animated: true)
-//                homeview?.modalPresentationStyle = .fullScreen
-//                self.present(homeview!, animated: true, completion: nil)
-            }
-        }
+//        Auth.auth().addStateDidChangeListener{ (auth, user) in
+//            if(user != nil){
+//                print(" login Success ")
+//
+//
+//                let storyboard = UIStoryboard(name:"Main", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "homeTabBarController")
+//
+//
+//
+//
+//
+//                self.navigationController!.pushViewController(vc, animated: true)
+////                homeview?.modalPresentationStyle = .fullScreen
+////                self.present(homeview!, animated: true, completion: nil)
+//            }
+//        }
         
 
     }
@@ -134,23 +145,156 @@ class LoginViewController: UIViewController {
     }
     
     
+    func checkCount() {
+        
+        if UserDefaults.standard.integer(forKey: "isRememberID") == 1 // 아이디 저장하기로 했다면
+        {
+            if let idRemember = UIImage(named: "loginBtnCheckboxSelected")
+            {
+                self.rememberIDButton.setImage(idRemember, for: .normal)
+            }
+            
+            self.nameTextField.text = UserDefaults.standard.string(forKey: "userID")
+  
+        }
+        
+        
+        else  // 아이디 저장하기 풀려 있을 때
+        {
+            if let idRemember = UIImage(named: "loginBtnCheckboxUnselected")
+            {
+                self.rememberIDButton.setImage(idRemember, for: .normal)
+            }
+        }
+
+    }
+    
+    
+    @IBAction func rememberIdButtonClicked(_ sender: Any) {
+        
+        
+        if UserDefaults.standard.integer(forKey: "isRememberID") == 0   // 저장하지 않기 로 되어있다면,
+        {
+            if let idRemember = UIImage(named: "loginBtnCheckboxSelected")
+            {
+                UserDefaults.standard.set(1,forKey: "isRememberID")
+                self.rememberIDButton.setImage(idRemember, for: .normal)
+            }
+        }
+        
+        else
+        {
+            if let idRemember = UIImage(named: "loginBtnCheckboxUnselected")
+            {
+                UserDefaults.standard.set(0,forKey: "isRememberID")
+                self.rememberIDButton.setImage(idRemember, for: .normal)
+            }
+            
+        }
+        
+
+    }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         
-        Auth.auth().signIn(withEmail: nameTextField.text!, password: pwTextField.text!) {( user, err) in
+//        Auth.auth().signIn(withEmail: nameTextField.text!, password: pwTextField.text!) {( user, err) in
+//
+//            if(err != nil) {
+//
+//                let alert = UIAlertController(title: "에러", message: err.debugDescription, preferredStyle: UIAlertController.Style.alert)
+//
+//                alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+//
+//                self.present(alert, animated: true, completion: nil)
+//
+//            }
+//
+//        }
+        
+        
+        
+        
+        
+        
+        
+        
+            
+            guard let inputID = nameTextField.text else { return }
+            guard let inputPWD = pwTextField.text else { return }
+            
+        
+        
+            LoginService.shared.login(id: inputID, pwd: inputPWD) { networkResult in
+                switch networkResult {
+                    
+                    
+       // MARK:- 서버 접속 성공 했을때
+                case .success(let token,let uid) :
 
-            if(err != nil) {
+    
+                    guard let token = token as? String else { return }
+                    UserDefaults.standard.set(token, forKey: "token")
+                    
+                    guard let uid = uid as? String else {return}
+                    print("현재 uid : \(uid)")
+                    
+                    
+                    
+                    
+                    if UserDefaults.standard.integer(forKey: "isRememberID") == 1{ // 저장하기가 눌려있다면,
+                        
+                        UserDefaults.standard.set(self.nameTextField.text,forKey: "userID")
 
-                let alert = UIAlertController(title: "에러", message: err.debugDescription, preferredStyle: UIAlertController.Style.alert)
-
-                alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
-
-                self.present(alert, animated: true, completion: nil)
-
-            }
-
+                    }
+                    
+                    
+                     let storyboard = UIStoryboard(name:"Main", bundle: nil)
+                     let vc = storyboard.instantiateViewController(withIdentifier: "homeTabBarController")
+                    
+                    
+                    
+                    
+                    
+                     
+                     
+                    
+                     
+                     
+                     self.navigationController!.pushViewController(vc, animated: true)
+                    
+                    
+                    
+        
+                case .requestErr(let message):
+                    print("REQUEST ERROR")
+                    guard let message = message as? String else { return }
+                    let alertViewController = UIAlertController(title: "로그인 실패", message: message,
+                                                                preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                    
+                    
+                    
+                case .pathErr:
+                    let alertViewController = UIAlertController(title: "로그인 실패", message: "로그인 정보를 다시 확인해주세요",
+                                                                preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+                }
         }
+        
+        
+     
+            
+            
+        
     }
+    
+    
     
 
     

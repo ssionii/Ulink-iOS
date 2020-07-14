@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ka9-Ka-MsO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="anN-Xf-F1d">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -77,9 +77,6 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBtnBottomrbox" translatesAutoresizingMaskIntoConstraints="NO" id="U0Y-Vj-FVj">
                                         <rect key="frame" x="39" y="36" width="256" height="35"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBtnCheckboxSelected" translatesAutoresizingMaskIntoConstraints="NO" id="AlU-jT-KfA">
-                                        <rect key="frame" x="40" y="149" width="22" height="22"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQx-Db-y3r">
                                         <rect key="frame" x="39" y="217" width="256" height="41"/>
                                         <constraints>
@@ -114,25 +111,32 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS9-vs-blL">
+                                        <rect key="frame" x="40" y="149" width="22" height="22"/>
+                                        <state key="normal" image="loginBtnCheckboxUnselected"/>
+                                        <connections>
+                                            <action selector="rememberIdButtonClicked:" destination="mLs-Gc-w1G" eventType="touchUpInside" id="ghm-cX-0Xi"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="AlU-jT-KfA" firstAttribute="leading" secondItem="vje-mO-Tzd" secondAttribute="leading" constant="40" id="6Xn-5K-pvZ"/>
                                     <constraint firstItem="ZA4-kx-q2c" firstAttribute="centerX" secondItem="vje-mO-Tzd" secondAttribute="centerX" id="9LP-DY-Ing"/>
                                     <constraint firstItem="pj5-Jj-GdW" firstAttribute="leading" secondItem="vje-mO-Tzd" secondAttribute="leading" constant="39" id="9Up-xh-unq"/>
                                     <constraint firstItem="ZA4-kx-q2c" firstAttribute="top" secondItem="vje-mO-Tzd" secondAttribute="top" constant="42" id="BYL-zn-BUv"/>
                                     <constraint firstItem="fA6-Hm-teq" firstAttribute="top" secondItem="pj5-Jj-GdW" secondAttribute="bottom" constant="15" id="C5T-65-DoE"/>
+                                    <constraint firstItem="qS9-vs-blL" firstAttribute="leading" secondItem="vje-mO-Tzd" secondAttribute="leading" constant="40" id="CtT-j5-NEQ"/>
                                     <constraint firstAttribute="width" constant="334" id="FKG-C6-097"/>
-                                    <constraint firstItem="xQx-Db-y3r" firstAttribute="top" secondItem="AlU-jT-KfA" secondAttribute="bottom" constant="46" id="FQR-9c-f8M"/>
                                     <constraint firstItem="46E-Vt-268" firstAttribute="top" secondItem="cK0-Od-eBV" secondAttribute="bottom" constant="16" id="GhJ-PJ-02Q"/>
                                     <constraint firstItem="xQx-Db-y3r" firstAttribute="centerX" secondItem="vje-mO-Tzd" secondAttribute="centerX" id="I3U-Dl-dP6"/>
-                                    <constraint firstItem="AlU-jT-KfA" firstAttribute="top" secondItem="pj5-Jj-GdW" secondAttribute="bottom" constant="12" id="JtZ-E9-UfK"/>
                                     <constraint firstItem="pj5-Jj-GdW" firstAttribute="top" secondItem="cK0-Od-eBV" secondAttribute="bottom" constant="8" id="OOi-1C-DCF"/>
+                                    <constraint firstItem="qS9-vs-blL" firstAttribute="top" secondItem="pj5-Jj-GdW" secondAttribute="bottom" constant="12" id="OSr-9u-fXT"/>
+                                    <constraint firstItem="xQx-Db-y3r" firstAttribute="top" secondItem="qS9-vs-blL" secondAttribute="bottom" constant="46" id="Xe6-bI-fqr"/>
                                     <constraint firstItem="U0Y-Vj-FVj" firstAttribute="leading" secondItem="vje-mO-Tzd" secondAttribute="leading" constant="39" id="YWC-cx-vo7"/>
                                     <constraint firstItem="ePx-cC-Gy6" firstAttribute="leading" secondItem="vje-mO-Tzd" secondAttribute="leading" constant="40" id="cCW-5A-wcO"/>
-                                    <constraint firstItem="fA6-Hm-teq" firstAttribute="leading" secondItem="AlU-jT-KfA" secondAttribute="trailing" constant="8" id="cOe-yM-ljp"/>
                                     <constraint firstItem="U0Y-Vj-FVj" firstAttribute="top" secondItem="ePx-cC-Gy6" secondAttribute="bottom" constant="8" id="fAJ-Po-Nwa"/>
                                     <constraint firstAttribute="height" constant="280" id="fJJ-tK-xZA"/>
+                                    <constraint firstItem="fA6-Hm-teq" firstAttribute="leading" secondItem="qS9-vs-blL" secondAttribute="trailing" constant="8" id="k3O-JF-4es"/>
                                     <constraint firstItem="ePx-cC-Gy6" firstAttribute="top" secondItem="vje-mO-Tzd" secondAttribute="top" constant="13" id="ngk-NK-ATf"/>
                                     <constraint firstItem="cK0-Od-eBV" firstAttribute="top" secondItem="U0Y-Vj-FVj" secondAttribute="bottom" constant="8" id="qP0-Yk-XVk"/>
                                     <constraint firstItem="cK0-Od-eBV" firstAttribute="leading" secondItem="vje-mO-Tzd" secondAttribute="leading" constant="40" id="qwv-Ot-aRC"/>
@@ -156,6 +160,14 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginImgBg" translatesAutoresizingMaskIntoConstraints="NO" id="QHt-Up-tby">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhl-WN-qEF">
+                                <rect key="frame" x="288" y="594" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="7mq-ot-sFQ" kind="presentation" modalPresentationStyle="fullScreen" id="nLs-NH-50A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -176,6 +188,7 @@
                         <outlet property="mainLogoImage" destination="0jn-Hp-N5U" id="Tep-uV-gdj"/>
                         <outlet property="nameTextField" destination="ZA4-kx-q2c" id="WJV-qw-PI1"/>
                         <outlet property="pwTextField" destination="46E-Vt-268" id="cZS-ZU-6Gm"/>
+                        <outlet property="rememberIDButton" destination="qS9-vs-blL" id="zOR-fl-sb5"/>
                         <outlet property="viewTopConstraint" destination="0qE-sK-swN" id="Q3N-m1-4Vo"/>
                     </connections>
                 </viewController>
@@ -311,6 +324,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="mLs-Gc-w1G" kind="relationship" relationship="rootViewController" id="PNb-Hu-tWO"/>
                     </connections>
@@ -319,6 +335,14 @@
             </objects>
             <point key="canvasLocation" x="-1314.4000000000001" y="123.68815592203899"/>
         </scene>
+        <!--NormalFilterViewController-->
+        <scene sceneID="M54-8d-lGt">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NormalFilterViewController" storyboardName="Filter" referencedIdentifier="NormalFilterViewController" id="7mq-ot-sFQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9n5-tV-xtg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="359" y="-36"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1750" width="256" height="41"/>
@@ -326,7 +350,7 @@
         <image name="alarm.fill" catalog="system" width="124" height="128"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="loginBtnBottomrbox" width="256" height="35"/>
-        <image name="loginBtnCheckboxSelected" width="22" height="22"/>
+        <image name="loginBtnCheckboxUnselected" width="22" height="22"/>
         <image name="loginIcUlink" width="146" height="62"/>
         <image name="loginImgBg" width="375" height="187"/>
         <image name="message" catalog="system" width="128" height="113"/>
