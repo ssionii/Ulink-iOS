@@ -14,6 +14,8 @@ class GradeSelectViewController: UIViewController {
     @IBOutlet var gradeBtn: [UIButton]!
     @IBOutlet weak var backView: UIView!
     
+    var grade: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +35,23 @@ class GradeSelectViewController: UIViewController {
         for i in 0...4 {
             gradeBtn[i].layer.cornerRadius = 8
             gradeBtn[i].backgroundColor = UIColor.paleGreyThree
-            gradeBtn[i].tintColor = UIColor.purpleishBlueThree
+            gradeBtn[i].setTitleColor(UIColor.purpleishBlueThree, for: .normal)
         }
     }
-
+    
+    @IBAction func selectGrade1(_ sender: Any) {
+        grade = 1
+    }
+    @IBAction func selectGrade2(_ sender: Any) {
+        grade = 2
+    }
+    @IBAction func selectGrade3(_ sender: Any) {
+        grade = 3
+    }
+    @IBAction func selectGrade4(_ sender: Any) {
+        grade = 4
+    }
+    @IBAction func selectGrade5(_ sender: Any) {
+        grade = 5
+    }
 }

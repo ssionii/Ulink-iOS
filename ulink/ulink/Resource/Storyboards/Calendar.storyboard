@@ -229,7 +229,7 @@
                                         <rect key="frame" x="20" y="12.5" width="27" height="27"/>
                                         <state key="normal" image="ioMainScheduleBtnQuestion"/>
                                         <connections>
-                                            <segue destination="gHb-Ug-Jrr" kind="show" id="Auj-eY-4uf"/>
+                                            <action selector="showNotice:" destination="Bti-Ux-5Da" eventType="touchUpInside" id="h0e-G0-7dN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEe-az-hyi">
@@ -298,7 +298,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1388" y="-617.54122938530736"/>
+            <point key="canvasLocation" x="1388" y="-584"/>
         </scene>
         <!--Detail Event View Controller-->
         <scene sceneID="hZr-qq-2ul">
@@ -309,7 +309,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vic-kh-cCp">
-                                <rect key="frame" x="23" y="150" width="329" height="317"/>
+                                <rect key="frame" x="23" y="145" width="329" height="317"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ac7-4J-eQK">
                                         <rect key="frame" x="145" y="19" width="39.5" height="19.5"/>
@@ -393,15 +393,15 @@
                                     <constraint firstItem="Ac7-4J-eQK" firstAttribute="centerX" secondItem="Vic-kh-cCp" secondAttribute="centerX" id="V89-Tw-pGq"/>
                                     <constraint firstItem="PdN-is-kLa" firstAttribute="top" secondItem="Ac7-4J-eQK" secondAttribute="bottom" constant="24" id="Zgc-aI-q5s"/>
                                     <constraint firstAttribute="trailing" secondItem="PdN-is-kLa" secondAttribute="trailing" constant="15" id="vEM-qR-f9a"/>
+                                    <constraint firstAttribute="height" constant="317" id="zor-tR-Gcj"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.49513056506849318" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.29840004280821919" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="Vic-kh-cCp" firstAttribute="top" secondItem="uPd-Uz-nI3" secondAttribute="top" constant="150" id="9By-KZ-CDx"/>
+                            <constraint firstItem="Vic-kh-cCp" firstAttribute="centerY" secondItem="uPd-Uz-nI3" secondAttribute="centerY" constant="-30" id="Kon-XX-Pdq"/>
                             <constraint firstItem="uPd-Uz-nI3" firstAttribute="trailing" secondItem="Vic-kh-cCp" secondAttribute="trailing" constant="23" id="OJy-IZ-VFq"/>
-                            <constraint firstItem="uPd-Uz-nI3" firstAttribute="bottom" secondItem="Vic-kh-cCp" secondAttribute="bottom" constant="200" id="dnN-az-RfD"/>
                             <constraint firstItem="Vic-kh-cCp" firstAttribute="leading" secondItem="uPd-Uz-nI3" secondAttribute="leading" constant="23" id="vRe-AJ-GpP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uPd-Uz-nI3"/>
@@ -427,12 +427,11 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hD-RI-u9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1387" y="-86"/>
+            <point key="canvasLocation" x="1148" y="131"/>
         </scene>
         <!--Event List View Controller-->
         <scene sceneID="eDp-Kc-oh6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5bU-1o-w2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController modalPresentationStyle="fullScreen" id="F9S-cs-vI9" customClass="EventListViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TQ4-Bb-fWZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -592,8 +591,9 @@
                         <outlet property="lineView" destination="ZDp-TH-xej" id="Nzi-kg-cmK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bU-1o-w2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="-618"/>
+            <point key="canvasLocation" x="2186" y="-584"/>
         </scene>
     </scenes>
     <resources>

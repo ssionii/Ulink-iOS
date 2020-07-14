@@ -202,12 +202,18 @@
                                                 <state key="normal" title="1학년">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="selectGrade1:" destination="eRI-x4-XyD" eventType="touchUpInside" id="JjH-bY-mNK"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djq-pa-6kR">
                                                 <rect key="frame" x="0.0" y="39" width="207" height="30"/>
                                                 <state key="normal" title="2학년">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="selectGrade2:" destination="eRI-x4-XyD" eventType="touchUpInside" id="VWN-tw-sw5"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUo-lK-q7t">
                                                 <rect key="frame" x="0.0" y="78" width="207" height="30"/>
@@ -215,6 +221,9 @@
                                                 <state key="normal" title="3학년">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="selectGrade3:" destination="eRI-x4-XyD" eventType="touchUpInside" id="Gjf-6r-B6b"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAJ-z1-pFI">
                                                 <rect key="frame" x="0.0" y="117" width="207" height="30"/>
@@ -222,6 +231,9 @@
                                                 <state key="normal" title="4학년">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="selectGrade4:" destination="eRI-x4-XyD" eventType="touchUpInside" id="rrs-pS-pBJ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GJ-qK-Lvo">
                                                 <rect key="frame" x="0.0" y="156" width="207" height="30"/>
@@ -229,6 +241,9 @@
                                                 <state key="normal" title="5학년">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="selectGrade5:" destination="eRI-x4-XyD" eventType="touchUpInside" id="d8r-2d-7JC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

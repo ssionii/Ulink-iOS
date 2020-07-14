@@ -142,7 +142,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         //print("오오잉", currentText)
         //요기서 통신 가능???
         //요기서 테이블뷰 업데이트 가능???
-        
         return true
     }
 }
