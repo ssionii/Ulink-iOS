@@ -12,13 +12,18 @@ struct noticeInformation{
     
 
     var title : String
-    var subTitle : String
+    var startTime : String
+    var endTime : String
+    var date : String
     
-    init(title: String, subtitle:String)
+    
+    init(title: String, start:String, end : String, Date : String)
     {
         
         self.title = title
-        self.subTitle = subtitle
+        self.startTime = start
+        self.endTime = end
+        self.date = Date
 
     }
 }

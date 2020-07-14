@@ -1,5 +1,6 @@
 
 import UIKit
+import Alamofire
 
 class NoticeViewController: UIViewController {
 
@@ -18,7 +19,7 @@ class NoticeViewController: UIViewController {
         setNoticeInfo()
         super.viewDidLoad()
         
-        
+        loadNoticeData()
         tableViewStyleSet()
         
         
@@ -64,7 +65,55 @@ class NoticeViewController: UIViewController {
     }
     
     
-    
+    func loadNoticeData(){
+        
+        
+        
+        NoticeService.shared.getSubjectNotice(subjectIdx: 1) { networkResult in
+            switch networkResult{
+                
+            case .success(let noticeList, let numberOfNotice):
+                
+                guard let noticeList = noticeList as? [[SubjectNoticeData]] else { return }
+                guard let numberOfNotice = numberOfNotice as? [Int] else {return}
+                
+                for i in 0...numberOfNotice[0]-1 // 과제 공지 부분
+                {
+                    let noticeData = noticeInformation(title: noticeList[0][i].title , start: noticeList[0][i].startTime, end: noticeList[0][i].endTime, Date: noticeList[0][i].date)
+                    
+                    self.hwNoticeInfoArray.append(noticeData)
+                    
+                }
+                
+                for i in 0...numberOfNotice[1]-1 // 시험 공지 부분
+                {
+                    let noticeData = noticeInformation(title: noticeList[1][i].title , start: noticeList[1][i].startTime, end: noticeList[1][i].endTime, Date: noticeList[1][i].date)
+                    
+                    self.testNoticeInfoArray.append(noticeData)
+                }
+                
+                for i in 0...numberOfNotice[2]-1 // 수업 공지 부분
+                {
+                    let noticeData = noticeInformation(title: noticeList[2][i].title , start: noticeList[2][i].startTime, end: noticeList[2][i].endTime, Date: noticeList[2][i].date)
+                    
+                    self.classNoticeInfoArray.append(noticeData)
+                }
+            
+                
+                
+            default:
+                print("fail")
+
+                
+            }
+            
+            
+            self.hwNoticeTableView.reloadData()
+            
+        }
+        
+
+    }
     
     
     
@@ -106,23 +155,23 @@ class NoticeViewController: UIViewController {
     
     private func setNoticeInfo(){
         
-        let hwNotice1 = noticeInformation(title: "6/13 3차 과제", subtitle:"이거 해와야됨")
-        let hwNotice2 = noticeInformation(title: "6/18 중간 대체 과제 마감", subtitle:"우야~~~")
-
-        let hwNotice3 = noticeInformation(title: "6/20 레포트 제출 마감", subtitle:"살려줘~~")
-        
-        let hwNotice4 = noticeInformation(title: "7/1 레포트 제출 2차 마감", subtitle:"늴리리리야~~~")
-        
-        
-        hwNoticeInfoArray = [hwNotice1,hwNotice2,hwNotice3,hwNotice4]
-        
-        let testNotice1 = noticeInformation(title:"안녕~~",subtitle: "hellO")
-        
-        testNoticeInfoArray = [testNotice1]
-        
-        let classNotice1 = noticeInformation(title:"????", subtitle: "asdqwcz")
-        
-        classNoticeInfoArray = [classNotice1]
+//        let hwNotice1 = noticeInformation(title: "6/13 3차 과제", subtitle:"이거 해와야됨")
+//        let hwNotice2 = noticeInformation(title: "6/18 중간 대체 과제 마감", subtitle:"우야~~~")
+//
+//        let hwNotice3 = noticeInformation(title: "6/20 레포트 제출 마감", subtitle:"살려줘~~")
+//
+//        let hwNotice4 = noticeInformation(title: "7/1 레포트 제출 2차 마감", subtitle:"늴리리리야~~~")
+//
+//
+//        hwNoticeInfoArray = [hwNotice1,hwNotice2,hwNotice3,hwNotice4]
+//
+//        let testNotice1 = noticeInformation(title:"안녕~~",subtitle: "hellO")
+//
+//        testNoticeInfoArray = [testNotice1]
+//
+//        let classNotice1 = noticeInformation(title:"????", subtitle: "asdqwcz")
+//
+//        classNoticeInfoArray = [classNotice1]
         
 
         
@@ -167,25 +216,31 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         
 //
 //        if tableView == hwNoticeTableView{
-
-            
-            guard let noticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCell", for: indexPath) as? NoticeTableViewCell
+        
+        
+        guard let noticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCell", for: indexPath) as? NoticeTableViewCell
             else { return UITableViewCell() }
-            
-            noticeCell.setInformation(title: hwNoticeInfoArray[indexPath.row].title, subtitle: hwNoticeInfoArray[indexPath.row].subTitle)
-            
-            
-            
+        
+   
+        
+        noticeCell.setInformation(
+            title: hwNoticeInfoArray[indexPath.row].title,
+            start: hwNoticeInfoArray[indexPath.row].startTime,
+            end: hwNoticeInfoArray[indexPath.row].endTime,
+            date: hwNoticeInfoArray[indexPath.row].date)
+        
+        
+        
         let bgColorView = UIView()
-            bgColorView.backgroundColor = .noticeColorOneSelected
-            noticeCell.selectedBackgroundView = bgColorView
-
-
-            noticeCell.layer.borderColor = .none
-            
-            
-            return noticeCell
-            
+        bgColorView.backgroundColor = .noticeColorOneSelected
+        noticeCell.selectedBackgroundView = bgColorView
+        
+        
+        noticeCell.layer.borderColor = .none
+        
+        
+        return noticeCell
+        
             
         }
 //
