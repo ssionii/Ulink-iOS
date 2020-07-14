@@ -160,6 +160,14 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginImgBg" translatesAutoresizingMaskIntoConstraints="NO" id="QHt-Up-tby">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhl-WN-qEF">
+                                <rect key="frame" x="288" y="594" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="7mq-ot-sFQ" kind="presentation" modalPresentationStyle="fullScreen" id="nLs-NH-50A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -316,6 +324,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="mLs-Gc-w1G" kind="relationship" relationship="rootViewController" id="PNb-Hu-tWO"/>
                     </connections>
@@ -323,6 +334,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tda-Ql-2m7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1314.4000000000001" y="123.68815592203899"/>
+        </scene>
+        <!--NormalFilterViewController-->
+        <scene sceneID="M54-8d-lGt">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NormalFilterViewController" storyboardName="Filter" referencedIdentifier="NormalFilterViewController" id="7mq-ot-sFQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9n5-tV-xtg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="359" y="-36"/>
         </scene>
     </scenes>
     <resources>
