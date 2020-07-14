@@ -145,17 +145,17 @@ public struct SubjectModel {
     
   
     public init(subjectName: String, roomName: String, professorName: String, subjectDay: Int, startTime : String, endTime:String, backgroundColor: Int, day: [Int], dateTime : [String]){
-         self.subjectName = subjectName
-         self.roomName = roomName
-         self.professorName = professorName
-         self.backgroundColor = backgroundColor
-         self.day = day
-         self.dateTime = dateTime
+        self.subjectName = subjectName
+        self.roomName = roomName
+        self.professorName = professorName
+        self.backgroundColor = backgroundColor
+        self.day = day
+        self.dateTime = dateTime
         self.subjectDay = TimeTableDay.init(rawValue: subjectDay)!
-         self.startTime = startTime
-         self.endTime = endTime
+        self.startTime = startTime
+        self.endTime = endTime
         
-         self.textColor = UIColor.white
+        self.textColor = UIColor.white
         
          self.course = ""
          self.credit = 0

@@ -516,7 +516,7 @@ public protocol TimeTableDataSource {
         
         var colorCount = 0
         
-        let sortedSubjectItems = subjectItems.sorted(by: {$0.subjectName < $1.subjectName})
+        let sortedSubjectItems = subjectItems.sorted(by: {$0.subjectIdx < $1.subjectIdx})
         
         print("sortedSubjectItems: \(sortedSubjectItems)")
         
