@@ -287,6 +287,8 @@ public protocol TimeTableDataSource {
             view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(lectureTapped)))
             
             view.isUserInteractionEnabled = true
+            view.tag = index
+                
             view.addSubview(label)
             collectionView.addSubview(view)
 
@@ -451,10 +453,17 @@ public protocol TimeTableDataSource {
     }
 
     @objc func lectureTapped(_ sender: UITapGestureRecognizer){
+    
+        reloadData()
         
         print((sender.view!).tag)
-//        let subject = subjectItems[(sender.view!).tag]
-//        self.delegate?.timeTable(timeTable: self, didSelectSubject : subject)
+        print(subjectItems.count)
+        
+    
+        
+        let subject = subjectItems[(sender.view!).tag]
+        self.delegate?.timeTable(timeTable: self, didSelectSubject: subject)
+        
     }
     
 

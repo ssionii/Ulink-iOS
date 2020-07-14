@@ -21,7 +21,6 @@ public struct SubjectModel {
     public var course : String
     public var credit : Int
     public var subjectNum : String
-    
     public var day : [TimeTableDay.RawValue]
     public var dateTime : [String]
     
@@ -46,10 +45,10 @@ public struct SubjectModel {
         
     }
 
-    public init(subjectName: String, roomName: String, subjectDay: TimeTableDay, startTime: String, endTime: String, backgroundColor: Int){
+    public init(subjectName: String, roomName: String, subjectDay: Int, startTime: String, endTime: String, backgroundColor: Int){
         self.subjectName = subjectName
         self.roomName = roomName
-        self.subjectDay = subjectDay
+        self.subjectDay = TimeTableDay.init(rawValue: subjectDay)!
         self.startTime = startTime
         self.endTime = endTime
         self.textColor = UIColor.white
@@ -80,6 +79,45 @@ public struct SubjectModel {
         self.textColor = UIColor.white
         self.backgroundColor = 0
         self.isExpand = false
+    }
+    
+    public init(subjectName: String, roomName: String, professorName: String, backgroundColor: Int, day: [Int], dateTime : [String]){
+            self.subjectName = subjectName
+            self.roomName = roomName
+            self.professorName = professorName
+            self.backgroundColor = backgroundColor
+            self.day = day
+            self.dateTime = dateTime
+           
+            self.subjectDay = TimeTableDay.monday
+            self.startTime = ""
+            self.endTime = ""
+            self.textColor = UIColor.white
+           
+            self.course = ""
+            self.credit = 0
+            self.isExpand = false
+            self.subjectNum = ""
+           
+       }
+    
+    public init(subjectName: String, roomName: String, professorName: String, subjectDay: Int, startTime : String, endTime:String, backgroundColor: Int, day: [Int], dateTime : [String]){
+         self.subjectName = subjectName
+         self.roomName = roomName
+         self.professorName = professorName
+         self.backgroundColor = backgroundColor
+         self.day = day
+         self.dateTime = dateTime
+        self.subjectDay = TimeTableDay.init(rawValue: subjectDay)!
+         self.startTime = startTime
+         self.endTime = endTime
+        
+         self.textColor = UIColor.white
+        
+         self.course = ""
+         self.credit = 0
+         self.isExpand = false
+         self.subjectNum = ""
         
     }
     

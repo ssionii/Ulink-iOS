@@ -26,6 +26,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectDetailViewController") as? AddSubjectDetailViewController else { return }
         
         nextVC.setTimeInfo(list: timeTable.tempUserScheduleList)
+        nextVC.isFromDrag = true
         nextVC.delegate = self
         
         self.present(nextVC, animated: true, completion: nil)

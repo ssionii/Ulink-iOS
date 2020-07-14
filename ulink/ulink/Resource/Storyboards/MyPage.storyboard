@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--마이페이지-->
+        <!--내정보-->
         <scene sceneID="y03-cf-sBI">
             <objects>
                 <viewController storyboardIdentifier="mypageStoryBoard" id="iGr-js-AHK" customClass="MyPageViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
@@ -399,7 +399,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7xh-4U-bUZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마이페이지" image="person" catalog="system" selectedImage="person.fill" id="9Sq-F0-Pjx"/>
+                    <tabBarItem key="tabBarItem" title="내정보" image="tabbarIcMypageUnselected" selectedImage="tabbarIcMypageSelected" id="9Sq-F0-Pjx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
@@ -423,7 +423,7 @@
         <image name="ioMypageColorBg" width="375" height="387"/>
         <image name="ioMypageIcProfile" width="90" height="90"/>
         <image name="ioMypageIcSprout" width="37" height="35"/>
-        <image name="person" catalog="system" width="128" height="117"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="tabbarIcMypageSelected" width="22" height="23"/>
+        <image name="tabbarIcMypageUnselected" width="22" height="23"/>
     </resources>
 </document>

@@ -277,7 +277,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Re-wJ-xAo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="캘린더" image="calendar" catalog="system" selectedImage="calendar" id="ZpD-y0-Jk3"/>
+                    <tabBarItem key="tabBarItem" title="캘린더" image="tabbarIcCalanderUnselected" selectedImage="tabbarIcCalanderSelected" id="ZpD-y0-Jk3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendarCollectionView" destination="Ctd-Ta-0l3" id="4Bz-hD-4AP"/>
@@ -432,7 +432,6 @@
         <!--Event List View Controller-->
         <scene sceneID="eDp-Kc-oh6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5bU-1o-w2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController modalPresentationStyle="fullScreen" id="F9S-cs-vI9" customClass="EventListViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TQ4-Bb-fWZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -592,17 +591,19 @@
                         <outlet property="lineView" destination="ZDp-TH-xej" id="Nzi-kg-cmK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bU-1o-w2j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2297" y="-724"/>
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="ioMainScheduleBtnQuestion" width="27" height="27"/>
         <image name="ioMainScheduleBtnToday" width="29" height="29"/>
         <image name="ioMainScheduleBtnTodo" width="43" height="32"/>
         <image name="ioMainScheduleIcLeft" width="46" height="26"/>
         <image name="ioMainScheduleIcRight" width="46" height="26"/>
         <image name="ioNotificationBtnBack" width="36" height="36"/>
+        <image name="tabbarIcCalanderSelected" width="24" height="25"/>
+        <image name="tabbarIcCalanderUnselected" width="24" height="25"/>
     </resources>
 </document>

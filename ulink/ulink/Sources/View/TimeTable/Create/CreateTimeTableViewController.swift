@@ -74,14 +74,21 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                 
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectByDragViewController") as? AddSubjectByDragViewController else { return }
                    
-                   nextVC.modalPresentationStyle = .fullScreen
-                    self.present(nextVC, animated: true, completion: nil)
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true, completion: nil)
             
             
             }))
 
         alert.addAction(UIAlertAction(title: "직접 입력", style: .default, handler: { (_) in
               
+
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectDetailViewController") as? AddSubjectDetailViewController else { return }
+            
+            nextVC.setTimeInfo(list: [])
+            nextVC.isFromDrag = false
+            
+            self.present(nextVC, animated: true, completion: nil)
             
             
             }))
@@ -137,6 +144,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
        
         subjectInfoTableView.estimatedRowHeight = 86
         subjectInfoTableView.rowHeight = UITableView.automaticDimension
+    
        
     }
     
@@ -164,12 +172,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     private func setTimeTableList(){
         
-        let subject_1 = SubjectModel(subjectName: "영상처리", roomName: "제1공학관 404", subjectDay: .monday, startTime: "09:00", endTime: "10:00", backgroundColor: 0)
-        let subject_2 = SubjectModel(subjectName: "전자회로", roomName: "제1공학관 601", subjectDay: .monday, startTime: "13:00", endTime: "15:00", backgroundColor: 1)
-
-        let subjectList = [subject_1, subject_2]
-        
-        let timeTable_1 = TimeTableModel(idx: 0, name: "시간표1", subjectList: subjectList)
+        let timeTable_1 = TimeTableModel(idx: 0, name: "시간표1", subjectList: [])
         let timeTable_2 = TimeTableModel(idx: 0, name: "시간표2", subjectList: [])
         
         timeTableList = [timeTable_1, timeTable_2]
