@@ -441,13 +441,30 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         if let serverData = serverData{
             if serverData.count != 0 {
                 for i in 0...serverData.count-1{
-                    var dateArr = serverData[i].date.components(separatedBy: "-")
-                    if (indexPath.row - first + 1 == Int(dateArr[2]) && currentMonth == Int(dateArr[1]) && currentYear == Int(dateArr[0])){
-                        if let notice = serverData[i].notice{
-                            cell.setEvent(eventName: notice)
-                            break
+                    let dateArr = serverData[i].date.components(separatedBy: "-")
+                    if currentMonth == (Int(dateArr[1])! - 1) && currentYear == Int(dateArr[0]) {
+                        if (lastOfLast - first + 2 + indexPath.row == Int(dateArr[2])){
+                            if let notice = serverData[i].notice{
+                                cell.setEvent(eventName: notice)
+                                break
+                            }
                         }
-                    }else {
+                    } else if currentMonth == Int(dateArr[1]) && currentYear == Int(dateArr[0]){
+                        if indexPath.row - first + 1 == Int(dateArr[2]) {
+                            if let notice = serverData[i].notice {
+                                cell.setEvent(eventName: notice)
+                                break
+                            }
+                        }
+                        
+                    } else if currentMonth == (Int(dateArr[1])! - 1) && currentYear == Int(dateArr[0]){
+                        if indexPath.row - first - last + 1 == Int(dateArr[2]){
+                            if let notice = serverData[i].notice {
+                                cell.setEvent(eventName: notice)
+                                break
+                            }
+                        }
+                    } else {
                         cell.clearEvent()
                     }
                 }
@@ -459,6 +476,15 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
 }
 
+
+//if (indexPath.row - first + 1 == Int(dateArr[2]) && currentMonth == Int(dateArr[1]) && currentYear == Int(dateArr[0])){
+//    if let notice = serverData[i].notice{
+//        cell.setEvent(eventName: notice)
+//        break
+//    }
+//}else {
+//    cell.clearEvent()
+//}
 
 
 /*
