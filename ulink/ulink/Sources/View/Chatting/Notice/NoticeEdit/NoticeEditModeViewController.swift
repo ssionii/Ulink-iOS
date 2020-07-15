@@ -27,12 +27,16 @@ class NoticeEditModeViewController: UIViewController {
     @IBOutlet weak var textAreaBorder: UIView!
     
     
+    @IBOutlet weak var contentMemoTextFIeld: UITextView!
+    
+    
     @IBOutlet weak var datePickerLabel: UITextField!
     
     let datePicker = UIDatePicker()
     let timePicker = UIPickerView()
     let timePicker2 = UIPickerView()
     var categoryIndex : Int = 0
+    var noticeIdx : Int = 1
     var hour : String = ""
     var minute : String = ""
     var checkNotTIme : Int = 0
@@ -42,8 +46,10 @@ class NoticeEditModeViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setBorder()
         setButttonClear()
+        getNoticeDetailData()
         setTimePicker()
         setDataPicker()
 
@@ -106,6 +112,8 @@ class NoticeEditModeViewController: UIViewController {
     
     
     
+
+    
     
     @objc func doneTimePicker(){
     //For date formate
@@ -120,6 +128,124 @@ class NoticeEditModeViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    
+    func getNoticeDetailData(){
+        
+        NoticeDetailService.shared.getSubjectDetailNotice(noticeIdx: self.noticeIdx) { networkResult in // noticeIdx 정보 설정
+            print("현재 notice IDX :\(self.noticeIdx)")
+
+            switch networkResult{
+                
+                
+            case .success(let noticeList, _):
+                
+                
+                
+                guard let noticeList = noticeList as? SubjectNoticeData else { return }
+                
+                //MARK:- 카테고리 설정
+                
+                self.setButttonClear()
+                
+                
+                if self.categoryIndex == 1
+                
+                {
+                    if let hwSelected = UIImage(named: "chattingnoticePlusSelectedBtnAssignment")
+                    {
+                        self.hwNoticeButton.setImage(hwSelected, for: .normal)
+                    }
+                }
+                
+                else if self.categoryIndex == 2
+                {
+                    if let testUnselected = UIImage(named: "chattingnoticePlusUnselectedBtnExam"){
+                        
+                        self.testNoticeButton.setImage(testUnselected, for: .normal)
+                        
+                    }
+                }
+                
+                else
+                {
+                    
+                    if let classUnselected = UIImage(named: "chattingnoticePlusUnselectedBtnClass"){
+                        
+                        self.classNoticeButton.setImage(classUnselected, for: .normal)
+                        
+                        
+                        
+                        
+                    }
+                    
+                }
+                
+                
+                
+                //MARK:- 타이틀 설정
+                self.titleEditTextField.text = noticeList.title
+                
+                
+                // MARK:- 날짜 정보 설정
+                
+                let dateArray = noticeList.date.components(separatedBy: "-")
+                
+                print("date Array")
+                
+                self.datePickerLabel.text = dateArray[0] + "년 " + dateArray[1] + "월 " + dateArray[2] + "일"
+                
+                
+                // MARK:- 시간 정보 설정
+      
+                
+                
+
+                self.startTimeTextField.text = noticeList.startTime
+                self.endTImeTextField.text = noticeList.endTime
+                
+                if noticeList.startTime == "-1"
+                {
+                    self.startTimeTextField.text = "시간정보없음"
+                    
+                }
+                
+                if noticeList.endTime == "-1"
+                {
+                    self.endTImeTextField.text = "시간정보없음"
+                }
+                
+                
+   
+                
+                //MARK:- 메모 정보 설정
+                
+                self.contentMemoTextFIeld.text = noticeList.content
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            default:
+                print("fail")
+                
+                
+            }
+            
+              
+          
+
+
+              
+          }
+          
+        
+        
+    }
     
     
 
@@ -186,7 +312,6 @@ class NoticeEditModeViewController: UIViewController {
     
     @IBAction func testButtonClicked(_ sender: Any) {
         
-      
         categoryIndex = 2
 
         setButttonClear()

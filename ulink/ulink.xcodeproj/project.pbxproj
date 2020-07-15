@@ -98,6 +98,12 @@
 		FDFA3A8324BCE7B700CB8939 /* NormalFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8224BCE7B700CB8939 /* NormalFilterViewController.swift */; };
 		FDFA3A8524BCF27600CB8939 /* MajorFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8424BCF27600CB8939 /* MajorFilterViewController.swift */; };
 		FDFA3A8724BD7DD100CB8939 /* MajorFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8624BD7DD100CB8939 /* MajorFilterTableViewCell.swift */; };
+		FDFA3A8D24BDA63000CB8939 /* SubjectNoticeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8C24BDA63000CB8939 /* SubjectNoticeData.swift */; };
+		FDFA3A8F24BDA83300CB8939 /* NoticeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8E24BDA83300CB8939 /* NoticeService.swift */; };
+		FDFA3A9224BE288D00CB8939 /* NoticeTableViewCellTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9124BE288D00CB8939 /* NoticeTableViewCellTwo.swift */; };
+		FDFA3A9424BE28A500CB8939 /* NoticeTableViewCellThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9324BE28A500CB8939 /* NoticeTableViewCellThree.swift */; };
+		FDFA3A9624BE3E8D00CB8939 /* NoticeDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9524BE3E8D00CB8939 /* NoticeDetailService.swift */; };
+		FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */; };
 		FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */; };
 		FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */; };
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
@@ -199,6 +205,12 @@
 		FDFA3A8224BCE7B700CB8939 /* NormalFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalFilterViewController.swift; sourceTree = "<group>"; };
 		FDFA3A8424BCF27600CB8939 /* MajorFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorFilterViewController.swift; sourceTree = "<group>"; };
 		FDFA3A8624BD7DD100CB8939 /* MajorFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorFilterTableViewCell.swift; sourceTree = "<group>"; };
+		FDFA3A8C24BDA63000CB8939 /* SubjectNoticeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectNoticeData.swift; sourceTree = "<group>"; };
+		FDFA3A8E24BDA83300CB8939 /* NoticeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeService.swift; sourceTree = "<group>"; };
+		FDFA3A9124BE288D00CB8939 /* NoticeTableViewCellTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCellTwo.swift; sourceTree = "<group>"; };
+		FDFA3A9324BE28A500CB8939 /* NoticeTableViewCellThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCellThree.swift; sourceTree = "<group>"; };
+		FDFA3A9524BE3E8D00CB8939 /* NoticeDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailService.swift; sourceTree = "<group>"; };
+		FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditService.swift; sourceTree = "<group>"; };
 		FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightSideMenuViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -609,7 +621,7 @@
 		FD79B5CE24B713C500020118 /* NoticeList */ = {
 			isa = PBXGroup;
 			children = (
-				FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */,
+				FDFA3A9024BE282D00CB8939 /* TableCell */,
 				FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */,
 				FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */,
 			);
@@ -647,6 +659,7 @@
 		FD7C730F24BCA5C0003ADAE8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				FDFA3A8924BDA5B800CB8939 /* Services */,
 				29C6BB5B24BD92DC0026747C /* Calendar */,
 				FD7C731024BCA5D5003ADAE8 /* Login */,
 			);
@@ -666,6 +679,7 @@
 			children = (
 				FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */,
 				FD8EE90824B7820F000E5A48 /* timeModel.swift */,
+				FDFA3A8C24BDA63000CB8939 /* SubjectNoticeData.swift */,
 			);
 			path = NoticeModel;
 			sourceTree = "<group>";
@@ -686,6 +700,35 @@
 				FDFA3A8624BD7DD100CB8939 /* MajorFilterTableViewCell.swift */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		FDFA3A8824BDA31400CB8939 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				FDFA3A8E24BDA83300CB8939 /* NoticeService.swift */,
+				FDFA3A9524BE3E8D00CB8939 /* NoticeDetailService.swift */,
+				FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		FDFA3A8924BDA5B800CB8939 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FDFA3A8824BDA31400CB8939 /* Notice */,
+				FD7C731024BCA5D5003ADAE8 /* Login */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FDFA3A9024BE282D00CB8939 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */,
+				FDFA3A9124BE288D00CB8939 /* NoticeTableViewCellTwo.swift */,
+				FDFA3A9324BE28A500CB8939 /* NoticeTableViewCellThree.swift */,
+			);
+			path = TableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -814,6 +857,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				FDFA3A9624BE3E8D00CB8939 /* NoticeDetailService.swift in Sources */,
 				B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */,
 				29AC521124BB9E040007E019 /* SearchViewController.swift in Sources */,
 				299DAD1224BAF26D008181FA /* DetailEventViewController.swift in Sources */,
@@ -825,6 +870,7 @@
 				FD7C731424BCC70B003ADAE8 /* LoginSuccessData.swift in Sources */,
 				B599FAD624BB3B5B005DB6E7 /* SubjectInfoCellNotExpand.swift in Sources */,
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
+				FDFA3A9424BE28A500CB8939 /* NoticeTableViewCellThree.swift in Sources */,
 				B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */,
 				FD7C731224BCA5E1003ADAE8 /* LoginService.swift in Sources */,
 				B599E62F24ADAA320067C112 /* SubjectModel.swift in Sources */,
@@ -842,6 +888,7 @@
 				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
+				FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */,
 				FDFA3A8724BD7DD100CB8939 /* MajorFilterTableViewCell.swift in Sources */,
 				29C6BB5D24BD92F80026747C /* CalendarService.swift in Sources */,
 				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
@@ -869,6 +916,7 @@
 				B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */,
 				FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
+				FDFA3A8F24BDA83300CB8939 /* NoticeService.swift in Sources */,
 				299DACF224B785FE008181FA /* EventListViewController.swift in Sources */,
 				29AC521324BB9E5D0007E019 /* SearchedCell.swift in Sources */,
 				29AC521C24BCE60A0007E019 /* SearchPickerViewController.swift in Sources */,
@@ -876,6 +924,7 @@
 				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,
 				29AC521524BB9E720007E019 /* RealTimeSearchCell.swift in Sources */,
 				FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */,
+				FDFA3A9224BE288D00CB8939 /* NoticeTableViewCellTwo.swift in Sources */,
 				FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */,
 				FD19DC0D24AD0356000C2AEC /* APIConstant.swift in Sources */,
 				FD1A4AFA24B5A0B7000120A6 /* CreateTimeTableCell.swift in Sources */,
@@ -885,6 +934,7 @@
 				FD717F0C24BC22AE005C81AE /* MyPageViewController.swift in Sources */,
 				B599FADB24BCA908005DB6E7 /* SubjectTimeInfoCell.swift in Sources */,
 				FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */,
+				FDFA3A8D24BDA63000CB8939 /* SubjectNoticeData.swift in Sources */,
 				B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */,
 				FDFA3A8524BCF27600CB8939 /* MajorFilterViewController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
@@ -1038,7 +1088,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4JPTB87CQ5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ulink/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1056,8 +1106,8 @@
 			baseConfigurationReference = 55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4JPTB87CQ5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ulink/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1065,6 +1115,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
