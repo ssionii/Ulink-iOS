@@ -229,7 +229,7 @@
                                         <rect key="frame" x="20" y="12.5" width="27" height="27"/>
                                         <state key="normal" image="ioMainScheduleBtnQuestion"/>
                                         <connections>
-                                            <segue destination="gHb-Ug-Jrr" kind="show" id="xdy-cu-ayG"/>
+                                            <segue destination="gHb-Ug-Jrr" kind="presentation" id="xdy-cu-ayG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEe-az-hyi">

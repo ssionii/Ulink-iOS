@@ -28,6 +28,8 @@
 		29AC521E24BCF8B50007E019 /* GradeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521D24BCF8B50007E019 /* GradeSelectViewController.swift */; };
 		29C6BB5D24BD92F80026747C /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB5C24BD92F80026747C /* CalendarService.swift */; };
 		29C6BB5F24BD9EF20026747C /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB5E24BD9EF20026747C /* CalendarData.swift */; };
+		29C6BB6224BE3DFE0026747C /* SearchRecommendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB6124BE3DFE0026747C /* SearchRecommendData.swift */; };
+		29C6BB6524BE3F080026747C /* SearchRecommendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB6424BE3F080026747C /* SearchRecommendService.swift */; };
 		8F83FB66AD3FD38DC68E8A6E /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */; };
 		B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */; };
 		B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511E24B86BE700BD219B /* AddSubjectDetailViewController.swift */; };
@@ -125,6 +127,8 @@
 		29AC521D24BCF8B50007E019 /* GradeSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSelectViewController.swift; sourceTree = "<group>"; };
 		29C6BB5C24BD92F80026747C /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		29C6BB5E24BD9EF20026747C /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarData.swift; path = ulink/Resource/Network/Calendar/CalendarData.swift; sourceTree = SOURCE_ROOT; };
+		29C6BB6124BE3DFE0026747C /* SearchRecommendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendData.swift; sourceTree = "<group>"; };
+		29C6BB6424BE3F080026747C /* SearchRecommendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendService.swift; sourceTree = "<group>"; };
 		55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		925CCBD7FDB6FCC72DBB5D65 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +286,22 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		29C6BB6024BE3DE30026747C /* SearchModel */ = {
+			isa = PBXGroup;
+			children = (
+				29C6BB6124BE3DFE0026747C /* SearchRecommendData.swift */,
+			);
+			path = SearchModel;
+			sourceTree = "<group>";
+		};
+		29C6BB6324BE3EFB0026747C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				29C6BB6424BE3F080026747C /* SearchRecommendService.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		41A1ADDA0FE96FE18C4B1BB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +411,7 @@
 		FD19DC0324AD017C000C2AEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				29C6BB6024BE3DE30026747C /* SearchModel */,
 				FD7C730C24BCA4AD003ADAE8 /* LoginModel */,
 				FD1A4AF724B59626000120A6 /* CalendarModel */,
 				FD1A4AF224B5947A000120A6 /* TimeTableModel */,
@@ -647,6 +668,7 @@
 		FD7C730F24BCA5C0003ADAE8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				29C6BB6324BE3EFB0026747C /* Search */,
 				29C6BB5B24BD92DC0026747C /* Calendar */,
 				FD7C731024BCA5D5003ADAE8 /* Login */,
 			);
@@ -814,6 +836,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C6BB6524BE3F080026747C /* SearchRecommendService.swift in Sources */,
 				B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */,
 				29AC521124BB9E040007E019 /* SearchViewController.swift in Sources */,
 				299DAD1224BAF26D008181FA /* DetailEventViewController.swift in Sources */,
@@ -857,6 +880,7 @@
 				299DACF424B78785008181FA /* EventCell.swift in Sources */,
 				292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */,
 				B513512324B8BCD100BD219B /* TimeInfoModel.swift in Sources */,
+				29C6BB6224BE3DFE0026747C /* SearchRecommendData.swift in Sources */,
 				29AC521E24BCF8B50007E019 /* GradeSelectViewController.swift in Sources */,
 				FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */,
 				B595299224BCFCF3008139E6 /* SubjectDetailViewController.swift in Sources */,

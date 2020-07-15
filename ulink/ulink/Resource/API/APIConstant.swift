@@ -6,4 +6,5 @@ struct APIConstants {
     static let signinURL = APIConstants.baseURL + "/user/signin"
     static let signupURL = APIConstants.baseURL + "/user/signup"
     static let calendarURL = APIConstants.baseURL + "/notice"
+    static let searchURL = APIConstants.baseURL + "/subject/recommend"
 }

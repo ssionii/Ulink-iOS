@@ -142,6 +142,7 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         
         guard let popUpVC = sb.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else {return}
         
+        
         popUpVC.modalPresentationStyle = .overCurrentContext
         present(popUpVC, animated: true, completion: nil)
         

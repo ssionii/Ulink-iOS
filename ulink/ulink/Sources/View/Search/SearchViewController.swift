@@ -26,6 +26,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     var currentText: String = ""
     let realm = try! Realm()
     
+    var serverData: [String] = []
+    
     var type = "과목명"
     
     override func viewDidLoad() {
@@ -39,6 +41,30 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
 
         searchTableView.delegate = self
         searchTableView.dataSource = self
+    }
+    
+    // MARK: SERVER 통신
+    func getDataFromServer(){
+        SearchRecommendService.shared.openRecommendData(word: searchTextField.text ?? ""){
+                    networkResult in
+                    switch networkResult {
+                    case .success(let tokenData):
+                        guard let token = tokenData as? [String] else {return}
+                        self.serverData = token
+                        
+                        print(self.serverData)
+                        
+                        self.searchTableView.reloadData()
+                    case .requestErr:
+                        print("requestErr")
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+        }
     }
     
     @IBAction func backToTimeTable(_ sender: Any) {
@@ -142,6 +168,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         //print("오오잉", currentText)
         //요기서 통신 가능???
         //요기서 테이블뷰 업데이트 가능???
+        getDataFromServer()
         return true
     }
 }
