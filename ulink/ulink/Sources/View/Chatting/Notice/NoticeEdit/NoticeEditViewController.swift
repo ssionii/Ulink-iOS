@@ -30,6 +30,9 @@ class NoticeEditViewController: UIViewController {
         
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "NoticeEditModeViewController") as? NoticeEditModeViewController else { return }
         
+        
+        nextVC.categoryIndex = cateogoryIdx
+        
         nextVC.modalPresentationStyle = .automatic
 
         

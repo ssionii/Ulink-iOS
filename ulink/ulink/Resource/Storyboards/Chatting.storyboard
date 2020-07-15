@@ -1658,7 +1658,7 @@
                                                                             <constraint firstAttribute="width" constant="85" id="hEd-qg-u8k"/>
                                                                         </constraints>
                                                                         <color key="textColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="시간정보없음" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TRe-NX-Vbl">
@@ -1668,7 +1668,7 @@
                                                                             <constraint firstAttribute="width" constant="80" id="rd3-dU-1RB"/>
                                                                         </constraints>
                                                                         <color key="textColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
@@ -1944,6 +1944,7 @@
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="classNoticeButton" destination="U8L-Ws-foI" id="gZu-c2-cwj"/>
+                        <outlet property="contentMemoTextFIeld" destination="wfL-wV-iNg" id="KIZ-xr-EaI"/>
                         <outlet property="datePickerLabel" destination="CPY-4k-FRw" id="oO4-uE-Zmp"/>
                         <outlet property="endTImeTextField" destination="TRe-NX-Vbl" id="SB7-RY-OuY"/>
                         <outlet property="hwNoticeButton" destination="BSJ-Ub-auu" id="eMP-hs-g3t"/>

@@ -96,6 +96,7 @@
 		FDFA3A9224BE288D00CB8939 /* NoticeTableViewCellTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9124BE288D00CB8939 /* NoticeTableViewCellTwo.swift */; };
 		FDFA3A9424BE28A500CB8939 /* NoticeTableViewCellThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9324BE28A500CB8939 /* NoticeTableViewCellThree.swift */; };
 		FDFA3A9624BE3E8D00CB8939 /* NoticeDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9524BE3E8D00CB8939 /* NoticeDetailService.swift */; };
+		FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */; };
 		FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */; };
 		FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */; };
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
@@ -195,6 +196,7 @@
 		FDFA3A9124BE288D00CB8939 /* NoticeTableViewCellTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCellTwo.swift; sourceTree = "<group>"; };
 		FDFA3A9324BE28A500CB8939 /* NoticeTableViewCellThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCellThree.swift; sourceTree = "<group>"; };
 		FDFA3A9524BE3E8D00CB8939 /* NoticeDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailService.swift; sourceTree = "<group>"; };
+		FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditService.swift; sourceTree = "<group>"; };
 		FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightSideMenuViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 			children = (
 				FDFA3A8E24BDA83300CB8939 /* NoticeService.swift */,
 				FDFA3A9524BE3E8D00CB8939 /* NoticeDetailService.swift */,
+				FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -845,6 +848,7 @@
 				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
+				FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */,
 				FDFA3A8724BD7DD100CB8939 /* MajorFilterTableViewCell.swift in Sources */,
 				FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */,
 				299DAD1424BAF2EC008181FA /* DetailEventCell.swift in Sources */,
