@@ -44,8 +44,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     }
     
     // MARK: SERVER 통신
-    func getDataFromServer(){
-        SearchRecommendService.shared.openRecommendData(word: searchTextField.text ?? ""){
+    func getDataFromServer(currentString: String){
+        SearchRecommendService.shared.openRecommendData(word: currentString ?? ""){
                     networkResult in
                     switch networkResult {
                     case .success(let tokenData):
@@ -67,6 +67,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         }
     }
     
+    // MARK: IBACTION
     @IBAction func backToTimeTable(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -99,7 +100,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     //MARK: 테이블뷰
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (headerView.isHidden == true){
-            return 3
+            return serverData.count
         } else {
             let savedDatas = realm.objects(SearchedListData.self)
             return savedDatas.count
@@ -107,25 +108,32 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchedCell.identifier) as? SearchedCell else {
-        return UITableViewCell() }
-        
-        
-        
+            return UITableViewCell() }
+            
         guard let cell2 = tableView.dequeueReusableCell(withIdentifier: RealTimeSearchCell.identifier) as? RealTimeSearchCell else {
         return UITableViewCell() }
         
         
         if headerView.isHidden == true {
+            cell2.show(titleString: serverData[indexPath.row])
             return cell2
         } else {
             cell.layer.addBorder(edge: [.bottom], color: UIColor.veryLightPinkTree, thickness: 1)
             cell.set(indexPath.row)
             return cell
         }
-        
+    }
+    
+    //z클릭
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if headerView.isHidden == true {
+            searchTextField.text = serverData[indexPath.row]
+        } else {
+            let savedDates = realm.objects(SearchedListData.self)
+            searchTextField.text = savedDates[indexPath.row].searched
+        }
     }
     
     
@@ -158,6 +166,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
             }
         }
 
+        //통신 후 데이터 다음 뷰로 넘겨주기:D
+        
         searchTableView.reloadData()
         return true
     }
@@ -168,7 +178,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         //print("오오잉", currentText)
         //요기서 통신 가능???
         //요기서 테이블뷰 업데이트 가능???
-        getDataFromServer()
+        getDataFromServer(currentString: currentText)
+        searchTableView.reloadData()
         return true
     }
+
 }
+

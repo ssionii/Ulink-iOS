@@ -54,7 +54,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
           
         
         super.viewDidLoad()
-        uid = Auth.auth().currentUser?.uid
+        
+        uid = UserDefaults.standard.string(forKey: "uid")
+        
+
         
         
         

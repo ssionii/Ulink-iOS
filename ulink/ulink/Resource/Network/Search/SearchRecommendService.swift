@@ -21,12 +21,13 @@ struct SearchRecommendService {
         if let userDefaultToken = UserDefaults.standard.string(forKey: "token") {
             let header: HTTPHeaders = ["Content-Type": "application/json", "token": userDefaultToken]
             
+            var query: String = ""
             
-            var query = "?name=\(word)"
+            var queryWord = word.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             
-            //query.addingPercentEncoding(withAllowedCharacters: word)
+            query = "?name=\(queryWord)"
             
-            print("query", query)
+            print("query", APIConstants.searchURL + query)
             
             let dataRequest = Alamofire.request(APIConstants.searchURL + query, method: .get, encoding: JSONEncoding.default, headers: header)
             
@@ -46,15 +47,12 @@ struct SearchRecommendService {
     
     private func judge(by statusCode: Int, _ data: Data) -> CalendarNetworkResult<Any> {
         switch statusCode {
-            
         case 200: return getRecommendData(by: data)
         case 400: return .pathErr //오류난다
         case 500: return .serverErr
         default: return .networkFail
         }
     }
-    
-    
     
     private func getRecommendData(by data: Data) -> CalendarNetworkResult<Any> {
         let decoder = JSONDecoder()

@@ -60,6 +60,17 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         getMonthlyData()
         setDateLabel()
         setupGestureRecognizer()
+        
+        if noticeList == nil {
+            print(noticeList)
+            let explainLabel =
+                UILabel(frame: CGRect(x: 0, y: 0 + popUpView.frame.height / 3, width:popUpView.frame.width, height: 20))
+            //explainLabel.center = CGPoint(x: popUpView.center.x, y: popUpView.center.y)
+            explainLabel.text = "일정이 없습니다."
+            explainLabel.textColor = UIColor.gray
+            explainLabel.textAlignment = .center
+            self.popUpView.addSubview(explainLabel)
+        }
     }
     
     func setupGestureRecognizer() {
@@ -79,7 +90,6 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         guard let currentDate = self.currentDate else {return}
         guard let currentWeekDay = self.currentWeekDay else {return}
         guard let noticeList = self.noticeList else {return}
-        
     }
     
     func setDateLabel(){
@@ -122,8 +132,6 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell else {
         return UITableViewCell() }
-        
-        print(noticeList)
         //cell.set(dummyData[indexPath.section].event[indexPath.row])
         if let notice = noticeList?[indexPath.row]{
             cell.set(notice)
@@ -142,6 +150,15 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         
         guard let popUpVC = sb.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else {return}
         
+        if (noticeList?[indexPath.row].category == "과제") {
+            popUpVC.cateogoryIdx = 1
+        } else if (noticeList?[indexPath.row].category == "시험"){
+            popUpVC.cateogoryIdx = 2
+        } else {
+            popUpVC.cateogoryIdx = 3
+        }
+        
+        popUpVC.noticeIdx = noticeList?[indexPath.row].noticeIdx as! Int
         
         popUpVC.modalPresentationStyle = .overCurrentContext
         present(popUpVC, animated: true, completion: nil)
