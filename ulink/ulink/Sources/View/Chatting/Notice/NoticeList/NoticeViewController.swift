@@ -22,6 +22,7 @@ class NoticeViewController: UIViewController {
         loadNoticeData()
         super.viewDidLoad()
         
+    
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
 
@@ -46,6 +47,27 @@ class NoticeViewController: UIViewController {
 
 
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let index = hwNoticeTableView.indexPathForSelectedRow {
+            hwNoticeTableView.deselectRow(at: index, animated: true)
+        }
+        
+        if let index = testNoticeTableView.indexPathForSelectedRow {
+            testNoticeTableView.deselectRow(at: index, animated: true)
+        }
+        
+        
+        
+        if let index = classNoticeTableView.indexPathForSelectedRow {
+            classNoticeTableView.deselectRow(at: index, animated: true)
+        }
+        
+        
+    }
+    
+    
     
     @objc func loadList(notification: NSNotification){
         //load data here
@@ -285,7 +307,6 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         
         if tableView == hwNoticeTableView{
 
-            print("hw")
 
 
 
@@ -317,8 +338,7 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
         if tableView == testNoticeTableView{
             
-            print("test")
-        
+
             
             guard let noticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCellTwo", for: indexPath) as? NoticeTableViewCellTwo
                 
@@ -336,7 +356,7 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
             
             let bgColorView = UIView()
-            bgColorView.backgroundColor = .noticeColorOneSelected
+            bgColorView.backgroundColor = .noticeColorTwoSelected
             noticeCell.selectedBackgroundView = bgColorView
             
             
@@ -350,7 +370,6 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         else{
             
             
-            print("class")
 
             
             
@@ -368,7 +387,7 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
             
             let bgColorView = UIView()
-            bgColorView.backgroundColor = .noticeColorOneSelected
+            bgColorView.backgroundColor = .noticeColorThreeSelected
             noticeCell.selectedBackgroundView = bgColorView
             
             

@@ -8,4 +8,5 @@ struct APIConstants {
     static let subjectNoticeURL = APIConstants.baseURL + "/notice/subject"
     static let subjectDetailNoticeURL = APIConstants.baseURL + "/notice"
     static let calendarURL = APIConstants.baseURL + "/notice"
+    static let chatURL = APIConstants.baseURL + "/chat"
 }

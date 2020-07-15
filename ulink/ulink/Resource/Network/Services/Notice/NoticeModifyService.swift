@@ -16,16 +16,37 @@ struct NoticeModifyService {
     
     static let shared = NoticeModifyService()
     
-//
-//    {
-//      "category": "수업",
-//      "date": "2020-12-17",
-//      "startTime": "-1",
-//      "endTime": "-1",
-//      "title": "폐강",
-//      "content": "수업없어짐"
+//{
+//    "status": 200,
+//    "success": true,
+//    "message": "채팅 목록 조회 성공",
+//    "data": {
+//        "semester": "2020-1",
+//        "chat": [
+//            {
+//                "subjectIdx": 3,
+//                "name": "컴퓨터 네트워크",
+//                "color": 6,
+//                "total": 20,
+//                "current": 1
+//            },
+//            {
+//                "subjectIdx": 4,
+//                "name": "경영학개론",
+//                "color": 1,
+//                "total": 15,
+//                "current": 2
+//            },
+//            {
+//                "subjectIdx": 99,
+//                "name": "에너지나노과학",
+//                "color": 9,
+//                "total": 40,
+//                "current": 1
+//            }
+//        ]
 //    }
-    
+//}
     
     private func makeParameter(_ category: String, _ date: String, _ startTime: String,_ endTime: String,_ title: String,_ content: String) -> Parameters {
         return ["category": category,

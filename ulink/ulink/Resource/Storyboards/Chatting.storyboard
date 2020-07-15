@@ -715,7 +715,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="ioChattingNoticeIcHome"/>
                                         <connections>
-                                            <segue destination="IeY-oC-z6u" kind="push" id="f2X-kD-JQc"/>
+                                            <action selector="homeButtonClicked:" destination="glA-yG-2q4" eventType="touchUpInside" id="Bdb-hd-VjS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfH-6N-gGI">
