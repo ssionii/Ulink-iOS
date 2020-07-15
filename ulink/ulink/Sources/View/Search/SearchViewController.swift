@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,16 +17,26 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var searchTableView: UITableView!
     
+    @IBOutlet weak var recentLabel: UILabel!
+    @IBOutlet weak var deleteAllBtn: UIButton!
+    
+    @IBOutlet weak var typeBtn: UIButton!
+    //디비 불러온다
     let searchedData = SearchedListData()
     var currentText: String = ""
+    let realm = try! Realm()
+    
+    var type = "과목명"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setColor()
+        
         searchView.backgroundColor = UIColor.init(patternImage: UIImage.init(named: "ioMainFiltersettingSearchBg")!)
         
         searchTextField.delegate = self
-        
+
         searchTableView.delegate = self
         searchTableView.dataSource = self
     }
@@ -34,13 +45,40 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func testBtn(_ sender: Any) {
-        headerView.isHidden = true
+    @IBAction func changeSearchType(_ sender: Any) {
+        
+        if (type == "과목명"){
+            type = "교수명"
+            typeBtn.setTitle(type, for: .normal)
+        } else {
+            type = "과목명"
+            typeBtn.setTitle(type, for: .normal)
+        }
+        
+    }
+    
+    @IBAction func deleteAll(_ sender: Any) {
+        try! realm.write {
+            realm.delete(realm.objects(SearchedListData.self))
+        }
+        
+        searchTableView.reloadData()
+    }
+    
+    func setColor(){
+        recentLabel.textColor = UIColor.greyishBrown
+        deleteAllBtn.tintColor = UIColor.brownGreySix
     }
     
     //MARK: 테이블뷰
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if (headerView.isHidden == true){
+            return 3
+        } else {
+            let savedDatas = realm.objects(SearchedListData.self)
+            return savedDatas.count
+        }
+        
     }
     
     
@@ -48,7 +86,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchedCell.identifier) as? SearchedCell else {
         return UITableViewCell() }
         
-        cell.layer.addBorder(edge: [.bottom], color: UIColor.veryLightPinkTree, thickness: 1)
         
         
         guard let cell2 = tableView.dequeueReusableCell(withIdentifier: RealTimeSearchCell.identifier) as? RealTimeSearchCell else {
@@ -58,6 +95,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         if headerView.isHidden == true {
             return cell2
         } else {
+            cell.layer.addBorder(edge: [.bottom], color: UIColor.veryLightPinkTree, thickness: 1)
+            cell.set(indexPath.row)
             return cell
         }
         
@@ -71,6 +110,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         return true
     }
 
+    //텍스트필드 클릭하면
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.headerView.frame = CGRect(x: 0, y: 0, width: self.headerView.frame.width, height: 0)
         headerView.isHidden = true
@@ -78,9 +118,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         return true
     }
     
+    //엔터치면
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         self.headerView.frame = CGRect(x: 0, y: 0, width: self.headerView.frame.width, height: 20)
         headerView.isHidden = false
+        
+        searchedData.searched = searchTextField.text ?? ""
+        
+        //db저장
+        if (searchTextField.text != ""){
+            try! realm.write {
+                realm.add(searchedData)
+            }
+        }
+
         searchTableView.reloadData()
         return true
     }
@@ -91,7 +142,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         //print("오오잉", currentText)
         //요기서 통신 가능???
         //요기서 테이블뷰 업데이트 가능???
-        
         return true
     }
 }

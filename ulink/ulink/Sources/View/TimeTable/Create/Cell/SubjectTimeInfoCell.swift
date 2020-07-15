@@ -10,6 +10,7 @@ import UIKit
 protocol SubjectTimeInfoCellDelegate {
 
     func didPressDeleteButton(_ tag: Int, message: String?)
+    func didPressEditButton(_ idx: Int)
 }
 
 class SubjectTimeInfoCell: UITableViewCell {
@@ -30,6 +31,11 @@ class SubjectTimeInfoCell: UITableViewCell {
         self.delegate?.didPressDeleteButton(timeIdx, message: timeInfoLabel.text)
 
     }
+    
+    @IBAction func editTimeInfo(_ sender: Any) {
+        self.delegate?.didPressEditButton(timeIdx)
+    }
+    
     
     public func setTimeInfoText(weekDay: TimeTableDay, start: String, end: String){
         

@@ -109,12 +109,10 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("셀 수 지정")
         return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("셀 지정")
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell else {
         return UITableViewCell() }
         

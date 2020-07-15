@@ -60,7 +60,7 @@ class SubjectInfoCellExpand: UITableViewCell {
             let startTime = dateTime[index].split(separator: "-")[0]
             let endTime = dateTime[index].split(separator: "-")[1]
             
-            let subject = SubjectModel.init(subjectName: nameLabel.text!, roomName: roomLabel.text!, subjectDay: TimeTableDay(rawValue: dayItem)!, startTime: String(startTime), endTime: String(endTime), backgroundColor: 0)
+            let subject = SubjectModel.init(subjectName: nameLabel.text!, roomName: roomLabel.text!, subjectDay: TimeTableDay(rawValue: dayItem)!.rawValue, startTime: String(startTime), endTime: String(endTime), backgroundColor: 0)
             
             subjectList.append(subject)
         }

@@ -89,13 +89,10 @@ class EventListHeaderCell: UITableViewCell {
         let myDay = dateFormatter.date(from: date)
         
         let start = cal.startOfDay(for: today)
-        print(start)
         let end = cal.startOfDay(for: myDay!)
-        print(end)
         
         let components = cal.dateComponents([.day], from: start, to: end)
         
-        print(components)
         
         return components.day!
     }

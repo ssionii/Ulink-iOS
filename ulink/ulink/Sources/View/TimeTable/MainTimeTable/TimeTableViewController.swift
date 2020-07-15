@@ -15,6 +15,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     @IBOutlet weak var timeTable: TimeTable!
     
     private var subjectList : [SubjectModel] = []
+    private var subjectDummyList : [SubjectModel] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     
     @IBAction func settingBtn(_ sender: UIButton) {
@@ -50,7 +51,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         timeTable.dataSource = self
         
         setBackgroundView()
-        setSubjectList()
+        makeDummySubjectList()
     }
 
      override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -78,20 +79,45 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     }
 
     private func setSubjectList(){
-        let subject_1 = SubjectModel(subjectName: "영상처리", roomName: "제1공학관 404", subjectDay: .monday, startTime: "09:00", endTime: "10:00", backgroundColor: 0)
-        let subject_2 = SubjectModel(subjectName: "전자회로", roomName: "제1공학관 601", subjectDay: .monday, startTime: "13:00", endTime: "15:00", backgroundColor: 1)
-        let subject_3 = SubjectModel(subjectName: "전자기학", roomName: "제1공학관 303", subjectDay: .tuesday, startTime: "13:00", endTime: "14:00", backgroundColor: 2)
-        let subject_4 = SubjectModel(subjectName: "소설과 영화", roomName: "제2공학관 204", subjectDay: .tuesday, startTime: "14:00", endTime: "16:30", backgroundColor: 3)
-        let subject_5 = SubjectModel(subjectName: "캡스톤 디자인", roomName: "제2공학관 304", subjectDay: .wendsday, startTime: "10:00", endTime: "13:00", backgroundColor: 4)
-        let subject_6 = SubjectModel(subjectName: "모션그래픽스1", roomName: "미술대학 407실", subjectDay: .wendsday, startTime: "13:00", endTime: "15:30", backgroundColor: 5)
-        let subject_7 = SubjectModel(subjectName: "모션그래픽스1", roomName: "미술대학 407실", subjectDay: .thursday, startTime: "08:00", endTime: "12:00", backgroundColor: 5)
+        
+        for (index, subject) in subjectDummyList.enumerated() {
+            for i in 0 ... subject.day.count - 1 {
+                let start = subject.dateTime[i].split(separator: "-")[0]
+                let end = subject.dateTime[i].split(separator: "-")[1]
+                
+                let subjectItem = SubjectModel(subjectName: subject.subjectName, roomName: subject.roomName, professorName: subject.professorName, subjectDay: subject.day[i], startTime: String(start), endTime: String(end), backgroundColor: subject.backgroundColor, day: subject.day, dateTime: subject.dateTime)
+                
+                subjectList.append(subjectItem)
+            }
+        }
+    }
+    
+    private func makeDummySubjectList(){
+    
+        let dummy_1 = SubjectModel(subjectName: "영상처리", roomName: "제1공학관 404", professorName: "양시연", backgroundColor: 0, day: [1], dateTime: ["09:00-10:00"])
+        let dummy_2 = SubjectModel(subjectName: "전자회로", roomName: "제1공학관 601", professorName: "양시연", backgroundColor: 1, day: [1], dateTime: ["13:00-15:00"])
+        let dummy_3 = SubjectModel(subjectName: "전자기학", roomName: "제1공학관 303", professorName: "양시연", backgroundColor: 2, day: [2], dateTime: ["13:00-14:00"])
+        let dummy_4 = SubjectModel(subjectName: "소설과 영화", roomName: "제2공학관 204", professorName: "양시연", backgroundColor: 3, day: [2], dateTime: ["14:00-16:30"])
+        let dummy_5 = SubjectModel(subjectName: "캡스톤 디자인", roomName: "제2공학관 304", professorName: "양시연", backgroundColor: 4, day: [3], dateTime: ["10:00-13:00"])
+        let dummy_6 = SubjectModel(subjectName: "모션그래픽스1", roomName: "미술대학 407실", professorName: "양시연", backgroundColor: 5, day: [3, 4], dateTime: ["13:00-15:30", "08:00-12:00"])
+    
+        subjectDummyList = [dummy_1, dummy_2, dummy_3, dummy_4, dummy_5, dummy_6]
+        
+        setSubjectList()
         
         
-        subjectList = [subject_1, subject_2, subject_3, subject_4, subject_5, subject_6, subject_7]
     }
     
     func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: SubjectModel) {
-        return
+        
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "subjectDetailViewController") as? SubjectDetailViewController else { return }
+        
+        
+        print(selectedSubject)
+        
+        nextVC.setDataForSubject(idx: 0, colorCode: selectedSubject.backgroundColor, name: selectedSubject.subjectName, day: selectedSubject.day, dateTime: selectedSubject.dateTime, room: selectedSubject.roomName, professor: selectedSubject.professorName)
+        self.present(nextVC, animated: true, completion: nil)
+        
     }
 
     func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {

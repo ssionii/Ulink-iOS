@@ -32,7 +32,7 @@
         <scene sceneID="3Kk-Q5-ubm">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="chattingStoryBoard" storyboardName="Chatting" id="kKf-Z2-N5f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="수업 채팅" image="message" catalog="system" selectedImage="message.fill" id="LT5-y6-JDh"/>
+                    <tabBarItem key="tabBarItem" title="수업 채팅" image="tabbarIcClassUnselected" selectedImage="tabbarIcClassSelected" id="LT5-y6-JDh"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgi-H8-6yn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,7 +42,7 @@
         <scene sceneID="V8x-Xx-zDN">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="mypageStoryBoard" storyboardName="MyPage" id="9Ll-jr-7ZX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="마이 페이지" image="person" catalog="system" landscapeImage="square.and.arrow.up" selectedImage="person.fill" id="WYk-na-eMF"/>
+                    <tabBarItem key="tabBarItem" title="마이 페이지" image="tabbarIcMypageUnselected" landscapeImage="square.and.arrow.up" catalog="system" selectedImage="tabbarIcMypageSelected" id="WYk-na-eMF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cng-pS-yJO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -318,6 +318,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.4039215686" green="0.30980392159999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="6JW-BM-LTO" kind="relationship" relationship="viewControllers" id="nRU-7j-Moo"/>
@@ -369,10 +374,10 @@
         <image name="loginBtnCheckboxUnselected" width="22" height="22"/>
         <image name="loginIcUlink" width="146" height="62"/>
         <image name="loginImgBg" width="375" height="187"/>
-        <image name="message" catalog="system" width="128" height="113"/>
-        <image name="message.fill" catalog="system" width="128" height="113"/>
-        <image name="person" catalog="system" width="128" height="117"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="tabbarIcClassSelected" width="30" height="24"/>
+        <image name="tabbarIcClassUnselected" width="30" height="24"/>
+        <image name="tabbarIcMypageSelected" width="22" height="23"/>
+        <image name="tabbarIcMypageUnselected" width="22" height="23"/>
     </resources>
 </document>
