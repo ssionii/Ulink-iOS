@@ -46,7 +46,13 @@ class NoticeTableViewCellThree: UITableViewCell {
          
     
          
-         title.text = Title
+        var dateString : String = ""
+         let dateArray = date.components(separatedBy: "-")
+         dateString =  dateArray[1] + "/" + dateArray[2]
+         
+         
+         title.text = dateString + "  " + Title
+
          subTitle.text = subtitle
          
      }

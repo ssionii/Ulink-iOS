@@ -14,13 +14,28 @@
                     <view key="view" contentMode="scaleToFill" id="gxy-VX-9zO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VL9-kJ-0dZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VL9-kJ-0dZ" firstAttribute="top" secondItem="gxy-VX-9zO" secondAttribute="top" id="BDi-pG-zIz"/>
+                            <constraint firstItem="VL9-kJ-0dZ" firstAttribute="leading" secondItem="dQd-PZ-neX" secondAttribute="leading" id="IsO-aL-TZh"/>
+                            <constraint firstItem="VL9-kJ-0dZ" firstAttribute="trailing" secondItem="dQd-PZ-neX" secondAttribute="trailing" id="Wj1-HC-t7S"/>
+                            <constraint firstAttribute="bottom" secondItem="VL9-kJ-0dZ" secondAttribute="bottom" id="i2t-s4-4WS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dQd-PZ-neX"/>
                     </view>
+                    <connections>
+                        <outlet property="ViewOne" destination="VL9-kJ-0dZ" id="Bfa-G8-jd7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEp-eD-tmh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602" y="23"/>
+            <point key="canvasLocation" x="601.44927536231887" y="22.767857142857142"/>
         </scene>
     </scenes>
 </document>

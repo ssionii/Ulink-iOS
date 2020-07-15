@@ -76,6 +76,7 @@ PODS:
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
   - leveldb-library (1.22)
+  - lottie-ios (3.1.8)
   - nanopb (1.30905.0):
     - nanopb/decode (= 1.30905.0)
     - nanopb/encode (= 1.30905.0)
@@ -91,6 +92,7 @@ PODS:
     - Realm (= 5.2.0)
   - SideMenu (6.4.8)
   - SnapKit (5.0.1)
+  - SwiftGifOrigin (1.7.0)
   - SwiftyJSON (4.3.0)
   - TextFieldEffects (1.6.0)
 
@@ -103,10 +105,12 @@ DEPENDENCIES:
   - Firebase/Storage
   - FSCalendar
   - Kingfisher (~> 5.0)
+  - lottie-ios
   - ObjectMapper (~> 3.5)
   - RealmSwift
   - SideMenu (~> 6.0)
   - SnapKit (~> 5.0.0)
+  - SwiftGifOrigin (~> 1.7.0)
   - SwiftyJSON (~> 4.0)
   - TextFieldEffects
 
@@ -130,6 +134,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - Kingfisher
     - leveldb-library
+    - lottie-ios
     - nanopb
     - ObjectMapper
     - PromisesObjC
@@ -138,6 +143,7 @@ SPEC REPOS:
     - RealmSwift
     - SideMenu
     - SnapKit
+    - SwiftGifOrigin
     - SwiftyJSON
     - TextFieldEffects
 
@@ -160,6 +166,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
@@ -168,9 +175,10 @@ SPEC CHECKSUMS:
   RealmSwift: bf0ab78b52c5bafba8b3ad73be8dfb4c1ea5cf01
   SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 974e7a19ddc4b52206572555a5a4c08f68207d0d
+PODFILE CHECKSUM: 13a62613798d3ea5d80af170ab6fbdab107afcaa
 
 COCOAPODS: 1.9.1

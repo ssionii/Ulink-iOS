@@ -10,6 +10,10 @@ import UIKit
 import SideMenu
 
 
+extension NSNotification.Name {
+    static let clickSideButton = NSNotification.Name(rawValue: "clickSideButton")
+}
+
 class rightSideMenuViewController: UIViewController {
 
     @IBOutlet weak var noticeBlock: UIView!
@@ -50,11 +54,11 @@ class rightSideMenuViewController: UIViewController {
     
     @objc func goToNoticePage(sender:UIGestureRecognizer)
     {
-        let storyboard = UIStoryboard(name:"Chatting", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController")
-        
-        
-        self.navigationController!.pushViewController(vc, animated: true)
+        NotificationCenter.default.post(name: .clickSideButton, object: nil)
+
+        self.dismiss(animated: true) {
+//            NotificationCenter.default.post(name: .clickSideButton, object: nil)
+        }
     }
     
     
@@ -64,6 +68,10 @@ class rightSideMenuViewController: UIViewController {
 
         return .default
 
+    }
+    
+    deinit {
+        print("aa")
     }
 
 

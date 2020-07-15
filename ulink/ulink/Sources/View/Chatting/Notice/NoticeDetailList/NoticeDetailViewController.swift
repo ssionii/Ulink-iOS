@@ -22,17 +22,13 @@ class NoticeDetailViewController: UIViewController {
     @IBOutlet weak var noticeDetailTableView: UITableView!
     override func viewDidLoad() {
         
-
         
+        super.viewDidLoad()
         setTitle()
         
         setTableView()
         loadNoticeData()
-        
-        
-        
-        super.viewDidLoad()
-
+        print(categoryIdx)
         
         
     }
@@ -85,7 +81,7 @@ class NoticeDetailViewController: UIViewController {
         
         
         
-        NoticeService.shared.getSubjectNotice(subjectIdx: 1) { networkResult in
+        NoticeService.shared.getSubjectNotice(subjectIdx: subjectIdx) { networkResult in
             switch networkResult{
                 
             case .success(let noticeList, let numberOfNotice):

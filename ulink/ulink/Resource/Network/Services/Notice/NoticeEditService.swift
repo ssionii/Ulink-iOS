@@ -37,7 +37,7 @@ struct NoticeEditService {
     }
 
 
-    func uploadNotice(category: String, date : String, startTime: String, endTime : String, title : String, content: String,noticeIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func uploadNotice(category: String, date : String, startTime: String, endTime : String, title : String, content: String,subjectIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         
         
         
@@ -45,7 +45,7 @@ struct NoticeEditService {
         
         let header: HTTPHeaders = ["token" : userToken,
                                    "Content-Type": "application/json"]
-        let noticeURL : String = APIConstants.subjectNoticeURL + "/" + String(noticeIdx)
+        let noticeURL : String = APIConstants.subjectNoticeURL + "/" + String(subjectIdx)
         let dataRequest = Alamofire.request(noticeURL, method  : .post,parameters: makeParameter(category, date,startTime,endTime,title,content), encoding:
             JSONEncoding.default, headers: header)
         
@@ -58,9 +58,7 @@ struct NoticeEditService {
                 guard let value = dataResponse.result.value else { return }
                 
                 
-                
-                
-                let json = JSON(value)
+            
                 
                 let networkResult = self.judge(by: statusCode, value)
                 completion(networkResult)
@@ -83,14 +81,10 @@ struct NoticeEditService {
     
     
         private func isSubject(by data: Data) -> NetworkResult<Any> {
-            let decoder = JSONDecoder()
-            
 
-            
-            guard let decodedData = try? decoder.decode(SigninData.self, from: data) else { return .pathErr }
-            guard let tokenData = decodedData.data else { return .requestErr(decodedData.message) }
 
-            return .success(tokenData.accessToken,tokenData.uid)
+         
+            return .success(1,1)
         }
     }
 

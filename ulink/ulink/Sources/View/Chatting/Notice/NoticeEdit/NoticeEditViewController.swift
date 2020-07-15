@@ -32,6 +32,8 @@ class NoticeEditViewController: UIViewController {
         
         
         nextVC.categoryIndex = cateogoryIdx
+        nextVC.editModeOn = 1
+        nextVC.noticeIdx = noticeIdx
         
         nextVC.modalPresentationStyle = .automatic
 
@@ -44,8 +46,17 @@ class NoticeEditViewController: UIViewController {
     }
     
     
+    
+    @IBAction func deleteNoticeButtonClicked(_ sender: Any) {
+        
+        
+        
+    }
+    
+    
+    
      var cateogoryIdx : Int = 0 // 카테고리 판별하기 위한 변수
-     var noticeIdx : Int = 1    // 공지사항 구별하기 위해 쓰는 변수
+     var noticeIdx : Int = -1    // 공지사항 구별하기 위해 쓰는 변수
     
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -60,13 +71,34 @@ class NoticeEditViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "modifyLoad"), object: nil)
+
+        
         setTitle()
         getNoticeDetailData()
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("noticeIndex: \(noticeIdx)")
+    }
+    
+    
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        
+
+        
+        DispatchQueue.main.async {
+
+            self.getNoticeDetailData()
+        }
+
+    }
     
     func setTitle()
     {
@@ -97,11 +129,11 @@ class NoticeEditViewController: UIViewController {
     
     func getNoticeDetailData(){
         
-        NoticeDetailService.shared.getSubjectDetailNotice(noticeIdx: self.noticeIdx) { networkResult in // noticeIdx 정보 설정
+        NoticeDetailService.shared.getSubjectDetailNotice(noticeIdx: noticeIdx) { networkResult in // noticeIdx 정보 설정
             print("현재 notice IDX :\(self.noticeIdx)")
 
             switch networkResult{
-                
+                    
                 
             case .success(let noticeList, _):
                 
