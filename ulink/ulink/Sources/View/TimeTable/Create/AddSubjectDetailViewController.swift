@@ -142,8 +142,9 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
             
             for i in 0 ... timeInfoList.count - 1 {
                 
-                let subject = SubjectModel(subjectName: subjectName, roomName:detailTextField.text ?? "" , subjectDay: timeInfoList[i].weekDay, startTime: timeInfoList[i].startTime, endTime: timeInfoList[i].endTime, textColor: UIColor.white, backgroundColor:1)
+//                let subject = SubjectModel(subjectName: subjectName, roomName:detailTextField.text ?? "" , subjectDay: timeInfoList[i].weekDay, startTime: timeInfoList[i].startTime, endTime: timeInfoList[i].endTime, textColor: UIColor.white, backgroundColor:1)
                 
+                let subject = SubjectModel.init()
                 subjectList.append(subject)
             }
             

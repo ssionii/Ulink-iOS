@@ -11,7 +11,6 @@ import UIKit
 
 class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeTableDataSource, AddSubjectDetailDelegate {
     
-    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
     @IBAction func dismissBtn(_ sender: Any) {
@@ -82,8 +81,9 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     }
 
     // protocol
-    func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: SubjectModel) {
-    }
+     func timeTable(timeTable: TimeTable, selectedSubjectIdx: Int, isSubject : Bool){
+           
+       }
     
     func timeTableHintCount(hintCount: Int) {
         if hintCount > 0 {

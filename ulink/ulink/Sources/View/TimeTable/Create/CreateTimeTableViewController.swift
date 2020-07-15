@@ -149,19 +149,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     private func setSubjectInfoList(){
         
-        let tempDay = [0, 2]
-        let tempDateTime = ["09:00-13:30","09:00-13:30"]
-
-        let subjectInfo_1 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
-        
-        let subjectInfo_2 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-632", day: [1, 3], dateTime: ["13:00-14:30","13:00-14:30"])
-        
-        let subjectInfo_3 = SubjectModel(subjectName: "가정과학론", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit:2 , subjectNum: "2016123-502",  day: tempDay, dateTime: ["09:00-13:30","18:00-19:30"])
-        
-        subjectInfoList = [subjectInfo_1, subjectInfo_2, subjectInfo_3]
-        
-        print("hello\(subjectInfoList[1].dateTime)")
-        
     }
     
     private func addTimeTable(){
@@ -169,14 +156,14 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
               let confirmAction = UIAlertAction(title: "확인", style: .default) { (_) in
                   if let txtField = alertController.textFields?.first, let text = txtField.text {
               
-                    let newTimeTableSheet = TimeTableModel(idx: 0, name: text, subjectList: [])
+                    let newTimeTableSheet = TimeTableModel(idx: self.timeTableList.count - 1, name: text, subjectList: [])
                     self.timeTableList.append(newTimeTableSheet)
                       
-                    self.timeTableCollectionView.reloadData()
+//                    self.timeTableCollectionView.reloadData()
                     
                       
-                    print("이동할 곳", self.timeTableList.count - 1)
-                    self.timeTableCollectionView.scrollToItem(at: IndexPath(item: self.timeTableList.count - 1, section: 0), at: .centeredHorizontally, animated: true)
+                print("이동할 곳", self.timeTableList.count - 1)
+                self.timeTableCollectionView.scrollToItem(at: IndexPath(item: self.timeTableList.count - 1, section: 0), at: .centeredHorizontally, animated: true)
                       
                   }
               }
@@ -208,7 +195,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
     }
     
-    func drawHintTimeTable(row: Int, day: [Int], dateTime: [String]){
+    func drawHintTimeTable(row: Int, day: [Int], startTime: [String], endTime : [String]){
     
         let indexPath = IndexPath(row: row, section: 0)
     
@@ -216,7 +203,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         timeTableCell.timeTable.reloadData()
         
-        timeTableCell.timeTable.makeHintTimeTable(day : day, dateTime : dateTime)
+        timeTableCell.timeTable.makeHintTimeTable(day : day, startTime: startTime, endTime : endTime)
         
     }
     
@@ -247,7 +234,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                
             let data = timeTableList[indexPath.row]
             
-            createTimeTableCell.setCreateTimeTableCell(idx: data.idx, name: data.name, subjectList:data.subjectList)
+            createTimeTableCell.setCreateTimeTableCell(idx: data.scheduleIdx, name: data.name, subjectList:data.subjectList)
                
             return createTimeTableCell
         }else{
@@ -276,10 +263,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             
             addTimeTable()
 
-            DispatchQueue.global().sync {
-                self.timeTableCollectionView.reloadData()
-            }
-        
         }
     }
     
@@ -300,7 +283,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
      
         let data = subjectInfoList[indexPath.row]
      
-        subjectInfoCell.setSubjectInfoData(name: data.subjectName, professorName: data.professorName, room: data.roomName, category: data.course, credit: data.credit, subjectNum: data.subjectNum, day: data.day, dateTime: data.dateTime, num : indexPath.row)
+        subjectInfoCell.setSubjectInfoData(name: data.subjectName, professorName: data.professorName, content: data.content, category: data.course, credit: data.credit, subjectNum: data.subjectNum, day: data.day, startTime: data.startTime, endTime: data.endTime, num : indexPath.row)
      
         if self.isCandidateView {
             subjectInfoCell.setCandidateCell()
@@ -334,7 +317,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             if !(tableView.cellForRow(at: indexPath) as! SubjectInfoCell).isExpended {
                 removeHintTimeTable(row: pageControlDots.currentPage)
             } else {
-                drawHintTimeTable(row: pageControlDots.currentPage, day:  subjectInfoList[num].day, dateTime: subjectInfoList[num].dateTime)
+                drawHintTimeTable(row: pageControlDots.currentPage, day:  subjectInfoList[num].day,startTime: subjectInfoList[num].startTime, endTime: subjectInfoList[num].endTime)
             }
         }
     }
@@ -367,20 +350,20 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             print(item)
             
             for (index, temp) in timeTableCell.subjectList.enumerated() {
-                let tstartHour = Int(temp.startTime.split(separator: ":")[0])
-                let tstartMin = Int(temp.startTime.split(separator: ":")[1])
+                let tstartHour = Int(temp.startTime[index].split(separator: ":")[0])
+                let tstartMin = Int(temp.startTime[index].split(separator: ":")[1])
                 print("index", index)
                 
                 let tempStart = (temp.day[index] * 10000) + (tstartHour! * 100 ) + tstartMin!
-                let tendHour = Int(temp.endTime.split(separator: ":")[0])
-                let tendMin = Int(temp.endTime.split(separator: ":")[1])
+                let tendHour = Int(temp.endTime[index].split(separator: ":")[0])
+                let tendMin = Int(temp.endTime[index].split(separator: ":")[1])
                 let tempEnd = (temp.day[index] * 10000) + (tendHour! * 100) + tendMin!
                 
-                let startHour = Int(item.startTime.split(separator: ":")[0])
-                let startMin = Int(item.startTime.split(separator: ":")[1])
+                let startHour = Int(item.startTime[index].split(separator: ":")[0])
+                let startMin = Int(item.startTime[index].split(separator: ":")[1])
                 let start = (item.day[index] * 10000) + (startHour! * 100 ) + startMin!
-                let endHour = Int(item.endTime.split(separator: ":")[0])
-                let endMin = Int(item.endTime.split(separator: ":")[1])
+                let endHour = Int(item.endTime[index].split(separator: ":")[0])
+                let endMin = Int(item.endTime[index].split(separator: ":")[1])
                 let end = (item.day[index] * 10000) + (endHour! * 100) + endMin!
                 
                 
@@ -432,13 +415,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         let tempDay = [0, 1]
         let tempDateTime = ["09:00-13:30","09:00-13:30"]
         
-        let subjectInfo_1 = SubjectModel(subjectName: "전자회로1", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132",  day: tempDay, dateTime: tempDateTime)
-        
-        let subjectInfo_2 = SubjectModel(subjectName: "전자회로", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132",  day: tempDay, dateTime: tempDateTime)
-        
-        let subjectInfo_3 = SubjectModel(subjectName: "전자회로!", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit: 2, subjectNum: "2016123-132",  day: tempDay, dateTime: tempDateTime)
-        
-        subjectInfoList = [subjectInfo_1, subjectInfo_2, subjectInfo_3]
         
         self.subjectInfoTableView.reloadData()
         
@@ -460,13 +436,13 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         let tempDay = [0, 1]
         let tempDateTime = ["09:00-13:30","09:00-13:30"]
 
-        let subjectInfo_1 = SubjectModel(subjectName: "후보군", professorName: "최성일",  roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
+//        let subjectInfo_1 = SubjectModel(subjectName: "후보군", professorName: "최성일",  roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
+//
+//        let subjectInfo_2 = SubjectModel(subjectName: "후보군", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
+//
+//        let subjectInfo_3 = SubjectModel(subjectName: "후보군이라굿!", professorName: "최성일",  roomName: "명신관614", course: "전공선택", credit: 2, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
         
-        let subjectInfo_2 = SubjectModel(subjectName: "후보군", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
-        
-        let subjectInfo_3 = SubjectModel(subjectName: "후보군이라굿!", professorName: "최성일",  roomName: "명신관614", course: "전공선택", credit: 2, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
-        
-        subjectInfoList = [subjectInfo_1]
+//        subjectInfoList = [subjectInfo_1]
     
         
         

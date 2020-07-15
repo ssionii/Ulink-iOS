@@ -11,20 +11,20 @@ import Foundation
 import SwiftyJSON
 
 
-struct TimeTableService {
+struct MainTimeTableService {
     
     private init() { }
-    static let shared = TimeTableService()
+    static let shared = MainTimeTableService()
     
     let header: HTTPHeaders = [
         "Content-Type" : "application/json",
-        "token" : UserDefaults.standard.object(forKey: "token") as! String
+//        "token" : UserDefaults.standard.object(forKey: "token") as! String
+        "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoxLCJuYW1lIjoi6rmA67O067CwIiwic2Nob29sIjoi7ZWc7JaR64yA7ZWZ6rWQIiwibWFqb3IiOiLshoztlITtirjsm6jslrQiLCJpYXQiOjE1OTQ3NzkxODAsImV4cCI6MTU5NjIxOTE4MCwiaXNzIjoiYm9iYWUifQ.BAOeiZ_uqtIVPzFJd2oZbfVz44A2_QSXLQliNhN6pv4"
     ]
     
     func getMainTimeTable(completion: @escaping (NetworkResult<Any>) -> Void) {
         
         print("token! \(UserDefaults.standard.object(forKey: "token") as! String)")
-//        let url = APIConstants.mainTimeTable
         
         Alamofire.request(APIConstants.mainTimeTable, method  : .get, encoding: JSONEncoding.default, headers: header).responseJSON {
             response in
@@ -66,7 +66,7 @@ struct TimeTableService {
         for i in 0 ... 5 {
             let daySubjects = subjects[String(i)].arrayValue
             for (_, subject) in daySubjects.enumerated() {
-                let element = SubjectModel.init(idx: subject["idx"].intValue, name: subject["name"].stringValue, startTime: subject["startTime"].stringValue, endTime: subject["endTime"].stringValue, day: subject["day"].intValue, content: subject["content"].stringValue, color: subject["color"].intValue, subject: subject["subject"].boolValue)
+                let element = SubjectModel.init(idx: subject["idx"].intValue, name: subject["name"].stringValue, startTime: subject["startTime"].arrayObject as! [String], endTime: subject["endTime"].arrayObject as! [String], day: subject["day"].arrayObject as! [Int], content: subject["content"].arrayObject as! [String], color: subject["color"].intValue, subject: subject["subject"].boolValue)
                     
                 subjectList.append(element)
             }

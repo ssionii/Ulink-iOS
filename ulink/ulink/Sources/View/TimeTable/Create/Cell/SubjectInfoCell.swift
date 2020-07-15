@@ -49,7 +49,8 @@ class SubjectInfoCell: UITableViewCell {
     private var creditNum = 0
     private var subjectNumberText = ""
     private var day = [Int]()
-    private var dateTime = [String]()
+    private var startTime = [String]()
+    private var endTime = [String]()
     
     private var num = 0
     
@@ -74,11 +75,10 @@ class SubjectInfoCell: UITableViewCell {
         var subjectList = [SubjectModel]()
                
         for (index, dayItem) in day.enumerated() {
-                   
-            let startTime = dateTime[index].split(separator: "-")[0]
-            let endTime = dateTime[index].split(separator: "-")[1]
-                   
-            let subject = SubjectModel.init(subjectName: nameLabel.text!, roomName: roomLabel.text!, professorName: "", subjectDay: dayItem + 1, startTime: String(startTime), endTime: String(endTime), backgroundColor: 0, day: day, dateTime: dateTime)
+
+//            let subject = SubjectModel.init(subjectName: nameLabel.text!, roomName: roomLabel.text!, professorName: "", subjectDay: dayItem + 1, startTime: String(startTime), endTime: String(endTime), backgroundColor: 0, day: day, dateTime: dateTime)
+            
+            let subject = SubjectModel.init()
                    
             subjectList.append(subject)
         }
@@ -96,32 +96,32 @@ class SubjectInfoCell: UITableViewCell {
 
     }
     
-    func setSubjectInfoData(name: String, professorName: String, room: String, category: String, credit: Int, subjectNum : String, day: [Int], dateTime : [String], num: Int){
+    func setSubjectInfoData(name: String, professorName: String, content: [String], category: String, credit: Int, subjectNum : String, day: [Int], startTime : [String], endTime : [String], num: Int){
 
         nameLabel.text = name
         professorNameLabel.text = professorName
-        timeInfoLabel.text = makeToTimeInfoFormat(day: day, dateTime: dateTime)
-        roomLabel.text = room
+        timeInfoLabel.text = makeTimeInfo(day: day, startTime: startTime, endTime: endTime)
+        roomLabel.text = makeRoomText(content: content)
         courseLabel.text = category
         creditLabel.text = String(credit) + "학점"
         subjectNumberLabel.text = subjectNum
         
         self.day = day
-        self.dateTime = dateTime
         self.num = num
     }
     
-    private func makeLabel(){
-        nameLabel.text = nameText
-        professorNameLabel.text = professorNameText
-        timeInfoLabel.text = makeToTimeInfoFormat(day: day, dateTime: dateTime)
-        roomLabel.text = roomText
-        courseLabel.text = courseText
-        creditLabel.text = String(creditNum) + "학점"
-        subjectNumberLabel.text = subjectNumberText
+    private func makeRoomText(content: [String]) -> String {
+        var roomText = ""
+        for(index, c) in content.enumerated() {
+            roomText += c
+            if index != 0 && index < content.count {
+                roomText += ", "
+            }
+        }
+        return roomText
     }
     
-    private func makeToTimeInfoFormat(day : [Int], dateTime : [String]) -> String {
+    private func makeTimeInfo(day : [Int], startTime : [String], endTime : [String]) -> String {
            
         var result = ""
            
@@ -151,11 +151,9 @@ class SubjectInfoCell: UITableViewCell {
                    break
                }
                
-               result += dateTime[i].split(separator: "-")[0]
-               result += " - "
-               result += dateTime[i].split(separator: "-")[1]
-               
-               if i != day.count - 1 {
+               result += startTime[i] + " - " + endTime[i]
+            
+               if i != 0 && i != day.count - 1 {
                    result += ", "
                }
            }
@@ -218,6 +216,7 @@ class SubjectInfoCell: UITableViewCell {
         deleteBtnHeight.constant = btnHeight
         candidateBtnHeight.constant = btnHeight
         enrollBtnHeight.constant = btnHeight
+        
     }
     
     private func smallBtn(){

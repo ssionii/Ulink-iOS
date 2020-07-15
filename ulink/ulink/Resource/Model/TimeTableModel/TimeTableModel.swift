@@ -9,7 +9,7 @@
 import Foundation
 
 public struct TimeTableModel {
-    public let idx : Int
+    public let scheduleIdx : Int
     public let name : String
     public let semester : String
     public let isMain : Int
@@ -18,7 +18,7 @@ public struct TimeTableModel {
     // 통신에서 값 받아올 때 이용
     public init(scheduleIdx: Int, semester: String, name: String){
         
-        self.idx = scheduleIdx
+        self.scheduleIdx = scheduleIdx
         self.name = name
         
         var year : String = String(semester.split(separator: "-")[0])
@@ -42,8 +42,8 @@ public struct TimeTableModel {
     
     
     // list에서 이용
-    public init(idx: Int, name: String, semesterInput: String, isMain: Int){
-        self.idx = idx
+    public init(scheduleIdx: Int, name: String, semesterInput: String, isMain: Int){
+        self.scheduleIdx = scheduleIdx
         self.name = name
         self.isMain = isMain
         
@@ -67,7 +67,7 @@ public struct TimeTableModel {
     }
     
     public init(idx: Int, name: String, subjectList: [SubjectModel]){
-        self.idx = idx
+        self.scheduleIdx = idx
         self.name = name
         self.subjectList = subjectList
         

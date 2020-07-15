@@ -9,7 +9,7 @@
 import Foundation
 
 public struct ListSemester {
-    public let semesterName : String
+    public let semester : String
     public var timeTableList : [TimeTableModel] = []
     
     public init(nameInput: String, timeTableList: [TimeTableModel]){
@@ -27,7 +27,7 @@ public struct ListSemester {
         default:
             name.append("년 1학기")
         }
-        self.semesterName = name
+        self.semester = name
         
         self.timeTableList = timeTableList
     }

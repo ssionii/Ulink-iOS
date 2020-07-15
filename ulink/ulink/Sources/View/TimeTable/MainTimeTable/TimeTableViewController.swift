@@ -80,50 +80,14 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         
     }
     
-    private func setSubjectList(){
-        
-        
-    }
-    
-    
-//    private func setSubjectList(){
-//
-//        for (_, subject) in subjectDummyList.enumerated() {
-//            for i in 0 ... subject.day.count - 1 {
-//                let start = subject.dateTime[i].split(separator: "-")[0]
-//                let end = subject.dateTime[i].split(separator: "-")[1]
-//
-//                let subjectItem = SubjectModel(subjectName: subject.subjectName, roomName: subject.roomName, professorName: subject.professorName, subjectDay: subject.day[i], startTime: String(start), endTime: String(end), backgroundColor: subject.backgroundColor, day: subject.day, dateTime: subject.dateTime)
-//
-//                subjectList.append(subjectItem)
-//            }
-//        }
-//    }
-//
-    private func makeDummySubjectList(){
-        
-        let dummy_1 = SubjectModel(subjectName: "영상처리", roomName: "제1공학관 404", professorName: "양시연", backgroundColor: 0, day: [1], dateTime: ["09:00-10:00"])
-        let dummy_2 = SubjectModel(subjectName: "전자회로", roomName: "제1공학관 601", professorName: "양시연", backgroundColor: 1, day: [1], dateTime: ["13:00-15:00"])
-        let dummy_3 = SubjectModel(subjectName: "전자기학", roomName: "제1공학관 303", professorName: "양시연", backgroundColor: 2, day: [2], dateTime: ["13:00-14:00"])
-        let dummy_4 = SubjectModel(subjectName: "소설과 영화", roomName: "제2공학관 204", professorName: "양시연", backgroundColor: 3, day: [2], dateTime: ["14:00-16:30"])
-        let dummy_5 = SubjectModel(subjectName: "캡스톤 디자인", roomName: "제2공학관 304", professorName: "양시연", backgroundColor: 4, day: [3], dateTime: ["10:00-13:00"])
-        let dummy_6 = SubjectModel(subjectName: "모션그래픽스1", roomName: "미술대학 407실", professorName: "양시연", backgroundColor: 5, day: [3, 4], dateTime: ["13:00-15:30", "08:00-12:00"])
-    
-        subjectDummyList = [dummy_1, dummy_2, dummy_3, dummy_4, dummy_5, dummy_6]
-        
-        setSubjectList()
-        
-        
-    }
-    
-    func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: SubjectModel) {
+    func timeTable(timeTable: TimeTable, selectedSubjectIdx : Int, isSubject : Bool) {
         
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "subjectDetailViewController") as? SubjectDetailViewController else { return }
         
+        print(selectedSubjectIdx)
         
-        print(selectedSubject)
-        
-        nextVC.setDataForSubject(idx: 0, colorCode: selectedSubject.backgroundColor, name: selectedSubject.subjectName, day: selectedSubject.day, dateTime: selectedSubject.dateTime, room: selectedSubject.roomName, professor: selectedSubject.professorName)
+        nextVC.subjectIdx = selectedSubjectIdx
+        nextVC.isSubject = isSubject
         self.present(nextVC, animated: true, completion: nil)
         
     }
@@ -148,39 +112,24 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     // 통신
     
     func getMainTimeTable(){
-       TimeTableService.shared.getMainTimeTable { networkResult in
-                      switch networkResult {
-                          
-                          
-             // MARK:- 서버 접속 성공 했을때
-                      case .success(let timeTable, let subjectList) :
-                        self.subjectList = subjectList as! [SubjectModel]
-                        print(subjectList)
-                        self.timeTable.reloadData()
-                        
+        
+        print("getMainTimeTable")
+        
+       MainTimeTableService.shared.getMainTimeTable { networkResult in
+            switch networkResult {
+                case .success(let timeTable, let subjectList) :
+                    self.subjectList = subjectList as! [SubjectModel]
+                    print(subjectList)
+                    self.timeTable.reloadData()
+                    break
+                case .requestErr(let message):
+                        print("REQUEST ERROR")
                         break
-                      case .requestErr(let message):
-                          print("REQUEST ERROR")
-//                          guard let message = message as? String else { return }
-//                          let alertViewController = UIAlertController(title: "로그인 실패", message: message,
-//                                                                      preferredStyle: .alert)
-//                          let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-//                          alertViewController.addAction(action)
-//                          self.present(alertViewController, animated: true, completion: nil)
-                          break
-                      case .pathErr: break
-//                          let alertViewController = UIAlertController(title: "로그인 실패", message: "로그인 정보를 다시 확인해주세요",
-//                                                                      preferredStyle: .alert)
-//                          let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
-//                          alertViewController.addAction(action)
-//                          self.present(alertViewController, animated: true, completion: nil)
-                      case .serverErr: print("serverErr")
-                      case .networkFail: print("networkFail")
-                      }
-              }
+            case .pathErr: break
+            case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+            }
+        }
     }
-    
-    
 
-   
 }
