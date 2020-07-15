@@ -401,7 +401,7 @@
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mCW-Zi-TYc" firstAttribute="leading" secondItem="dCy-jR-4LU" secondAttribute="leading" id="DL0-y1-zo3"/>
-                            <constraint firstItem="mCW-Zi-TYc" firstAttribute="top" secondItem="dCy-jR-4LU" secondAttribute="top" id="UUi-tl-z7S"/>
+                            <constraint firstItem="mCW-Zi-TYc" firstAttribute="top" secondItem="Kr2-1n-Xae" secondAttribute="top" id="UUi-tl-z7S"/>
                             <constraint firstItem="rqJ-Jg-CGk" firstAttribute="leading" secondItem="dCy-jR-4LU" secondAttribute="leading" id="bqg-bd-CjQ"/>
                             <constraint firstItem="E58-PG-I2G" firstAttribute="leading" secondItem="dCy-jR-4LU" secondAttribute="leading" id="cAa-xL-u3z"/>
                             <constraint firstItem="E58-PG-I2G" firstAttribute="bottom" secondItem="dCy-jR-4LU" secondAttribute="bottom" id="diS-Y9-O9Q"/>
@@ -722,6 +722,9 @@
                                         <rect key="frame" x="286" y="35" width="30" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="ioChattingNoticeIcAdd"/>
+                                        <connections>
+                                            <action selector="AddNoticeButtonClicked:" destination="glA-yG-2q4" eventType="touchUpInside" id="gK4-fi-kFb"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전자기학 공지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0a-tR-pVU">
                                         <rect key="frame" x="139" y="36" width="110" height="21"/>
@@ -797,7 +800,7 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7/18 앱잼 발표" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUA-mF-aaX">
-                                                                            <rect key="frame" x="7" y="6" width="200" height="19"/>
+                                                                            <rect key="frame" x="7" y="6" width="200" height="17"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="200" id="MAL-DV-OrA"/>
                                                                                 <constraint firstAttribute="height" constant="19" id="oVD-vi-TDM"/>
@@ -820,6 +823,7 @@
                                                                     <constraints>
                                                                         <constraint firstItem="kUA-mF-aaX" firstAttribute="top" secondItem="dat-nV-kPS" secondAttribute="top" constant="6" id="2UK-gJ-iAE"/>
                                                                         <constraint firstAttribute="bottom" secondItem="4uD-pH-yYB" secondAttribute="bottom" constant="6" id="Gi0-ff-mw9"/>
+                                                                        <constraint firstItem="4uD-pH-yYB" firstAttribute="top" secondItem="kUA-mF-aaX" secondAttribute="bottom" constant="4" id="JJJ-hQ-qam"/>
                                                                         <constraint firstItem="4uD-pH-yYB" firstAttribute="leading" secondItem="dat-nV-kPS" secondAttribute="leading" constant="7" id="Rh6-zF-QUl"/>
                                                                         <constraint firstItem="kUA-mF-aaX" firstAttribute="leading" secondItem="dat-nV-kPS" secondAttribute="leading" constant="7" id="krQ-gc-yid"/>
                                                                     </constraints>
@@ -895,9 +899,9 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7/18 앱잼 발표" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2q-Xn-jcf">
-                                                                            <rect key="frame" x="7" y="2" width="100" height="19"/>
+                                                                            <rect key="frame" x="7" y="2" width="200" height="19"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="100" id="NoZ-dx-J3x"/>
+                                                                                <constraint firstAttribute="width" constant="200" id="NoZ-dx-J3x"/>
                                                                                 <constraint firstAttribute="height" constant="19" id="Onf-Tf-60Q"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -916,6 +920,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                     <constraints>
+                                                                        <constraint firstItem="vHl-Fl-LI3" firstAttribute="top" secondItem="q2q-Xn-jcf" secondAttribute="bottom" constant="4" id="60C-J7-YWY"/>
                                                                         <constraint firstItem="vHl-Fl-LI3" firstAttribute="leading" secondItem="bSr-48-Ubb" secondAttribute="leading" constant="7" id="MEm-yN-TXE"/>
                                                                         <constraint firstItem="q2q-Xn-jcf" firstAttribute="leading" secondItem="bSr-48-Ubb" secondAttribute="leading" constant="7" id="QPt-xX-vlz"/>
                                                                         <constraint firstAttribute="bottom" secondItem="vHl-Fl-LI3" secondAttribute="bottom" constant="1" id="rW6-1V-cBW"/>
@@ -995,9 +1000,9 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7/18 앱잼 발표" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFF-u6-dyo">
-                                                                            <rect key="frame" x="7" y="2" width="100" height="19"/>
+                                                                            <rect key="frame" x="7" y="2" width="200" height="19"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="100" id="jgO-rB-FuK"/>
+                                                                                <constraint firstAttribute="width" constant="200" id="jgO-rB-FuK"/>
                                                                                 <constraint firstAttribute="height" constant="19" id="pZu-zl-kO9"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -1017,6 +1022,7 @@
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="2fv-me-FjZ" firstAttribute="leading" secondItem="HJV-xv-dbo" secondAttribute="leading" constant="7" id="8HA-XV-UiX"/>
+                                                                        <constraint firstItem="2fv-me-FjZ" firstAttribute="top" secondItem="mFF-u6-dyo" secondAttribute="bottom" constant="4" id="FkM-iI-nIb"/>
                                                                         <constraint firstItem="mFF-u6-dyo" firstAttribute="top" secondItem="HJV-xv-dbo" secondAttribute="top" constant="2" id="fMN-7x-Xu8"/>
                                                                         <constraint firstItem="mFF-u6-dyo" firstAttribute="leading" secondItem="HJV-xv-dbo" secondAttribute="leading" constant="7" id="kwp-Nd-K38"/>
                                                                         <constraint firstAttribute="bottom" secondItem="2fv-me-FjZ" secondAttribute="bottom" constant="1" id="zgM-9L-erG"/>
@@ -1362,27 +1368,36 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bM8-xg-2In">
-                                        <rect key="frame" x="302" y="29" width="62" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="jog-bG-fQW"/>
-                                            <constraint firstAttribute="width" constant="62" id="nn3-bj-Q3J"/>
-                                        </constraints>
+                                        <rect key="frame" x="275" y="28" width="62" height="36"/>
                                         <state key="normal" image="ioChattingnoticeDetailpageBtnRevise"/>
                                         <connections>
                                             <action selector="EditButtonClicked:" destination="7w2-zd-Hz6" eventType="touchUpInside" id="Nc1-aR-WFK"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2J-67-g2A">
+                                        <rect key="frame" x="337" y="30" width="26" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="31Q-P8-UJU"/>
+                                            <constraint firstAttribute="width" constant="26" id="Ije-5X-RjJ"/>
+                                        </constraints>
+                                        <state key="normal" image="ioChattingnoticeDetailpageBtnDelete"/>
+                                        <connections>
+                                            <action selector="deleteNoticeButtonClicked:" destination="7w2-zd-Hz6" eventType="touchUpInside" id="uy9-sW-F38"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="bM8-xg-2In" firstAttribute="top" secondItem="hrw-XD-L1c" secondAttribute="top" constant="29" id="9l5-g3-Xh1"/>
+                                    <constraint firstItem="x2J-67-g2A" firstAttribute="leading" secondItem="bM8-xg-2In" secondAttribute="trailing" id="1FY-m8-qYj"/>
+                                    <constraint firstAttribute="trailing" secondItem="x2J-67-g2A" secondAttribute="trailing" constant="12" id="3l9-Rd-YfZ"/>
+                                    <constraint firstItem="bM8-xg-2In" firstAttribute="top" secondItem="hrw-XD-L1c" secondAttribute="top" constant="28" id="93I-EQ-nvW"/>
                                     <constraint firstItem="wgt-ef-EwU" firstAttribute="top" secondItem="hrw-XD-L1c" secondAttribute="top" constant="36" id="BAP-je-QKX"/>
                                     <constraint firstAttribute="width" constant="375" id="CeI-uC-ZO5"/>
                                     <constraint firstItem="YQx-dh-hta" firstAttribute="top" secondItem="hrw-XD-L1c" secondAttribute="top" constant="29" id="NYi-x8-dQ1"/>
                                     <constraint firstItem="YQx-dh-hta" firstAttribute="leading" secondItem="hrw-XD-L1c" secondAttribute="leading" constant="13" id="R3b-HJ-I74"/>
+                                    <constraint firstItem="x2J-67-g2A" firstAttribute="top" secondItem="hrw-XD-L1c" secondAttribute="top" constant="30" id="atp-jL-Mx9"/>
                                     <constraint firstItem="6mj-xs-oJu" firstAttribute="leading" secondItem="hrw-XD-L1c" secondAttribute="leading" id="dYW-Pd-Vxt"/>
                                     <constraint firstAttribute="height" constant="67" id="dif-J6-JLa"/>
-                                    <constraint firstAttribute="trailing" secondItem="bM8-xg-2In" secondAttribute="trailing" constant="11" id="ek6-8E-TMP"/>
                                     <constraint firstAttribute="bottom" secondItem="6mj-xs-oJu" secondAttribute="bottom" id="hHu-LV-ERG"/>
                                     <constraint firstItem="wgt-ef-EwU" firstAttribute="centerX" secondItem="hrw-XD-L1c" secondAttribute="centerX" id="jZy-gB-yqJ"/>
                                 </constraints>
@@ -1855,7 +1870,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvE-y5-KGi">
                                                                         <rect key="frame" x="13" y="37" width="350" height="213"/>
                                                                         <subviews>
-                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="여기에 메모 " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wfL-wV-iNg">
+                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wfL-wV-iNg">
                                                                                 <rect key="frame" x="8" y="0.0" width="334" height="213"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                 <constraints>
@@ -2025,6 +2040,7 @@
         <image name="ioChattingNoticeBtnArrow" width="18" height="18"/>
         <image name="ioChattingNoticeIcAdd" width="30" height="24"/>
         <image name="ioChattingNoticeIcHome" width="30" height="24"/>
+        <image name="ioChattingnoticeDetailpageBtnDelete" width="26" height="29"/>
         <image name="ioChattingnoticeDetailpageBtnRevise" width="62" height="36"/>
         <image name="ioClassBtnCal" width="38" height="24"/>
         <image name="ioClassImgProfile1" width="40" height="40"/>

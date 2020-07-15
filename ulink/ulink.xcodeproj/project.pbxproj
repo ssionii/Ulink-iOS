@@ -88,7 +88,6 @@
 		FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */; };
 		FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */; };
 		FD7C730E24BCA4C4003ADAE8 /* SignInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C730D24BCA4C4003ADAE8 /* SignInData.swift */; };
-		FD7C731224BCA5E1003ADAE8 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C731124BCA5E1003ADAE8 /* LoginService.swift */; };
 		FD7C731424BCC70B003ADAE8 /* LoginSuccessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7C731324BCC70B003ADAE8 /* LoginSuccessData.swift */; };
 		FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */; };
 		FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90824B7820F000E5A48 /* timeModel.swift */; };
@@ -104,6 +103,9 @@
 		FDFA3A9424BE28A500CB8939 /* NoticeTableViewCellThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9324BE28A500CB8939 /* NoticeTableViewCellThree.swift */; };
 		FDFA3A9624BE3E8D00CB8939 /* NoticeDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9524BE3E8D00CB8939 /* NoticeDetailService.swift */; };
 		FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */; };
+		FDFA3A9A24BEAFCE00CB8939 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9924BEAFCE00CB8939 /* LoginService.swift */; };
+		FDFA3A9C24BEB4DD00CB8939 /* NoticeUploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9B24BEB4DD00CB8939 /* NoticeUploadData.swift */; };
+		FDFA3A9E24BEF6E200CB8939 /* NoticeModifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A9D24BEF6E200CB8939 /* NoticeModifyService.swift */; };
 		FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */; };
 		FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */; };
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
@@ -195,7 +197,6 @@
 		FD79B5CC24B713AB00020118 /* NoticeEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditViewController.swift; sourceTree = "<group>"; };
 		FD79B5D224B7148B00020118 /* NoticeEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditTableViewCell.swift; sourceTree = "<group>"; };
 		FD7C730D24BCA4C4003ADAE8 /* SignInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInData.swift; sourceTree = "<group>"; };
-		FD7C731124BCA5E1003ADAE8 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		FD7C731324BCC70B003ADAE8 /* LoginSuccessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSuccessData.swift; sourceTree = "<group>"; };
 		FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditModeViewController.swift; sourceTree = "<group>"; };
 		FD8EE90824B7820F000E5A48 /* timeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeModel.swift; sourceTree = "<group>"; };
@@ -211,6 +212,9 @@
 		FDFA3A9324BE28A500CB8939 /* NoticeTableViewCellThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCellThree.swift; sourceTree = "<group>"; };
 		FDFA3A9524BE3E8D00CB8939 /* NoticeDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailService.swift; sourceTree = "<group>"; };
 		FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditService.swift; sourceTree = "<group>"; };
+		FDFA3A9924BEAFCE00CB8939 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginService.swift; path = ulink/Resource/Network/Services/Login/LoginService.swift; sourceTree = SOURCE_ROOT; };
+		FDFA3A9B24BEB4DD00CB8939 /* NoticeUploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeUploadData.swift; sourceTree = "<group>"; };
+		FDFA3A9D24BEF6E200CB8939 /* NoticeModifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModifyService.swift; sourceTree = "<group>"; };
 		FDFAA0F224B03A8D00D22EAD /* rightSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightSideMenuViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F424B0D1A600D22EAD /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -669,7 +673,7 @@
 		FD7C731024BCA5D5003ADAE8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				FD7C731124BCA5E1003ADAE8 /* LoginService.swift */,
+				FDFA3A9924BEAFCE00CB8939 /* LoginService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -708,6 +712,8 @@
 				FDFA3A8E24BDA83300CB8939 /* NoticeService.swift */,
 				FDFA3A9524BE3E8D00CB8939 /* NoticeDetailService.swift */,
 				FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */,
+				FDFA3A9B24BEB4DD00CB8939 /* NoticeUploadData.swift */,
+				FDFA3A9D24BEF6E200CB8939 /* NoticeModifyService.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -716,7 +722,6 @@
 			isa = PBXGroup;
 			children = (
 				FDFA3A8824BDA31400CB8939 /* Notice */,
-				FD7C731024BCA5D5003ADAE8 /* Login */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -857,7 +862,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				FDFA3A9624BE3E8D00CB8939 /* NoticeDetailService.swift in Sources */,
 				B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */,
 				29AC521124BB9E040007E019 /* SearchViewController.swift in Sources */,
@@ -872,10 +876,11 @@
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				FDFA3A9424BE28A500CB8939 /* NoticeTableViewCellThree.swift in Sources */,
 				B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */,
-				FD7C731224BCA5E1003ADAE8 /* LoginService.swift in Sources */,
 				B599E62F24ADAA320067C112 /* SubjectModel.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
 				FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */,
+				FDFA3A9A24BEAFCE00CB8939 /* LoginService.swift in Sources */,
+				FDFA3A9E24BEF6E200CB8939 /* NoticeModifyService.swift in Sources */,
 				FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */,
 				B5C8A3C824AF12DE00B1B318 /* CalendarViewController.swift in Sources */,
 				FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */,
@@ -920,6 +925,7 @@
 				299DACF224B785FE008181FA /* EventListViewController.swift in Sources */,
 				29AC521324BB9E5D0007E019 /* SearchedCell.swift in Sources */,
 				29AC521C24BCE60A0007E019 /* SearchPickerViewController.swift in Sources */,
+				FDFA3A9C24BEB4DD00CB8939 /* NoticeUploadData.swift in Sources */,
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
 				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,
 				29AC521524BB9E720007E019 /* RealTimeSearchCell.swift in Sources */,

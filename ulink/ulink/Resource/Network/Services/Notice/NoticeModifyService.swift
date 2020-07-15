@@ -11,10 +11,10 @@ import Alamofire
 import SwiftyJSON
 
 
-struct NoticeEditService {
+struct NoticeModifyService {
     
     
-    static let shared = NoticeEditService()
+    static let shared = NoticeModifyService()
     
 //
 //    {
@@ -37,7 +37,7 @@ struct NoticeEditService {
     }
 
 
-    func uploadNotice(category: String, date : String, startTime: String, endTime : String, title : String, content: String,subjectIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func uploadNotice(category: String, date : String, startTime: String, endTime : String, title : String, content: String,noticeIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         
         
         
@@ -45,8 +45,8 @@ struct NoticeEditService {
         
         let header: HTTPHeaders = ["token" : userToken,
                                    "Content-Type": "application/json"]
-        let noticeURL : String = APIConstants.subjectNoticeURL + "/" + String(subjectIdx)
-        let dataRequest = Alamofire.request(noticeURL, method  : .post,parameters: makeParameter(category, date,startTime,endTime,title,content), encoding:
+        let noticeURL : String = APIConstants.subjectDetailNoticeURL + "/" + String(noticeIdx)
+        let dataRequest = Alamofire.request(noticeURL, method  : .put,parameters: makeParameter(category, date,startTime,endTime,title,content), encoding:
             JSONEncoding.default, headers: header)
         
         

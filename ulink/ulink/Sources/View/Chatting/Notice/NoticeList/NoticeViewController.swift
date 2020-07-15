@@ -14,11 +14,17 @@ class NoticeViewController: UIViewController {
      var hwNoticeInfoArray : [noticeInformation] = []
      var testNoticeInfoArray : [noticeInformation] = []
      var classNoticeInfoArray : [noticeInformation] = []
+    
+    var subjectIDX : Int = 0 
 
     
     override func viewDidLoad() {
         loadNoticeData()
         super.viewDidLoad()
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+
         
 
         tableViewStyleSet()
@@ -38,6 +44,21 @@ class NoticeViewController: UIViewController {
 //        classNoticeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "noticeCellThree")
 //
 
+
+    }
+    
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        
+        print("LoastList!")
+        
+        DispatchQueue.main.async {
+            self.hwNoticeInfoArray.removeAll()
+            self.testNoticeInfoArray.removeAll()
+            self.classNoticeInfoArray.removeAll()
+            
+            self.loadNoticeData()
+        }
 
     }
     
@@ -91,6 +112,20 @@ class NoticeViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func AddNoticeButtonClicked(_ sender: Any) {
+        
+        
+        guard let noticeAddVC = self.storyboard?.instantiateViewController(identifier: "NoticeEditModeViewController") as? NoticeEditModeViewController else {return }
+        
+        noticeAddVC.modalPresentationStyle = .automatic
+        
+        noticeAddVC.subjectIdx = subjectIDX
+        noticeAddVC.editModeOn = 0 // 0 이 수정이 아닌 추가를 하겠다는 의미!!!
+        self.present(noticeAddVC, animated: true, completion: nil)
+        
+    }
+    
+    
 
     @IBAction func homeButtonClicked(_ sender: Any) {
         
@@ -115,29 +150,44 @@ class NoticeViewController: UIViewController {
                 guard let noticeList = noticeList as? [[SubjectNoticeData]] else { return }
                 guard let numberOfNotice = numberOfNotice as? [Int] else {return}
                 
-                for i in 0...numberOfNotice[0]-1 // 과제 공지 부분
+                
+                if numberOfNotice[0] > 0
                 {
-                    let noticeData = noticeInformation(title: noticeList[0][i].title , start: noticeList[0][i].startTime, end: noticeList[0][i].endTime, Date: noticeList[0][i].date, idx: noticeList[0][i].noticeIdx
-                                                       )
-                    
-                    self.hwNoticeInfoArray.append(noticeData)
+                    for i in 0...numberOfNotice[0]-1 // 과제 공지 부분
+                    {
+                        let noticeData = noticeInformation(title: noticeList[0][i].title , start: noticeList[0][i].startTime, end: noticeList[0][i].endTime, Date: noticeList[0][i].date, idx: noticeList[0][i].noticeIdx
+                                                           )
+                        
+                        self.hwNoticeInfoArray.append(noticeData)
+                        
+                    }
+                }
+
+                
+                if numberOfNotice[1] > 0
+                {
+                    for i in 0...numberOfNotice[1]-1 // 시험 공지 부분
+                    {
+                        let noticeData = noticeInformation(title: noticeList[1][i].title , start: noticeList[1][i].startTime, end: noticeList[1][i].endTime, Date: noticeList[1][i].date, idx: noticeList[1][i].noticeIdx)
+                        
+                        self.testNoticeInfoArray.append(noticeData)
+                    }
+                }
+
+                
+                
+                if numberOfNotice[2] > 0
+                {
+                        for i in 0...numberOfNotice[2]-1 // 수업 공지 부분
+                        {
+                            let noticeData = noticeInformation(title: noticeList[2][i].title , start: noticeList[2][i].startTime, end: noticeList[2][i].endTime, Date: noticeList[2][i].date, idx: noticeList[2][i].noticeIdx)
+                            
+                            self.classNoticeInfoArray.append(noticeData)
+                        }
                     
                 }
                 
-                for i in 0...numberOfNotice[1]-1 // 시험 공지 부분
-                {
-                    let noticeData = noticeInformation(title: noticeList[1][i].title , start: noticeList[1][i].startTime, end: noticeList[1][i].endTime, Date: noticeList[1][i].date, idx: noticeList[2][i].noticeIdx)
-                    
-                    self.testNoticeInfoArray.append(noticeData)
-                }
-                
-                for i in 0...numberOfNotice[2]-1 // 수업 공지 부분
-                {
-                    let noticeData = noticeInformation(title: noticeList[2][i].title , start: noticeList[2][i].startTime, end: noticeList[2][i].endTime, Date: noticeList[2][i].date, idx: noticeList[2][i].noticeIdx)
-                    
-                    self.classNoticeInfoArray.append(noticeData)
-                }
-            
+
                 
                 
             default:
@@ -334,17 +384,22 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         
         
 
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+            return 45
+    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
 
         
-        guard let noticeDetailVC = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else { return }
+        guard let noticeDetailVC = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else {
+            return }
         
         
-        guard let noticeViewController = self.storyboard?.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else { return }
+        guard let noticeViewController = self.storyboard?.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else {
+            return }
         
         
 
@@ -358,7 +413,7 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
             print("지금 뭐여")
             print(hwNoticeInfoArray[indexPath.row].noticeIdx)
-            noticeViewController.cateogoryIdx = 1
+            noticeViewController.cateogoryIdx = hwNoticeInfoArray[indexPath.row].noticeIdx
             
             
             
@@ -392,12 +447,11 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         
         
         
-        let storyBoard = UIStoryboard.init(name: "Chatting", bundle: nil)
-        let popupVC = storyBoard.instantiateViewController(withIdentifier: "NoticeEditViewController")
+
         
         
         
-        self.navigationController?.pushViewController(popupVC, animated: true)
+        self.navigationController?.pushViewController(noticeViewController, animated: true)
         
 
 

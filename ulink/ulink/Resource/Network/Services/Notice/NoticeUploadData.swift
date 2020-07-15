@@ -1,16 +1,15 @@
 //
-//  SignInData.swift
+//  NoticeUploadData.swift
 //  ulink
 //
-//  Created by 송지훈 on 2020/07/13.
+//  Created by 송지훈 on 2020/07/15.
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
 import Foundation
 
 
-
-struct SigninData: Codable {
+struct NoticeUploadData: Codable {
     
     
     let status: Int
@@ -35,7 +34,3 @@ struct SigninData: Codable {
 }
 
 
-
-struct TokenData: Codable{
-    let uid, accessToken: String
-}
