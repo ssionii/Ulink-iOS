@@ -439,6 +439,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         //이벤트 넣기
         if let serverData = serverData{
+            cell.clearEvent()
             if serverData.count != 0 {
                 for i in 0...serverData.count-1{
                     let dateArr = serverData[i].date.components(separatedBy: "-")
