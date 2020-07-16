@@ -11,7 +11,7 @@ import SideMenu
 
 
 extension NSNotification.Name {
-    static let clickSideButton = NSNotification.Name(rawValue: "clickSideButton")
+    static let clickSideButton = NSNotification.Name(rawValue: "goToSideMenu")
 }
 
 class rightSideMenuViewController: UIViewController {
@@ -27,13 +27,37 @@ class rightSideMenuViewController: UIViewController {
     
     var subjectTitle : String = ""
     
+    
+    
+    
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setTitleLabel(_:)), name: .goToSideMenu, object: nil)
+    }
+    
+    
+    
+    
+    @objc func setTitleLabel(_ notification: NSNotification) {
+        
+        print("!!@@")
+        print(notification.object)
+        
+        self.subjectTitleLabel.text = "뭘봐여"
+    }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideNavigationBar()
         
+//
+//        self.subjectTitleLabel.text = "roomTitle"
+//
         
-        self.subjectTitleLabel.text = "roomTitle"
         
+        addObserver()
+
         addGesture()
         
 

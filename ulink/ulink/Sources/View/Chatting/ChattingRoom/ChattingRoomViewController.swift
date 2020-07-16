@@ -8,6 +8,9 @@ import SideMenu
 
 
 
+extension NSNotification.Name {
+    static let goToSideMenu = NSNotification.Name(rawValue: "goToSideMenu")
+}
 class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     
@@ -29,7 +32,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     var subjectIdx : Int = 0
-    public var roomTitle : String = ""
+    var roomTitle : String = ""
     var current : Int = 0
     
     
@@ -52,23 +55,23 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     public var chattingRoomTitle : String?
 
 
+    //tempTitle
     
     
-    
-    private func addObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(goNextView(_:)), name: .clickSideButton, object: nil)
-    }
-    
-    @objc func goNextView(_ notification: NSNotification) {
-        let storyboard = UIStoryboard(name:"Chatting", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
+        private func addObserver() {
+            NotificationCenter.default.addObserver(self, selector: #selector(goNextView(_:)), name: .clickSideButton, object: nil)
+        }
         
+        @objc func goNextView(_ notification: NSNotification) {
+            let storyboard = UIStoryboard(name:"Chatting", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
+            
+            
+            vc.roomtitle = tempTitle ?? "공지"
+            vc.subjectIDX = subjectIdx
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
-        vc.roomtitle = tempTitle ?? "공지"
-        vc.subjectIDX = subjectIdx
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     //MARK:- Life Cycle 부분
     override func viewDidLoad() {
             
@@ -359,6 +362,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     @IBAction func sideMenuClicked(_ sender : Any) {
         
+//        
+//
+//        NotificationCenter.default.post(name: .goToSideMenu, object: nil)
+        
         let vc = storyboard!.instantiateViewController(withIdentifier: "chattingSideViewController") as! rightSideMenuViewController                    // UIViewController 지정해주고
         let menu = SideMenuNavigationController(rootViewController: vc)     // rootViewController에 넣어준다
         
@@ -373,7 +380,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         menu.completionCurve = .easeInOut
         
         
-        vc.subjectTitle = roomTitle
+
     
         
   

@@ -153,9 +153,8 @@ class NoticeViewController: UIViewController {
     @IBAction func homeButtonClicked(_ sender: Any) {
         
         
-     let homevc = self.storyboard?.instantiateViewController(identifier: "homeTabBarController")
-        
-        present(homevc!, animated: true, completion: nil)
+                self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.selectedIndex = 2
     }
     
     
