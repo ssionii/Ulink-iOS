@@ -8,8 +8,13 @@ struct APIConstants {
     
     static let timeTable = APIConstants.baseURL + "/schedule"
     static let mainTimeTable = APIConstants.baseURL + "/schedule/main"
-     static let listTimeTable = APIConstants.baseURL + "/schedule/list"
+    static let listTimeTable = APIConstants.baseURL + "/schedule/list"
     static let specificTimeTable = APIConstants.baseURL + "/schedule/specific"
+    static let personalSchedule = APIConstants.baseURL + "/schedule/personal"
+    static let schoolScheudle = APIConstants.baseURL + "/schedule/school"
+    static let subject = APIConstants.baseURL + "/subject"
+    static let cart = APIConstants.baseURL + "/cart"
+    
     static let subjectNoticeURL = APIConstants.baseURL + "/notice/subject"
     static let subjectDetailNoticeURL = APIConstants.baseURL + "/notice"
     static let calendarURL = APIConstants.baseURL + "/notice"

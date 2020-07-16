@@ -10,11 +10,11 @@ import Foundation
 
 public struct TimeInfoModel {
     public var timeIdx : Int
-    public var weekDay : TimeTableDay
+    public var weekDay : Int
     public var startTime : String
     public var endTime : String
     
-    public init(timeIdx: Int, weekDay: TimeTableDay, startTime: String, endTime: String){
+    public init(timeIdx: Int, weekDay: Int, startTime: String, endTime: String){
         self.timeIdx = timeIdx
         self.weekDay = weekDay
         self.startTime = startTime
@@ -23,7 +23,7 @@ public struct TimeInfoModel {
     
     public init(){
         self.timeIdx = 0
-        self.weekDay = TimeTableDay.monday
+        self.weekDay = 0
         self.startTime = ""
         self.endTime = ""
     }
