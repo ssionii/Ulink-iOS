@@ -45,6 +45,8 @@ class NoticeEditModeViewController: UIViewController {
     var editModeOn : Int = 1 // 0이 그냥 추가, 1이 수정!!
     var dateString : String = ""
     
+    var dateClicked : Int = 0 // 수정을 할때 date 부분을 클릭했는지 아닌지를 판별하기 위한 변수
+    
     
     var dateStr : String = ""
     
@@ -61,6 +63,16 @@ class NoticeEditModeViewController: UIViewController {
         getNoticeDetailData()
         setTimePicker()
         setDataPicker()
+        
+        
+        
+        
+        print("==================================")
+        print("현재 공지사항 수정 뷰의 정보 ")
+        print("현재 notice IDX :\(self.noticeIdx)")
+        print("현재 subject IDX : \(self.subjectIdx)")
+        print("현재 category IDX : \(self.categoryIndex)")
+        print("==================================")
 
     }
     
@@ -149,11 +161,48 @@ class NoticeEditModeViewController: UIViewController {
             
 
             
+            
+            
 
-            let startTime : String = startTimeTextField.text ?? "-1"
-            let endTime : String = endTImeTextField.text ?? "-1"
+            var startTime : String = startTimeTextField.text ?? "-1"
+            
+            if startTime == "시간정보없음"
+            {
+                startTime = "-1"
+            }
+            var endTime : String = endTImeTextField.text ?? "-1"
+            
+            if endTime == "시간정보없음"
+            {
+                endTime = "-1"
+            }
             let title : String = titleEditTextField.text ?? ""
             let content : String = contentMemoTextFIeld.text
+            
+            
+            if dateClicked == 0
+            {
+                let tempString = datePickerLabel.text?.components(separatedBy: "년 ")
+                let temp : String!
+                let temp1 : String!
+                
+                temp = tempString![0]
+                
+                let tempStringOne = tempString![1].components(separatedBy: "월 ")
+                
+                temp1 = tempStringOne[0]
+                
+                let tempStringTwo = tempStringOne[1].components(separatedBy: "일")
+                
+                
+                dateStr = temp + "-" + temp1 + "-" + tempStringTwo[0]
+                
+                print("수정된 DATASTR : \(dateStr)")
+                
+                
+                
+            }
+          
 
         
             
@@ -164,19 +213,11 @@ class NoticeEditModeViewController: UIViewController {
             {
 
                 
-                
-                
-                print("입력정보 총정리")
-                print(categoryData)
-                print(dateStr)
-                print(startTime)
-                print(endTime)
-                print(title)
-                print(content)
+ 
                 
                             
-                            NoticeEditService.shared.uploadNotice(category: categoryData, date: dateStr, startTime: startTime, endTime: endTime, title: title, content: content, subjectIdx: 1){ networkResult in // noticeIdx 정보 설정
-                                     print("현재 notice IDX :\(self.noticeIdx)")
+                            NoticeEditService.shared.uploadNotice(category: categoryData, date: dateStr, startTime: startTime, endTime: endTime, title: title, content: content, subjectIdx: subjectIdx){ networkResult in // noticeIdx 정보 설정
+
 
                                 switch networkResult{
                                     
@@ -197,7 +238,7 @@ class NoticeEditModeViewController: UIViewController {
                                         
                                         
                                         
-                                        let sb = UIStoryboard(name: "Chatting", bundle: nil)
+//                                        let sb = UIStoryboard(name: "Chatting", bundle: nil)
                                         
 //                                        guard let popUpVC = sb.instantiateViewController(identifier: "NoticeViewController") as? NoticeViewController else {return}
 //
@@ -235,9 +276,7 @@ class NoticeEditModeViewController: UIViewController {
                                         ////
                                         ////                                            popUpVC.classNoticeTableView.reloadData()
                                         //                                        }
-                                        
-                                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-
+                      
                                         
                                         
                                           self.dismiss(animated: true, completion: nil)
@@ -280,19 +319,39 @@ class NoticeEditModeViewController: UIViewController {
                                      }
                                      
                                        
-                                   
+                    
+                       
+                                       
+                print("==================================")
+                print("공지 생성 할 때 서버에  넘겨주는 정보 ")
+                print("categoryData : \(categoryData)")
+                print("날짜 String : \(dateStr)")
+                print("시작 시간 : \(startTime)")
+                print("종료 시간 : \(endTime)")
+                print("공지 제목 : \(title)")
+                print("메모 내용 : \(content)")
+                print("현재 notice IDX :\(self.noticeIdx)")
+                print("==================================")
+                
+                
+  
+
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+
 
                 
             }
-            
+                
+                
+                
             
             else
             {
                 
         
                 NoticeModifyService.shared.uploadNotice(category: categoryData, date: dateStr, startTime: startTime, endTime: endTime, title: title, content: content, noticeIdx: noticeIdx){ networkResult in // noticeIdx 정보 설정
-                         print("현재 notice IDX :\(self.noticeIdx)")
-
+     
                     switch networkResult{
                         
                         
@@ -309,23 +368,9 @@ class NoticeEditModeViewController: UIViewController {
                         self.present(alertViewController, animated: true) { // 이전뷰에 대해 테이블이 업데이트 되어있어야 한다
                             
                             
-                            
-//                            
-//                            
-//                            let sb = UIStoryboard(name: "Chatting", bundle: nil)
-//                            
-//                            guard let popUpVC = sb.instantiateViewController(identifier: "NoticeViewController") as? NoticeViewController else {return}
-//                            
-//                            guard let noticeVC = sb.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else {return}
-
-   
+           
                                 
     
-                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modifyLoad"), object: nil)
-                            
-                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-
-
                             
                             
                               self.dismiss(animated: true, completion: nil)
@@ -360,9 +405,33 @@ class NoticeEditModeViewController: UIViewController {
                         let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                         alertViewController.addAction(action)
                         self.present(alertViewController, animated: true, completion: nil)
-                    case .serverErr: print("serverErr")
-                    case .networkFail: print("networkFail")
+                    case .serverErr:
+                        
+                        
+                        let alertViewController = UIAlertController(title: "서버 에러", message: "서버 상태를 확인해주세요",
+                                                                    preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
+                    case .networkFail:
+                        
+                        
+                        let alertViewController = UIAlertController(title: "", message: "업로드 완료",
+                                                                    preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
                     }
+                    
+                    
+
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modifyLoad"), object: nil)
+
+
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load2"), object: nil)
+
+                    
                              
                              
                          }
@@ -370,6 +439,19 @@ class NoticeEditModeViewController: UIViewController {
                            
                        
 
+                
+                
+                                       
+                print("==================================")
+                print("공지 수정 할 때 서버에  넘겨주는 정보 ")
+                print("categoryData : \(categoryData)")
+                print("날짜 String : \(dateStr)")
+                print("시작 시간 : \(startTime)")
+                print("종료 시간 : \(endTime)")
+                print("공지 제목 : \(title)")
+                print("메모 내용 : \(content)")
+                print("현재 공지의 idx : \(noticeIdx)")
+                print("==================================")
             }
 
 
@@ -515,9 +597,10 @@ class NoticeEditModeViewController: UIViewController {
                     
                     // MARK:- 날짜 정보 설정
                     
+                    print("날짜 정보 받아오기 : \(noticeList.date)")
                     let dateArray = noticeList.date.components(separatedBy: "-")
+                    print("dataArray : \(dateArray)")
                     
-                    print("date Array")
                     
                     self.datePickerLabel.text = dateArray[0] + "년 " + dateArray[1] + "월 " + dateArray[2] + "일"
                     self.dateString = dateArray[0] + "-" + dateArray[1] + "-" +  dateArray[2]
@@ -621,6 +704,7 @@ class NoticeEditModeViewController: UIViewController {
         formatter1.dateFormat = "yyyy-MM-dd"
     self.dateStr = formatter1.string(from: datePicker.date)
      datePickerLabel.text = formatter.string(from: datePicker.date)
+        dateClicked = 1
      self.view.endEditing(true)
       }
     

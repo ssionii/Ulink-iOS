@@ -70,6 +70,8 @@
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
 		FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */; };
+		FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A824C0469800C2B44C /* io_login_img.gif */; };
+		FD1398AB24C0646000C2B44C /* NoticeDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -192,6 +194,8 @@
 		B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListHeader.swift; sourceTree = "<group>"; };
 		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
 		FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = io_ulink_splash.gif; sourceTree = "<group>"; };
+		FD1398A824C0469800C2B44C /* io_login_img.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = io_login_img.gif; sourceTree = "<group>"; };
+		FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDeleteService.swift; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -625,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */,
+				FD1398A824C0469800C2B44C /* io_login_img.gif */,
 				FD7E7C0624C01B4D007CF404 /* Info.plist */,
 				B5A2784024ADE0C600A0F4A4 /* Extension */,
 				FD616CFF24AA5D2F007D54B5 /* Sources */,
@@ -845,6 +850,7 @@
 				FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */,
 				FDFA3A9B24BEB4DD00CB8939 /* NoticeUploadData.swift */,
 				FDFA3A9D24BEF6E200CB8939 /* NoticeModifyService.swift */,
+				FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -929,6 +935,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */,
+				FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */,
 				29970E6D24BF662F0034840E /* ColorPick.storyboard in Resources */,
 				299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */,
 				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
@@ -1074,6 +1083,7 @@
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
 				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,
 				29AC521524BB9E720007E019 /* RealTimeSearchCell.swift in Sources */,
+				FD1398AB24C0646000C2B44C /* NoticeDeleteService.swift in Sources */,
 				FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */,
 				FD7E7BF024BF3848007CF404 /* ChattingListModel.swift in Sources */,
 				FDFA3A9224BE288D00CB8939 /* NoticeTableViewCellTwo.swift in Sources */,
