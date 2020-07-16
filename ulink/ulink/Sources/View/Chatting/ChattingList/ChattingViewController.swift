@@ -425,7 +425,19 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         chattingRoomViewController.destinationUid = "-MBcSPAQKDDOsT2u4UfX"
         chattingRoomViewController.tempTitle = self.chattingList[indexPath.row].name
+        
+        
         chattingRoomViewController.subjectIdx = self.chattingList[indexPath.row].subjectIdx
+        
+        print("=====================================")
+        print("채팅목록에서 채팅방으로 전달되는 title과 idx")
+        print("name : \(self.chattingList[indexPath.row].name) ")
+        print("subjectIdx : \(self.chattingList[indexPath.row].subjectIdx)")
+        print("=====================================")
+        
+        
+    
+        print(chattingList[indexPath.row].subjectIdx)
         
 //
 //                    self.count = 0

@@ -15,7 +15,7 @@ extension NSNotification.Name {
 }
 
 class rightSideMenuViewController: UIViewController {
-
+ 
     @IBOutlet weak var subjectTitleLabel: UILabel!
     
     
@@ -39,8 +39,7 @@ class rightSideMenuViewController: UIViewController {
     
     @objc func setTitleLabel(_ notification: NSNotification) {
         
-        print("!!@@")
-        print(notification.object)
+
         
         self.subjectTitleLabel.text = "뭘봐여"
     }
@@ -55,8 +54,8 @@ class rightSideMenuViewController: UIViewController {
 //        self.subjectTitleLabel.text = "roomTitle"
 //
         
-        
-        addObserver()
+//
+//        addObserver()
 
         addGesture()
         

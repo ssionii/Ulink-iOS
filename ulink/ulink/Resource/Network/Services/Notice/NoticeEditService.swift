@@ -74,7 +74,11 @@ struct NoticeEditService {
         case 200: return isSubject(by: data)
         case 400: return .pathErr
         case 500: return .serverErr
-        default: return .networkFail
+        default:
+            do {
+                print("현재 networkFail로 떨어졌습니다 statusCODE : \(statusCode)")
+                return .networkFail
+            }
         }
     }
     

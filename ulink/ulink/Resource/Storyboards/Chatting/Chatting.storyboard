@@ -1406,7 +1406,7 @@
                                     <constraint firstItem="wgt-ef-EwU" firstAttribute="centerX" secondItem="hrw-XD-L1c" secondAttribute="centerX" id="jZy-gB-yqJ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1차 쪽지시험" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7i-ma-BMs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7i-ma-BMs">
                                 <rect key="frame" x="22" y="87" width="331" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="331" id="LdO-4X-nNg"/>
@@ -1470,17 +1470,17 @@
                                 <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020년 5월 3일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liF-Mo-dup">
-                                <rect key="frame" x="22" y="177" width="120" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liF-Mo-dup">
+                                <rect key="frame" x="22" y="177" width="200" height="19"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="4fN-aW-rzB"/>
+                                    <constraint firstAttribute="width" constant="200" id="4fN-aW-rzB"/>
                                     <constraint firstAttribute="height" constant="19" id="V8S-ii-gVX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00 ~ 14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6k-VZ-Swy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6k-VZ-Swy">
                                 <rect key="frame" x="22" y="260.5" width="160" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="Gsd-92-BL7"/>
@@ -1490,7 +1490,7 @@
                                 <color key="textColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="여기에 해당 강의에 대한 메모가 들어가는 부분입니다 얼마나 들어 가는지 테스트 해야합니다 우리 앱잼 힘들지만 화이팅! 덕분에 힘이 나네요 ~~~ 와~~~" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8p-Ln-6Er">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8p-Ln-6Er">
                                 <rect key="frame" x="18" y="343.5" width="331" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>

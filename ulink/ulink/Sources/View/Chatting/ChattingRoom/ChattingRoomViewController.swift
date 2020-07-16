@@ -67,6 +67,15 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
             
             
+            
+            
+            print("=====================================")
+            print("현재 채팅방에서 공지방으로 넘기는 정보")
+            print("과목 이름 : \(self.tempTitle!)")
+            print("과목 인덱스 : \(self.subjectIdx)")
+            print("=====================================")
+            
+            
             vc.roomtitle = tempTitle ?? "공지"
             vc.subjectIDX = subjectIdx
             self.navigationController?.pushViewController(vc, animated: true)
@@ -86,6 +95,15 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
 
         uid = UserDefaults.standard.string(forKey: "uid")
+        
+        
+        
+        print("=====================================")
+        print("현재 채팅방의 정보")
+        print("과목 이름 : \(self.tempTitle!)")
+        print("과목 인덱스 : \(self.subjectIdx)")
+        print("=====================================")
+        
         
         
   
@@ -362,7 +380,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     @IBAction func sideMenuClicked(_ sender : Any) {
         
-//        
+//
 //
 //        NotificationCenter.default.post(name: .goToSideMenu, object: nil)
         

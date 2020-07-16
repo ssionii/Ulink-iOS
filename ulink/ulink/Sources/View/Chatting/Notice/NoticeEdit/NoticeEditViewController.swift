@@ -34,6 +34,15 @@ class NoticeEditViewController: UIViewController {
         nextVC.categoryIndex = cateogoryIdx
         nextVC.editModeOn = 1
         nextVC.noticeIdx = noticeIdx
+        nextVC.subjectIdx = subjectIDX
+        
+        
+        print("==================================")
+        print("현재 공지사항 -> 수정 뷰로 데이터 넘기기 ")
+        print("넘기는 notice IDX :\(self.noticeIdx)")
+        print("넘기는 category IDX : \(self.cateogoryIdx)")
+         print("넘기는 subject idx : \(self.subjectIDX)")
+        print("==================================")
         
         nextVC.modalPresentationStyle = .automatic
 
@@ -50,11 +59,61 @@ class NoticeEditViewController: UIViewController {
     @IBAction func deleteNoticeButtonClicked(_ sender: Any) {
         
         
+        NoticeDeleteService.shared.deleteNotice(noticeIdx: noticeIdx) { networkResult in
+              print("현재 notice IDX :\(self.noticeIdx)")
+
+              switch networkResult{
+                      
+                  
+              case .success(_, _):
+                  
+
+                  let alertViewController = UIAlertController(title: "", message: "삭제 성공",
+                                                              preferredStyle: .alert)
+                  let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                  alertViewController.addAction(action)
+                  self.present(alertViewController, animated: true, completion: nil)
+                
+
+                  
+                  
+                  
+                  
+              default:
+                  
+                    let alertViewController = UIAlertController(title: "", message: "삭제 완료!",
+                                                                preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                  
+
+                    
+                  
+                  
+              }
+            
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+
+              
+                
+            
+
+
+                
+            }
+        
+        
+        
+        
+        
+        
         
     }
     
     
-    
+    var subjectIDX : Int = 0
      var cateogoryIdx : Int = 0 // 카테고리 판별하기 위한 변수
      var noticeIdx : Int = -1    // 공지사항 구별하기 위해 쓰는 변수
     
@@ -79,6 +138,14 @@ class NoticeEditViewController: UIViewController {
         
         setTitle()
         getNoticeDetailData()
+        
+        
+        print("=====================================")
+        print("공지 자세히 보기 화면의 정보")
+        print("현재 공지의 subject IDX : \(subjectIDX)")
+        print("현재 공지의 category : \(cateogoryIdx)")
+        print("현재 공지사항의 IDX : \(noticeIdx)")
+        print("=====================================")
     }
     
     
@@ -130,8 +197,14 @@ class NoticeEditViewController: UIViewController {
     func getNoticeDetailData(){
         
         NoticeDetailService.shared.getSubjectDetailNotice(noticeIdx: noticeIdx) { networkResult in // noticeIdx 정보 설정
+            
+            
+            print("==================================")
+            print("현재 공지사항을 받아오는 통신 함수 내부")
             print("현재 notice IDX :\(self.noticeIdx)")
-
+            print("==================================")
+            
+            
             switch networkResult{
                     
                 

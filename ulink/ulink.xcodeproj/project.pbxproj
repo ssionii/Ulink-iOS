@@ -58,6 +58,7 @@
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
 		FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */; };
 		FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A824C0469800C2B44C /* io_login_img.gif */; };
+		FD1398AB24C0646000C2B44C /* NoticeDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -171,6 +172,7 @@
 		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
 		FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = io_ulink_splash.gif; sourceTree = "<group>"; };
 		FD1398A824C0469800C2B44C /* io_login_img.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = io_login_img.gif; sourceTree = "<group>"; };
+		FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDeleteService.swift; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 				FDFA3A9724BEA7DA00CB8939 /* NoticeEditService.swift */,
 				FDFA3A9B24BEB4DD00CB8939 /* NoticeUploadData.swift */,
 				FDFA3A9D24BEF6E200CB8939 /* NoticeModifyService.swift */,
+				FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -1000,6 +1003,7 @@
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
 				FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */,
 				29AC521524BB9E720007E019 /* RealTimeSearchCell.swift in Sources */,
+				FD1398AB24C0646000C2B44C /* NoticeDeleteService.swift in Sources */,
 				FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */,
 				FD7E7BF024BF3848007CF404 /* ChattingListModel.swift in Sources */,
 				FDFA3A9224BE288D00CB8939 /* NoticeTableViewCellTwo.swift in Sources */,
