@@ -24,8 +24,9 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     @IBAction func settingBtn(_ sender: UIButton) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableSettingViewController") as? TimeTableSettingViewController else { return }
         
-         nextVC.setTimeTableIdx(idx: self.timeTableInfo.scheduleIdx)
-        nextVC.modalPresentationStyle = .fullScreen
+        // idx 셋
+        nextVC.setTimeTableIdx(idx: timeTableInfo.scheduleIdx)
+//         nextVC.modalPresentationStyle = .fullScreen
          self.present(nextVC, animated: true, completion: nil)
     }
     

@@ -719,7 +719,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPY-fj-8BR">
                                         <rect key="frame" x="310" y="8" width="46" height="24"/>
-                                        <state key="normal" image="timetableaddDrag1IcOk"/>
+                                        <state key="normal" image="timetableaddDrag1BtnConfirm"/>
                                         <connections>
                                             <action selector="confirmBtn:" destination="2tG-54-TeJ" eventType="touchUpInside" id="2Pv-bc-gIn"/>
                                             <segue destination="fim-0f-MFk" kind="presentation" id="SHH-Qb-6fT"/>
@@ -841,6 +841,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="B4r-Cj-BOX" id="GUN-qS-AWl"/>
+                        <outlet property="confirmButton" destination="UPY-fj-8BR" id="Ymi-pt-NRR"/>
                         <outlet property="timeTable" destination="joy-QX-Gzv" id="HMI-xn-kse"/>
                     </connections>
                 </viewController>
@@ -1362,7 +1363,7 @@
         <image name="icWhitex" width="36" height="36"/>
         <image name="ioMainBgTop" width="353" height="38"/>
         <image name="ioMainSettingTrash" width="57" height="24"/>
-        <image name="timetableaddDrag1IcOk" width="46" height="24"/>
+        <image name="timetableaddDrag1BtnConfirm" width="46" height="24"/>
         <image name="timetableaddDragDubbleModalClock" width="18" height="18"/>
         <image name="timetableaddDragTimetableIcReplay" width="16" height="20"/>
         <image name="timetableaddFilterandsearchAddfreely" width="71" height="24"/>
