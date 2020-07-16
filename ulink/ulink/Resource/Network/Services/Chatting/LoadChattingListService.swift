@@ -14,7 +14,7 @@ import SwiftyJSON
 
 struct LoadChattingListService{
     
-    static let shared = NoticeDetailService()
+    static let shared = LoadChattingListService()
     
     
     func getSubjectDetailNotice(completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -56,32 +56,63 @@ struct LoadChattingListService{
         
         
         
-            private func isSubject(by json: JSON) -> NetworkResult<Any> {
+    private func isSubject(by json: JSON) -> NetworkResult<Any> {
         
-                let data = json["data"] as JSON
+        let data = json["data"] as JSON
+        print("cc")
+        print(data)
         
+        let chat = data["chat"] as JSON
         
+        print(chat)
         
+
         
-        
-                    let noticeModel = SubjectNoticeData(
-                    idx: data["noticeIdx"].intValue,
-                    Title: data["title"].stringValue,
-                    start: data["startTime"].stringValue,
-                    end: data["endTime"].stringValue,
-                    dateTime: data["date"].stringValue,
-                    contents: data["content"].stringValue
-                    )
+        var noticeList : [ChattingListData] = []
         
         
         
         
+        for i in 0 ... chat.arrayValue.count - 1
+        {
+            
+            let noticeModel = ChattingListData(
+                idx: chat[i]["subjectIdx"].intValue,
+                name: chat[i]["name"].stringValue,
+                color: chat[i]["color"].intValue,
+                total: chat[i]["total"].intValue,
+                current: chat[i]["current"].intValue
+            )
+            
+            
+            print("NETWORK...")
+            print(noticeModel)
+            
+            
+            noticeList.append(noticeModel)
+            
+   
+            
+            
+            
+        }
+        print(noticeList)
         
-                return .success(noticeModel,1)
-            }
+
         
         
         
+        
+        
+        
+        
+        return .success(noticeList,chat.arrayValue.count) // 채팅 목록 리스트랑 갯수를 success 인자로 넘길거임
+        
+        
+    }
+    
+    
+    
         
         
 }

@@ -13,20 +13,24 @@
 		29970E7224BF90390034840E /* ColorPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E7124BF90390034840E /* ColorPickViewController.swift */; };
 		29970E7424BF915F0034840E /* ColorPickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E7324BF915F0034840E /* ColorPickCell.swift */; };
 		29970E7624BF9EC70034840E /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E7524BF9EC70034840E /* ColorModel.swift */; };
+		299DA9F724C0327F00F023FD /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F224C0327F00F023FD /* Alarm.storyboard */; };
+		299DA9F824C0327F00F023FD /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F324C0327F00F023FD /* Filter.storyboard */; };
+		299DA9F924C0327F00F023FD /* CreateTimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F424C0327F00F023FD /* CreateTimeTable.storyboard */; };
+		299DA9FA24C0327F00F023FD /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F524C0327F00F023FD /* Search.storyboard */; };
+		299DA9FB24C0327F00F023FD /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F624C0327F00F023FD /* Review.storyboard */; };
+		299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9FC24C0328E00F023FD /* MyPage.storyboard */; };
+		299DA9FF24C0329500F023FD /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9FE24C0329500F023FD /* Chatting.storyboard */; };
 		299DACF024B70AFF008181FA /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACEF24B70AFF008181FA /* EventModel.swift */; };
 		299DACF224B785FE008181FA /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF124B785FE008181FA /* EventListViewController.swift */; };
 		299DACF424B78785008181FA /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF324B78785008181FA /* EventCell.swift */; };
 		299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DACFD24B813FE008181FA /* Calendar.storyboard */; };
 		299DAD0224B837B7008181FA /* EventListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0124B837B7008181FA /* EventListHeaderCell.swift */; };
-		299DAD0B24BAB8ED008181FA /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DAD0A24BAB8ED008181FA /* Alarm.storyboard */; };
 		299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0D24BABC93008181FA /* AlarmViewController.swift */; };
 		299DAD1224BAF26D008181FA /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD1124BAF26C008181FA /* DetailEventViewController.swift */; };
-		29AC520924BB0BBE0007E019 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AC520824BB0BBE0007E019 /* Search.storyboard */; };
 		29AC520E24BB838A0007E019 /* Databases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC520D24BB838A0007E019 /* Databases.swift */; };
 		29AC521124BB9E040007E019 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521024BB9E040007E019 /* SearchViewController.swift */; };
 		29AC521324BB9E5D0007E019 /* SearchedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521224BB9E5D0007E019 /* SearchedCell.swift */; };
 		29AC521524BB9E720007E019 /* RealTimeSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521424BB9E720007E019 /* RealTimeSearchCell.swift */; };
-		29AC521724BC60250007E019 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AC521624BC60250007E019 /* Review.storyboard */; };
 		29AC521A24BC60910007E019 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521924BC60910007E019 /* ReviewViewController.swift */; };
 		29AC521E24BCF8B50007E019 /* GradeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC521D24BCF8B50007E019 /* GradeSelectViewController.swift */; };
 		29C6BB5D24BD92F80026747C /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB5C24BD92F80026747C /* CalendarService.swift */; };
@@ -41,7 +45,9 @@
 		B51EC8A624B1BF9300F3833B /* TimeTableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */; };
 		B51EC8A824B1C4DF00F3833B /* ListSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A724B1C4DF00F3833B /* ListSemester.swift */; };
 		B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */; };
-		B55F0ED624BCAC0E007048A6 /* SubjectInfoCellExpand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55F0ED524BCAC0D007048A6 /* SubjectInfoCellExpand.swift */; };
+		B52F9DE524BDA7E300B57CA1 /* MainTimeTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F9DE424BDA7E300B57CA1 /* MainTimeTableService.swift */; };
+		B52F9DE824BDA94800B57CA1 /* TimeTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F9DE724BDA94800B57CA1 /* TimeTableResponse.swift */; };
+		B52F9DEA24BE129000B57CA1 /* SubjectInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F9DE924BE129000B57CA1 /* SubjectInfoCell.swift */; };
 		B55F0ED824BCACBF007048A6 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55F0ED724BCACBF007048A6 /* AlarmCell.swift */; };
 		B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */; };
 		B595298F24BCD592008139E6 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595298E24BCD592008139E6 /* CustomPickerViewController.swift */; };
@@ -51,16 +57,18 @@
 		B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63324ADAA960067C112 /* TimeTableDay.swift */; };
 		B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63624ADAAB40067C112 /* TimeTableController.swift */; };
 		B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599E63824ADAAD20067C112 /* SubjectCell.swift */; };
-		B599FAD624BB3B5B005DB6E7 /* SubjectInfoCellNotExpand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599FAD524BB3B5B005DB6E7 /* SubjectInfoCellNotExpand.swift */; };
 		B599FADB24BCA908005DB6E7 /* SubjectTimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B599FADA24BCA908005DB6E7 /* SubjectTimeInfoCell.swift */; };
 		B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2783E24ADDD3A00A0F4A4 /* TimeTableViewController.swift */; };
 		B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */; };
 		B5C8A3C824AF12DE00B1B318 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C8A3C724AF12DE00B1B318 /* CalendarViewController.swift */; };
-		B5D26A4124B4B76F0047A2DC /* CreateTimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D26A4024B4B76F0047A2DC /* CreateTimeTable.storyboard */; };
 		B5D26A4A24B5E7E60047A2DC /* CreateNewSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */; };
+		B5DBF3DC24BEF1A50013BB33 /* SubjectDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3DB24BEF1A50013BB33 /* SubjectDetailService.swift */; };
+		B5DBF3DE24BF7CAF0013BB33 /* ListTimeTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */; };
+		B5DBF3E024BFA6B40013BB33 /* TimeTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */; };
 		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
+		FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -82,8 +90,6 @@
 		FD45F25624AA591300F304BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25424AA591300F304BD /* Main.storyboard */; };
 		FD45F25824AA591500F304BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25724AA591500F304BD /* Assets.xcassets */; };
 		FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25924AA591500F304BD /* LaunchScreen.storyboard */; };
-		FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */; };
-		FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */; };
 		FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */; };
 		FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */; };
 		FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */; };
@@ -97,12 +103,11 @@
 		FD7E7BEE24BF37CE007CF404 /* LoadChattingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7BED24BF37CE007CF404 /* LoadChattingListService.swift */; };
 		FD7E7BF024BF3848007CF404 /* ChattingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7BEF24BF3848007CF404 /* ChattingListModel.swift */; };
 		FD7E7BF724BF4F27007CF404 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7BF624BF4F27007CF404 /* SplashViewController.swift */; };
-		FD7E7BF924BF50D2007CF404 /* Previous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7BF824BF50D2007CF404 /* Previous.storyboard */; };
+		FD7E7BFF24BF6657007CF404 /* ChattingListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7BFE24BF6657007CF404 /* ChattingListData.swift */; };
 		FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */; };
 		FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90824B7820F000E5A48 /* timeModel.swift */; };
 		FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */; };
 		FD8EE90E24B83744000E5A48 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90D24B83744000E5A48 /* MessageModel.swift */; };
-		FDFA3A8024BCDEAE00CB8939 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDFA3A7F24BCDEAE00CB8939 /* Filter.storyboard */; };
 		FDFA3A8324BCE7B700CB8939 /* NormalFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8224BCE7B700CB8939 /* NormalFilterViewController.swift */; };
 		FDFA3A8524BCF27600CB8939 /* MajorFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8424BCF27600CB8939 /* MajorFilterViewController.swift */; };
 		FDFA3A8724BD7DD100CB8939 /* MajorFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8624BD7DD100CB8939 /* MajorFilterTableViewCell.swift */; };
@@ -127,20 +132,24 @@
 		29970E7124BF90390034840E /* ColorPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickViewController.swift; sourceTree = "<group>"; };
 		29970E7324BF915F0034840E /* ColorPickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickCell.swift; sourceTree = "<group>"; };
 		29970E7524BF9EC70034840E /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		299DA9F224C0327F00F023FD /* Alarm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alarm.storyboard; sourceTree = "<group>"; };
+		299DA9F324C0327F00F023FD /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
+		299DA9F424C0327F00F023FD /* CreateTimeTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateTimeTable.storyboard; sourceTree = "<group>"; };
+		299DA9F524C0327F00F023FD /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		299DA9F624C0327F00F023FD /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
+		299DA9FC24C0328E00F023FD /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		299DA9FE24C0329500F023FD /* Chatting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		299DACEF24B70AFF008181FA /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = ulink/Sources/View/Calendar/EventModel.swift; sourceTree = SOURCE_ROOT; };
 		299DACF124B785FE008181FA /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		299DACF324B78785008181FA /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		299DACFD24B813FE008181FA /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		299DAD0124B837B7008181FA /* EventListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListHeaderCell.swift; sourceTree = "<group>"; };
-		299DAD0A24BAB8ED008181FA /* Alarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alarm.storyboard; sourceTree = "<group>"; };
 		299DAD0D24BABC93008181FA /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		299DAD1124BAF26C008181FA /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
-		29AC520824BB0BBE0007E019 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		29AC520D24BB838A0007E019 /* Databases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Databases.swift; sourceTree = "<group>"; };
 		29AC521024BB9E040007E019 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		29AC521224BB9E5D0007E019 /* SearchedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedCell.swift; sourceTree = "<group>"; };
 		29AC521424BB9E720007E019 /* RealTimeSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeSearchCell.swift; sourceTree = "<group>"; };
-		29AC521624BC60250007E019 /* Review.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		29AC521924BC60910007E019 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		29AC521D24BCF8B50007E019 /* GradeSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSelectViewController.swift; sourceTree = "<group>"; };
 		29C6BB5C24BD92F80026747C /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
@@ -157,7 +166,9 @@
 		B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListViewController.swift; sourceTree = "<group>"; };
 		B51EC8A724B1C4DF00F3833B /* ListSemester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSemester.swift; sourceTree = "<group>"; };
 		B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableModel.swift; sourceTree = "<group>"; };
-		B55F0ED524BCAC0D007048A6 /* SubjectInfoCellExpand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectInfoCellExpand.swift; sourceTree = "<group>"; };
+		B52F9DE424BDA7E300B57CA1 /* MainTimeTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTimeTableService.swift; sourceTree = "<group>"; };
+		B52F9DE724BDA94800B57CA1 /* TimeTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableResponse.swift; sourceTree = "<group>"; };
+		B52F9DE924BE129000B57CA1 /* SubjectInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfoCell.swift; sourceTree = "<group>"; };
 		B55F0ED724BCACBF007048A6 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlarmCell.swift; path = ulink/AlarmCell.swift; sourceTree = SOURCE_ROOT; };
 		B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeInfoCell.swift; sourceTree = "<group>"; };
 		B595298E24BCD592008139E6 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
@@ -167,16 +178,18 @@
 		B599E63324ADAA960067C112 /* TimeTableDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableDay.swift; sourceTree = "<group>"; };
 		B599E63624ADAAB40067C112 /* TimeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableController.swift; sourceTree = "<group>"; };
 		B599E63824ADAAD20067C112 /* SubjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCell.swift; sourceTree = "<group>"; };
-		B599FAD524BB3B5B005DB6E7 /* SubjectInfoCellNotExpand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfoCellNotExpand.swift; sourceTree = "<group>"; };
 		B599FADA24BCA908005DB6E7 /* SubjectTimeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTimeInfoCell.swift; sourceTree = "<group>"; };
 		B5A2783E24ADDD3A00A0F4A4 /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
 		B5A2784124ADE0E500A0F4A4 /* Extenstions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extenstions+UIColor.swift"; sourceTree = "<group>"; };
 		B5C8A3C724AF12DE00B1B318 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		B5D26A4024B4B76F0047A2DC /* CreateTimeTable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateTimeTable.storyboard; sourceTree = "<group>"; };
 		B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewSheetCell.swift; sourceTree = "<group>"; };
+		B5DBF3DB24BEF1A50013BB33 /* SubjectDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailService.swift; sourceTree = "<group>"; };
+		B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTimeTableService.swift; sourceTree = "<group>"; };
+		B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableService.swift; sourceTree = "<group>"; };
 		B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListCell.swift; sourceTree = "<group>"; };
 		B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListHeader.swift; sourceTree = "<group>"; };
 		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
+		FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = io_ulink_splash.gif; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -199,9 +212,6 @@
 		FD45F25524AA591300F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD45F25724AA591500F304BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD45F25A24AA591500F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FD45F25C24AA591500F304BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
-		FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFilter.swift; sourceTree = "<group>"; };
 		FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
@@ -215,12 +225,12 @@
 		FD7E7BED24BF37CE007CF404 /* LoadChattingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadChattingListService.swift; sourceTree = "<group>"; };
 		FD7E7BEF24BF3848007CF404 /* ChattingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListModel.swift; sourceTree = "<group>"; };
 		FD7E7BF624BF4F27007CF404 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		FD7E7BF824BF50D2007CF404 /* Previous.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Previous.storyboard; sourceTree = "<group>"; };
+		FD7E7BFE24BF6657007CF404 /* ChattingListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListData.swift; sourceTree = "<group>"; };
+		FD7E7C0624C01B4D007CF404 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditModeViewController.swift; sourceTree = "<group>"; };
 		FD8EE90824B7820F000E5A48 /* timeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeModel.swift; sourceTree = "<group>"; };
 		FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerTimeModel.swift; sourceTree = "<group>"; };
 		FD8EE90D24B83744000E5A48 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
-		FDFA3A7F24BCDEAE00CB8939 /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 		FDFA3A8224BCE7B700CB8939 /* NormalFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalFilterViewController.swift; sourceTree = "<group>"; };
 		FDFA3A8424BCF27600CB8939 /* MajorFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorFilterViewController.swift; sourceTree = "<group>"; };
 		FDFA3A8624BD7DD100CB8939 /* MajorFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorFilterTableViewCell.swift; sourceTree = "<group>"; };
@@ -367,12 +377,11 @@
 		B513511D24B7BBA700BD219B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B55F0ED524BCAC0D007048A6 /* SubjectInfoCellExpand.swift */,
 				FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */,
 				B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */,
-				B599FAD524BB3B5B005DB6E7 /* SubjectInfoCellNotExpand.swift */,
 				B599FADA24BCA908005DB6E7 /* SubjectTimeInfoCell.swift */,
 				B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */,
+				B52F9DE924BE129000B57CA1 /* SubjectInfoCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -394,6 +403,25 @@
 				B51EC8A524B1BF9300F3833B /* TimeTableListViewController.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		B52F9DE324BDA7D500B57CA1 /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				B52F9DE424BDA7E300B57CA1 /* MainTimeTableService.swift */,
+				B5DBF3DB24BEF1A50013BB33 /* SubjectDetailService.swift */,
+				B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */,
+				B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */,
+			);
+			path = TimeTable;
+			sourceTree = "<group>";
+		};
+		B52F9DE624BDA93A00B57CA1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B52F9DE724BDA94800B57CA1 /* TimeTableResponse.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		B595299024BCFCD6008139E6 /* SubjectDetail */ = {
@@ -511,6 +539,7 @@
 		FD1A4AF224B5947A000120A6 /* TimeTableModel */ = {
 			isa = PBXGroup;
 			children = (
+				B52F9DE624BDA93A00B57CA1 /* Data */,
 				B599E62E24ADAA320067C112 /* SubjectModel.swift */,
 				B51EC8A724B1C4DF00F3833B /* ListSemester.swift */,
 				B51EC8A924B1C6F400F3833B /* TimeTableModel.swift */,
@@ -592,10 +621,11 @@
 		FD45F24D24AA591300F304BD /* ulink */ = {
 			isa = PBXGroup;
 			children = (
+				FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */,
+				FD7E7C0624C01B4D007CF404 /* Info.plist */,
 				B5A2784024ADE0C600A0F4A4 /* Extension */,
 				FD616CFF24AA5D2F007D54B5 /* Sources */,
 				FD616CFE24AA5A91007D54B5 /* Resource */,
-				FD45F25C24AA591500F304BD /* Info.plist */,
 				FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */,
 				FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */,
 			);
@@ -629,19 +659,12 @@
 		FD616D0024AA5D3F007D54B5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				299DACFD24B813FE008181FA /* Calendar.storyboard */,
-				FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */,
+				FD7E7C0324C00091007CF404 /* Mypage */,
+				FD7E7C0224C0005D007CF404 /* Chatting */,
+				FD7E7C0124C00056007CF404 /* TimeTable */,
+				FD7E7C0024C00032007CF404 /* Calendar */,
 				FD45F25424AA591300F304BD /* Main.storyboard */,
 				FD45F25924AA591500F304BD /* LaunchScreen.storyboard */,
-				FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */,
-				B5D26A4024B4B76F0047A2DC /* CreateTimeTable.storyboard */,
-				FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */,
-				299DAD0A24BAB8ED008181FA /* Alarm.storyboard */,
-				29AC520824BB0BBE0007E019 /* Search.storyboard */,
-				29AC521624BC60250007E019 /* Review.storyboard */,
-				FDFA3A7F24BCDEAE00CB8939 /* Filter.storyboard */,
-				29970E6C24BF662F0034840E /* ColorPick.storyboard */,
-				FD7E7BF824BF50D2007CF404 /* Previous.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -721,6 +744,7 @@
 			isa = PBXGroup;
 			children = (
 				29C6BB6324BE3EFB0026747C /* Search */,
+				B52F9DE324BDA7D500B57CA1 /* TimeTable */,
 				FDFA3A8924BDA5B800CB8939 /* Services */,
 				29C6BB5B24BD92DC0026747C /* Calendar */,
 			);
@@ -731,6 +755,7 @@
 			isa = PBXGroup;
 			children = (
 				FD7E7BED24BF37CE007CF404 /* LoadChattingListService.swift */,
+				FD7E7BFE24BF6657007CF404 /* ChattingListData.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -741,6 +766,44 @@
 				FD7E7BF624BF4F27007CF404 /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		FD7E7C0024C00032007CF404 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				299DACFD24B813FE008181FA /* Calendar.storyboard */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		FD7E7C0124C00056007CF404 /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				299DA9F224C0327F00F023FD /* Alarm.storyboard */,
+				299DA9F424C0327F00F023FD /* CreateTimeTable.storyboard */,
+				299DA9F324C0327F00F023FD /* Filter.storyboard */,
+				299DA9F624C0327F00F023FD /* Review.storyboard */,
+				299DA9F524C0327F00F023FD /* Search.storyboard */,
+				FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */,
+				29970E6C24BF662F0034840E /* ColorPick.storyboard */,
+			);
+			path = TimeTable;
+			sourceTree = "<group>";
+		};
+		FD7E7C0224C0005D007CF404 /* Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				299DA9FE24C0329500F023FD /* Chatting.storyboard */,
+			);
+			path = Chatting;
+			sourceTree = "<group>";
+		};
+		FD7E7C0324C00091007CF404 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				299DA9FC24C0328E00F023FD /* MyPage.storyboard */,
+			);
+			path = Mypage;
 			sourceTree = "<group>";
 		};
 		FD8EE90724B781DE000E5A48 /* NoticeModel */ = {
@@ -864,21 +927,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				29970E6D24BF662F0034840E /* ColorPick.storyboard in Resources */,
-				FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */,
+				299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */,
 				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
-				29AC521724BC60250007E019 /* Review.storyboard in Resources */,
 				FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */,
 				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
 				299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */,
-				FD7E7BF924BF50D2007CF404 /* Previous.storyboard in Resources */,
 				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
-				299DAD0B24BAB8ED008181FA /* Alarm.storyboard in Resources */,
-				FDFA3A8024BCDEAE00CB8939 /* Filter.storyboard in Resources */,
-				B5D26A4124B4B76F0047A2DC /* CreateTimeTable.storyboard in Resources */,
-				FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */,
+				299DA9FB24C0327F00F023FD /* Review.storyboard in Resources */,
 				FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */,
-				29AC520924BB0BBE0007E019 /* Search.storyboard in Resources */,
+				299DA9F824C0327F00F023FD /* Filter.storyboard in Resources */,
+				299DA9F924C0327F00F023FD /* CreateTimeTable.storyboard in Resources */,
+				FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */,
+				299DA9FF24C0329500F023FD /* Chatting.storyboard in Resources */,
+				299DA9F724C0327F00F023FD /* Alarm.storyboard in Resources */,
 				FD45F25624AA591300F304BD /* Main.storyboard in Resources */,
+				299DA9FA24C0327F00F023FD /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,14 +999,12 @@
 				B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */,
 				29AC521124BB9E040007E019 /* SearchViewController.swift in Sources */,
 				299DAD1224BAF26D008181FA /* DetailEventViewController.swift in Sources */,
-				B55F0ED624BCAC0E007048A6 /* SubjectInfoCellExpand.swift in Sources */,
 				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
 				FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */,
 				FD7E7BEE24BF37CE007CF404 /* LoadChattingListService.swift in Sources */,
 				B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */,
 				299DACF024B70AFF008181FA /* EventModel.swift in Sources */,
 				FD7C731424BCC70B003ADAE8 /* LoginSuccessData.swift in Sources */,
-				B599FAD624BB3B5B005DB6E7 /* SubjectInfoCellNotExpand.swift in Sources */,
 				FDFAA0F324B03A8D00D22EAD /* rightSideMenuViewController.swift in Sources */,
 				FDFA3A9424BE28A500CB8939 /* NoticeTableViewCellThree.swift in Sources */,
 				B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */,
@@ -951,11 +1012,14 @@
 				29970E7624BF9EC70034840E /* ColorModel.swift in Sources */,
 				FD45F25324AA591300F304BD /* ViewController.swift in Sources */,
 				FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */,
+				FD7E7BFF24BF6657007CF404 /* ChattingListData.swift in Sources */,
 				FD7E7BF724BF4F27007CF404 /* SplashViewController.swift in Sources */,
 				FDFA3A9A24BEAFCE00CB8939 /* LoginService.swift in Sources */,
 				FDFA3A9E24BEF6E200CB8939 /* NoticeModifyService.swift in Sources */,
 				FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */,
+				B5DBF3DC24BEF1A50013BB33 /* SubjectDetailService.swift in Sources */,
 				B5C8A3C824AF12DE00B1B318 /* CalendarViewController.swift in Sources */,
+				B52F9DEA24BE129000B57CA1 /* SubjectInfoCell.swift in Sources */,
 				FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */,
 				FDFA3A8324BCE7B700CB8939 /* NormalFilterViewController.swift in Sources */,
 				FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */,
@@ -978,6 +1042,7 @@
 				FD8EE90E24B83744000E5A48 /* MessageModel.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
 				FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */,
+				B5DBF3E024BFA6B40013BB33 /* TimeTableService.swift in Sources */,
 				B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */,
 				FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */,
 				299DACF424B78785008181FA /* EventCell.swift in Sources */,
@@ -992,12 +1057,14 @@
 				B55F0ED824BCACBF007048A6 /* AlarmCell.swift in Sources */,
 				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
 				B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */,
+				B52F9DE824BDA94800B57CA1 /* TimeTableResponse.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
 				B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */,
 				FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
 				FDFA3A8F24BDA83300CB8939 /* NoticeService.swift in Sources */,
 				299DACF224B785FE008181FA /* EventListViewController.swift in Sources */,
+				B5DBF3DE24BF7CAF0013BB33 /* ListTimeTableService.swift in Sources */,
 				29AC521324BB9E5D0007E019 /* SearchedCell.swift in Sources */,
 				FDFA3A9C24BEB4DD00CB8939 /* NoticeUploadData.swift in Sources */,
 				B599E63924ADAAD20067C112 /* SubjectCell.swift in Sources */,
@@ -1018,6 +1085,7 @@
 				FDFAA0F524B0D1A600D22EAD /* NoticeViewController.swift in Sources */,
 				FDFA3A8D24BDA63000CB8939 /* SubjectNoticeData.swift in Sources */,
 				B599E63724ADAAB40067C112 /* TimeTableController.swift in Sources */,
+				B52F9DE524BDA7E300B57CA1 /* MainTimeTableService.swift in Sources */,
 				FDFA3A8524BCF27600CB8939 /* MajorFilterViewController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
 				299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */,

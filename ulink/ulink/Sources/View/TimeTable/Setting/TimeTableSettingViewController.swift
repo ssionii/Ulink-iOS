@@ -24,10 +24,18 @@ class TimeTableSettingViewController: UIViewController {
     @IBOutlet weak var saveImageView: UIView!
     @IBOutlet weak var moveToTrashView: UIView!
     
+    public var timeTableIdx = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        setViewTap()
+        print("viewDidLoad")
+      
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDIdAppear")
+          setViewTap()
     }
     
     override func viewWillAppear(_ animated: Bool){
@@ -40,6 +48,11 @@ class TimeTableSettingViewController: UIViewController {
         }
     
          disAppearAnim()
+    }
+    
+    public func setTimeTableIdx(idx: Int){
+        print("setTImeTableIdx")
+        timeTableIdx = idx
     }
     
     private func setViewTap(){
@@ -71,7 +84,8 @@ class TimeTableSettingViewController: UIViewController {
     
     
     @objc func setMainTimeTable(sender:UIGestureRecognizer){
-        print("대표 시간표 설정 클릭")
+        
+        self.updateMainTimeTable()
     }
     
     @objc func goChangeStyleVC(sender:UIGestureRecognizer){
@@ -85,5 +99,23 @@ class TimeTableSettingViewController: UIViewController {
     @objc func moveToTrash(sender:UIGestureRecognizer){
         print("시간표 삭제")
     }
+    
+    func updateMainTimeTable(){
+           print("getTimeTable")
+            print("timeTable", timeTableIdx)
+        MainTimeTableService.shared.updateMainTimeTable(idx: self.timeTableIdx){ networkResult in
+                switch networkResult {
+                    case .success(_, _) :
+                        print("메인 시간표 변경 성공! -> 토스트로 주면 좋을 텐데,,")
+                        break
+                    case .requestErr(let message):
+                            print("REQUEST ERROR")
+                            break
+                    case .pathErr: break
+                    case .serverErr: print("serverErr")
+                    case .networkFail: print("networkFail")
+                }
+            }
+       }
     
 }

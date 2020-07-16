@@ -16,20 +16,25 @@ class TimeTableListCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
     
-    
     func setTimeTableListCell(idx : Int, name: String, isMain: Int){
-        self.timeTableIdx = idx
         self.nameLabel.text = name
-        
+    
         if isMain == 0 {
             self.mainImageView.alpha = 0
         }
+        
+        self.timeTableIdx = idx
     }
     
     func setLastTimeTableListCell(){
         self.timeTableIdx = -1
         self.nameLabel.text = ""
          self.mainImageView.removeFromSuperview()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    
     }
     
 }

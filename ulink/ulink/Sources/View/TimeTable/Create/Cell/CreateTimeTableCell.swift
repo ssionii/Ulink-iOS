@@ -9,6 +9,7 @@
 import UIKit
 
 class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTableDelegate {
+    
    
     static let identifier: String = "createTimeTableCell"
     
@@ -56,9 +57,14 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
         return subjectList
     }
        
-    func timeTable(timeTable: TimeTable, didSelectSubject didSelectSubjectselectedSubject: SubjectModel) {
+     func timeTable(timeTable: TimeTable, selectedSubjectIdx: Int, isSubject : Bool){
+        
+    }
+    
+    func timeTableHintCount(hintCount: Int) {
            
     }
+       
 }
 
 extension UIView {

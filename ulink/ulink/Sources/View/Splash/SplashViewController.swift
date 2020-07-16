@@ -7,41 +7,60 @@
 //
 
 import UIKit
-import Lottie
-import SwiftGifOrigin
+import GIFImageView
 
 class SplashViewController: UIViewController {  
 
+
+    @IBOutlet weak var imageView: UIImageView!
+    
+    let image = UIImage.animatedImage(named: "io_ulink_splash")
     
     
-    let animationView = AnimationView()
-    
-    //let jeremyGif = UIImage.gifWithName("jeremy")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        setup()
-    }
-
-    
-    func setup(){
         
-        animationView.frame = view.bounds
+        self.navigationController?.navigationBar.isHidden = true
         
-        animationView.animation = Animation.named("io_ulink_splash")
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
-        animationView.play()
-        view.addSubview(animationView)
-    }
+        
+        imageView.image = image
+        
+        
+        let seconds = 4.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            
+            self.moveToMain()
+        
+        }
+        
+       
 
 
-
-
+ 
 
     
+
+        }
+
+    
+    
+    
+           func moveToMain()
+           {
+               
+               
+               
+                let storyboard = UIStoryboard(name:"Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "MainLoginView")
+               
+            
+                self.navigationController!.pushViewController(vc, animated: true)
+               
+               
+
+
+           }
+       
 
 }

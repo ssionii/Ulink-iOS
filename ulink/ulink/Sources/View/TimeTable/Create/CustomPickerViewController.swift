@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CustomPickerViewDelegate {
-    func didPressOkBtn(selectWeekDay : Int?, startHour: String, startMin: String, endHour: String, endMin: String)
+    func didPressOkBtn(selectWeekDay : Int?, startHour: String, startMin: String, endHour: String, endMin: String, isEdit : Bool)
 }
 
 class CustomPickerViewController: UIViewController, UIPickerViewDelegate ,UIPickerViewDataSource {
@@ -19,13 +19,15 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate ,UIPick
     
     public var delegate : CustomPickerViewDelegate?
     
+    public var isEdit = false
+    
     private let viewHeight: CGFloat = 350
     private let hideBotViewHeight : CGFloat = 294
     
-    private var selectedWeekDay = 0
-    private var startHour = "01"
+    private var selectedWeekDay = 1
+    private var startHour = "09"
     private var startMin = "00"
-    private var endHour = "01"
+    private var endHour = "10"
     private var endMin = "00"
     
     let weekDay : [String] = ["월", "화", "수", "목", "금"]
@@ -39,7 +41,7 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate ,UIPick
     }
     
     @IBAction func okBtn(_ sender: UIButton) {
-        self.delegate?.didPressOkBtn(selectWeekDay: selectedWeekDay, startHour: startHour, startMin: startMin, endHour: endHour, endMin: endMin)
+        self.delegate?.didPressOkBtn(selectWeekDay: selectedWeekDay, startHour: startHour, startMin: startMin, endHour: endHour, endMin: endMin, isEdit: isEdit)
         
         disAppearAnim()
     }
@@ -47,9 +49,12 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate ,UIPick
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         customPickerView.dataSource = self
         customPickerView.delegate = self
+        
+         setCustomPickerView()
+       
         
         // Do any additional setup after loading the view.
     }
@@ -65,14 +70,22 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate ,UIPick
           }
       }
 
-      func disAppearAnim(){
-          self.botConstraint.constant = -self.viewHeight
-          UIView.animate(withDuration: 0.3){
-              self.view.layoutIfNeeded()
-          }
+    func disAppearAnim(){
+        self.botConstraint.constant = -self.viewHeight
+        UIView.animate(withDuration: 0.3){
+            self.view.layoutIfNeeded()
+        }
           
-          dismiss(animated: true)
-      }
+        dismiss(animated: true)
+    }
+    
+    private func setCustomPickerView(){
+        customPickerView.selectRow(0, inComponent: 0, animated: true)
+        customPickerView.selectRow(8, inComponent: 2, animated: true)
+        customPickerView.selectRow(0, inComponent: 3, animated: true)
+        customPickerView.selectRow(9, inComponent: 5, animated: true)
+        customPickerView.selectRow(0, inComponent: 6, animated: true)
+    }
     
     
     // protocol
@@ -115,7 +128,7 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate ,UIPick
         
         switch component {
             case 0:
-                selectedWeekDay = row
+                selectedWeekDay = row + 1
                 break
             case 2:
                 startHour = hour[row]
