@@ -203,7 +203,7 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     public func setTimeInfo(list : [TimeInfoModel]){
         
-        timeInfoList = list.sorted(by: {$0.weekDay.rawValue < $1.weekDay.rawValue})
+        timeInfoList = list.sorted(by: {$0.weekDay < $1.weekDay})
         
     }
     
@@ -362,9 +362,7 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     func didPressOkBtn(selectWeekDay: Int?, startHour: String, startMin: String, endHour: String, endMin: String, isEdit: Bool) {
         
-        let timeTableDay = TimeTableDay.init(rawValue: selectWeekDay ?? 1) ?? TimeTableDay.init(rawValue: 1)
-        
-        let timeInfo = TimeInfoModel(timeIdx: self.editTimeInfoIdx, weekDay: timeTableDay!, startTime:startHour + ":" + startMin , endTime: endHour + ":" + endMin)
+        let timeInfo = TimeInfoModel(timeIdx: self.editTimeInfoIdx, weekDay: selectWeekDay!, startTime:startHour + ":" + startMin , endTime: endHour + ":" + endMin)
         
         if(isEdit) {
             timeInfoList[self.editTimeInfoIdx] = timeInfo

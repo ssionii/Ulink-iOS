@@ -67,7 +67,7 @@
                                         <rect key="frame" x="253" y="43.666666666666671" width="31" height="38"/>
                                         <state key="normal" image="ioMainIcPlus"/>
                                         <connections>
-                                            <segue destination="DTC-Xp-ICb" kind="presentation" id="5GK-Ev-NKb"/>
+                                            <action selector="addBtn:" destination="Thb-Ua-YU9" eventType="touchUpInside" id="lWe-qf-Ewg"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4O6-a7-ixW">
@@ -858,16 +858,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4SG-re-v5m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="582" y="1012"/>
-        </scene>
-        <!--createTimeTabelMainVC-->
-        <scene sceneID="wxe-OL-Woh">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="createTimeTabelMainVC" storyboardName="CreateTimeTable" referencedIdentifier="createTimeTabelMainVC" id="DTC-Xp-ICb" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="LZC-fE-w10"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ugi-47-ZTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="530" y="-495"/>
         </scene>
     </scenes>
     <resources>

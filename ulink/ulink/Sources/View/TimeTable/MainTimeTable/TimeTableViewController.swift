@@ -47,6 +47,19 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         
     }
     
+    @IBAction func addBtn(_ sender: UIButton) {
+        
+        guard let nextVC = storyboard?.instantiateViewController(identifier: "createTimeTableViewController") as? CreateTimeTableViewController else { return }
+        
+        nextVC.semester = timeTableInfo.semester
+        nextVC.modalPresentationStyle = .fullScreen
+        present(nextVC, animated: false, completion: nil)
+        
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

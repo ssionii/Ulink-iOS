@@ -11,7 +11,7 @@ import UIKit
 
 class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeTableDataSource, AddSubjectDetailDelegate {
     
-    private var scheduleIdx = 0
+    public var scheduleIdx = 1
     
     private var confirmType = "확정"
     private var personalList = [PersonalScheduleModel]()
@@ -40,6 +40,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
                    self.present(nextVC, animated: true, completion: nil)
         }else {
             // 통신 personalList 보내기
+            postPersonalSchedule()
             print("personalList", personalList)
             dismiss(animated: true, completion: nil)
         }
@@ -138,7 +139,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         
         // list에 추가
         for timeInfo in timeInfoList {
-            let personalSchedule = PersonalScheduleModel.init(name: timeInfo.subjectName, startTime: timeInfo.startTime[0], endTime: timeInfo.endTime[0], day: timeInfo.subjectDay[0].rawValue, content: timeInfo.content[0], color: timeInfo.backgroundColor, scheudleIdx: self.scheduleIdx)
+            let personalSchedule = PersonalScheduleModel.init(name: timeInfo.subjectName, startTime: timeInfo.startTime[0], endTime: timeInfo.endTime[0], day: timeInfo.subjectDay[0], content: timeInfo.content[0], color: timeInfo.backgroundColor, scheudleIdx: self.scheduleIdx)
             
              personalList.append(personalSchedule)
         }
@@ -147,6 +148,24 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     func didDeleteTimeInfo(num: Int) {
         timeTable.removeSchedule(num: num + 1)
     }
-       
+     
+    // MARK: - 통신
+    func postPersonalSchedule(){
+        print("postPersonalSchedule")
+            
+        PersonalScheduleService.shared.postPersonalScheudule(personalScheudleList: self.personalList){ networkResult in
+                switch networkResult {
+                    case .success(_, _) :
+                        print("개인 일정 추가 성공")
+                        break
+                    case .requestErr(let message):
+                            print("REQUEST ERROR")
+                            break
+                case .pathErr: break
+                case .serverErr: print("serverErr")
+                    case .networkFail: print("networkFail")
+                }
+            }
+       }
 
 }

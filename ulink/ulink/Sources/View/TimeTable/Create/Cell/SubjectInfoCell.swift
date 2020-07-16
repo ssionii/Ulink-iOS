@@ -44,7 +44,7 @@ class SubjectInfoCell: UITableViewCell {
     private var subjectIdx : Int = 0
     private var nameText = ""
     private var professorNameText = ""
-    private var roomText = ""
+    private var content = [String]()
     private var courseText = ""
     private var creditNum = 0
     private var subjectNumberText = ""
@@ -75,10 +75,8 @@ class SubjectInfoCell: UITableViewCell {
         var subjectList = [SubjectModel]()
                
         for (index, dayItem) in day.enumerated() {
-
-//            let subject = SubjectModel.init(subjectName: nameLabel.text!, roomName: roomLabel.text!, professorName: "", subjectDay: dayItem + 1, startTime: String(startTime), endTime: String(endTime), backgroundColor: 0, day: day, dateTime: dateTime)
-            
-            let subject = SubjectModel.init()
+        
+            let subject = SubjectModel.init(subjectName: nameLabel.text!, content: self.content, subjectDay: [dayItem], startTime: [self.startTime[index]], endTime: [self.endTime[index]], textColor: UIColor.white, backgroundColor: 3)
                    
             subjectList.append(subject)
         }
@@ -87,7 +85,6 @@ class SubjectInfoCell: UITableViewCell {
         
     }
     
- 
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -96,8 +93,9 @@ class SubjectInfoCell: UITableViewCell {
 
     }
     
-    func setSubjectInfoData(name: String, professorName: String, content: [String], category: String, credit: Int, subjectNum : String, day: [Int], startTime : [String], endTime : [String], num: Int){
+    func setSubjectInfoData(subjectIdx: Int, name: String, professorName: String, content: [String], category: String, credit: Int, subjectNum : String, day: [Int], startTime : [String], endTime : [String], num: Int){
 
+        self.subjectIdx = subjectIdx
         nameLabel.text = name
         professorNameLabel.text = professorName
         timeInfoLabel.text = makeTimeInfo(day: day, startTime: startTime, endTime: endTime)
@@ -111,6 +109,9 @@ class SubjectInfoCell: UITableViewCell {
     }
     
     private func makeRoomText(content: [String]) -> String {
+        
+        self.content = content
+        
         var roomText = ""
         for(index, c) in content.enumerated() {
             roomText += c
@@ -123,6 +124,9 @@ class SubjectInfoCell: UITableViewCell {
     
     private func makeTimeInfo(day : [Int], startTime : [String], endTime : [String]) -> String {
            
+        self.startTime = startTime
+        self.endTime = endTime
+        
         var result = ""
            
         if(day.count > 0){

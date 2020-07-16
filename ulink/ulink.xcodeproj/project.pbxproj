@@ -49,6 +49,9 @@
 		B52F9DE824BDA94800B57CA1 /* TimeTableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F9DE724BDA94800B57CA1 /* TimeTableResponse.swift */; };
 		B52F9DEA24BE129000B57CA1 /* SubjectInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F9DE924BE129000B57CA1 /* SubjectInfoCell.swift */; };
 		B55F0ED824BCACBF007048A6 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55F0ED724BCACBF007048A6 /* AlarmCell.swift */; };
+		B590A30F24C05133006637D0 /* PersonalScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B590A30E24C05133006637D0 /* PersonalScheduleService.swift */; };
+		B590A31124C0593B006637D0 /* SubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B590A31024C0593B006637D0 /* SubjectService.swift */; };
+		B590A31524C0BFF8006637D0 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B590A31424C0BFF8006637D0 /* CartService.swift */; };
 		B595298D24BCC7E5008139E6 /* AddTimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */; };
 		B595298F24BCD592008139E6 /* CustomPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595298E24BCD592008139E6 /* CustomPickerViewController.swift */; };
 		B595299224BCFCF3008139E6 /* SubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B595299124BCFCF3008139E6 /* SubjectDetailViewController.swift */; };
@@ -173,6 +176,9 @@
 		B52F9DE724BDA94800B57CA1 /* TimeTableResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableResponse.swift; sourceTree = "<group>"; };
 		B52F9DE924BE129000B57CA1 /* SubjectInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfoCell.swift; sourceTree = "<group>"; };
 		B55F0ED724BCACBF007048A6 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlarmCell.swift; path = ulink/AlarmCell.swift; sourceTree = SOURCE_ROOT; };
+		B590A30E24C05133006637D0 /* PersonalScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalScheduleService.swift; sourceTree = "<group>"; };
+		B590A31024C0593B006637D0 /* SubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectService.swift; sourceTree = "<group>"; };
+		B590A31424C0BFF8006637D0 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		B595298C24BCC7E5008139E6 /* AddTimeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeInfoCell.swift; sourceTree = "<group>"; };
 		B595298E24BCD592008139E6 /* CustomPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerViewController.swift; sourceTree = "<group>"; };
 		B595299124BCFCF3008139E6 /* SubjectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailViewController.swift; sourceTree = "<group>"; };
@@ -414,10 +420,8 @@
 		B52F9DE324BDA7D500B57CA1 /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
-				B52F9DE424BDA7E300B57CA1 /* MainTimeTableService.swift */,
-				B5DBF3DB24BEF1A50013BB33 /* SubjectDetailService.swift */,
-				B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */,
-				B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */,
+				B590A31324C0BFE0006637D0 /* Create */,
+				B590A31224C0BFD5006637D0 /* Main */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -428,6 +432,27 @@
 				B52F9DE724BDA94800B57CA1 /* TimeTableResponse.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		B590A31224C0BFD5006637D0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B52F9DE424BDA7E300B57CA1 /* MainTimeTableService.swift */,
+				B5DBF3DB24BEF1A50013BB33 /* SubjectDetailService.swift */,
+				B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */,
+				B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */,
+				B590A30E24C05133006637D0 /* PersonalScheduleService.swift */,
+				B590A31024C0593B006637D0 /* SubjectService.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B590A31324C0BFE0006637D0 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				B590A31424C0BFF8006637D0 /* CartService.swift */,
+			);
+			path = Create;
 			sourceTree = "<group>";
 		};
 		B595299024BCFCD6008139E6 /* SubjectDetail */ = {
@@ -1042,6 +1067,7 @@
 				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				29970E7224BF90390034840E /* ColorPickViewController.swift in Sources */,
+				B590A31524C0BFF8006637D0 /* CartService.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */,
 				29970E4924BEB1F10034840E /* LoginService.swift in Sources */,
@@ -1066,6 +1092,7 @@
 				FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */,
 				B595299224BCFCF3008139E6 /* SubjectDetailViewController.swift in Sources */,
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
+				B590A30F24C05133006637D0 /* PersonalScheduleService.swift in Sources */,
 				29AC521A24BC60910007E019 /* ReviewViewController.swift in Sources */,
 				B55F0ED824BCACBF007048A6 /* AlarmCell.swift in Sources */,
 				B5A2783F24ADDD3A00A0F4A4 /* TimeTableViewController.swift in Sources */,
@@ -1102,6 +1129,7 @@
 				B52F9DE524BDA7E300B57CA1 /* MainTimeTableService.swift in Sources */,
 				FDFA3A8524BCF27600CB8939 /* MajorFilterViewController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
+				B590A31124C0593B006637D0 /* SubjectService.swift in Sources */,
 				299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */,
 				29C6BB5F24BD9EF20026747C /* CalendarData.swift in Sources */,
 				FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */,

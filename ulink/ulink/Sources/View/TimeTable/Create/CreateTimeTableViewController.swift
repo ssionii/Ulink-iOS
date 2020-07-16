@@ -11,11 +11,6 @@ import UIKit
 class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource, SubjectInfoCellDelegate, GradeSelectVCDelegate, SearchVCDelegate {
     
     
-    
-    //var gradeSelect: GradeSelectViewController?
-
-    
-   
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeTableCollectionView: UICollectionView!
     @IBOutlet weak var pageControlDots: UIPageControl!
@@ -34,6 +29,14 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var candidateLabel: UILabel!
     @IBOutlet weak var candidateBottomView: UIView!
     
+    @IBOutlet weak var searchFilteHeight: NSLayoutConstraint!
+    @IBOutlet weak var searchBackgroundHeight: NSLayoutConstraint!
+    @IBOutlet weak var searchIconHeight: NSLayoutConstraint!
+    @IBOutlet weak var searchLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var majorFilterHeight: NSLayoutConstraint!
+    @IBOutlet weak var standardFilterHeight: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var searchLabel: UILabel!
     
     private var isCandidateView = false
@@ -46,6 +49,31 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     private var subjectInfoList : [SubjectModel] = []
        
     private let daySymbol = [ "월", "화", "수", "목", "금"]
+    
+    // 통신할 때 필요한 data
+    var grade = [Int]()
+    var course = [String]()
+    var credit = [Int]()
+    var onday = [Int]()
+    var offDay = [Int]()
+    
+    var semester = ""
+    
+    
+    @IBAction func tapMajorFilter(_ sender: UIButton) {
+        
+        
+    }
+    
+    
+    
+    @IBAction func tapStandarFilter(_ sender: Any) {
+        
+        
+    }
+    
+    
+    
 
     @IBAction func finishVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -63,6 +91,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectByDragViewController") as? AddSubjectByDragViewController else { return }
                    
                 nextVC.modalPresentationStyle = .fullScreen
+                nextVC.scheduleIdx = 12
                 self.present(nextVC, animated: true, completion: nil)
             
             
@@ -100,12 +129,12 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         setBackgroundView()
         setTimeTableList()
-        setSubjectInfoList()
-        
         
         setButton()
         setSubjectInfoTableView()
         // setCollectionView()
+        
+        print("semester", semester)
         
         
         timeTableCollectionView.dataSource = self
@@ -193,9 +222,22 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         timeTableList = [timeTable_1, timeTable_2]
     }
     
+    private func showSearchFilterBar(){
+        searchFilteHeight.constant = 49
+        searchIconHeight.constant = 18
+        searchLabelHeight.constant = 18
+        searchBackgroundHeight.constant = 29
+        majorFilterHeight.constant = 29
+        standardFilterHeight.constant = 29
+    }
     
-    private func setSubjectInfoList(){
-        
+    private func hideSearchFilterBar(){
+        searchFilteHeight.constant = 0
+        searchIconHeight.constant = 0
+        searchLabelHeight.constant = 0
+        searchBackgroundHeight.constant = 0
+        majorFilterHeight.constant = 0
+        standardFilterHeight.constant = 0
     }
     
     private func addTimeTable(){
@@ -264,7 +306,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
     
     
-    // MARK: protocol 구현
+    // MARK: - protocol 구현
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         let count = timeTableList.count + 1
@@ -330,7 +372,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
      
         let data = subjectInfoList[indexPath.row]
      
-        subjectInfoCell.setSubjectInfoData(name: data.subjectName, professorName: data.professorName, content: data.content, category: data.course, credit: data.credit, subjectNum: data.subjectNum, day: data.day, startTime: data.startTime, endTime: data.endTime, num : indexPath.row)
+        subjectInfoCell.setSubjectInfoData(subjectIdx : data.subjectIdx, name: data.subjectName, professorName: data.professorName, content: data.content, category: data.course, credit: data.credit, subjectNum: data.subjectNum, day: data.subjectDay, startTime: data.startTime, endTime: data.endTime, num : indexPath.row)
      
         if self.isCandidateView {
             subjectInfoCell.setCandidateCell()
@@ -364,7 +406,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             if !(tableView.cellForRow(at: indexPath) as! SubjectInfoCell).isExpended {
                 removeHintTimeTable(row: pageControlDots.currentPage)
             } else {
-                drawHintTimeTable(row: pageControlDots.currentPage, day:  subjectInfoList[num].day,startTime: subjectInfoList[num].startTime, endTime: subjectInfoList[num].endTime)
+                drawHintTimeTable(row: pageControlDots.currentPage, day:  subjectInfoList[num].subjectDay,startTime: subjectInfoList[num].startTime, endTime: subjectInfoList[num].endTime)
             }
         }
     }
@@ -378,7 +420,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
        
     func addCandidate(idx: Int) {
-        print("addCandidate")
+        postCandidate(semester : "2020-2", subjectIdx: idx)
     }
        
     func enrollSubject(subjectIdx: Int, subjectItems: [SubjectModel]) {
@@ -394,24 +436,24 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         for (_, subjectItem) in subjectItems.enumerated() {
            
             var item = subjectItem
-            print(item)
-            
-            for (index, temp) in timeTableCell.subjectList.enumerated() {
-                let tstartHour = Int(temp.startTime[index].split(separator: ":")[0])
-                let tstartMin = Int(temp.startTime[index].split(separator: ":")[1])
+            print(timeTableCell.subjectList)
+          
+            for (_, temp) in timeTableCell.subjectList.enumerated() {
+                let tstartHour = Int(temp.startTime[0].split(separator: ":")[0])
+                let tstartMin = Int(temp.startTime[0].split(separator: ":")[1])
                 print("index", index)
                 
-                let tempStart = (temp.day[index] * 10000) + (tstartHour! * 100 ) + tstartMin!
-                let tendHour = Int(temp.endTime[index].split(separator: ":")[0])
-                let tendMin = Int(temp.endTime[index].split(separator: ":")[1])
-                let tempEnd = (temp.day[index] * 10000) + (tendHour! * 100) + tendMin!
+                let tempStart = (temp.subjectDay[0] * 10000) + (tstartHour! * 100 ) + tstartMin!
+                let tendHour = Int(temp.endTime[0].split(separator: ":")[0])
+                let tendMin = Int(temp.endTime[0].split(separator: ":")[1])
+                let tempEnd = (temp.subjectDay[0] * 10000) + (tendHour! * 100) + tendMin!
                 
-                let startHour = Int(item.startTime[index].split(separator: ":")[0])
-                let startMin = Int(item.startTime[index].split(separator: ":")[1])
-                let start = (item.day[index] * 10000) + (startHour! * 100 ) + startMin!
-                let endHour = Int(item.endTime[index].split(separator: ":")[0])
-                let endMin = Int(item.endTime[index].split(separator: ":")[1])
-                let end = (item.day[index] * 10000) + (endHour! * 100) + endMin!
+                let startHour = Int(item.startTime[0].split(separator: ":")[0])
+                let startMin = Int(item.startTime[0].split(separator: ":")[1])
+                let start = (item.subjectDay[0] * 10000) + (startHour! * 100 ) + startMin!
+                let endHour = Int(item.endTime[0].split(separator: ":")[0])
+                let endMin = Int(item.endTime[0].split(separator: ":")[1])
+                let end = (item.subjectDay[0] * 10000) + (endHour! * 100) + endMin!
                 
                 
                 if (tempStart >= end || tempEnd <= start ) {
@@ -431,9 +473,15 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             tempList.append(item)
         }
         
+        
         if(candDraw){
             timeTableCell.subjectList.append(contentsOf: tempList)
             timeTableCell.timeTable.reDrawTimeTable()
+            
+            for temp in tempList {
+                enrollSubject(subjectIdx: subjectIdx , color: temp.backgroundColor, scheduleIdx: 12)
+                // todo : scheduleIdx 바꿔!
+            }
         }else {
             let alert = UIAlertController(title: "", message: "시간이 겹쳐 추가할 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
 
@@ -446,7 +494,11 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     //학년선택 by 성은
     func selectedGrade(_ grade: Int) {
-        print(grade)
+        self.grade.append(grade)
+        
+        // 학년 통신!
+        getSubject()
+        
     }
     
     //검색 by 성은
@@ -458,6 +510,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @objc func handleTapFilterAndSearch(recognizer: UITapGestureRecognizer) {
         
         isCandidateView = false
+        showSearchFilterBar()
 
         // 선택 처리
         self.filterLabel.textColor = UIColor.purpleishBlueThree
@@ -468,9 +521,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         self.candidateImageView.image = UIImage(named: "timetableaddFilterandsearchBtnCandidateOff.png")
         self.candidateBottomView.backgroundColor = UIColor.clear
         
-        let tempDay = [0, 1]
-        let tempDateTime = ["09:00-13:30","09:00-13:30"]
-        
+        getSubject()
         
         self.subjectInfoTableView.reloadData()
         
@@ -479,6 +530,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @objc func handleTapCandidate(recognizer: UITapGestureRecognizer) {
         
          isCandidateView = true
+        hideSearchFilterBar()
 
            // 선택 처리
            self.filterLabel.textColor = UIColor.brownGreyFive
@@ -489,23 +541,93 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
            self.candidateImageView.image = UIImage(named: "timetableaddFilterandsearchBtnCandidateOn.png")
            self.candidateBottomView.backgroundColor = UIColor.purpleishBlueThree
         
-        let tempDay = [0, 1]
-        let tempDateTime = ["09:00-13:30","09:00-13:30"]
-
-//        let subjectInfo_1 = SubjectModel(subjectName: "후보군", professorName: "최성일",  roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
-//
-//        let subjectInfo_2 = SubjectModel(subjectName: "후보군", professorName: "최성일", roomName: "명신관614", course: "전공선택", credit: 3, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
-//
-//        let subjectInfo_3 = SubjectModel(subjectName: "후보군이라굿!", professorName: "최성일",  roomName: "명신관614", course: "전공선택", credit: 2, subjectNum: "2016123-132", day: tempDay, dateTime: tempDateTime)
-        
-//        subjectInfoList = [subjectInfo_1]
-    
-        
+        self.getCandidate(semester: "2020-2")
         
         self.subjectInfoTableView.reloadData()
            
     }
+    
+    
+    
+    // MARK: - 통신
+    func getSubject(){
+           print("getSubject")
+               
+        SubjectService.shared.getSubject(course: self.course, grade: self.grade, credit: self.credit, onDay: self.onday, offDay: self.offDay){ networkResult in
+                   switch networkResult {
+                       case .success(let list, _) :
+                        print("과목 불러오기 성공")
+                        self.subjectInfoList = list as! [SubjectModel]
+                        self.subjectInfoTableView.reloadData()
+                           break
+                       case .requestErr(let message):
+                               print("REQUEST ERROR")
+                               break
+                   case .pathErr: break
+                   case .serverErr: print("serverErr")
+                       case .networkFail: print("networkFail")
+                   }
+               }
+          }
+    
+    func enrollSubject(subjectIdx: Int, color : Int, scheduleIdx : Int){
+       print("enrollSubject")
+           
+        SubjectService.shared.enrollSubejct(subjectIdx: subjectIdx, color: color, scheduleIdx: scheduleIdx){ networkResult in
+               switch networkResult {
+                   case .success(_, _) :
+                    print("과목 등록 성공")
+                       break
+                   case .requestErr(let message):
+                           print("REQUEST ERROR")
+                           break
+               case .pathErr: break
+               case .serverErr: print("serverErr")
+                   case .networkFail: print("networkFail")
+               }
+           }
+      }
+    
+    func postCandidate(semester : String, subjectIdx: Int){
+        CartService.shared.postCart(semester: semester, subjectIdx: subjectIdx){ networkResult in
+            switch networkResult {
+                case .success(_, _) :
+                 print("후보 등록 성공")
+             
+                    break
+                case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        break
+            case .pathErr: break
+            case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+            }
+        }
+    }
 
+    func getCandidate(semester : String){
+        print("getCandidate")
+        CartService.shared.getCart(semester : semester){ networkResult in
+            switch networkResult {
+                case .success(let list, _) :
+                 print("후보 조회 성공")
+                 self.subjectInfoList = list as! [SubjectModel]
+                 print(list)
+                 self.subjectInfoTableView.reloadData()
+                 print(list)
+                    break
+                case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        break
+            case .pathErr: break
+            case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+            }
+        }
+    }
+    
+    
+    
 }
 
 extension CreateTimeTableViewController: UIGestureRecognizerDelegate {

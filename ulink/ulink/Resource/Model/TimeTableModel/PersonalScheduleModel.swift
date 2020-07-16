@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PersonalScheduleModel {
+public struct PersonalScheduleModel : Codable {
     public var name : String
     public var startTime : String
     public var endTime : String
@@ -25,6 +25,16 @@ public struct PersonalScheduleModel {
         self.content = content
         self.color = color
         self.scheduleIdx = scheudleIdx
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case day = "day"
+        case content = "content"
+        case color = "color"
+        case startTime = "startTime"
+        case endTime = "endTime"
+        case scheduleIdx = "scheduleIdx"
     }
     
 }
