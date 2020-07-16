@@ -35,7 +35,7 @@ class NoticeTableViewCell: UITableViewCell {
     func setInformation( title:String,start:String,end:String, date : String){
         
         var subtitle : String = ""
-        
+
         
         subtitle = start + " ~ " + end
         
@@ -50,9 +50,12 @@ class NoticeTableViewCell: UITableViewCell {
             subtitle = ""
         }
         
-   
+        var dateString : String = ""
+        let dateArray = date.components(separatedBy: "-")
+        dateString =  dateArray[1] + "/" + dateArray[2]
         
-        testNoticeTitle.text = title
+        
+        testNoticeTitle.text = dateString + "  " + title
         testNoticeSubTItle.text = subtitle
         
     }

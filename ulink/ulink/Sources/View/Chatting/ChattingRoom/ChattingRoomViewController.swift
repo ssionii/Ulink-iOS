@@ -44,17 +44,28 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(goNextView(_:)), name: .clickSideButton, object: nil)
+    }
     
+    @objc func goNextView(_ notification: NSNotification) {
+        let storyboard = UIStoryboard(name:"Chatting", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
+        
+        
+        vc.subjectIDX = 1
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     //MARK:- Life Cycle 부분
     override func viewDidLoad() {
-        
+            
         
         setBorder()
           
         
         super.viewDidLoad()
-        
+        addObserver()
         uid = UserDefaults.standard.string(forKey: "uid")
         
 
@@ -213,7 +224,6 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let view =  tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
             view.labelMessage.text = self.messageArray[indexPath.row].message
-            
             view.labelMessage.numberOfLines = 0
             
             if let time =
@@ -301,12 +311,27 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         menu.completionCurve = .easeInOut
         
   
-
-
-    
-        
-
-        
+//
+//
+//        let backView: UIView = {
+//            let view = UIView()
+//            view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+//            view.translatesAutoresizingMaskIntoConstraints = false
+//            return view
+//        }()
+//
+//
+//        self.view.addSubview(backView)
+//
+//
+//        NSLayoutConstraint.activate([
+//            backView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+//            backView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+//            backView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+//            backView.topAnchor.constraint(equalTo: self.view.topAnchor)
+//        ])
+//
+//
         
         self.present(menu, animated: true, completion: nil)
         
@@ -506,6 +531,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                             if index.value["comments"] != nil{
                                 let message = index.value["comments"] as! [String: [String:Any]]
                                 
+//                                print(message.sorted { $0.key < $1.key }}
                                 
                                 self.messageArray.removeAll()
                                 for idx in message

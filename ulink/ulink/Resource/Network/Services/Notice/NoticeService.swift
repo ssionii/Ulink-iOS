@@ -79,51 +79,63 @@ struct NoticeService {
         
         var numberOfNotice : [Int] = [0,0,0]
 
-    
-        for i in 0...hwNotice.arrayValue.count-1
+        if hwNotice.arrayValue.count > 0
         {
-            
-            let noticeModel = SubjectNoticeData(
-                idx: hwNotice[i]["noticeIdx"].intValue,
-                Title: hwNotice[i]["title"].stringValue,
-                start: hwNotice[i]["startTime"].stringValue,
-                end: hwNotice[i]["endTime"].stringValue,
-                dateTime: hwNotice[i]["date"].stringValue)
-            
+            for i in 0...hwNotice.arrayValue.count-1
+            {
                 
-            hwList.append(noticeModel)
-            
-            
+                let noticeModel = SubjectNoticeData(
+                    idx: hwNotice[i]["noticeIdx"].intValue,
+                    Title: hwNotice[i]["title"].stringValue,
+                    start: hwNotice[i]["startTime"].stringValue,
+                    end: hwNotice[i]["endTime"].stringValue,
+                    dateTime: hwNotice[i]["date"].stringValue)
+                
+                    
+                hwList.append(noticeModel)
+                
+                
+            }
+        }
+    
+
+        if testNotice.arrayValue.count > 0
+        {
+            for j in 0...testNotice.arrayValue.count-1
+            {
+                
+                let noticeModel = SubjectNoticeData(
+                    idx: testNotice[j]["noticeIdx"].intValue,
+                    Title: testNotice[j]["title"].stringValue,
+                    start: testNotice[j]["startTime"].stringValue,
+                    end: testNotice[j]["endTime"].stringValue,
+                    dateTime: testNotice[j]["date"].stringValue)
+                
+                    
+                testList.append(noticeModel)
+            }
         }
         
-        for j in 0...testNotice.arrayValue.count-1
+        if classNotice.arrayValue.count > 0
         {
             
-            let noticeModel = SubjectNoticeData(
-                idx: testNotice[j]["noticeIdx"].intValue,
-                Title: testNotice[j]["title"].stringValue,
-                start: testNotice[j]["startTime"].stringValue,
-                end: testNotice[j]["endTime"].stringValue,
-                dateTime: testNotice[j]["date"].stringValue)
-            
-                
-            testList.append(noticeModel)
+                for l in 0...classNotice.arrayValue.count-1
+                {
+                    
+                    let noticeModel = SubjectNoticeData(
+                        idx: classNotice[l]["noticeIdx"].intValue,
+                        Title: classNotice[l]["title"].stringValue,
+                        start: classNotice[l]["startTime"].stringValue,
+                        end: classNotice[l]["endTime"].stringValue,
+                        dateTime: classNotice[l]["date"].stringValue)
+                    
+                        
+                    classList.append(noticeModel)
+                    
+                }
         }
-    
-        for l in 0...classNotice.arrayValue.count-1
-        {
-            
-            let noticeModel = SubjectNoticeData(
-                idx: classNotice[l]["noticeIdx"].intValue,
-                Title: classNotice[l]["title"].stringValue,
-                start: classNotice[l]["startTime"].stringValue,
-                end: classNotice[l]["endTime"].stringValue,
-                dateTime: classNotice[l]["date"].stringValue)
-            
-                
-            classList.append(noticeModel)
-            
-        }
+        
+
         noticeModelList.append(hwList)
         noticeModelList.append(testList)
         noticeModelList.append(classList)

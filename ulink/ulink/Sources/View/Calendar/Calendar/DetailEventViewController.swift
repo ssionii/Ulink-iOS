@@ -17,9 +17,6 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var detailEventTableView: UITableView!
     
-    var dummydummyData: [Event] = []
-    var dummyData: [EventList] = []
-    
     var numOfDetailCells: Int?
     var currentYear: Int?
     var currentMonth: Int?
@@ -35,10 +32,6 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     var todayYear = Calendar.current.component(.year, from: Date())
     var todayDate = Calendar.current.component(.day, from: Date())
     
-    //더미데이터입니다룰루루얼쟈ㅓㅇㅍㅊ
-    let eventName = ["영상처리 과제", "이름을 되게 길게 만들어볼까요 더더더더더더더", "소프트웨어개론 퀴즈"]
-    let category = [2, 1, 0]
-    let time = ["", "", "11:00"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +39,6 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         let colorView = UIView()
                colorView.backgroundColor = UIColor.clear
         UITableViewCell.appearance().selectedBackgroundView = colorView
-        
-        //더미더ㅣㅁ
-        dummydummyData = [Event(name: "소프트웨어공학", color: 1, notice_idx: 1, category: "시험", start_time: "9:00", end_time: "11:45", title: "중간고사"), Event(name: "창의적사고", color: 2, notice_idx: 1, category: "과제", start_time: "00:00", end_time: "23:59", title: "레포트 제출"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강"), Event(name: "소프트웨어공학", color: 1, notice_idx: 1, category: "시험", start_time: "9:00", end_time: "11:45", title: "중간고사")]
-        
-        dummyData = [EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-11", event: dummydummyData), EventList(date: "2020-07-13", event: dummydummyData), EventList(date: "2020-08-29", event: dummydummyData)]
         
         popUpView.layer.cornerRadius = 20
         
@@ -136,7 +124,7 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         if let notice = noticeList?[indexPath.row]{
             cell.set(notice)
         }
-        cell.changeViewColor(dummyData[indexPath.section].date)
+        //cell.changeViewColor(noticeList?[indexPath.section].date ?? "")
         
         return cell
     }

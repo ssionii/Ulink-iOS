@@ -229,7 +229,7 @@
                                         <rect key="frame" x="20" y="12.5" width="27" height="27"/>
                                         <state key="normal" image="ioMainScheduleBtnQuestion"/>
                                         <connections>
-                                            <segue destination="gHb-Ug-Jrr" kind="presentation" id="xdy-cu-ayG"/>
+                                            <segue destination="0Ba-nD-Gqi" kind="presentation" id="euG-z5-kty"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEe-az-hyi">
@@ -418,6 +418,14 @@
                 <swipeGestureRecognizer direction="right" id="Y5x-mp-tVu"/>
             </objects>
             <point key="canvasLocation" x="1775" y="-1278"/>
+        </scene>
+        <!--ColorPick-->
+        <scene sceneID="V4k-4D-oQk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ColorPick" id="0Ba-nD-Gqi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P9h-ae-SJt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="821" y="-794"/>
         </scene>
         <!--Search-->
         <scene sceneID="jFm-wj-5A6">

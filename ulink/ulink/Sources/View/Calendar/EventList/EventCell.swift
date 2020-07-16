@@ -48,7 +48,11 @@ class EventCell: UITableViewCell {
         if (contentInfo.category == "과제"){
             categoryLabel.backgroundColor = UIColor.pink
             categoryLabel.setTitle("과제", for: .normal)
-            timeLabel.text = contentInfo.endTime
+            if contentInfo.endTime == "-1"{
+                timeLabel.text = ""
+            } else {
+                timeLabel.text = contentInfo.endTime
+            }
         } else if (contentInfo.category == "수업"){
             categoryLabel.backgroundColor = UIColor.robinSEgg
             categoryLabel.setTitle("수업", for: .normal)
@@ -56,7 +60,11 @@ class EventCell: UITableViewCell {
         } else {
             categoryLabel.backgroundColor = UIColor.periwinkleBlue
             categoryLabel.setTitle("시험", for: .normal)
-            timeLabel.text = contentInfo.startTime
+            if contentInfo.startTime == "-1"{
+                timeLabel.text = ""
+            } else {
+                timeLabel.text = contentInfo.startTime
+            }
         }
     }
 
