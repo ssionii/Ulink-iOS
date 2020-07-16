@@ -17,7 +17,6 @@ class SplashViewController: UIViewController {
     let image = UIImage.animatedImage(named: "io_ulink_splash")
     
     
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,6 +14,7 @@ class DayCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var eventLabels: [UIButton]!
     
+    var colors = [UIColor.periwinkleBlueTwo, UIColor.babyPurple, UIColor.lightblue, UIColor.powderPink, UIColor.periwinkleBlue, UIColor.skyBlueTwo, UIColor.pink, UIColor.easterPurple, UIColor.robinSEgg, UIColor.skyBlue]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,13 +46,11 @@ class DayCell: UICollectionViewCell {
         }
     }
     
-    func setEvent(eventName: [String], color: [UIColor]){
-        print("eventColor", color)
-        print("eventcount", color.count)
-        for i in 0...color.count-1 {
+    func setEvent(eventName: [NoticeData]){
+        for i in 0...eventName.count-1 {
             eventLabels[i].isHidden = false
-            eventLabels[i].backgroundColor = color[i]
-            eventLabels[i].setTitle(eventName[i], for: .normal)
+            eventLabels[i].setTitle(eventName[i].name, for: .normal)
+            eventLabels[i].backgroundColor = colors[eventName[i].color]
         }
     }
     

@@ -675,6 +675,8 @@
                         <outlet property="filterImageView" destination="ecU-PX-u8l" id="Mk2-AJ-3Th"/>
                         <outlet property="filterLabel" destination="cTf-bt-egw" id="tdr-8H-nFd"/>
                         <outlet property="pageControlDots" destination="jCv-6v-wth" id="KxA-oI-Rvr"/>
+                        <outlet property="searchLabel" destination="adk-a5-brS" id="BsQ-cG-oni"/>
+                        <outlet property="searchView" destination="dlo-si-XSh" id="Z0X-X3-Pqc"/>
                         <outlet property="subjectInfoTableView" destination="Hzz-Yz-sig" id="P5F-I2-lao"/>
                         <outlet property="timeTableCollectionView" destination="7Ul-YN-mBj" id="V2U-8H-Cg5"/>
                     </connections>
