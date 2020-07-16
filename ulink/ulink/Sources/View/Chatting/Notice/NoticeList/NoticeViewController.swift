@@ -7,6 +7,7 @@ class NoticeViewController: UIViewController {
     @IBOutlet weak var noticeScrollView: UIScrollView!
     @IBOutlet weak var hwNoticeTableView: UITableView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var testNoticeTableView: UITableView!
     
     @IBOutlet weak var classNoticeTableView: UITableView!

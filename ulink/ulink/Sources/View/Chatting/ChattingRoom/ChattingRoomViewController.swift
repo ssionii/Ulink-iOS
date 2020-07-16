@@ -29,7 +29,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     
     
     var subjectIdx : Int = 0
-    var roomTitle : String = ""
+    public var roomTitle : String = ""
     var current : Int = 0
     
     
@@ -372,6 +372,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         menu.dismissDuration = 0.8 //  사라지는ep 보여주는데 걸리는 시간
         menu.completionCurve = .easeInOut
         
+        
+        vc.subjectTitle = roomTitle
+    
+        
   
 //
 //
@@ -398,6 +402,12 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         self.present(menu, animated: true, completion: nil)
         
 
+    }
+    
+    
+    func protocolTitleData(data: String){
+        
+        
     }
     
     

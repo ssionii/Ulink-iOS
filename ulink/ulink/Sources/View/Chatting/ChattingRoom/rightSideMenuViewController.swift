@@ -16,18 +16,23 @@ extension NSNotification.Name {
 
 class rightSideMenuViewController: UIViewController {
 
+    @IBOutlet weak var subjectTitleLabel: UILabel!
+    
+    
     @IBOutlet weak var noticeBlock: UIView!
     @IBOutlet weak var photoBlock: UIView!
     
     @IBOutlet weak var QnABlock: UIView!
     @IBOutlet weak var fileBlock: UIView!
     
-    
+    var subjectTitle : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hideNavigationBar()
         
+        
+        self.subjectTitleLabel.text = "roomTitle"
         
         addGesture()
         

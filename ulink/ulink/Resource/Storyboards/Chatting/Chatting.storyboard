@@ -684,6 +684,7 @@
                         <outlet property="fileBlock" destination="QNc-jm-mEm" id="43v-1v-dWC"/>
                         <outlet property="noticeBlock" destination="WMe-Mb-GF9" id="qcm-Fr-L0e"/>
                         <outlet property="photoBlock" destination="9fE-SG-Lft" id="nDf-q7-DO7"/>
+                        <outlet property="subjectTitleLabel" destination="XBn-xy-3OG" id="KdQ-xt-3hL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Is7-bk-Kyq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1108,6 +1109,7 @@
                         <outlet property="hwNoticeTableView" destination="8oQ-QV-HfV" id="iEG-qk-md0"/>
                         <outlet property="noticeScrollView" destination="q3l-qH-Db4" id="FBn-EG-rh0"/>
                         <outlet property="testNoticeTableView" destination="rV0-gt-3F6" id="bdl-BK-cUQ"/>
+                        <outlet property="titleLabel" destination="f0a-tR-pVU" id="wet-Yl-2B7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soz-W3-omh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

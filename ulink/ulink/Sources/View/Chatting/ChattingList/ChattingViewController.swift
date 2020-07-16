@@ -234,6 +234,8 @@ class ChattingViewController: UIViewController {
     func hideNaviBar(){
         
         
+        
+        
         self.navigationController?.navigationBar.isHidden = true
     }
     

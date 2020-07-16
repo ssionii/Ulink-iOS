@@ -150,8 +150,11 @@
                                     <constraint firstAttribute="height" constant="62" id="iMR-U1-qoG"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginImgBg" translatesAutoresizingMaskIntoConstraints="NO" id="QHt-Up-tby">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QHt-Up-tby">
                                 <rect key="frame" x="0.0" y="-44" width="375" height="187"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="187" id="NFF-xY-4gh"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,6 +162,7 @@
                             <constraint firstItem="vje-mO-Tzd" firstAttribute="top" secondItem="QHt-Up-tby" secondAttribute="bottom" constant="80" id="0qE-sK-swN"/>
                             <constraint firstItem="QHt-Up-tby" firstAttribute="leading" secondItem="ion-HE-PxW" secondAttribute="leading" id="DPm-FT-UT5"/>
                             <constraint firstItem="vje-mO-Tzd" firstAttribute="centerX" secondItem="Lyi-Av-wpd" secondAttribute="centerX" id="GEX-mP-4Ls"/>
+                            <constraint firstItem="QHt-Up-tby" firstAttribute="centerX" secondItem="Lyi-Av-wpd" secondAttribute="centerX" id="gMO-WY-eeK"/>
                             <constraint firstItem="0jn-Hp-N5U" firstAttribute="top" secondItem="QHt-Up-tby" secondAttribute="bottom" constant="22" id="rDd-eG-lYL"/>
                             <constraint firstItem="QHt-Up-tby" firstAttribute="top" secondItem="ion-HE-PxW" secondAttribute="top" constant="-44" id="uGP-9S-Y8b"/>
                             <constraint firstItem="0jn-Hp-N5U" firstAttribute="centerX" secondItem="Lyi-Av-wpd" secondAttribute="centerX" id="utm-JH-68h"/>
@@ -168,6 +172,7 @@
                     <navigationItem key="navigationItem" id="HnE-bn-xy3"/>
                     <connections>
                         <outlet property="loginButton" destination="xQx-Db-y3r" id="bpX-BJ-dcs"/>
+                        <outlet property="loginImage" destination="QHt-Up-tby" id="T7r-r3-bse"/>
                         <outlet property="mainLogoImage" destination="0jn-Hp-N5U" id="Tep-uV-gdj"/>
                         <outlet property="nameTextField" destination="ZA4-kx-q2c" id="WJV-qw-PI1"/>
                         <outlet property="pwTextField" destination="46E-Vt-268" id="cZS-ZU-6Gm"/>
@@ -375,7 +380,6 @@
         <image name="loginBtnBottomrbox" width="256" height="35"/>
         <image name="loginBtnCheckboxUnselected" width="22" height="22"/>
         <image name="loginIcUlink" width="146" height="62"/>
-        <image name="loginImgBg" width="375" height="187"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="tabbarIcClassSelected" width="30" height="24"/>
         <image name="tabbarIcClassUnselected" width="30" height="24"/>

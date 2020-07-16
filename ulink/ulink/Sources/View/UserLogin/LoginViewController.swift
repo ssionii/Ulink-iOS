@@ -12,6 +12,7 @@ import Firebase
 import FirebaseAuth
 import Alamofire
 import SwiftyJSON
+import GIFImageView
 
 
 
@@ -23,9 +24,16 @@ import SwiftyJSON
 class LoginViewController: UIViewController {
     
 
-
+    @IBOutlet weak var loginImage: UIImageView!
+    
     @IBOutlet weak var mainLogoImage: UIImageView!
     @IBOutlet weak var viewTopConstraint: NSLayoutConstraint!
+    
+    
+    let image = UIImage.animatedImage(named: "io_login_img")
+     
+     
+    
 
     
     
@@ -52,6 +60,8 @@ class LoginViewController: UIViewController {
             
             self.navigationController?.navigationBar.isHidden = true
             
+            
+            self.loginImage.image = image
 
             
             
