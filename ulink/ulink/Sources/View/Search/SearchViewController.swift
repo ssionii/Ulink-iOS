@@ -9,6 +9,10 @@
 import UIKit
 import RealmSwift
 
+protocol SearchVCDelegate{
+    func searchedSubjectName(_ subjectName: String)
+}
+
 class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var searchView: UIView!
@@ -29,6 +33,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     var serverData: [String] = []
     
     var type = "과목명"
+    
+    public var delegate: SearchVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +57,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
                     case .success(let tokenData):
                         guard let token = tokenData as? [String] else {return}
                         self.serverData = token
-                        
-                        print(self.serverData)
                         
                         self.searchTableView.reloadData()
                     case .requestErr:
@@ -130,9 +134,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if headerView.isHidden == true {
             searchTextField.text = serverData[indexPath.row]
+            self.delegate?.searchedSubjectName(searchTextField.text ?? "")
+            self.dismiss(animated: true, completion: nil)
         } else {
             let savedDates = realm.objects(SearchedListData.self)
             searchTextField.text = savedDates[indexPath.row].searched
+            self.delegate?.searchedSubjectName(searchTextField.text ?? "")
+            self.dismiss(animated: true, completion: nil)
+
         }
     }
     
@@ -149,6 +158,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         self.headerView.frame = CGRect(x: 0, y: 0, width: self.headerView.frame.width, height: 0)
         headerView.isHidden = true
         searchTableView.reloadData()
+        
         return true
     }
     
@@ -167,17 +177,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         }
 
         //통신 후 데이터 다음 뷰로 넘겨주기:D
-        
         searchTableView.reloadData()
+        
+        self.delegate?.searchedSubjectName(searchTextField.text ?? "")
+        self.dismiss(animated: true, completion: nil)
+        
         return true
     }
 
     //텍스트필드 칠때마다 값 받아오기
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         currentText = textField.text! + string
-        //print("오오잉", currentText)
-        //요기서 통신 가능???
-        //요기서 테이블뷰 업데이트 가능???
         getDataFromServer(currentString: currentText)
         searchTableView.reloadData()
         return true

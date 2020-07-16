@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol GradeSelectVCDelegate {
+    func selectedGrade(_ grade: Int)
+}
+
 class GradeSelectViewController: UIViewController {
 
     @IBOutlet weak var stringLabel: UILabel!
@@ -16,12 +20,13 @@ class GradeSelectViewController: UIViewController {
     
     var grade: Int = 0
     
+    public var delegate: GradeSelectVCDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setColor()
-        
     }
     
     func setColor(){
@@ -40,18 +45,24 @@ class GradeSelectViewController: UIViewController {
     }
     
     @IBAction func selectGrade1(_ sender: Any) {
-        grade = 1
+        self.delegate?.selectedGrade(1)
+        print("호출")
+        self.dismiss(animated: false, completion: nil)
     }
     @IBAction func selectGrade2(_ sender: Any) {
-        grade = 2
+        self.delegate?.selectedGrade(2)
+        self.dismiss(animated: false, completion: nil)
     }
     @IBAction func selectGrade3(_ sender: Any) {
-        grade = 3
+        self.delegate?.selectedGrade(3)
+        self.dismiss(animated: false, completion: nil)
     }
     @IBAction func selectGrade4(_ sender: Any) {
-        grade = 4
+        self.delegate?.selectedGrade(4)
+        self.dismiss(animated: false, completion: nil)
     }
     @IBAction func selectGrade5(_ sender: Any) {
-        grade = 5
+        self.delegate?.selectedGrade(5)
+        self.dismiss(animated: false, completion: nil)
     }
 }
