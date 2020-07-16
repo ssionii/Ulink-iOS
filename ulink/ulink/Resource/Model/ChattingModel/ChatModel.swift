@@ -24,6 +24,12 @@ class ChatModel: Mappable {
     public var comments : Dictionary<String,Comment> = [:] // 채팅방의 대화내용
     
     
+    
+    
+    
+    
+    
+    
     func mapping(map: Map) {
         
         title <- map["title"]

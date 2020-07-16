@@ -20,5 +20,9 @@ target 'ulink' do
   pod 'RealmSwift' 
   pod 'SwiftyJSON','~>4.0'
   pod 'BEMCheckBox'
+  pod 'lottie-ios'
+  pod 'SwiftGifOrigin', '~> 1.7.0'
+  pod 'GIFImageView'
+
 
 end

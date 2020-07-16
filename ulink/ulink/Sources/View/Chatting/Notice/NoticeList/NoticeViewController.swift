@@ -1,5 +1,6 @@
 
 import UIKit
+import Alamofire
 
 class NoticeViewController: UIViewController {
 
@@ -9,50 +10,143 @@ class NoticeViewController: UIViewController {
     @IBOutlet weak var testNoticeTableView: UITableView!
     
     @IBOutlet weak var classNoticeTableView: UITableView!
-    var hwNoticeInfoArray : [noticeInformation] = []
-    var testNoticeInfoArray : [noticeInformation] = []
-    var classNoticeInfoArray : [noticeInformation] = []
-
+    
+     var hwNoticeInfoArray : [noticeInformation] = []
+     var testNoticeInfoArray : [noticeInformation] = []
+     var classNoticeInfoArray : [noticeInformation] = []
+    
+    var subjectIDX : Int = 0 
+    var roomtitle : String = ""
     
     override func viewDidLoad() {
-        setNoticeInfo()
+        loadNoticeData()
         super.viewDidLoad()
         
+    
         
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+ 
+        
+
         tableViewStyleSet()
-        
-        
+
+//
         hwNoticeTableView.delegate = self
         hwNoticeTableView.dataSource = self
-//        hwNoticeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "noticeCell")
-//
-//
-//        testNoticeTableView.delegate = self
-//        testNoticeTableView.dataSource = self
-//        testNoticeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "noticeCell")
-//
-//
-//        classNoticeTableView.delegate = self
-//        classNoticeTableView.dataSource = self
-//        classNoticeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "noticeCell")
-
 
         
+        testNoticeTableView.delegate = self
+        testNoticeTableView.dataSource = self
+//        testNoticeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "noticeCellTwo")
+
+        
+        classNoticeTableView.delegate = self
+        classNoticeTableView.dataSource = self
+//        classNoticeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "noticeCellThree")
+//
+
 
     }
     
-    @IBAction func detailButtonClicked(_ sender: Any) {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let index = hwNoticeTableView.indexPathForSelectedRow {
+            hwNoticeTableView.deselectRow(at: index, animated: true)
+        }
+        
+        if let index = testNoticeTableView.indexPathForSelectedRow {
+            testNoticeTableView.deselectRow(at: index, animated: true)
+        }
+        
+        
+        
+        if let index = classNoticeTableView.indexPathForSelectedRow {
+            classNoticeTableView.deselectRow(at: index, animated: true)
+        }
+        
+        
+    }
+    
+    
+    
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        
+        print("LoastList!")
+        
+        DispatchQueue.main.async {
+            self.hwNoticeInfoArray.removeAll()
+            self.testNoticeInfoArray.removeAll()
+            self.classNoticeInfoArray.removeAll()
+            
+            self.loadNoticeData()
+        }
+
+    }
+    
+    @IBAction func goToHwDetail(_ sender: Any) {
         
         // 더보기 탭으로 넘어가야 한다구~~~~~
         
         
         guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else { return }
         
+
+        chattingRoomViewController.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
+               
+        
+        chattingRoomViewController.categoryIdx = 1
+
         self.navigationController?.pushViewController(chattingRoomViewController, animated: true)
     }
+    
+    
+    @IBAction func goToTestDetail(_ sender: Any) {
+        
+        guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else { return }
+        
+        
+        
+        chattingRoomViewController.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
+
+        chattingRoomViewController.categoryIdx = 2
+        
+        self.navigationController?.pushViewController(chattingRoomViewController, animated: true)
+    }
+    
+    
+    @IBAction func goToClassDetail(_ sender: Any) {
+        
+        guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else { return }
+        
+        chattingRoomViewController.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
+
+        
+        chattingRoomViewController.categoryIdx = 3
+
+        
+        self.navigationController?.pushViewController(chattingRoomViewController, animated: true)
+    }
+    
+    
+    
     @IBAction func backButtonClicked(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func AddNoticeButtonClicked(_ sender: Any) {
+        
+        
+        guard let noticeAddVC = self.storyboard?.instantiateViewController(identifier: "NoticeEditModeViewController") as? NoticeEditModeViewController else {return }
+        
+        noticeAddVC.modalPresentationStyle = .automatic
+        
+        noticeAddVC.subjectIdx = subjectIDX
+        noticeAddVC.editModeOn = 0 // 0 이 수정이 아닌 추가를 하겠다는 의미!!!
+        self.present(noticeAddVC, animated: true, completion: nil)
+        
+    }
+    
     
 
     @IBAction func homeButtonClicked(_ sender: Any) {
@@ -64,7 +158,78 @@ class NoticeViewController: UIViewController {
     }
     
     
-    
+    func loadNoticeData(){
+        
+        
+        
+        NoticeService.shared.getSubjectNotice(subjectIdx: 1) { networkResult in
+            switch networkResult{
+                
+            case .success(let noticeList, let numberOfNotice):
+                
+      
+                
+                guard let noticeList = noticeList as? [[SubjectNoticeData]] else { return }
+                guard let numberOfNotice = numberOfNotice as? [Int] else {return}
+                
+                
+                if numberOfNotice[0] > 0
+                {
+                    for i in 0...numberOfNotice[0]-1 // 과제 공지 부분
+                    {
+                        let noticeData = noticeInformation(title: noticeList[0][i].title , start: noticeList[0][i].startTime, end: noticeList[0][i].endTime, Date: noticeList[0][i].date, idx: noticeList[0][i].noticeIdx
+                                                           )
+                        
+                        self.hwNoticeInfoArray.append(noticeData)
+                        
+                    }
+                }
+
+                
+                if numberOfNotice[1] > 0
+                {
+                    for i in 0...numberOfNotice[1]-1 // 시험 공지 부분
+                    {
+                        let noticeData = noticeInformation(title: noticeList[1][i].title , start: noticeList[1][i].startTime, end: noticeList[1][i].endTime, Date: noticeList[1][i].date, idx: noticeList[1][i].noticeIdx)
+                        
+                        self.testNoticeInfoArray.append(noticeData)
+                    }
+                }
+
+                
+                
+                if numberOfNotice[2] > 0
+                {
+                        for i in 0...numberOfNotice[2]-1 // 수업 공지 부분
+                        {
+                            let noticeData = noticeInformation(title: noticeList[2][i].title , start: noticeList[2][i].startTime, end: noticeList[2][i].endTime, Date: noticeList[2][i].date, idx: noticeList[2][i].noticeIdx)
+                            
+                            self.classNoticeInfoArray.append(noticeData)
+                        }
+                    
+                }
+                
+
+                
+                
+            default:
+                print("fail")
+
+                
+            }
+            
+            
+        
+            self.hwNoticeTableView.reloadData()
+            self.testNoticeTableView.reloadData()
+            self.classNoticeTableView.reloadData()
+            
+
+            
+        }
+        
+
+    }
     
     
     
@@ -104,38 +269,7 @@ class NoticeViewController: UIViewController {
     }
     
     
-    private func setNoticeInfo(){
-        
-        let hwNotice1 = noticeInformation(title: "6/13 3차 과제", subtitle:"이거 해와야됨")
-        let hwNotice2 = noticeInformation(title: "6/18 중간 대체 과제 마감", subtitle:"우야~~~")
 
-        let hwNotice3 = noticeInformation(title: "6/20 레포트 제출 마감", subtitle:"살려줘~~")
-        
-        let hwNotice4 = noticeInformation(title: "7/1 레포트 제출 2차 마감", subtitle:"늴리리리야~~~")
-        
-        
-        hwNoticeInfoArray = [hwNotice1,hwNotice2,hwNotice3,hwNotice4]
-        
-        let testNotice1 = noticeInformation(title:"안녕~~",subtitle: "hellO")
-        
-        testNoticeInfoArray = [testNotice1]
-        
-        let classNotice1 = noticeInformation(title:"????", subtitle: "asdqwcz")
-        
-        classNoticeInfoArray = [classNotice1]
-        
-
-        
-        
-        
-        
-
-
-
-
-        
-        
-    }
 }
 
 
@@ -146,101 +280,197 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         
         if tableView == hwNoticeTableView{
             return hwNoticeInfoArray.count
-
+            
         }
-        
-        
+            
+            
         else if tableView == testNoticeTableView{
+
+            
             return testNoticeInfoArray.count
+//            return testNoticeInfoArray.count
         }
-        
+            
         else{
             return classNoticeInfoArray.count
         }
     }
     
+    
+
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
+        
+        
+        if tableView == hwNoticeTableView{
 
-        
-        
-        
-        
-//
-//        if tableView == hwNoticeTableView{
 
-            
+
+
             guard let noticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCell", for: indexPath) as? NoticeTableViewCell
-            else { return UITableViewCell() }
-            
-            noticeCell.setInformation(title: hwNoticeInfoArray[indexPath.row].title, subtitle: hwNoticeInfoArray[indexPath.row].subTitle)
-            
-            
-            
-        let bgColorView = UIView()
+                else { return UITableViewCell() }
+
+
+
+            noticeCell.setInformation(
+                title: hwNoticeInfoArray[indexPath.row].title,
+                start: hwNoticeInfoArray[indexPath.row].startTime,
+                end: hwNoticeInfoArray[indexPath.row].endTime,
+                date: hwNoticeInfoArray[indexPath.row].date)
+
+
+
+            let bgColorView = UIView()
             bgColorView.backgroundColor = .noticeColorOneSelected
             noticeCell.selectedBackgroundView = bgColorView
 
 
             noticeCell.layer.borderColor = .none
+
+
+            return noticeCell
+
+
+        }
+            
+        if tableView == testNoticeTableView{
+            
+
+            
+            guard let noticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCellTwo", for: indexPath) as? NoticeTableViewCellTwo
+                
+                else { return UITableViewCell() }
+            
+            print(testNoticeInfoArray)
+            
+            
+            noticeCell.setInformation(
+                Title: testNoticeInfoArray[indexPath.row].title,
+                start: testNoticeInfoArray[indexPath.row].startTime,
+                end: testNoticeInfoArray[indexPath.row].endTime,
+                date: testNoticeInfoArray[indexPath.row].date)
+            
+            
+            
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = .noticeColorTwoSelected
+            noticeCell.selectedBackgroundView = bgColorView
+            
+            
+            noticeCell.layer.borderColor = .none
             
             
             return noticeCell
             
-            
         }
-//
-//        else if tableView == testNoticeTableView{
-//
-//
-//            guard let noticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCell", for: indexPath) as? NoticeTableViewCell
-//            else { return UITableViewCell() }
-//
-//            noticeCell.setInformation(title: testNoticeInfoArray[indexPath.row].title, subtitle: testNoticeInfoArray[indexPath.row].subTitle)
-//
-//
-//            noticeCell.layer.borderColor = .none
-//
-//
-//            return noticeCell
-//
-//        }
-//
-//        else{
-//
-//
-//            guard let noticeCell = tableView.dequeueReusableCell(withIdentifier:"noticeCell", for: indexPath) as? NoticeTableViewCell
-//            else { return UITableViewCell() }
-//
-//
-//            noticeCell.setInformation(title: classNoticeInfoArray[indexPath.row].title, subtitle: classNoticeInfoArray[indexPath.row].subTitle)
-//
-//            noticeCell.layer.borderColor = .none
-//
-//
-//             return noticeCell
-//        }
-//
-//
-//
+            
+        else{
+            
+            
+
+            
+            
+            guard let noticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCellThree", for: indexPath) as? NoticeTableViewCellThree
+                else { return UITableViewCell() }
+            
+            
+            
+            noticeCell.setInformation(
+                Title: classNoticeInfoArray[indexPath.row].title,
+                start: classNoticeInfoArray[indexPath.row].startTime,
+                end: classNoticeInfoArray[indexPath.row].endTime,
+                date: classNoticeInfoArray[indexPath.row].date)
+            
+            
+            
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = .noticeColorThreeSelected
+            noticeCell.selectedBackgroundView = bgColorView
+            
+            
+            noticeCell.layer.borderColor = .none
+            
+            
+            return noticeCell
+        }
         
+        
+        
+    }
         
         
 
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+            return 45
+    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+
+        
+        guard let noticeDetailVC = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else {
+            return }
+        
+        
+        guard let noticeViewController = self.storyboard?.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else {
+            return }
+        
+        
+
+        if tableView == hwNoticeTableView{
+            
+            
+            
+            noticeViewController.noticeIdx = hwNoticeInfoArray[indexPath.row].noticeIdx
+            
+            noticeDetailVC.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
+            
+            print("지금 뭐여")
+            print(hwNoticeInfoArray[indexPath.row].noticeIdx)
+            noticeViewController.cateogoryIdx = hwNoticeInfoArray[indexPath.row].noticeIdx
+            
+            
+            
+            
+        }
+            
+        else if tableView == testNoticeTableView{
+            
+            print("지금 뭐여2")
+            
+            noticeDetailVC.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
+            noticeViewController.noticeIdx = testNoticeInfoArray[indexPath.row].noticeIdx
+            noticeViewController.cateogoryIdx = 2
+            
+        }
+        
+        
+        else{
+            
+            
+            
+            print("지금 뭐여3")
+            
+            
+            noticeDetailVC.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
+            noticeViewController.noticeIdx = classNoticeInfoArray[indexPath.row].noticeIdx
+            noticeViewController.cateogoryIdx = 3
+            
+        }
+        
+        
         
         
 
         
-        let storyBoard = UIStoryboard.init(name: "Chatting", bundle: nil)
-        let popupVC = storyBoard.instantiateViewController(withIdentifier: "NoticeEditViewController")
         
         
-        
-        self.navigationController?.pushViewController(popupVC, animated: true)
+        self.navigationController?.pushViewController(noticeViewController, animated: true)
         
 
 
