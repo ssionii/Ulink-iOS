@@ -9,7 +9,6 @@
 import UIKit
 
 class TimeTableSettingViewController: UIViewController {
-
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var botLayout: NSLayoutConstraint!
@@ -24,19 +23,15 @@ class TimeTableSettingViewController: UIViewController {
     @IBOutlet weak var saveImageView: UIView!
     @IBOutlet weak var moveToTrashView: UIView!
     
-    public var timeTableIdx = 0
+    var timeTableIdx = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        print("viewDidLoad")
-      
+       
+        print("timeTableIdx at ViewDidLoad", timeTableIdx)
+        setViewTap()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("viewDIdAppear")
-          setViewTap()
-    }
     
     override func viewWillAppear(_ animated: Bool){
         isDismiss ? disAppearAnim() : appearAnim()
@@ -53,9 +48,12 @@ class TimeTableSettingViewController: UIViewController {
     public func setTimeTableIdx(idx: Int){
         print("setTImeTableIdx")
         timeTableIdx = idx
+        print("timeTalbl", timeTableIdx)
     }
     
     private func setViewTap(){
+        print(1)
+        print(timeTableIdx)
         setMainTimeTableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setMainTimeTable)))
         
         changeStyleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goChangeStyleVC)))
@@ -82,10 +80,12 @@ class TimeTableSettingViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    
     @objc func setMainTimeTable(sender:UIGestureRecognizer){
-        
+        print(2)
+               print(timeTableIdx)
         self.updateMainTimeTable()
+        print(3)
+               print(timeTableIdx)
     }
     
     @objc func goChangeStyleVC(sender:UIGestureRecognizer){
@@ -99,6 +99,8 @@ class TimeTableSettingViewController: UIViewController {
     @objc func moveToTrash(sender:UIGestureRecognizer){
         print("시간표 삭제")
     }
+    
+    
     
     func updateMainTimeTable(){
            print("getTimeTable")
