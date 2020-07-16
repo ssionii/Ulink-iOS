@@ -62,13 +62,23 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     @IBAction func tapMajorFilter(_ sender: UIButton) {
         
-        
+         let storyboard = UIStoryboard(name:"Filter", bundle: nil)
+               
+               guard let nextVC = storyboard.instantiateViewController(identifier: "majorFilterViewController") as? MajorFilterViewController else { return }
+               
+               nextVC.modalPresentationStyle = .fullScreen
+               present(nextVC, animated: true, completion: nil)
     }
-    
     
     
     @IBAction func tapStandarFilter(_ sender: Any) {
         
+        let storyboard = UIStoryboard(name:"Filter", bundle: nil)
+                      
+        guard let nextVC = storyboard.instantiateViewController(identifier: "NormalFilterViewController") as? NormalFilterViewController else { return }
+                      
+        nextVC.modalPresentationStyle = .fullScreen
+        present(nextVC, animated: true, completion: nil)
         
     }
     
