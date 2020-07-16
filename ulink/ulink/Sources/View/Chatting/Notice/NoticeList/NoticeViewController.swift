@@ -16,7 +16,7 @@ class NoticeViewController: UIViewController {
      var classNoticeInfoArray : [noticeInformation] = []
     
     var subjectIDX : Int = 0 
-
+    var roomtitle : String = ""
     
     override func viewDidLoad() {
         loadNoticeData()
@@ -25,7 +25,7 @@ class NoticeViewController: UIViewController {
     
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-
+ 
         
 
         tableViewStyleSet()

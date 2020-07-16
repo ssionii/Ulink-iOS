@@ -16,8 +16,7 @@ class SplashViewController: UIViewController {
     
     let animationView = AnimationView()
     
-    let jeremyGif = UIImage.gifWithName("jeremy")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -31,7 +30,7 @@ class SplashViewController: UIViewController {
         
         animationView.frame = view.bounds
         
-        animationView.animation = Animation.named("io_ulink_splash")
+        animationView.animation = Animation.named("io_ulink_splash_iphonese")
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()

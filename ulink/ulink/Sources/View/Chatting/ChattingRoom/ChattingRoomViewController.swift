@@ -23,9 +23,16 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     
+    var subjectIdx : Int = 0
+    var roomTitle : String = ""
+    var current : Int = 0
+    
+    
     
     var comments : [ChatModel.Comment] = []
     var userModel: UserModel?
+    
+    
     
     var messageArray : [MessageModel] = []
     
@@ -39,8 +46,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     public var tempTitle : String?
     public var chattingRoomTitle : String?
 
-    var roomTitle : String = ""
-    
+
     
     
     
@@ -53,7 +59,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
         
         
-        vc.subjectIDX = 1
+        vc.roomtitle = tempTitle ?? "공지"
+        vc.subjectIDX = subjectIdx
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -68,7 +75,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         addObserver()
         uid = UserDefaults.standard.string(forKey: "uid")
         
-
+        
+       
         
         
         
@@ -80,8 +88,6 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         hideBar()
-//        setChattingRoomInfo()
-
         checkChatRoom()
         
    
@@ -167,7 +173,6 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         self.view.endEditing(true)
     }
     
-        
 
 
     
@@ -213,15 +218,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
         if(messageArray[indexPath.row].uid == uid) // 이게 내 메세지면은
         {
-//            let view = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
-//            view.label_message.text = self.comments[indexPath.row].message
-//            view.label_message.numberOfLines = 0
-//
-//            view.layer.borderColor = .none
-//
-//            return view
-            
-            
+
             let view =  tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
             view.labelMessage.text = self.messageArray[indexPath.row].message
             view.labelMessage.numberOfLines = 0
@@ -492,7 +489,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 if self.destinationUid == item.key{     // 해당 방의 정보만 불러와야 한다!
                     
-                
+                    
+        
                     
                     
                     
@@ -517,14 +515,14 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                     //여기서 무슨 느낌이냐면 바로 먹고 나가야됨
                         
                         
-                        if index.value["title"] as? String == self.tempTitle // 같은 제목에 있는 거만 불러와야됨
+                        if index.value["title"] as? String == "안드" // 같은 제목에 있는 거만 불러와야됨
                         {
                             
                             
-                            self.roomTitle = index.value["title"] as? String ?? "수업채팅방"
+//                            self.roomTitle = index.value["title"] as? String ?? "수업채팅방"
                             
                             
-                            self.chattingTitleLabel.text = self.roomTitle
+                            self.chattingTitleLabel.text = self.tempTitle
                             
                             
                             

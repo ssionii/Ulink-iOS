@@ -80,6 +80,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="chattingImage" destination="R00-Dv-LuF" id="3SC-9g-5ar"/>
                                             <outlet property="chattingNumberBadge" destination="uen-FL-jYr" id="vuF-ZQ-IrJ"/>
                                             <outlet property="chattingRoomTitle" destination="3ar-1H-6ND" id="A8g-eH-Gbw"/>
                                             <outlet property="chattingUserCountLabel" destination="1UN-s3-gOC" id="Wzb-Wh-Zmg"/>
