@@ -42,9 +42,7 @@ struct MainTimeTableService {
     }
     
     func updateMainTimeTable(idx:Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-        
-        print("hello")
-        
+
         Alamofire.request(APIConstants.mainTimeTable + "/\(idx)", method : .put, encoding: JSONEncoding.default, headers: header).responseJSON {
             response in
             
@@ -71,6 +69,8 @@ struct MainTimeTableService {
             }else {
                 return .success(0, 0)
             }
+        case 201:
+            return .success(0, 0)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
@@ -99,3 +99,4 @@ struct MainTimeTableService {
         return .success(timeTableModel, subjectList)
     }
 }
+

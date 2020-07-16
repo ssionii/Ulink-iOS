@@ -70,6 +70,8 @@
 		B5DBF3E024BFA6B40013BB33 /* TimeTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */; };
 		B5DBF3E224C04BBA0013BB33 /* PersonalScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3E124C04BBA0013BB33 /* PersonalScheduleModel.swift */; };
 		B5F025D224C0FE40007403C9 /* TimeTableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F025D124C0FE3F007403C9 /* TimeTableContainer.swift */; };
+		B5F025D424C113C5007403C9 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F025D324C113C5007403C9 /* SearchService.swift */; };
+		B5F025D624C11BDE007403C9 /* TimeTableSettingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F025D524C11BDE007403C9 /* TimeTableSettingService.swift */; };
 		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
@@ -198,6 +200,8 @@
 		B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableService.swift; sourceTree = "<group>"; };
 		B5DBF3E124C04BBA0013BB33 /* PersonalScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalScheduleModel.swift; sourceTree = "<group>"; };
 		B5F025D124C0FE3F007403C9 /* TimeTableContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableContainer.swift; sourceTree = "<group>"; };
+		B5F025D324C113C5007403C9 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		B5F025D524C11BDE007403C9 /* TimeTableSettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableSettingService.swift; sourceTree = "<group>"; };
 		B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListCell.swift; sourceTree = "<group>"; };
 		B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListHeader.swift; sourceTree = "<group>"; };
 		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
@@ -445,6 +449,7 @@
 				B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */,
 				B590A30E24C05133006637D0 /* PersonalScheduleService.swift */,
 				B590A31024C0593B006637D0 /* SubjectService.swift */,
+				B5F025D524C11BDE007403C9 /* TimeTableSettingService.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				B590A31424C0BFF8006637D0 /* CartService.swift */,
+				B5F025D324C113C5007403C9 /* SearchService.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -1060,6 +1066,7 @@
 				B52F9DEA24BE129000B57CA1 /* SubjectInfoCell.swift in Sources */,
 				FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */,
 				FDFA3A8324BCE7B700CB8939 /* NormalFilterViewController.swift in Sources */,
+				B5F025D624C11BDE007403C9 /* TimeTableSettingService.swift in Sources */,
 				FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */,
 				FD19DC1224AD03D6000C2AEC /* ChattingTableViewCell.swift in Sources */,
 				B5D26A4A24B5E7E60047A2DC /* CreateNewSheetCell.swift in Sources */,
@@ -1135,6 +1142,7 @@
 				299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */,
 				29C6BB5F24BD9EF20026747C /* CalendarData.swift in Sources */,
 				FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */,
+				B5F025D424C113C5007403C9 /* SearchService.swift in Sources */,
 				B595298F24BCD592008139E6 /* CustomPickerViewController.swift in Sources */,
 				29AC520E24BB838A0007E019 /* Databases.swift in Sources */,
 			);

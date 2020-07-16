@@ -36,21 +36,6 @@ struct PersonalScheduleService {
 
     }
     
-    private func makeListToString(_ model : PersonalScheduleModel)-> String{
-        
-        var text = "{\"name\" : \"\(model.name)\","
-        text +=  "\"startTime\" : \"\(model.startTime)\","
-        text +=  "\"endTime\" : \"\(model.endTime)\","
-        text +=  "\"day\" : \(model.day),"
-        text +=  "\"content\" : \"\(model.content)\","
-        text +=  "\"color\" : \(model.color),"
-        text +=  "\"scheduleIdx\" : \(model.scheduleIdx)}"
-        
-        return text
-    }
-    
-
-    
     let header: HTTPHeaders = [
         "Content-Type" : "application/json",
         "token" : UserDefaults.standard.object(forKey: "token") as! String
