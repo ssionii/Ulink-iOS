@@ -8,12 +8,20 @@
 
 import UIKit
 
-class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource, SubjectInfoCellDelegate {
+class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource, SubjectInfoCellDelegate, GradeSelectVCDelegate, SearchVCDelegate {
+    
+    
+    
+    //var gradeSelect: GradeSelectViewController?
+
+    
    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeTableCollectionView: UICollectionView!
     @IBOutlet weak var pageControlDots: UIPageControl!
     @IBOutlet weak var subjectInfoTableView: UITableView!
+    
+    @IBOutlet weak var searchView: UIView!
     
     // button
     @IBOutlet weak var filterAndSearchView: UIView!
@@ -25,6 +33,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var candidateImageView: UIImageView!
     @IBOutlet weak var candidateLabel: UILabel!
     @IBOutlet weak var candidateBottomView: UIView!
+    
+    @IBOutlet weak var searchLabel: UILabel!
     
     private var isCandidateView = false
     
@@ -85,6 +95,9 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        setupGestureRecognizer()
+        
         setBackgroundView()
         setTimeTableList()
         setSubjectInfoList()
@@ -94,6 +107,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         setSubjectInfoTableView()
         // setCollectionView()
         
+        
         timeTableCollectionView.dataSource = self
         timeTableCollectionView.delegate = self
         
@@ -101,6 +115,39 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         subjectInfoTableView.delegate = self
        
     }
+    
+    
+    //학년 선택 팝업 창 뜨는 코드 by 성은
+    override func viewDidAppear(_ animated: Bool) {
+        let sb = UIStoryboard(name: "Search", bundle: nil)
+        
+        guard let popUpVC = sb.instantiateViewController(identifier: "gradeSelect") as? GradeSelectViewController else {return}
+        
+        popUpVC.delegate = self
+        
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        present(popUpVC, animated: false, completion: nil)
+    }
+    
+    //검색 뷰 클릭 코드 by 성은
+    func setupGestureRecognizer() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    //검색 창 뜨는 코드 by 성은
+    @objc func handleTap(_ tap: UIGestureRecognizer) {
+        let sb = UIStoryboard(name: "Search", bundle: nil)
+        
+        guard let popUpVC = sb.instantiateViewController(identifier: "searchViewController") as? SearchViewController else {return}
+        
+        popUpVC.delegate = self
+        
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        present(popUpVC, animated: true, completion: nil)
+    }
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
@@ -217,7 +264,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
     
     
-    // protocol 구현
+    // MARK: protocol 구현
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         let count = timeTableList.count + 1
@@ -397,6 +444,15 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
        
     }
     
+    //학년선택 by 성은
+    func selectedGrade(_ grade: Int) {
+        print(grade)
+    }
+    
+    //검색 by 성은
+    func searchedSubjectName(_ subjectName: String) {
+        searchLabel.text = subjectName
+    }
     
     // gestureRecognizer
     @objc func handleTapFilterAndSearch(recognizer: UITapGestureRecognizer) {
@@ -450,4 +506,10 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
            
     }
 
+}
+
+extension CreateTimeTableViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return (touch.view?.isDescendant(of: searchView) ?? false)
+    }
 }

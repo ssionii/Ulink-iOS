@@ -675,6 +675,8 @@
                         <outlet property="filterImageView" destination="ecU-PX-u8l" id="Mk2-AJ-3Th"/>
                         <outlet property="filterLabel" destination="cTf-bt-egw" id="tdr-8H-nFd"/>
                         <outlet property="pageControlDots" destination="jCv-6v-wth" id="KxA-oI-Rvr"/>
+                        <outlet property="searchLabel" destination="adk-a5-brS" id="BsQ-cG-oni"/>
+                        <outlet property="searchView" destination="dlo-si-XSh" id="Z0X-X3-Pqc"/>
                         <outlet property="subjectInfoTableView" destination="Hzz-Yz-sig" id="P5F-I2-lao"/>
                         <outlet property="timeTableCollectionView" destination="7Ul-YN-mBj" id="V2U-8H-Cg5"/>
                     </connections>
@@ -1130,7 +1132,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuQ-X8-yZe">
-                                                            <rect key="frame" x="343" y="7.6666666666666679" width="27" height="31.000000000000004"/>
+                                                            <rect key="frame" x="348" y="12" width="22" height="22"/>
                                                             <state key="normal" image="timetableaddTextfieldTimeaddDelete"/>
                                                             <connections>
                                                                 <action selector="toTrash:" destination="dDn-cO-d3J" eventType="touchUpInside" id="TmF-er-i5v"/>
@@ -1387,6 +1389,6 @@
         <image name="timetableaddTextfieldBtnVoluteerUnselected" width="76" height="33"/>
         <image name="timetableaddTextfieldBtnWorkUnselected" width="76" height="33"/>
         <image name="timetableaddTextfieldOk" width="46" height="24"/>
-        <image name="timetableaddTextfieldTimeaddDelete" width="27" height="31"/>
+        <image name="timetableaddTextfieldTimeaddDelete" width="22" height="22"/>
     </resources>
 </document>
