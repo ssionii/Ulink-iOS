@@ -717,7 +717,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPY-fj-8BR">
                                         <rect key="frame" x="310" y="8" width="46" height="24"/>
-                                        <state key="normal" image="timetableaddDrag1IcOk"/>
+                                        <state key="normal" image="timetableaddDrag1BtnConfirm"/>
                                         <connections>
                                             <action selector="confirmBtn:" destination="2tG-54-TeJ" eventType="touchUpInside" id="2Pv-bc-gIn"/>
                                             <segue destination="fim-0f-MFk" kind="presentation" id="SHH-Qb-6fT"/>
@@ -839,6 +839,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="B4r-Cj-BOX" id="GUN-qS-AWl"/>
+                        <outlet property="confirmButton" destination="UPY-fj-8BR" id="Ymi-pt-NRR"/>
                         <outlet property="timeTable" destination="joy-QX-Gzv" id="HMI-xn-kse"/>
                     </connections>
                 </viewController>
@@ -1130,7 +1131,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuQ-X8-yZe">
-                                                            <rect key="frame" x="343" y="7.6666666666666679" width="27" height="31.000000000000004"/>
+                                                            <rect key="frame" x="348" y="12" width="22" height="22"/>
                                                             <state key="normal" image="timetableaddTextfieldTimeaddDelete"/>
                                                             <connections>
                                                                 <action selector="toTrash:" destination="dDn-cO-d3J" eventType="touchUpInside" id="TmF-er-i5v"/>
@@ -1360,7 +1361,7 @@
         <image name="icWhitex" width="36" height="36"/>
         <image name="ioMainBgTop" width="353" height="38"/>
         <image name="ioMainSettingTrash" width="57" height="24"/>
-        <image name="timetableaddDrag1IcOk" width="46" height="24"/>
+        <image name="timetableaddDrag1BtnConfirm" width="46" height="24"/>
         <image name="timetableaddDragDubbleModalClock" width="18" height="18"/>
         <image name="timetableaddDragTimetableIcReplay" width="16" height="20"/>
         <image name="timetableaddFilterandsearchAddfreely" width="71" height="24"/>
@@ -1387,6 +1388,6 @@
         <image name="timetableaddTextfieldBtnVoluteerUnselected" width="76" height="33"/>
         <image name="timetableaddTextfieldBtnWorkUnselected" width="76" height="33"/>
         <image name="timetableaddTextfieldOk" width="46" height="24"/>
-        <image name="timetableaddTextfieldTimeaddDelete" width="27" height="31"/>
+        <image name="timetableaddTextfieldTimeaddDelete" width="22" height="22"/>
     </resources>
 </document>
