@@ -73,6 +73,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             print("현재 채팅방에서 공지방으로 넘기는 정보")
             print("과목 이름 : \(self.tempTitle!)")
             print("과목 인덱스 : \(self.subjectIdx)")
+    
             print("=====================================")
             
             

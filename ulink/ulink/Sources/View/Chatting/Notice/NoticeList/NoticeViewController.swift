@@ -23,6 +23,9 @@ class NoticeViewController: UIViewController {
         loadNoticeData()
         super.viewDidLoad()
         
+        
+        self.titleLabel.text = roomtitle + " 공지"
+        
     
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -106,7 +109,7 @@ class NoticeViewController: UIViewController {
         guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else { return }
         
 
-        chattingRoomViewController.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
+        chattingRoomViewController.subjectIdx = self.subjectIDX // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
                
         
         chattingRoomViewController.categoryIdx = 1
@@ -121,7 +124,7 @@ class NoticeViewController: UIViewController {
         
         
         
-        chattingRoomViewController.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
+        chattingRoomViewController.subjectIdx = self.subjectIDX // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
 
         chattingRoomViewController.categoryIdx = 2
         
@@ -133,7 +136,7 @@ class NoticeViewController: UIViewController {
         
         guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else { return }
         
-        chattingRoomViewController.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
+        chattingRoomViewController.subjectIdx = self.subjectIDX // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
 
         
         chattingRoomViewController.categoryIdx = 3
