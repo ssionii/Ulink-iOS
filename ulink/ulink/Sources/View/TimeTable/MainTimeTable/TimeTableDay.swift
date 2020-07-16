@@ -9,10 +9,10 @@
 import Foundation
 
 public enum TimeTableDay : Int {
-    case monday = 1
-    case tuesday = 2
-    case wendsday = 3
-    case thursday = 4
-    case friday = 5
-    case saturday = 6
+    case monday = 0
+    case tuesday = 1
+    case wendsday = 2
+    case thursday = 3
+    case friday = 4
+    case saturday = 5
 }

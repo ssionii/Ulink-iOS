@@ -32,11 +32,6 @@ class SubjectTimeInfoCell: UITableViewCell {
 
     }
     
-    @IBAction func editTimeInfo(_ sender: Any) {
-        self.delegate?.didPressEditButton(timeIdx)
-    }
-    
-    
     public func setTimeInfoText(weekDay: TimeTableDay, start: String, end: String){
         
         var startTime = start
@@ -119,5 +114,19 @@ class SubjectTimeInfoCell: UITableViewCell {
     
     public func hideTrash(){
         trashButton.alpha = 0
+    }
+    public func showTrash(){
+        trashButton.alpha = 1
+    }
+    
+   override func awakeFromNib() {
+        super.awakeFromNib()
+    
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTimeInfoCell)))
+    
+    }
+    
+    @objc func tapTimeInfoCell(){
+         self.delegate?.didPressEditButton(timeIdx)
     }
 }

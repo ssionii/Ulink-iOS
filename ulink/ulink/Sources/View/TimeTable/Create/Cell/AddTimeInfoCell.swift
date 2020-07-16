@@ -9,7 +9,6 @@
 import UIKit
 
 protocol AddTimeInfoCellDelegate {
-
     func didPressAddBtn(idx: Int)
 }
 
@@ -18,17 +17,16 @@ class AddTimeInfoCell: UITableViewCell {
     static let identifier: String = "addTimeInfoCell"
     public var delegate : AddTimeInfoCellDelegate?
 
-    @IBOutlet weak var contentBackgroundView: UIView!
-    
-    @IBAction func addTimeInfo(_ sender: Any) {
-        
-        self.delegate?.didPressAddBtn(idx: 0)
-        
-    }
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        // Initialization code
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAddTimeInfoCell)))
+        
+    }
+    
+    @objc func tapAddTimeInfoCell(){
+               
+        self.delegate?.didPressAddBtn(idx: 0)
     }
     
 }
