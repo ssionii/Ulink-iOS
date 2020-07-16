@@ -34,7 +34,8 @@ class NoticeDetailViewController: UIViewController {
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
+        
     }
     
     
@@ -92,37 +93,48 @@ class NoticeDetailViewController: UIViewController {
                 guard let noticeList = noticeList as? [[SubjectNoticeData]] else { return }
                 guard let numberOfNotice = numberOfNotice as? [Int] else {return}
                 
-        
-                
-                for i in 0...numberOfNotice[0]-1 // 과제 공지 부분
+                if numberOfNotice[0] > 0
                 {
-                    let noticeData = noticeInformation(title: noticeList[0][i].title , start: noticeList[0][i].startTime, end: noticeList[0][i].endTime, Date: noticeList[0][i].date, idx: noticeList[0][i].noticeIdx)
-                    
-                    self.hwNoticeInfoArray.append(noticeData)
-                      
+                    for i in 0...numberOfNotice[0]-1 // 과제 공지 부분
+                    {
+                        let noticeData = noticeInformation(title: noticeList[0][i].title , start: noticeList[0][i].startTime, end: noticeList[0][i].endTime, Date: noticeList[0][i].date, idx: noticeList[0][i].noticeIdx)
+                        
+                        self.hwNoticeInfoArray.append(noticeData)
+                        
+                    }
                 }
                 
                 
-                for i in 0...numberOfNotice[1]-1 // 시험 공지 부분
-                {
-                    let noticeData = noticeInformation(title: noticeList[1][i].title , start: noticeList[1][i].startTime, end: noticeList[1][i].endTime, Date: noticeList[1][i].date, idx: noticeList[1][i].noticeIdx)
-                    
-                    self.testNoticeInfoArray.append(noticeData)
-                }
-         
                 
-                for i in 0...numberOfNotice[2]-1 // 수업 공지 부분
+                
+                if numberOfNotice[1] > 0
                 {
-                    let noticeData = noticeInformation(title: noticeList[2][i].title , start: noticeList[2][i].startTime, end: noticeList[2][i].endTime, Date: noticeList[2][i].date, idx: noticeList[2][i].noticeIdx)
-                    
-                    self.classNoticeInfoArray.append(noticeData)
+                    for i in 0...numberOfNotice[1]-1 // 시험 공지 부분
+                    {
+                        let noticeData = noticeInformation(title: noticeList[1][i].title , start: noticeList[1][i].startTime, end: noticeList[1][i].endTime, Date: noticeList[1][i].date, idx: noticeList[1][i].noticeIdx)
+                        
+                        self.testNoticeInfoArray.append(noticeData)
+                    }
                 }
-            
+                
+                if numberOfNotice[2] > 0
+                {
+                    for i in 0...numberOfNotice[2]-1 // 수업 공지 부분
+                    {
+                        let noticeData = noticeInformation(title: noticeList[2][i].title , start: noticeList[2][i].startTime, end: noticeList[2][i].endTime, Date: noticeList[2][i].date, idx: noticeList[2][i].noticeIdx)
+                        
+                        self.classNoticeInfoArray.append(noticeData)
+                    }
+                    
+                    
+                }
+                
+                
                 
                 
             default:
                 print("fail")
-
+                
                 
             }
             
@@ -132,7 +144,7 @@ class NoticeDetailViewController: UIViewController {
             print(self.classNoticeInfoArray.count)
             
             self.noticeDetailTableView.reloadData()
-
+            
             
         }
         

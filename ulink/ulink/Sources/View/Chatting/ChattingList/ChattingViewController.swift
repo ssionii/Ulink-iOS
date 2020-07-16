@@ -42,6 +42,9 @@ class ChattingViewController: UIViewController {
 
         
         super.viewDidLoad()
+        
+        
+
 
         chattingListTable.dataSource = self
         chattingListTable.delegate = self
@@ -61,9 +64,8 @@ class ChattingViewController: UIViewController {
 
         
         showIndicator()
-//        deleteIndicator()
 
-        
+
 
     }
     
@@ -72,30 +74,24 @@ class ChattingViewController: UIViewController {
     func showIndicator()
     {
 
+        
+        let activityIndicator = ActivityIndicator(view: view, navigationController: self.navigationController, tabBarController: nil)
 
-//                activityIndicator.showActivityIndicator(text: "로딩 중")
-//
-//
-
+        activityIndicator.showActivityIndicator(text: "로딩 중")
         
         
-    }
-    
-    
-    func deleteIndicator()
-    {
-        
-        
-        
-//        let image = UIImage(na)
-                let activityIndicator = ActivityIndicator(view: view, navigationController: self.navigationController, tabBarController: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+            
             activityIndicator.stopActivityIndicator()
+            
         
+        }
 
         
         
     }
-      
+    
+
       func loadUserData()
       {
           
@@ -163,7 +159,6 @@ class ChattingViewController: UIViewController {
         
         
 
-        
 //        Database.database().reference().child("chatrooms").observeSingleEvent(of: DataEventType.value)
         
 //        Database.database().reference().child("chatrooms").queryOrderedByKey().queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value)
@@ -225,13 +220,12 @@ class ChattingViewController: UIViewController {
         
 
 
-        
-        
-
     }
     
 
     func hideNaviBar(){
+        
+        
         
         
         self.navigationController?.navigationBar.isHidden = true
@@ -431,7 +425,19 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         chattingRoomViewController.destinationUid = "-MBcSPAQKDDOsT2u4UfX"
         chattingRoomViewController.tempTitle = self.chattingList[indexPath.row].name
+        
+        
         chattingRoomViewController.subjectIdx = self.chattingList[indexPath.row].subjectIdx
+        
+        print("=====================================")
+        print("채팅목록에서 채팅방으로 전달되는 title과 idx")
+        print("name : \(self.chattingList[indexPath.row].name) ")
+        print("subjectIdx : \(self.chattingList[indexPath.row].subjectIdx)")
+        print("=====================================")
+        
+        
+    
+        print(chattingList[indexPath.row].subjectIdx)
         
 //
 //                    self.count = 0
