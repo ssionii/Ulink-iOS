@@ -56,7 +56,7 @@
 		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
-		FD1398A524C020B300C2B44C /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A424C020B200C2B44C /* io_ulink_splash.gif */; };
+		FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -168,7 +168,7 @@
 		B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListCell.swift; sourceTree = "<group>"; };
 		B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListHeader.swift; sourceTree = "<group>"; };
 		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
-		FD1398A424C020B200C2B44C /* io_ulink_splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = io_ulink_splash.gif; path = ../../../../../../Downloads/io_ulink_splash.gif; sourceTree = "<group>"; };
+		FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = io_ulink_splash.gif; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -549,7 +549,7 @@
 		FD45F24D24AA591300F304BD /* ulink */ = {
 			isa = PBXGroup;
 			children = (
-				FD1398A424C020B200C2B44C /* io_ulink_splash.gif */,
+				FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */,
 				FD7E7C0624C01B4D007CF404 /* Info.plist */,
 				B5A2784024ADE0C600A0F4A4 /* Extension */,
 				FD616CFF24AA5D2F007D54B5 /* Sources */,
@@ -872,7 +872,7 @@
 				FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */,
 				FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */,
 				29AC520924BB0BBE0007E019 /* Search.storyboard in Resources */,
-				FD1398A524C020B300C2B44C /* io_ulink_splash.gif in Resources */,
+				FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */,
 				FD45F25624AA591300F304BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
