@@ -26,6 +26,8 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
     let dateLabel = UILabel(frame : CGRect(x: 10, y: 10, width: 0, height: 0))
     let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 19, height: 44))
     
+    var serverData: [SecondData]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +35,8 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         lineView.backgroundColor = UIColor.whiteThree
         //cellColorView.layer.cornerRadius = 19
     
+        getDataFromServer()
+        
         //더미더ㅣㅁ
         dummydummyData = [Event(name: "소프트웨어공학", color: 1, notice_idx: 1, category: "시험", start_time: "9:00", end_time: "11:45", title: "중간고사"), Event(name: "창의적사고", color: 2, notice_idx: 1, category: "과제", start_time: "00:00", end_time: "23:59", title: "레포트 제출"), Event(name: "게임공학론", color: 1, notice_idx: 1, category: "수업", start_time: "9:00", end_time: "11:00", title: "휴강")]
         
@@ -41,6 +45,41 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         eventListTableView.dataSource = self
         eventListTableView.delegate = self
     }
+    
+    // MARK: SERVER 통신
+    func getDataFromServer(){
+        
+        var startQuery = String(todayYear) + "-" + String(todayMonth) + "-" + String(todayDate)
+        
+        let tenDaysLater = Calendar.current.date(byAdding: .day, value: 10, to: today) ?? today
+        
+        var endYear = Calendar.current.component(.year, from: tenDaysLater)
+        var endMonth = Calendar.current.component(.month, from: tenDaysLater)
+        var endDate = Calendar.current.component(.day, from: tenDaysLater)
+        
+        var endQuery = String(endYear) + "-" + String(endMonth) + "-" + String(endDate)
+        
+        print(startQuery, "-", endQuery)
+        
+        CalendarService.shared.openCalendarData(start: startQuery, end: endQuery){
+                    networkResult in
+                    switch networkResult {
+                    case .success(let tokenData):
+                        guard let token = tokenData as? [SecondData] else {return}
+                        self.serverData = token
+                        self.eventListTableView.reloadData()
+                    case .requestErr:
+                        print("requestErr")
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+        }
+    }
+    
     
     func disableStickyHeader(){
         let dummyViewHeight = CGFloat(40)
@@ -52,16 +91,21 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: 테이블뷰
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyData[section].event.count
+        return serverData?[section].notice?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell else {
         return UITableViewCell() }
         
-        cell.set(dummyData[indexPath.section].event[indexPath.row])
-        cell.changeViewColor(dummyData[indexPath.section].date)
+        //cell.set(dummyData[indexPath.section].event[indexPath.row])
+        if let serverData = serverData?[indexPath.section].notice?[indexPath.row] {
+            cell.set(serverData)
+        }
+        //cell.changeViewColor(dummyData[indexPath.section].date)
+        cell.changeViewColor(serverData?[indexPath.section].date ?? "")
         
         return cell
     }
@@ -74,12 +118,15 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventListHeaderCell.identifier) as? EventListHeaderCell else {
         return UITableViewCell() }
         
-        cell.set(dummyData[section])
+        if let serverData = serverData?[section] {
+            cell.set(serverData)
+        }
+        
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return dummyData.count
+        return serverData?.count ?? 0
     }
 
 }

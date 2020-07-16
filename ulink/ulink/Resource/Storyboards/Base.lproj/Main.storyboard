@@ -195,7 +195,6 @@
         <!--Signup View Controller-->
         <scene sceneID="GCn-MU-RFP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fvX-oL-Mdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="NJp-Du-GDt" customClass="SignupViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Om5-gd-PVY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -286,6 +285,7 @@
                         <outlet property="signupPwTextField" destination="F8e-Ii-r3g" id="rnb-2R-6FL"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvX-oL-Mdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="63" y="915"/>
         </scene>

@@ -13,33 +13,37 @@ import Foundation
 struct CalendarService {
     static let shared = CalendarService()
     
-    private func makeParameter(_ jwt: String, _ start: String, _ end: String) -> Parameters {
-        return ["jwt": UserDefaults.standard.string(forKey: "userID"), "start": start, "end": end]
-    }
+    //UserDefaults.standard.string(forKey: "userID"
     
-    func login(jwt: String, start: String, end: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let header: HTTPHeaders = ["Content-Type": "application/json"]
-        let dataRequest = Alamofire.request(APIConstants.calendarURL, method: .get, parameters: makeParameter(jwt, start, end), encoding: JSONEncoding.default, headers: header)
-        
-        
-        dataRequest.responseData { dataResponse in
-            switch dataResponse.result {
-            case .success:
-                guard let statusCode = dataResponse.response?.statusCode else { return }
-                guard let value = dataResponse.result.value else { return }
-                let networkResult = self.judge(by: statusCode, value)
-                completion(networkResult)
-            case .failure: completion(.networkFail)
+    var userDefaultToken: String = ""
+    
+    func openCalendarData(start: String, end: String, completion: @escaping (CalendarNetworkResult<Any>) -> Void) {
+        if let userDefaultToken = UserDefaults.standard.string(forKey: "token") {
+            let header: HTTPHeaders = ["Content-Type": "application/json", "token": userDefaultToken]
+            
+            let query = "?start=\(start)&end=\(end)"
+            
+            let dataRequest = Alamofire.request(APIConstants.calendarURL + query, method: .get, encoding: JSONEncoding.default, headers: header)
+            
+            dataRequest.responseData { dataResponse in
+                switch dataResponse.result {
+                case .success:
+                    guard let statusCode = dataResponse.response?.statusCode else { return }
+                    guard let value = dataResponse.result.value else { return }
+                    let networkResult = self.judge(by: statusCode, value)
+                    completion(networkResult)
+                case .failure: completion(.networkFail)
+                }
             }
         }
     }
     
     
-    private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+    private func judge(by statusCode: Int, _ data: Data) -> CalendarNetworkResult<Any> {
         switch statusCode {
             
-        case 200: return isUser(by: data)
-        case 400: return .pathErr
+        case 200: return getCalendarData(by: data)
+        case 400: return .pathErr //오류난다
         case 500: return .serverErr
         default: return .networkFail
         }
@@ -47,12 +51,11 @@ struct CalendarService {
     
     
     
-    private func isUser(by data: Data) -> NetworkResult<Any> {
+    private func getCalendarData(by data: Data) -> CalendarNetworkResult<Any> {
         let decoder = JSONDecoder()
-        
-        guard let decodedData = try? decoder.decode(SigninData.self, from: data) else { return .pathErr }
-        guard let tokenData = decodedData.data else { return .requestErr(decodedData.message) }
+        guard let decodedData = try? decoder.decode(CalendarData.self, from: data) else { return .pathErr}
+        guard let tokenData = decodedData.data else { return .requestErr }
 
-        return .success(tokenData.accessToken,tokenData.uid)
+        return .success(tokenData)
     }
 }

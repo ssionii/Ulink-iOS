@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "filename" : "timetableaddTextfieldTimeaddDelete.png",
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "timetableaddTextfieldTimeaddDelete.png"
     },
     {
       "idiom" : "universal",
@@ -12,8 +12,8 @@
     },
     {
       "filename" : "timetableaddTextfieldTimeaddDelete@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "idiom" : "universal"
     }
   ],
   "info" : {

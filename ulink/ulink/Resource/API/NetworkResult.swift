@@ -17,3 +17,10 @@ enum NetworkResult<T> {
     case networkFail
 }
 
+enum CalendarNetworkResult<T> {
+    case success(T)
+    case requestErr
+    case pathErr
+    case serverErr
+    case networkFail
+}

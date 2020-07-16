@@ -32,7 +32,7 @@ struct LoginService {
                     guard let value = dataResponse.result.value else { return }
                     let networkResult = self.judge(by: statusCode, value)
                     completion(networkResult)
-                case .failure: completion(.networkFail)
+                case .failure: completion(.pathErr)
                 }
             }
         }

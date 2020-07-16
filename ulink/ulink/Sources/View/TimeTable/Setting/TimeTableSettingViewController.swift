@@ -9,7 +9,6 @@
 import UIKit
 
 class TimeTableSettingViewController: UIViewController {
-
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var botLayout: NSLayoutConstraint!
@@ -24,11 +23,15 @@ class TimeTableSettingViewController: UIViewController {
     @IBOutlet weak var saveImageView: UIView!
     @IBOutlet weak var moveToTrashView: UIView!
     
+    var timeTableIdx = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+       
+        print("timeTableIdx at ViewDidLoad", timeTableIdx)
         setViewTap()
     }
+    
     
     override func viewWillAppear(_ animated: Bool){
         isDismiss ? disAppearAnim() : appearAnim()
@@ -42,7 +45,15 @@ class TimeTableSettingViewController: UIViewController {
          disAppearAnim()
     }
     
+    public func setTimeTableIdx(idx: Int){
+        print("setTImeTableIdx")
+        timeTableIdx = idx
+        print("timeTalbl", timeTableIdx)
+    }
+    
     private func setViewTap(){
+        print(1)
+        print(timeTableIdx)
         setMainTimeTableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setMainTimeTable)))
         
         changeStyleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goChangeStyleVC)))
@@ -69,9 +80,12 @@ class TimeTableSettingViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    
     @objc func setMainTimeTable(sender:UIGestureRecognizer){
-        print("대표 시간표 설정 클릭")
+        print(2)
+               print(timeTableIdx)
+        self.updateMainTimeTable()
+        print(3)
+               print(timeTableIdx)
     }
     
     @objc func goChangeStyleVC(sender:UIGestureRecognizer){
@@ -85,5 +99,25 @@ class TimeTableSettingViewController: UIViewController {
     @objc func moveToTrash(sender:UIGestureRecognizer){
         print("시간표 삭제")
     }
+    
+    
+    
+    func updateMainTimeTable(){
+           print("getTimeTable")
+            print("timeTable", timeTableIdx)
+        MainTimeTableService.shared.updateMainTimeTable(idx: self.timeTableIdx){ networkResult in
+                switch networkResult {
+                    case .success(_, _) :
+                        print("메인 시간표 변경 성공! -> 토스트로 주면 좋을 텐데,,")
+                        break
+                    case .requestErr(let message):
+                            print("REQUEST ERROR")
+                            break
+                    case .pathErr: break
+                    case .serverErr: print("serverErr")
+                    case .networkFail: print("networkFail")
+                }
+            }
+       }
     
 }
