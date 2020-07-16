@@ -197,24 +197,24 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         calendarCollectionView.reloadData()
     }
     
-    @IBAction func showNotice(_ sender: Any) {
-        
-        let imageView = UIImageView(frame: CGRect(x: 29, y: 16, width: 210, height: 274))
-        imageView.image = UIImage(named: "ioMainScheduleQuestionmarkBtnImgText")
-        
-        let alert = UIAlertController(title: "", message: nil, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.view.addSubview(imageView)
-        
-        let height = NSLayoutConstraint(item: alert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.2, constant: 350)
-        let width = NSLayoutConstraint(item: alert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 257)
-        alert.view.addConstraint(height)
-        alert.view.addConstraint(width)
-
-        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
-
-        self.present(alert, animated: true, completion: nil)
-    }
+//    @IBAction func showNotice(_ sender: Any) {
+//        
+//        let imageView = UIImageView(frame: CGRect(x: 29, y: 16, width: 210, height: 274))
+//        imageView.image = UIImage(named: "ioMainScheduleQuestionmarkBtnImgText")
+//        
+//        let alert = UIAlertController(title: "", message: nil, preferredStyle: UIAlertController.Style.alert)
+//        
+//        alert.view.addSubview(imageView)
+//        
+//        let height = NSLayoutConstraint(item: alert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.2, constant: 350)
+//        let width = NSLayoutConstraint(item: alert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 257)
+//        alert.view.addConstraint(height)
+//        alert.view.addConstraint(width)
+//
+//        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+//
+//        self.present(alert, animated: true, completion: nil)
+//    }
     
     
     // MARK: IBACTION

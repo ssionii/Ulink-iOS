@@ -10,6 +10,9 @@ import UIKit
 
 class ColorPickViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate {
     
+    @IBOutlet weak var bottomLayout: NSLayoutConstraint!
+    
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var colorCollectionView: UICollectionView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var okBtn: UIButton!
@@ -22,18 +25,34 @@ class ColorPickViewController: UIViewController, UICollectionViewDelegateFlowLay
 
         okBtn.isHidden = true
         
+        pageControl.numberOfPages = (colorList.count / 8) + 1
+        pageControl.tintColor = UIColor.brownGreyFive
+        
         colorCollectionView.dataSource = self
         colorCollectionView.delegate = self
         
-        
-        
         setupGestureRecognizer()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        
+        appearAnim()
+    }
+    
+    func appearAnim(){
+        self.bottomLayout.constant = 0
+        UIView.animate(withDuration: 0.3){
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func disappearAnim(){
+        self.bottomLayout.constant = -280
+        UIView.animate(withDuration: 0.3){
+            self.view.layoutIfNeeded()
+        }
     }
     
     func setupGestureRecognizer() {
@@ -43,6 +62,7 @@ class ColorPickViewController: UIViewController, UICollectionViewDelegateFlowLay
     }
     
     @objc func handleTap(_ tap: UIGestureRecognizer) {
+        disappearAnim()
         self.dismiss(animated: true)
     }
 
@@ -66,7 +86,7 @@ class ColorPickViewController: UIViewController, UICollectionViewDelegateFlowLay
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if colorList.count > 8 {
+        if (colorList.count % 8) <= 4 {
             return UIEdgeInsets(top: 16, left: 5, bottom: 10, right: collectionView.frame.width/2 + 10)
         }
         
@@ -87,6 +107,8 @@ class ColorPickViewController: UIViewController, UICollectionViewDelegateFlowLay
         var offset = targetContentOffset.pointee
         let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludeSpacing
         let roundedIndex: CGFloat = round(index)
+        
+        pageControl.currentPage = Int(roundedIndex)
 
         offset = CGPoint(x: roundedIndex * cellWidthIncludeSpacing, y: scrollView.contentInset.top)
         targetContentOffset.pointee = offset

@@ -17,6 +17,8 @@ class ColorPickCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        colorImgView.layer.cornerRadius = 8
     }
     
     func setColors(_ colorData: ColorList){

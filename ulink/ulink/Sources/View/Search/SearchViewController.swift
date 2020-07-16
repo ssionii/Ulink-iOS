@@ -13,7 +13,9 @@ protocol SearchVCDelegate{
     func searchedSubjectName(_ subjectName: String)
 }
 
-class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, SearchedCellDelegate {
+    
+    
     
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
@@ -44,6 +46,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         searchView.backgroundColor = UIColor.init(patternImage: UIImage.init(named: "ioMainFiltersettingSearchBg")!)
         
         searchTextField.delegate = self
+        
+        
 
         searchTableView.delegate = self
         searchTableView.dataSource = self
@@ -70,6 +74,23 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
                     }
         }
     }
+    
+    // MARK: DELEGATE FUNC
+    
+    func didPressDeleteButton(_ tag: Int) {
+        print("did")
+        let savedDatas = realm.objects(SearchedListData.self)
+        let predicate = NSPredicate(format: "searched = %@", savedDatas[tag].searched)
+
+        try! self.realm.write({
+            realm.delete(realm.objects(SearchedListData.self).filter(predicate))
+        })
+        
+        searchTableView.reloadData()
+        //realm.delete(savedDatas[tag])
+        //realm.delete(<#T##object: Object##Object#>)
+    }
+    
     
     // MARK: IBACTION
     @IBAction func backToTimeTable(_ sender: Any) {
@@ -126,11 +147,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         } else {
             cell.layer.addBorder(edge: [.bottom], color: UIColor.veryLightPinkTree, thickness: 1)
             cell.set(indexPath.row)
+            cell.indexPathNum = indexPath.row
+            cell.delegate = self
             return cell
         }
     }
     
-    //z클릭
+    //클릭
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if headerView.isHidden == true {
             searchTextField.text = serverData[indexPath.row]
