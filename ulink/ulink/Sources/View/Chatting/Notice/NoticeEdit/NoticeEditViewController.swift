@@ -20,8 +20,8 @@ class NoticeEditViewController: UIViewController {
         
         
         self.navigationController?.popViewController(animated: true)
-        
-        
+
+        self.dismiss(animated: true)
         
     }
     @IBAction func EditButtonClicked(_ sender: Any) {
