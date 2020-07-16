@@ -54,6 +54,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         guard let nextVC = storyboard.instantiateViewController(identifier: "createTimeTableViewController") as? CreateTimeTableViewController else { return }
         
         nextVC.semester = timeTableInfo.semester
+        nextVC.scheduleIdx = timeTableInfo.scheduleIdx
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
         
@@ -69,6 +70,10 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         timeTable.dataSource = self
         
         setBackgroundView()
+      
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         getMainTimeTable()
     }
 
@@ -135,7 +140,6 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     func getMainTimeTable(){
         
         print("getMainTimeTable")
-        
        MainTimeTableService.shared.getMainTimeTable { networkResult in
             switch networkResult {
                 case .success(let timeTable, let subjectList) :

@@ -69,6 +69,7 @@
 		B5DBF3DE24BF7CAF0013BB33 /* ListTimeTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */; };
 		B5DBF3E024BFA6B40013BB33 /* TimeTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */; };
 		B5DBF3E224C04BBA0013BB33 /* PersonalScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3E124C04BBA0013BB33 /* PersonalScheduleModel.swift */; };
+		B5F025D224C0FE40007403C9 /* TimeTableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F025D124C0FE3F007403C9 /* TimeTableContainer.swift */; };
 		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
@@ -196,6 +197,7 @@
 		B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTimeTableService.swift; sourceTree = "<group>"; };
 		B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableService.swift; sourceTree = "<group>"; };
 		B5DBF3E124C04BBA0013BB33 /* PersonalScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalScheduleModel.swift; sourceTree = "<group>"; };
+		B5F025D124C0FE3F007403C9 /* TimeTableContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableContainer.swift; sourceTree = "<group>"; };
 		B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListCell.swift; sourceTree = "<group>"; };
 		B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListHeader.swift; sourceTree = "<group>"; };
 		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 				B513512224B8BCD100BD219B /* TimeInfoModel.swift */,
 				B5DBF3E124C04BBA0013BB33 /* PersonalScheduleModel.swift */,
 				29970E7524BF9EC70034840E /* ColorModel.swift */,
+				B5F025D124C0FE3F007403C9 /* TimeTableContainer.swift */,
 			);
 			path = TimeTableModel;
 			sourceTree = "<group>";
@@ -960,9 +963,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */,
-				FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */,
 				29970E6D24BF662F0034840E /* ColorPick.storyboard in Resources */,
 				299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */,
 				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
@@ -1129,6 +1130,7 @@
 				B52F9DE524BDA7E300B57CA1 /* MainTimeTableService.swift in Sources */,
 				FDFA3A8524BCF27600CB8939 /* MajorFilterViewController.swift in Sources */,
 				B599E63424ADAA960067C112 /* TimeTableDay.swift in Sources */,
+				B5F025D224C0FE40007403C9 /* TimeTableContainer.swift in Sources */,
 				B590A31124C0593B006637D0 /* SubjectService.swift in Sources */,
 				299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */,
 				29C6BB5F24BD9EF20026747C /* CalendarData.swift in Sources */,

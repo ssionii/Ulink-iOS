@@ -16,11 +16,16 @@ struct TimeTableService {
     
     private init() { }
     static let shared = TimeTableService()
+    private func makeParameter(_ semester : String, _ name : String) -> Parameters {
+           return  [
+               "semester" : semester,
+               "name" : name
+           ]
+       }
     
     let header: HTTPHeaders = [
         "Content-Type" : "application/json",
-//        "token" : UserDefaults.standard.object(forKey: "token") as! String
-        "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoxLCJuYW1lIjoi6rmA67O067CwIiwic2Nob29sIjoi7ZWc7JaR64yA7ZWZ6rWQIiwibWFqb3IiOiLsnLXtlansoITsnpDqs7XtlZnrtoAiLCJpYXQiOjE1OTQ4MzkzOTEsImV4cCI6MTU5ODQzNTc5MSwiaXNzIjoiYm9iYWUifQ.jxont3bUINSAtQt_F90KeE376WX-cZJoB5rzM2K7Ccg"
+        "token" : UserDefaults.standard.object(forKey: "token") as! String
     ]
     
     func getTimeTable(idx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -42,10 +47,28 @@ struct TimeTableService {
         }
     }
     
+    func makeTimeTable(semester : String, name: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        Alamofire.request(APIConstants.timeTable, method  : .post, parameters : makeParameter(semester, name), encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let value = response.result.value else { return }
+                let json = JSON(value)
+                let networkResult = self.judge(by: statusCode, json)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     private func judge(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
         switch statusCode {
             
         case 200: return setData(by: json)
+        case 201 : return .success(0, 0)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail

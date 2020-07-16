@@ -17,82 +17,23 @@ struct PersonalScheduleService {
     static let shared = PersonalScheduleService()
     private func makeParameter(_ list : [PersonalScheduleModel]) -> Parameters {
         
-        
-        // struct를 json으로 바꾼다
-        
-        var resultList = [String]()
-        
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        
-        for(index, value) in list.enumerated(){
-            
-            let key = "schedule[\(index)]"
-            let jsonData = try? encoder.encode(value)
-            
-            let jsonString = String(data: jsonData!, encoding: .utf8)
-            let value = jsonString!
-            
-            print("value", value)
-            resultList.append(value)
+         // struct를 json으로 바꾼다
+           var resultList = [String]()
+           let encoder = JSONEncoder()
+           encoder.outputFormatting = .prettyPrinted
+           var parameter: String = ""
+           for(index, value) in list.enumerated(){
+             let key = "schedule[\(index)]"
+             var dicdic = value
+             let jsonData = try? encoder.encode(dicdic)
+             if let jsonString = String(data: jsonData!, encoding: .utf8) {
+               parameter = String(jsonString.filter { !" \n\t\r".contains($0) })
+             }
+             resultList.append(parameter)
+           }
+           // var json: JSON = JSON([“schedule” : parameter])
+           return ["scheduleList" : resultList]
 
-        }
-        
-        return ["scheduleList" : resultList]
-        
-        
-        
-        
-//        var text = "["
-//
-//        for(index, value) in list.enumerated(){
-//            text += makeListToString(value)
-//
-//            if index < list.count - 1{
-//                text += ", "
-//            }
-//        }
-//
-//        text += "]"
-//
-//        let data = text.data(using: .utf8)!
-//
-//        return try! ["scheduleList" : JSON.init(data: data)]
-//
-//        do {
-//            let f = try JSONDecoder().decode([Form].self, from: data)
-//
-//            print(f)
-//            print(f[0])
-//              return ["scheduleList" : f]
-//        } catch {
-//            print(error)
-//
-//        }
-//
-//        return ["scheduleList" : ""]
-//
-//
-//
-//        var result = [Dictionary<String,Any>]()
-//
-//        let data = text.data(using: .utf8)!
-//        do {
-//            if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
-//            {
-//                result = jsonArray
-//               print(jsonArray) // use the json here
-//            } else {
-//                print("bad json")
-//            }
-//        } catch let error as NSError {
-//            print(error)
-//        }
-//
-//        print("여기보세요~~~~~~", result)
-
-
-    
     }
     
     private func makeListToString(_ model : PersonalScheduleModel)-> String{
@@ -112,8 +53,7 @@ struct PersonalScheduleService {
     
     let header: HTTPHeaders = [
         "Content-Type" : "application/json",
-//        "token" : UserDefaults.standard.object(forKey: "token") as! String
-        "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoxLCJuYW1lIjoi6rmA67O067CwIiwic2Nob29sIjoi7ZWc7JaR64yA7ZWZ6rWQIiwibWFqb3IiOiLsnLXtlansoITsnpDqs7XtlZnrtoAiLCJpYXQiOjE1OTQ4MzkzOTEsImV4cCI6MTU5ODQzNTc5MSwiaXNzIjoiYm9iYWUifQ.jxont3bUINSAtQt_F90KeE376WX-cZJoB5rzM2K7Ccg"
+        "token" : UserDefaults.standard.object(forKey: "token") as! String
     ]
     
     func postPersonalScheudule(personalScheudleList: [PersonalScheduleModel], completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -125,9 +65,6 @@ struct PersonalScheduleService {
             
             switch response.result {
             case .success:
-                
-                   print("hello2")
-                
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let value = response.result.value else { return }
                 let json = JSON(value)
@@ -152,22 +89,3 @@ struct PersonalScheduleService {
     }
 }
 
-struct Form: Codable {
-    let name: String
-    let day: Int
-    let content: String
-    let color : Int
-    let startTime : String
-    let endTime : String
-    let scheduleIdx : Int
-
-    private enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case day = "day"
-        case content = "content"
-        case color = "color"
-        case startTime = "startTime"
-        case endTime = "endTime"
-        case scheduleIdx = "scheduleIdx"
-    }
-}

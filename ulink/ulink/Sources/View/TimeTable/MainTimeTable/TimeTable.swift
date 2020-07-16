@@ -520,8 +520,6 @@ public protocol TimeTableDataSource {
         
         let sortedSubjectItems = subjectItems.sorted(by: {$0.subjectIdx < $1.subjectIdx})
         
-        print("sortedSubjectItems: \(sortedSubjectItems)")
-        
         if(sortedSubjectItems.count > 1){
             for i in 0 ... sortedSubjectItems.count - 2 {
                 if sortedSubjectItems[i].subjectName != sortedSubjectItems[i + 1].subjectName {
