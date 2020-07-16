@@ -10,6 +10,11 @@ import SideMenu
 
 class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
+    
+    
+    
+    @IBOutlet weak var topHeight: NSLayoutConstraint!
+    
 
     
     @IBOutlet weak var sendButton: UIButton!
@@ -67,14 +72,20 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     //MARK:- Life Cycle 부분
     override func viewDidLoad() {
             
+        setHeightForDevice()
         
         setBorder()
           
         
         super.viewDidLoad()
         addObserver()
+        
+
+
         uid = UserDefaults.standard.string(forKey: "uid")
         
+        
+  
         
        
         
@@ -89,6 +100,15 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         hideBar()
         checkChatRoom()
+        
+        
+        if self.comments.count > 0 {
+
+            
+            print("comments count \(self.comments.count)")
+            self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+
+        }
         
    
         print("현재 uid : \(self.uid ?? "uid 실패")")
@@ -120,6 +140,51 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
         databaseRef?.removeObserver(withHandle: observe!)
+        
+    }
+    
+    
+    func setHeightForDevice()
+    {
+        
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+        
+        switch height{
+            
+        case 450.0 ... 667.0 : // 6 6s 7 8
+            
+            self.topHeight.constant = 68
+            
+            break
+            
+        case 730.0 ... 810.0: // 6s+, 7+ 8+
+            self.topHeight.constant = 68
+            break
+            
+        case 812.0 ... 890.0: //X, XS
+            
+            
+            self.topHeight.constant = 48
+            
+            break
+        
+        case 896.0:         // XS MAX
+            
+            self.topHeight.constant = 48
+            break
+            
+            
+            
+            
+        
+            
+            
+            
+        default:
+            break
+            
+        }
         
     }
     
@@ -376,12 +441,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         ]
         
         
-        
-        print("uid : \(uid!)")
-        print("Roomuid : \(chatRoomUid)")
-        print("message : \(messageTextField.text!)")
-        
-
+    
             // 방이 존재한다면..?
 
             let value :Dictionary<String,Any> = [
@@ -410,6 +470,15 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
  
                     self.checkChatRoom()
                     self.chattingTableView.reloadData()
+                    
+                    
+                    
+                    if self.comments.count > 0 {
+
+                        self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+
+                    }
+
                     
 //                    
 //                          let indexPath = IndexPath(row: self.chattingTableView.numberOfRows(inSection: 0), section: 0)
@@ -500,15 +569,11 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                     var count : Int = 0
                     
                     
-                    
-                    print("datasnapshot : \(datasnapshot.value)")
-                    print("item : \(item)")
-                    
+                 
                     
                     
                     let dic = values as! [String: [String:Any]] // 애 또 순서 파괴된다...
-                    print("dic : \(dic)")
-                    
+            
                     
                     for index in dic { // 이걸 두번 도니까 순서 나가는거제..
                         
@@ -535,9 +600,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                                 for idx in message
                                 {
                                     count = 0
-                                    print("idx : \(idx)")
-                                    
-                                    
+                  
                                     let msg = MessageModel()
                                     msg.message = idx.value["message"] as? String ?? ""
                                     msg.time = idx.value["timestamp"] as? Int ?? -1
@@ -549,8 +612,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                                     {
                                         count = count + 1
                                     }
-                                    
-                                    print("현재 읽은 사람 수 : \(count)")
+                     
                                     msg.readCount = count
                                     
                                     
@@ -762,5 +824,9 @@ class destinationMessageCell : UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
 }
+
+
+
+
 
 

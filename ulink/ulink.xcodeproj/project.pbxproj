@@ -56,6 +56,7 @@
 		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
+		FD1398A524C020B300C2B44C /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A424C020B200C2B44C /* io_ulink_splash.gif */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -92,9 +93,6 @@
 		FD7E7BEE24BF37CE007CF404 /* LoadChattingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7BED24BF37CE007CF404 /* LoadChattingListService.swift */; };
 		FD7E7BF024BF3848007CF404 /* ChattingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7BEF24BF3848007CF404 /* ChattingListModel.swift */; };
 		FD7E7BF724BF4F27007CF404 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7BF624BF4F27007CF404 /* SplashViewController.swift */; };
-		FD7E7BF924BF50D2007CF404 /* Previous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7BF824BF50D2007CF404 /* Previous.storyboard */; };
-		FD7E7BFB24BF630C007CF404 /* io_ulink_splash.json in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7BFA24BF630C007CF404 /* io_ulink_splash.json */; };
-		FD7E7BFD24BF6475007CF404 /* io_ulink_splash_iphonese.json in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7BFC24BF6475007CF404 /* io_ulink_splash_iphonese.json */; };
 		FD7E7BFF24BF6657007CF404 /* ChattingListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7BFE24BF6657007CF404 /* ChattingListData.swift */; };
 		FD8EE90624B73939000E5A48 /* NoticeEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */; };
 		FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90824B7820F000E5A48 /* timeModel.swift */; };
@@ -170,6 +168,7 @@
 		B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListCell.swift; sourceTree = "<group>"; };
 		B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListHeader.swift; sourceTree = "<group>"; };
 		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
+		FD1398A424C020B200C2B44C /* io_ulink_splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = io_ulink_splash.gif; path = ../../../../../../Downloads/io_ulink_splash.gif; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -192,7 +191,6 @@
 		FD45F25524AA591300F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD45F25724AA591500F304BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD45F25A24AA591500F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FD45F25C24AA591500F304BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -208,10 +206,8 @@
 		FD7E7BED24BF37CE007CF404 /* LoadChattingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadChattingListService.swift; sourceTree = "<group>"; };
 		FD7E7BEF24BF3848007CF404 /* ChattingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListModel.swift; sourceTree = "<group>"; };
 		FD7E7BF624BF4F27007CF404 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		FD7E7BF824BF50D2007CF404 /* Previous.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Previous.storyboard; sourceTree = "<group>"; };
-		FD7E7BFA24BF630C007CF404 /* io_ulink_splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = io_ulink_splash.json; path = ../../../../../../Downloads/io_ulink_splash.json; sourceTree = "<group>"; };
-		FD7E7BFC24BF6475007CF404 /* io_ulink_splash_iphonese.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = io_ulink_splash_iphonese.json; path = ../../../../../../Downloads/io_ulink_splash_iphonese.json; sourceTree = "<group>"; };
 		FD7E7BFE24BF6657007CF404 /* ChattingListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListData.swift; sourceTree = "<group>"; };
+		FD7E7C0624C01B4D007CF404 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD8EE90524B73939000E5A48 /* NoticeEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeEditModeViewController.swift; sourceTree = "<group>"; };
 		FD8EE90824B7820F000E5A48 /* timeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeModel.swift; sourceTree = "<group>"; };
 		FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerTimeModel.swift; sourceTree = "<group>"; };
@@ -553,13 +549,12 @@
 		FD45F24D24AA591300F304BD /* ulink */ = {
 			isa = PBXGroup;
 			children = (
+				FD1398A424C020B200C2B44C /* io_ulink_splash.gif */,
+				FD7E7C0624C01B4D007CF404 /* Info.plist */,
 				B5A2784024ADE0C600A0F4A4 /* Extension */,
 				FD616CFF24AA5D2F007D54B5 /* Sources */,
 				FD616CFE24AA5A91007D54B5 /* Resource */,
-				FD45F25C24AA591500F304BD /* Info.plist */,
 				FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */,
-				FD7E7BFA24BF630C007CF404 /* io_ulink_splash.json */,
-				FD7E7BFC24BF6475007CF404 /* io_ulink_splash_iphonese.json */,
 				FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */,
 			);
 			path = ulink;
@@ -592,18 +587,12 @@
 		FD616D0024AA5D3F007D54B5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				299DACFD24B813FE008181FA /* Calendar.storyboard */,
-				FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */,
+				FD7E7C0324C00091007CF404 /* Mypage */,
+				FD7E7C0224C0005D007CF404 /* Chatting */,
+				FD7E7C0124C00056007CF404 /* TimeTable */,
+				FD7E7C0024C00032007CF404 /* Calendar */,
 				FD45F25424AA591300F304BD /* Main.storyboard */,
 				FD45F25924AA591500F304BD /* LaunchScreen.storyboard */,
-				FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */,
-				B5D26A4024B4B76F0047A2DC /* CreateTimeTable.storyboard */,
-				FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */,
-				299DAD0A24BAB8ED008181FA /* Alarm.storyboard */,
-				29AC520824BB0BBE0007E019 /* Search.storyboard */,
-				29AC521624BC60250007E019 /* Review.storyboard */,
-				FDFA3A7F24BCDEAE00CB8939 /* Filter.storyboard */,
-				FD7E7BF824BF50D2007CF404 /* Previous.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -712,6 +701,43 @@
 				FD7E7BF624BF4F27007CF404 /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		FD7E7C0024C00032007CF404 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				299DACFD24B813FE008181FA /* Calendar.storyboard */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		FD7E7C0124C00056007CF404 /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				29AC520824BB0BBE0007E019 /* Search.storyboard */,
+				FDFA3A7F24BCDEAE00CB8939 /* Filter.storyboard */,
+				29AC521624BC60250007E019 /* Review.storyboard */,
+				B5D26A4024B4B76F0047A2DC /* CreateTimeTable.storyboard */,
+				299DAD0A24BAB8ED008181FA /* Alarm.storyboard */,
+				FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */,
+			);
+			path = TimeTable;
+			sourceTree = "<group>";
+		};
+		FD7E7C0224C0005D007CF404 /* Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				FD5CCBDA24AA6833009FCDDB /* Chatting.storyboard */,
+			);
+			path = Chatting;
+			sourceTree = "<group>";
+		};
+		FD7E7C0324C00091007CF404 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				FD5CCBDC24AA69B2009FCDDB /* MyPage.storyboard */,
+			);
+			path = Mypage;
 			sourceTree = "<group>";
 		};
 		FD8EE90724B781DE000E5A48 /* NoticeModel */ = {
@@ -833,22 +859,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD7E7BFB24BF630C007CF404 /* io_ulink_splash.json in Resources */,
 				FD5CCBDB24AA6833009FCDDB /* Chatting.storyboard in Resources */,
 				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
 				29AC521724BC60250007E019 /* Review.storyboard in Resources */,
 				FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */,
 				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
 				299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */,
-				FD7E7BF924BF50D2007CF404 /* Previous.storyboard in Resources */,
 				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
 				299DAD0B24BAB8ED008181FA /* Alarm.storyboard in Resources */,
 				FDFA3A8024BCDEAE00CB8939 /* Filter.storyboard in Resources */,
-				FD7E7BFD24BF6475007CF404 /* io_ulink_splash_iphonese.json in Resources */,
 				B5D26A4124B4B76F0047A2DC /* CreateTimeTable.storyboard in Resources */,
 				FD5CCBDD24AA69B2009FCDDB /* MyPage.storyboard in Resources */,
 				FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */,
 				29AC520924BB0BBE0007E019 /* Search.storyboard in Resources */,
+				FD1398A524C020B300C2B44C /* io_ulink_splash.gif in Resources */,
 				FD45F25624AA591300F304BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
