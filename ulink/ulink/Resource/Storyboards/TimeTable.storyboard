@@ -194,6 +194,7 @@
                     <connections>
                         <outlet property="backgroundView" destination="ffJ-yH-LqD" id="upU-e7-dOA"/>
                         <outlet property="timeTable" destination="kh7-XQ-Qqa" id="9oh-cb-fsG"/>
+                        <outlet property="timeTableSemesterLabel" destination="2t0-gm-0oL" id="NUr-YI-gEC"/>
                         <outlet property="topDayView" destination="4O6-a7-ixW" id="QYd-2L-5nw"/>
                     </connections>
                 </viewController>

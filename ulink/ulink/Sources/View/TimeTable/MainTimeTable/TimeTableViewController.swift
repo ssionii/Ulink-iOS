@@ -8,14 +8,15 @@
 
 import UIKit
 
-class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate{
-   
-    
+class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate {
+
 
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var topDayView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
+    @IBOutlet weak var timeTableSemesterLabel: UILabel!
     
+    private var timeTableInfo = TimeTableModel.init()
     private var subjectList : [SubjectModel] = []
     private var subjectDummyList : [SubjectModel] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
@@ -23,6 +24,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     @IBAction func settingBtn(_ sender: UIButton) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableSettingViewController") as? TimeTableSettingViewController else { return }
         
+         nextVC.setTimeTableIdx(idx: self.timeTableInfo.scheduleIdx)
         nextVC.modalPresentationStyle = .fullScreen
          self.present(nextVC, animated: true, completion: nil)
     }
@@ -30,6 +32,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     @IBAction func listBtn(_ sender: UIButton) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableListViewController") as? TimeTableListViewController else { return }
         
+        nextVC.delegate = self
         nextVC.modalPresentationStyle = .fullScreen
         
         let transition = CATransition()
@@ -80,6 +83,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         
     }
     
+    // protocol
     func timeTable(timeTable: TimeTable, selectedSubjectIdx : Int, isSubject : Bool) {
         
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "subjectDetailViewController") as? SubjectDetailViewController else { return }
@@ -108,6 +112,10 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         return self.daySymbol[dayPerIndex]
     }
     
+    func getTimeTable(idx: Int) {
+           getTimeTableByIdx(idx: idx)
+    }
+    
     
     // 통신
     
@@ -118,8 +126,9 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
        MainTimeTableService.shared.getMainTimeTable { networkResult in
             switch networkResult {
                 case .success(let timeTable, let subjectList) :
+                    self.timeTableInfo = timeTable as! TimeTableModel
                     self.subjectList = subjectList as! [SubjectModel]
-                    print(subjectList)
+                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).name
                     self.timeTable.reloadData()
                     break
                 case .requestErr(let message):
@@ -130,6 +139,27 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
                 case .networkFail: print("networkFail")
             }
         }
+    }
+    
+    func getTimeTableByIdx(idx: Int){
+        print("getTimeTable")
+         
+        TimeTableService.shared.getTimeTable(idx: idx) { networkResult in
+             switch networkResult {
+                 case .success(let timeTable, let subjectList) :
+                    self.timeTableInfo = timeTable as! TimeTableModel
+                     self.subjectList = subjectList as! [SubjectModel]
+                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).name
+                     self.timeTable.reloadData()
+                     break
+                 case .requestErr(let message):
+                         print("REQUEST ERROR")
+                         break
+             case .pathErr: break
+             case .serverErr: print("serverErr")
+                 case .networkFail: print("networkFail")
+             }
+         }
     }
 
 }

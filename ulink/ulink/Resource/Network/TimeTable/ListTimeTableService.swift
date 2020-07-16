@@ -20,7 +20,7 @@ struct ListTimeTableService {
     let header: HTTPHeaders = [
         "Content-Type" : "application/json",
 //        "token" : UserDefaults.standard.object(forKey: "token") as! String
-        "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoxLCJuYW1lIjoi6rmA67O067CwIiwic2Nob29sIjoi7ZWc7JaR64yA7ZWZ6rWQIiwibWFqb3IiOiLshoztlITtirjsm6jslrQiLCJpYXQiOjE1OTQ3NzkxODAsImV4cCI6MTU5NjIxOTE4MCwiaXNzIjoiYm9iYWUifQ.BAOeiZ_uqtIVPzFJd2oZbfVz44A2_QSXLQliNhN6pv4"
+        "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoxLCJuYW1lIjoi6rmA67O067CwIiwic2Nob29sIjoi7ZWc7JaR64yA7ZWZ6rWQIiwibWFqb3IiOiLsnLXtlansoITsnpDqs7XtlZnrtoAiLCJpYXQiOjE1OTQ4MzkzOTEsImV4cCI6MTU5ODQzNTc5MSwiaXNzIjoiYm9iYWUifQ.jxont3bUINSAtQt_F90KeE376WX-cZJoB5rzM2K7Ccg"
     ]
     
     func getListTimeTable(completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -59,20 +59,18 @@ struct ListTimeTableService {
     let data = json["data"].arrayValue
     
     var listSemesterList = [ListSemester]()
-    for (index, d) in data.enumerated() {
+    for (_, d) in data.enumerated() {
         
-        
-        let timeTableList = d["timeTableList"].arrayObject as! [TimeTableModel]
+        let timeTableList = d["timeTableList"].arrayValue
         var tempTimeTableList = [TimeTableModel]()
         
-        for (index2, ttl) in timeTableList.enumerated(){
-            
-            var timeTable = TimeTableModel.init(scheduleIdx: ttl.scheduleIdx, name: ttl.name, semesterInput: d["semester"].stringValue, isMain: ttl.isMain)
+        for (_, ttl) in timeTableList.enumerated(){
+            let timeTable = TimeTableModel.init(scheduleIdx: ttl["scheduleIdx"].intValue, name: ttl["name"].stringValue, semesterInput: d["semester"].stringValue, isMain: ttl["isMain"].intValue)
         
             tempTimeTableList.append(timeTable)
         }
         
-        let listSemester = ListSemester.init(nameInput:  d["semester"].stringValue, timeTableList: tempTimeTableList)
+        let listSemester = ListSemester.init(semester: d["semester"].stringValue , timeTableList: tempTimeTableList)
         listSemesterList.append(listSemester)
     }
     

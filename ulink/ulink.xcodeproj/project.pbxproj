@@ -52,6 +52,7 @@
 		B5D26A4A24B5E7E60047A2DC /* CreateNewSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */; };
 		B5DBF3DC24BEF1A50013BB33 /* SubjectDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3DB24BEF1A50013BB33 /* SubjectDetailService.swift */; };
 		B5DBF3DE24BF7CAF0013BB33 /* ListTimeTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */; };
+		B5DBF3E024BFA6B40013BB33 /* TimeTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */; };
 		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
@@ -150,6 +151,7 @@
 		B5D26A4924B5E7E60047A2DC /* CreateNewSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewSheetCell.swift; sourceTree = "<group>"; };
 		B5DBF3DB24BEF1A50013BB33 /* SubjectDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailService.swift; sourceTree = "<group>"; };
 		B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTimeTableService.swift; sourceTree = "<group>"; };
+		B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableService.swift; sourceTree = "<group>"; };
 		B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListCell.swift; sourceTree = "<group>"; };
 		B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListHeader.swift; sourceTree = "<group>"; };
 		B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableListFooter.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				B52F9DE424BDA7E300B57CA1 /* MainTimeTableService.swift */,
 				B5DBF3DB24BEF1A50013BB33 /* SubjectDetailService.swift */,
 				B5DBF3DD24BF7CAF0013BB33 /* ListTimeTableService.swift */,
+				B5DBF3DF24BFA6B40013BB33 /* TimeTableService.swift */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				FD8EE90E24B83744000E5A48 /* MessageModel.swift in Sources */,
 				FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */,
 				FD79B5CD24B713AB00020118 /* NoticeEditViewController.swift in Sources */,
+				B5DBF3E024BFA6B40013BB33 /* TimeTableService.swift in Sources */,
 				B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */,
 				FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */,
 				299DACF424B78785008181FA /* EventCell.swift in Sources */,

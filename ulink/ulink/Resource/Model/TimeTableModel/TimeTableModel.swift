@@ -74,4 +74,12 @@ public struct TimeTableModel {
         self.semester = ""
         self.isMain = 0
     }
+    
+    public init(){
+        self.scheduleIdx = 0
+        self.name = ""
+        self.subjectList = []
+        self.semester = ""
+        self.isMain = 0
+    }
 }
