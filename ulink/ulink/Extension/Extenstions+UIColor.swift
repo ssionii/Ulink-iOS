@@ -26,7 +26,21 @@ extension UIColor {
         return UIColor(red: 127.0 / 255.0, green: 36.0 / 255.0, blue: 252.0, alpha: 1.0)
     }
     
+    
 
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @nonobjc class var noticeColorOne: UIColor{
         return UIColor(red: 255.0 / 255.0, green: 245.0 / 255.0, blue: 253.0, alpha: 1.0)
     }

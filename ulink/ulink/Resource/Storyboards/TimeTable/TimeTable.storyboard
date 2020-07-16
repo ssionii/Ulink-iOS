@@ -23,20 +23,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eW-mo-Q4R">
                                 <rect key="frame" x="0.0" y="44" width="375" height="873"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioMainImgLogo" translatesAutoresizingMaskIntoConstraints="NO" id="FbF-nH-4QZ">
-                                        <rect key="frame" x="16" y="10" width="86" height="30"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioMainIcLogo" translatesAutoresizingMaskIntoConstraints="NO" id="FbF-nH-4QZ">
+                                        <rect key="frame" x="16" y="10" width="86" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="86" id="muN-8d-q7o"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020년 2학기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2t0-gm-0oL">
-                                        <rect key="frame" x="20" y="47" width="103" height="22"/>
+                                        <rect key="frame" x="20" y="53" width="103" height="22"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                         <color key="textColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu9-VD-Fx6">
-                                        <rect key="frame" x="317" y="10.666666666666664" width="48" height="29"/>
+                                        <rect key="frame" x="317" y="13.666666666666664" width="48" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="NdG-bz-X5Y"/>
                                             <constraint firstAttribute="height" constant="29" id="Rcv-tW-XSL"/>
@@ -44,7 +44,7 @@
                                         <state key="normal" image="ioMainIcAlarm"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plQ-Jf-tkX">
-                                        <rect key="frame" x="324" y="40.666666666666671" width="34" height="38"/>
+                                        <rect key="frame" x="324" y="43.666666666666671" width="34" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="pf7-Pm-poC"/>
                                             <constraint firstAttribute="width" constant="34" id="vFh-ls-OT5"/>
@@ -56,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47E-Io-JbG">
-                                        <rect key="frame" x="287" y="40.666666666666671" width="34" height="38"/>
+                                        <rect key="frame" x="287" y="43.666666666666671" width="34" height="38"/>
                                         <state key="normal" image="ioMainIcSetting"/>
                                         <connections>
                                             <action selector="settingBtn:" destination="Thb-Ua-YU9" eventType="touchUpInside" id="rMp-oF-YAz"/>
@@ -64,14 +64,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6k-6Z-YCo">
-                                        <rect key="frame" x="253" y="40.666666666666671" width="31" height="38"/>
+                                        <rect key="frame" x="253" y="43.666666666666671" width="31" height="38"/>
                                         <state key="normal" image="ioMainIcPlus"/>
                                         <connections>
                                             <segue destination="DTC-Xp-ICb" kind="presentation" id="5GK-Ev-NKb"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4O6-a7-ixW">
-                                        <rect key="frame" x="11" y="81" width="353" height="38"/>
+                                        <rect key="frame" x="11" y="87" width="353" height="38"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioMainBgTop" translatesAutoresizingMaskIntoConstraints="NO" id="B8u-Tw-Npd">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="38"/>
@@ -126,10 +126,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0e-ZK-8xh">
-                                        <rect key="frame" x="11" y="119" width="353" height="754"/>
+                                        <rect key="frame" x="11" y="125" width="353" height="748"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kh7-XQ-Qqa" customClass="TimeTable" customModule="ulink" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="0.0" width="334" height="754"/>
+                                                <rect key="frame" x="8" y="0.0" width="334" height="748"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <gestureRecognizers/>
                                                 <userDefinedRuntimeAttributes>
@@ -831,9 +831,9 @@
         <image name="ioMainBgTop" width="353" height="38"/>
         <image name="ioMainIcAlarm" width="48" height="29"/>
         <image name="ioMainIcList" width="34" height="38"/>
+        <image name="ioMainIcLogo" width="87" height="36"/>
         <image name="ioMainIcPlus" width="31" height="38"/>
         <image name="ioMainIcSetting" width="34" height="38"/>
-        <image name="ioMainImgLogo" width="86" height="30"/>
         <image name="ioMainListIcMainTimetable" width="22" height="14"/>
         <image name="ioMainSettingGallery" width="18" height="16"/>
         <image name="ioMainSettingIcCheck" width="18" height="18"/>

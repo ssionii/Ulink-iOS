@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "filename" : "ioClassImgProfile6.png",
       "idiom" : "universal",
-      "filename" : "ioClassImgProfile6.png"
+      "scale" : "1x"
     },
     {
       "filename" : "ioClassImgProfile6@2x.png",

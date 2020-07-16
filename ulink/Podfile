@@ -22,4 +22,7 @@ target 'ulink' do
   pod 'BEMCheckBox'
   pod 'lottie-ios'
   pod 'SwiftGifOrigin', '~> 1.7.0'
+  pod 'GIFImageView'
+
+
 end
