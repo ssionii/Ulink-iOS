@@ -109,6 +109,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTU-YB-GyT">
                                                     <rect key="frame" x="309" y="10" width="24" height="24"/>
                                                     <state key="normal" image="ioMainFiltersettingSearchIcX"/>
+                                                    <connections>
+                                                        <action selector="deleteCell:" destination="KDu-Jf-q1S" eventType="touchUpInside" id="nNl-A0-d1n"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
