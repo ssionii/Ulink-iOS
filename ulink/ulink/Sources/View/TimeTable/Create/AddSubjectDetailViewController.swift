@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddSubjectDetailDelegate {
-    func didPressOkButton(timeInfoList : [SubjectModel])
+    func didPressOkButton(timeInfoList : [SubjectModel], isFromDrag : Bool)
     func didDeleteTimeInfo(num : Int)
 }
 
@@ -17,6 +17,7 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
 
     public var delegate: AddSubjectDetailDelegate?
     
+    public var scheduleIdx = 0
     public var timeInfoList = [TimeInfoModel]()
     public let defatulTimeInfoTableViewHeight = 46
     private var subjectName = ""
@@ -136,19 +137,33 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         }else{
-            // Todo: 통신
-            
-            var subjectList = [SubjectModel]()
-            
-            for i in 0 ... timeInfoList.count - 1 {
+            if isFromDrag {
+                var subjectList = [SubjectModel]()
                 
+                for i in 0 ... timeInfoList.count - 1 {
+                    
                 let subject = SubjectModel.init(subjectName: subjectName, content: [detailTextField.text ?? ""], subjectDay: [timeInfoList[i].weekDay], startTime: [timeInfoList[i].startTime], endTime: [timeInfoList[i].endTime], textColor: UIColor.white, backgroundColor: 1)
-            
+                
                 subjectList.append(subject)
             }
             
-            delegate?.didPressOkButton(timeInfoList: subjectList)
-            dismiss(animated: true, completion: nil)
+                delegate?.didPressOkButton(timeInfoList: subjectList, isFromDrag: self.isFromDrag)
+                dismiss(animated: true, completion: nil)
+            }else {
+                
+               var personalList = [PersonalScheduleModel]()
+                
+                // list에 추가
+                for timeInfo in timeInfoList {
+                    let personalSchedule = PersonalScheduleModel.init(name: subjectName, startTime: timeInfo.startTime, endTime: timeInfo.endTime, day: timeInfo.weekDay, content: detailTextField.text ?? "", color: 5, scheudleIdx: self.scheduleIdx)
+                    
+                    // todo: 색 바꾸기
+                     personalList.append(personalSchedule)
+                }
+                
+                self.postPersonalSchedule(personalList: personalList)
+                dismiss(animated: true, completion: nil)
+            }
         }
         
         
@@ -385,6 +400,27 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     @objc func textFieldEditStart(textField : UITextField){
         resetButton()
     }
+    
+    // MARK: - 통신
+    func postPersonalSchedule(personalList : [PersonalScheduleModel]){
+           print("postPersonalSchedule")
+               
+           PersonalScheduleService.shared.postPersonalScheudule(personalScheudleList: personalList){ networkResult in
+                switch networkResult {
+                    case .success(_, _) :
+                        print("개인 일정 추가 성공")
+                        self.delegate?.didPressOkButton(timeInfoList: [], isFromDrag: self.isFromDrag)
+                        break
+                    case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        break
+                    case .pathErr: break
+                    case .serverErr: print("serverErr")
+                    case .networkFail: print("networkFail")
+                   }
+               }
+          }
+       
     
 }
 
