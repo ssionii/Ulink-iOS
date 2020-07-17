@@ -46,7 +46,6 @@ public func getWidth() -> Int{
         print("5번")
         //11
         return 32
-        
     default:
         print("6번")
         return 19

@@ -17,6 +17,9 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
+    
+    @IBOutlet weak var weekSpacing: NSLayoutConstraint!
+    
     @IBAction func dismissBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -61,8 +64,11 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setSpacingForDevice()
+        
         setBackgroundView()
         setTimeTableView()
+        
         
         timeTable.delegate = self
         timeTable.dataSource = self
@@ -76,10 +82,46 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         return .darkContent
     }
     
+    
+    func setSpacingForDevice(){
+           
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+           
+        switch height {
+               
+           case 450.0 ... 667.0 : // 6 6s 7 8
+               
+               self.weekSpacing.constant = 53
+               
+               break
+               
+           case 730.0 ... 810.0: // 6s+, 7+ 8+
+               self.weekSpacing.constant = 53
+               break
+               
+           case 812.0 ... 890.0: //X, XS
+               
+               //11pro
+               self.weekSpacing.constant = 53
+               
+               break
+           
+           case 896.0:         // XS MAX
+               //11
+               self.weekSpacing.constant = 65
+               break
+              
+           default:
+               break
+               
+           }
+           
+       }
+    
     private func setTimeTableView(){
 
-        timeTable.widthOfTimeAxis = 20
-        timeTable.defaultMaxHour = 20
+        timeTable.defaultMaxHour = 23
 
         timeTable.controller.setDrag()
         

@@ -9,7 +9,8 @@
 import UIKit
 
 
-class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate, TimeTableSettingViewControllerDelegate,CreateTimeTableViewControllerDelegate{
+class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate, TimeTableSettingViewControllerDelegate,CreateTimeTableViewControllerDelegate, SubjectDetailViewControllerDelegate{
+ 
   
    
     @IBOutlet weak var backgroundView: UIView!
@@ -108,47 +109,6 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         
     }
     
-    // protocol
-    func timeTable(timeTable: TimeTable, selectedSubjectIdx : Int, isSubject : Bool) {
-        
-        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "subjectDetailViewController") as? SubjectDetailViewController else { return }
-        
-        print(selectedSubjectIdx)
-        
-        nextVC.subjectIdx = selectedSubjectIdx
-        nextVC.isSubject = isSubject
-        self.present(nextVC, animated: true, completion: nil)
-        
-    }
-    
-    func timeTableHintCount(hintCount: Int) {
-    
-    }
-
-    func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {
-        return subjectList
-    }
-
-    func numberOfDays(in timeTable: TimeTable) -> Int {
-        return self.daySymbol.count
-    }
-
-    func timeTable(timeTable: TimeTable, at dayPerIndex: Int) -> String {
-        return self.daySymbol[dayPerIndex]
-    }
-    
-    func getTimeTable(idx: Int) {
-           getTimeTableByIdx(idx: idx)
-    }
-    
-    func updateMainView() {
-        getTimeTableByIdx(idx: timeTableInfo.scheduleIdx)
-    }
-    
-    func updateMainFromEnrollSubject() {
-          getTimeTableByIdx(idx: timeTableInfo.scheduleIdx)
-      }
-      
     func setSpacingForDevice()
     {
         
@@ -186,6 +146,55 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         
     }
     
+    // MARK:- protocol
+    func timeTable(timeTable: TimeTable, selectedSubjectIdx : Int, isSubject : Bool) {
+        
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "subjectDetailViewController") as? SubjectDetailViewController else { return }
+        
+        print(selectedSubjectIdx)
+        
+        nextVC.subjectIdx = selectedSubjectIdx
+        nextVC.isSubject = isSubject
+        nextVC.delegate = self
+        self.present(nextVC, animated: true, completion: nil)
+        
+    }
+    
+    func timeTableHintCount(hintCount: Int) {
+    
+    }
+
+    func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {
+        return subjectList
+    }
+
+    func numberOfDays(in timeTable: TimeTable) -> Int {
+        return self.daySymbol.count
+    }
+
+    func timeTable(timeTable: TimeTable, at dayPerIndex: Int) -> String {
+        return self.daySymbol[dayPerIndex]
+    }
+    
+    func getTimeTable(idx: Int) {
+           getTimeTableByIdx(idx: idx)
+    }
+    
+    func updateMainView() {
+        getTimeTableByIdx(idx: timeTableInfo.scheduleIdx)
+    }
+    
+    func updateMainFromEnrollSubject() {
+          getTimeTableByIdx(idx: timeTableInfo.scheduleIdx)
+      }
+    
+    func updateSubjectDetail() {
+        getTimeTable(idx: timeTableInfo.scheduleIdx)
+     }
+     
+      
+    
+    
     // MARK:- 통신
     
     func getMainTimeTable(){
@@ -196,7 +205,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
                 case .success(let timeTable, let subjectList) :
                     self.timeTableInfo = timeTable as! TimeTableModel
                     self.subjectList = subjectList as! [SubjectModel]
-                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).name
+                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).semesterText
                     self.timeTable.reloadData()
                     break
                 case .requestErr(let message):
@@ -217,7 +226,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
                  case .success(let timeTable, let subjectList) :
                     self.timeTableInfo = timeTable as! TimeTableModel
                      self.subjectList = subjectList as! [SubjectModel]
-                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).name
+                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).semesterText
                      self.timeTable.reloadData()
                      break
                  case .requestErr(let message):
