@@ -412,6 +412,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         }
      
         subjectInfoCell.delegate = self
+
+        
         return subjectInfoCell
     }
     
