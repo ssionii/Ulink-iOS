@@ -498,8 +498,6 @@ func makeHintTimeTableForDrag(input_x : CGFloat, input_y : CGFloat){
 
 <br>
 
-<hr>
-
 
 #### 5-2. 직접 추가
 시간표 생성 뷰에서 직접 추가하기 버튼을 누르거나, 드래그가 끝나고 상세 정보를 설정하고 싶을 때 넘어오는 뷰이다.
@@ -525,7 +523,8 @@ func makeHintTimeTableForDrag(input_x : CGFloat, input_y : CGFloat){
 
 **결과 화면**
 
-![3번](https://user-images.githubusercontent.com/37260938/87797206-5a55cf00-c885-11ea-92a4-ce8fd311ee62.gif)
+![4번](https://user-images.githubusercontent.com/37260938/87798712-4d39df80-c887-11ea-8710-f8e7f6334ba1.gif)
+
 
 
 
