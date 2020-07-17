@@ -126,7 +126,7 @@ class SubjectDetailViewController: UIViewController {
     
     
     private func setLabels(){
-        colorView.backgroundColor = ColorFilter.init().getColor(colorCode: subjectColorCode)
+        colorView.backgroundColor = ColorPicker.init().getColor(subjectColorCode).color
         subjectNameLabel.text = subjectName
         subjectTimeInfoLabel.text = subjectTimeInfo
         subjectMemoInfoLabel.text = subjectMemo
