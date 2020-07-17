@@ -40,6 +40,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var searchLabel: UILabel!
     
     private var isCandidateView = false
+    private var didGradeSelect = false
     
     private var timeTableList : [TimeTableModel] = [] {
         didSet {
@@ -58,6 +59,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     var offDay = [Int]()
     
     var semester = ""
+    var scheduleIdx = 0
     
     
     @IBAction func tapMajorFilter(_ sender: UIButton) {
@@ -95,20 +97,21 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     @IBAction func addSubjectDirect(_ sender: UIButton) {
         
+        if pageControlDots.currentPage != timeTableList.count {
+        
         let alert = UIAlertController(title: nil , message: "과목추가 방식을 선택해주세요.", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "드래그로 추가", style: .default, handler: { (_) in
                 
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectByDragViewController") as? AddSubjectByDragViewController else { return }
                    
                 nextVC.modalPresentationStyle = .fullScreen
-                nextVC.scheduleIdx = 12
+            nextVC.scheduleIdx = self.timeTableList[self.pageControlDots.currentPage].scheduleIdx
                 self.present(nextVC, animated: true, completion: nil)
             
             
             }))
 
         alert.addAction(UIAlertAction(title: "직접 입력", style: .default, handler: { (_) in
-              
 
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectDetailViewController") as? AddSubjectDetailViewController else { return }
             
@@ -125,6 +128,13 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
 
         
         self.present(alert, animated: true, completion: nil)
+        }else {
+            let alert = UIAlertController(title: "", message: "과목을 추가할 시간표를 선택해주세요.", preferredStyle: UIAlertController.Style.alert)
+
+                   alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+
+                   self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
@@ -138,14 +148,9 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         setupGestureRecognizer()
         
         setBackgroundView()
-        setTimeTableList()
         
         setButton()
         setSubjectInfoTableView()
-        // setCollectionView()
-        
-        print("semester", semester)
-        
         
         timeTableCollectionView.dataSource = self
         timeTableCollectionView.delegate = self
@@ -155,9 +160,14 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getTimeTableList(semester: semester)
+    }
+    
     
     //학년 선택 팝업 창 뜨는 코드 by 성은
     override func viewDidAppear(_ animated: Bool) {
+        if !didGradeSelect {
         let sb = UIStoryboard(name: "Search", bundle: nil)
         
         guard let popUpVC = sb.instantiateViewController(identifier: "gradeSelect") as? GradeSelectViewController else {return}
@@ -166,6 +176,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         popUpVC.modalPresentationStyle = .overCurrentContext
         present(popUpVC, animated: false, completion: nil)
+            didGradeSelect = true
+        }
     }
     
     //검색 뷰 클릭 코드 by 성은
@@ -223,15 +235,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             self.timeTableCollectionView.setContentOffset(CGPoint(x: self.timeTableCollectionView.bounds.origin.x - self.timeTableCollectionView.frame.width + 11, y: 0), animated: true)
         }
     }
-    
-    private func setTimeTableList(){
-        
-        let timeTable_1 = TimeTableModel(idx: 0, name: "시간표1", subjectList: [])
-        let timeTable_2 = TimeTableModel(idx: 0, name: "시간표2", subjectList: [])
-        
-        timeTableList = [timeTable_1, timeTable_2]
-    }
-    
+
     private func showSearchFilterBar(){
         searchFilteHeight.constant = 49
         searchIconHeight.constant = 18
@@ -257,8 +261,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
               
                     let newTimeTableSheet = TimeTableModel(idx: self.timeTableList.count - 1, name: text, subjectList: [])
                     self.timeTableList.append(newTimeTableSheet)
-                      
-//                    self.timeTableCollectionView.reloadData()
+                   // todo 통신 넣기
+                    self.makeTimeTable(semester: self.semester, name: text)
                     
                       
                 print("이동할 곳", self.timeTableList.count - 1)
@@ -366,10 +370,20 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let temp = pageControlDots.currentPage
         pageControlDots.currentPage = Int(
             (self.timeTableCollectionView.contentOffset.x / self.timeTableCollectionView.frame.width)
             .rounded(.toNearestOrAwayFromZero)
         )
+       
+        if (temp != pageControlDots.currentPage && pageControlDots.currentPage != timeTableList.count){
+            let index = pageControlDots.currentPage
+            
+            self.scheduleIdx = timeTableList[index].scheduleIdx
+            print(self.scheduleIdx)
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -398,6 +412,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         }
      
         subjectInfoCell.delegate = self
+
+        
         return subjectInfoCell
     }
     
@@ -416,7 +432,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             if !(tableView.cellForRow(at: indexPath) as! SubjectInfoCell).isExpended {
                 removeHintTimeTable(row: pageControlDots.currentPage)
             } else {
-                drawHintTimeTable(row: pageControlDots.currentPage, day:  subjectInfoList[num].subjectDay,startTime: subjectInfoList[num].startTime, endTime: subjectInfoList[num].endTime)
+//                drawHintTimeTable(row: pageControlDots.currentPage, day:  subjectInfoList[num].subjectDay,startTime: subjectInfoList[num].startTime, endTime: subjectInfoList[num].endTime)
             }
         }
     }
@@ -426,11 +442,11 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
        
     func deleteSubject(idx: Int) {
-        print("deleteSubject")
+        deleteCandidate(idx: idx, semester: self.semester)
     }
        
     func addCandidate(idx: Int) {
-        postCandidate(semester : "2020-2", subjectIdx: idx)
+        postCandidate(semester : semester, subjectIdx: idx)
     }
        
     func enrollSubject(subjectIdx: Int, subjectItems: [SubjectModel]) {
@@ -489,7 +505,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             timeTableCell.timeTable.reDrawTimeTable()
             
             for temp in tempList {
-                enrollSubject(subjectIdx: subjectIdx , color: temp.backgroundColor, scheduleIdx: 12)
+                enrollSubject(subjectIdx: subjectIdx , color: temp.backgroundColor, scheduleIdx: self.scheduleIdx)
                 // todo : scheduleIdx 바꿔!
             }
         }else {
@@ -514,6 +530,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     //검색 by 성은
     func searchedSubjectName(_ subjectName: String) {
         searchLabel.text = subjectName
+        getSubjectBySearch(keyword: subjectName)
+        
     }
     
     // gestureRecognizer
@@ -551,7 +569,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
            self.candidateImageView.image = UIImage(named: "timetableaddFilterandsearchBtnCandidateOn.png")
            self.candidateBottomView.backgroundColor = UIColor.purpleishBlueThree
         
-        self.getCandidate(semester: "2020-2")
+        self.getCandidate(semester: semester)
         
         self.subjectInfoTableView.reloadData()
            
@@ -579,6 +597,27 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                    }
                }
           }
+    
+    func getSubjectBySearch(keyword : String){
+           print("getSubjectBySearch")
+               
+        SearchService.shared.searchSubject(name: keyword){ networkResult in
+                   switch networkResult {
+                       case .success(let list, _) :
+                        print("과목 검색 성공")
+                        self.subjectInfoList = list as! [SubjectModel]
+                        self.subjectInfoTableView.reloadData()
+                           break
+                       case .requestErr(let message):
+                               print("REQUEST ERROR")
+                               break
+                   case .pathErr: break
+                   case .serverErr: print("serverErr")
+                       case .networkFail: print("networkFail")
+                   }
+               }
+          }
+    
     
     func enrollSubject(subjectIdx: Int, color : Int, scheduleIdx : Int){
        print("enrollSubject")
@@ -624,7 +663,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                  self.subjectInfoList = list as! [SubjectModel]
                  print(list)
                  self.subjectInfoTableView.reloadData()
-                 print(list)
                     break
                 case .requestErr(let message):
                         print("REQUEST ERROR")
@@ -636,6 +674,72 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         }
     }
     
+    func deleteCandidate(idx: Int, semester : String) {
+        print("deleteCandidate")
+        CartService.shared.deleteCartSubject(idx: idx, semester: semester) { networkResult in
+            switch networkResult {
+                case .success(_, _) :
+                 print("후보 삭제 성공")
+                 self.getCandidate(semester: self.semester)
+                 self.subjectInfoTableView.reloadData()
+                    break
+                case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        break
+            case .pathErr: break
+            case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+            }
+        }
+    }
+    
+    func getTimeTableList(semester : String){
+         print("getTimeTableList")
+        ListTimeTableService.shared.getListTimeTable(semester: semester) { networkResult in
+            switch networkResult {
+                case .success(let containerList, _) :
+                 print("시간표 리스트 조회 성공")
+                 let timeTableContainerList = containerList as! [TimeTableContainerModel]
+                 
+                 var tempTableList = [TimeTableModel]()
+                 for (container) in timeTableContainerList {
+                    let timeTableModel = TimeTableModel.init(idx: container.timeTable.scheduleIdx, name: container.timeTable.name, subjectList: container.subjects)
+                    
+                    tempTableList.append(timeTableModel)
+                 }
+                 
+                 self.timeTableList = tempTableList
+                 self.subjectInfoTableView.reloadData()
+                    break
+                case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        break
+            case .pathErr: break
+            case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+            }
+        }
+    }
+    
+    
+    func makeTimeTable(semester : String, name: String){
+         print("makeTimeTable")
+        TimeTableService.shared.makeTimeTable(semester: semester, name: name){ networkResult in
+            switch networkResult {
+                case .success(_, _) :
+                 print("시간표 추가 성공")
+                // todo 먼가 추가 해야할까?
+                 self.getTimeTableList(semester: semester)
+                case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        break
+            case .pathErr: break
+            case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+            }
+        }
+    }
+
     
     
 }

@@ -11,11 +11,6 @@ import UIKit
 
 class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeTableDataSource, AddSubjectDetailDelegate {
     
-    public var scheduleIdx = 1
-    
-    private var confirmType = "확정"
-    private var personalList = [PersonalScheduleModel]()
-    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
     @IBAction func dismissBtn(_ sender: Any) {
@@ -47,9 +42,14 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
 
     }
 
-    
+    var timeTableInfo = TimeTableModel.init()
     var subjectList : [SubjectModel] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
+    
+    public var scheduleIdx = 1
+      
+    private var confirmType = "확정"
+    private var personalList = [PersonalScheduleModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +59,10 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         
         timeTable.delegate = self
         timeTable.dataSource = self
-   
-      
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getTimeTableByIdx(idx: scheduleIdx)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -167,5 +169,25 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
                 }
             }
        }
+    
+    func getTimeTableByIdx(idx: Int){
+        print("getTimeTable")
+         
+        TimeTableService.shared.getTimeTable(idx: idx) { networkResult in
+             switch networkResult {
+                 case .success(let timeTable, let subjectList) :
+                    self.timeTableInfo = timeTable as! TimeTableModel
+                     self.subjectList = subjectList as! [SubjectModel]
+                     self.timeTable.reloadData()
+                     break
+                 case .requestErr(let message):
+                         print("REQUEST ERROR")
+                         break
+             case .pathErr: break
+             case .serverErr: print("serverErr")
+                 case .networkFail: print("networkFail")
+             }
+         }
+    }
 
 }

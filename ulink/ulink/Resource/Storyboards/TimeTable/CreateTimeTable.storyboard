@@ -504,7 +504,6 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
-                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                             <constraints>
                                                                                 <constraint firstItem="k2W-76-pQd" firstAttribute="leading" secondItem="gc6-U3-RcX" secondAttribute="trailing" constant="6" id="DyR-sf-7OU"/>
                                                                                 <constraint firstItem="xxB-Ao-in4" firstAttribute="centerY" secondItem="9v4-TQ-ZUl" secondAttribute="centerY" id="Eby-S7-8Fm"/>
@@ -613,6 +612,7 @@
                                                             <outlet property="bottomBorder" destination="472-d3-OLi" id="A3b-dP-FFe"/>
                                                             <outlet property="candidateBtn" destination="Arx-pr-FIC" id="gQM-Vg-tYh"/>
                                                             <outlet property="candidateBtnHeight" destination="eWc-7k-iUk" id="Qg2-S6-4eI"/>
+                                                            <outlet property="cellBackgroundView" destination="KXD-o8-NTk" id="F7W-Q5-bqM"/>
                                                             <outlet property="courseLabel" destination="gc6-U3-RcX" id="CLK-hD-P7s"/>
                                                             <outlet property="creditLabel" destination="k2W-76-pQd" id="tjT-Ud-b3f"/>
                                                             <outlet property="deleteBtn" destination="6U2-Z0-LMO" id="URU-jw-biL"/>
