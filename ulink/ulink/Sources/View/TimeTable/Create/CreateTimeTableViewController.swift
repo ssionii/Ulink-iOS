@@ -21,6 +21,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var subjectInfoTableView: UITableView!
     
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var weekSpacing: NSLayoutConstraint!
+    
     
     // button
     @IBOutlet weak var filterAndSearchView: UIView!
@@ -160,7 +162,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+
         setupGestureRecognizer()
         
         setBackgroundView()
@@ -369,7 +371,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
            indexPath: IndexPath) -> CGSize {
-           return CGSize(width: collectionView.frame.width - 22, height: collectionView.frame.height)
+//           return CGSize(width: collectionView.frame.width - 22, height: collectionView.frame.height)
+        return CGSize(width: self.view.bounds.width - 22, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

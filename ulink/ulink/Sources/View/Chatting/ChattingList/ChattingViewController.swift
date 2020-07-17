@@ -13,10 +13,12 @@ import FirebaseDatabase
 
 
 
+
     
 class ChattingViewController: UIViewController {
         
     
+    @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var chattingListTable: UITableView!
 
 
@@ -65,7 +67,9 @@ class ChattingViewController: UIViewController {
         
         showIndicator()
 
-
+        
+        
+        self.chattingListTable.tableFooterView = footerView
 
     }
     
@@ -96,7 +100,7 @@ class ChattingViewController: UIViewController {
       {
           
           
-
+        
             LoadChattingListService.shared.getSubjectDetailNotice() { networkResult in
                 switch networkResult{
                     
@@ -112,23 +116,24 @@ class ChattingViewController: UIViewController {
                     guard let numberOfChatrooms = numberOfChatrooms as? Int else {return}
                     
 
-
-                        for i in 0...numberOfChatrooms - 1 // 채팅방 갯수만큼 리스트에 append 해야 함
+                        if numberOfChatrooms > 0
                         {
-                            let chatroomData = ChattingListData(
-                                idx: chatList[i].subjectIdx,
-                                name: chatList[i].name,
-                                color: chatList[i].color,
-                                total: chatList[i].total,
-                                current: chatList[i].current)
+                                for i in 0...numberOfChatrooms - 1 // 채팅방 갯수만큼 리스트에 append 해야 함
+                                {
+                                    let chatroomData = ChattingListData(
+                                        idx: chatList[i].subjectIdx,
+                                        name: chatList[i].name,
+                                        color: chatList[i].color,
+                                        total: chatList[i].total,
+                                        current: chatList[i].current)
+                                    
+                                    self.chattingList.append(chatroomData)
+                                }
                             
-                            self.chattingList.append(chatroomData)
                         }
+
                     
-                    
-                    print("asd")
-                    print(self.chattingList)
-                    
+
              
                     
                     
@@ -254,6 +259,10 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         
         
+        chattingCell.separatorInset = UIEdgeInsets.zero
+        
+        
+        
         
         
 //        Database.database().reference().child("chatrooms").child(array_class[indexPath.row].key!).child("users").observe(.value) { (datasnapshot) in
@@ -267,109 +276,34 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
 //        chattingCell.chattingUserCountLabel.text = "현재 인원 :" + String(dic.count - 1)
 //        }
         
+        var colorString : String = ""
         
-        switch chattingList[indexPath.row].color
+        if(chattingList[indexPath.row].color<9)
         {
-        case 1:
-            
-            
-            if let img = UIImage(named: "ioClassImgProfile1")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 2 :
-            
-            if let img = UIImage(named: "ioClassImgProfile2")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 3 :
-            
-            if let img = UIImage(named: "ioClassImgProfile3")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 4 :
-            
-            if let img = UIImage(named: "ioClassImgProfile4")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 5:
-            
-            if let img = UIImage(named: "ioClassImgProfile5")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 6:
-            
-            if let img = UIImage(named: "ioClassImgProfile6")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 7:
-            
-            if let img = UIImage(named: "ioClassImgProfile7")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-        case 8:
-            
-            
-            if let img = UIImage(named: "ioClassImgProfile2")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-        case 9:
-            
-            
-            if let img = UIImage(named: "ioClassImgProfile3")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-        case 10:
-            
-            
-            if let img = UIImage(named: "ioClassImgProfile4")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        default:
-            
-            break
-            
-            
-            
-            
-            
+            colorString = "0" + String(chattingList[indexPath.row].color + 1)
         }
+        else
+        {
+            colorString = String(chattingList[indexPath.row].color + 1)
+        }
+
+        
+        
+        print("colorString = \(colorString)")
+        if let img = UIImage(named: "ioClassImg" + colorString)
+        {
+            chattingCell.chattingImage.image = img
+        }
+        
+        else
+        {
+            
+            chattingCell.chattingImage.image = UIImage(named: "ioClassImgProfile13")
+        }
+        
+        
+        
+
         
         
         
@@ -422,7 +356,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         self.array_class = self.array_class.sorted(by: {$0.className! < $1.className!})
 
 //        print("Array : \(array_class)")
-        
+    
         chattingRoomViewController.destinationUid = "-MBcSPAQKDDOsT2u4UfX"
         chattingRoomViewController.tempTitle = self.chattingList[indexPath.row].name
         

@@ -74,6 +74,7 @@ class MajorFilterTableViewCell: UITableViewCell {
             {
                 
                 self.checkButtonImage.setImage(img, for: .normal)
+                print("false")
                 
             }
             
