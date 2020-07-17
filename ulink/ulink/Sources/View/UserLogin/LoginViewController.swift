@@ -247,6 +247,8 @@ class LoginViewController: UIViewController {
                     
                     
                     guard let uid = uid as? String else {return}
+
+
                     print("현재 uid : \(uid)")
                     
                     UserDefaults.standard.set(uid, forKey: "uid")

@@ -126,12 +126,11 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         hideBar()
         checkChatRoom()
         
-        
         if self.comments.count > 0 {
 
             
             print("comments count \(self.comments.count)")
-            self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+//            self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
 
         }
         
@@ -512,11 +511,11 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                     
                     
                     
-                    if self.comments.count > 0 {
-
-                        self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
-
-                    }
+//                    if self.comments.count > 0 {
+//
+//                        self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+//
+//                    }
 
                     
 //                    

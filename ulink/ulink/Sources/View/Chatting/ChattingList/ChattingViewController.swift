@@ -423,7 +423,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         self.array_class = self.array_class.sorted(by: {$0.className! < $1.className!})
 
 //        print("Array : \(array_class)")
-        
+    
         chattingRoomViewController.destinationUid = "-MBcSPAQKDDOsT2u4UfX"
         chattingRoomViewController.tempTitle = self.chattingList[indexPath.row].name
         
