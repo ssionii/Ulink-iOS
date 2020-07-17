@@ -107,24 +107,14 @@
                                             <constraint firstAttribute="height" constant="1" id="jk9-rW-UHD"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQz-fT-q05">
-                                        <rect key="frame" x="108" y="28" width="38" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="38" id="3Ad-GO-Bi8"/>
-                                            <constraint firstAttribute="height" constant="24" id="Aej-fj-SZq"/>
-                                        </constraints>
-                                        <state key="normal" image="ioClassBtnCal"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="wQz-fT-q05" firstAttribute="leading" secondItem="g85-Zq-ovt" secondAttribute="trailing" constant="6" id="2mB-c9-J1n"/>
                                     <constraint firstAttribute="width" constant="375" id="5ep-kI-5Io"/>
                                     <constraint firstAttribute="trailing" secondItem="lZ8-CF-OfW" secondAttribute="trailing" id="JCX-HJ-fPy"/>
                                     <constraint firstAttribute="height" constant="67" id="Kb8-B9-6ze"/>
                                     <constraint firstItem="g85-Zq-ovt" firstAttribute="leading" secondItem="T7b-me-NWz" secondAttribute="leading" constant="16" id="eY4-8D-bPD"/>
                                     <constraint firstAttribute="bottom" secondItem="lZ8-CF-OfW" secondAttribute="bottom" id="pIy-hk-mWf"/>
-                                    <constraint firstItem="wQz-fT-q05" firstAttribute="top" secondItem="T7b-me-NWz" secondAttribute="top" constant="28" id="x0S-ei-gHy"/>
                                     <constraint firstItem="g85-Zq-ovt" firstAttribute="top" secondItem="T7b-me-NWz" secondAttribute="top" constant="22" id="xu1-r0-aQ9"/>
                                 </constraints>
                             </view>
@@ -2005,10 +1995,10 @@
         <!--calendarStoryBoard-->
         <scene sceneID="1Aj-Nt-y8j">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zpS-Qz-hXh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="calendarStoryBoard" storyboardName="Calendar" referencedIdentifier="calendarStoryBoard" id="IeY-oC-z6u" userLabel="calendarStoryBoard" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="EnC-db-wDB"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zpS-Qz-hXh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5818" y="90"/>
         </scene>
@@ -2046,7 +2036,6 @@
         <image name="ioChattingNoticeIcAdd" width="30" height="24"/>
         <image name="ioChattingnoticeDetailpageBtnDelete" width="26" height="29"/>
         <image name="ioChattingnoticeDetailpageBtnRevise" width="62" height="36"/>
-        <image name="ioClassBtnCal" width="38" height="24"/>
         <image name="ioClassImgProfile1" width="40" height="40"/>
         <image name="ioMainImgLogo" width="86" height="30"/>
         <image name="ioNotificationBtnBack" width="36" height="36"/>

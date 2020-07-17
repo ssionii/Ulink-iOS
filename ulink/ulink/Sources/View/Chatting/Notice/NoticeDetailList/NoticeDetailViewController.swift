@@ -28,6 +28,10 @@ class NoticeDetailViewController: UIViewController {
         
         setTableView()
         loadNoticeData()
+        
+        
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load2"), object: nil)
 
         
         
@@ -83,6 +87,24 @@ class NoticeDetailViewController: UIViewController {
         {
             titleLabel.text = "공지"
         }
+    }
+    
+    
+    @objc func loadList(notification: NSNotification){
+        //load data here
+         print("**********************************")
+        print("공지 목록뷰에서 데이터 불러오기 함수 호출!!!!")
+        print("**********************************")
+
+        
+        DispatchQueue.main.async {
+            self.hwNoticeInfoArray.removeAll()
+            self.testNoticeInfoArray.removeAll()
+            self.classNoticeInfoArray.removeAll()
+            
+            self.loadNoticeData()
+        }
+
     }
     
     

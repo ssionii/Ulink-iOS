@@ -321,18 +321,7 @@ class NoticeEditModeViewController: UIViewController {
                                                                     preferredStyle: .alert)
                         let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                         alertViewController.addAction(action)
-                        self.present(alertViewController, animated: true) { // 이전뷰에 대해 테이블이 업데이트 되어있어야 한다
-                            
-                            
-           
-                                
-    
-                            
-                            
-                              self.dismiss(animated: true, completion: nil)
-                        }
-                        
-                      
+                        self.present(alertViewController, animated: true)  
                         
                         
                         
