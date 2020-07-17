@@ -248,5 +248,301 @@
   ```
 
   
-  ~~ ❗️ 아직 스와이프해서 전날과 다음날의 데이터가 보이는 기능은 구현하지 않았다..! 화이팅 나 자신,,, ❗️~~
+  ~~❗️ 아직 스와이프해서 전날과 다음날의 데이터가 보이는 기능은 구현하지 않았다..! 화이팅 나 자신,,, ❗️~~   
+  -> 스와이프 기능은 앱잼에서 구현하지 않기로 결정
+
+  ***
   
+- #### 통신
+  - 한 달씩 일정 받아와서 캘린더에 뿌려주기  
+    일정 모델 decoding 
+  ``` swift
+    struct CalendarData: Codable {
+    
+      let status: Int
+      let success: Bool
+      let message: String
+      var data: [SecondData]?
+      
+      enum CodingKeys: String, CodingKey{
+          case status = "status"
+          case success = "success"
+          case message = "message"
+          case data = "data"
+      }
+      
+      init(from decoder: Decoder) throws {
+          let values = try decoder.container(keyedBy: CodingKeys.self)
+          status = (try? values.decode(Int.self, forKey: .status)) ?? -1
+          success = (try? values.decode(Bool.self, forKey: .success)) ?? false
+          message = (try? values.decode(String.self, forKey: .message)) ?? ""
+          data = (try? values.decode([SecondData].self, forKey: .data)) ?? nil
+      }
+    }
+
+    struct SecondData: Codable {
+      var date: String
+      var notice: [NoticeData]?
+      
+      enum CodingKeys: String, CodingKey{
+          case date = "date"
+          case notice = "notice"
+      }
+      
+      init(from decoder: Decoder) throws {
+          let values = try decoder.container(keyedBy: CodingKeys.self)
+          date = (try? values.decode(String.self, forKey: .date)) ?? ""
+          notice = (try? values.decode([NoticeData].self, forKey: .notice)) ?? nil
+      }
+    }
+
+    struct NoticeData: Codable {
+      var name: String
+      var color: Int
+      var noticeIdx: Int
+      var category: String
+      var startTime: String
+      var endTime: String
+      var title: String
+      
+      enum CodingKeys: String, CodingKey{
+          case name = "name"
+          case color = "color"
+          case noticeIdx = "noticeIdx"
+          case category = "category"
+          case startTime = "startTime"
+          case endTime = "endTime"
+          case title = "title"
+      }
+      
+      init(from decoder: Decoder) throws {
+          let values = try decoder.container(keyedBy: CodingKeys.self)
+          name = (try? values.decode(String.self, forKey: .name)) ?? ""
+          color = (try? values.decode(Int.self, forKey: .color)) ?? -1
+          noticeIdx = (try? values.decode(Int.self, forKey: .noticeIdx)) ?? -1
+          category = (try? values.decode(String.self, forKey: .category)) ?? ""
+          startTime = (try? values.decode(String.self, forKey: .startTime)) ?? ""
+          endTime = (try? values.decode(String.self, forKey: .endTime)) ?? ""
+          title = (try? values.decode(String.self, forKey: .title)) ?? ""
+      }
+  }
+    ```
+    - 날짜 스트링 비교해서 해당하는 날짜에 일정 띄우기
+    - 캘린더 셀 클릭하면 해당 날짜의 이벤트 모델 배열로 넘겨주기
+    
+    ***
+- #### 캘린더 팝업에서 공지 상세뷰 연결
+   - 팝업에서 공지 셀을 누르면 공지 상세뷰로 notice idx를 전달하며 present
+   ```swift
+   guard let popUpVC = sb.instantiateViewController(identifier: "NoticeEditViewController") as? NoticeEditViewController else {return}
+
+  popUpVC.noticeIdx = noticeList?[indexPath.row].noticeIdx as! Int
+  popUpVC.modalPresentationStyle = .overCurrentContext
+  present(popUpVC, animated: true, completion: nil)
+   ```
+
+   - 공지 상세뷰에서 내용을 수정하면 캘린더에서 update 해주기 위해 delegate protocol 설정
+  
+   - 공지 데이터 별로 보여주는 시간 설정 다르게   
+  수업  : x   
+  과제 : end time
+  시험 : start time
+
+***
+
+## EventListView📌
+  <img src="https://emoji.slack-edge.com/T016U39U5K2/ulink-purple/2e44cf60188f40d7.png" width="2%"> 개발내용
+- #### 리스트 만들기
+    - 날짜 표시 셀을 헤더 셀로 설정해서 날짜 별로 공지 셀을 띄움   
+    - 날짜 셀 띄우고, 날짜에 해당하는 수만큼 공지 셀 띄우기
+  ```swift
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return serverData?[section].notice?.count ?? 0
+    }
+    
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell else {
+        return UITableViewCell() }
+        
+        if let serverData = serverData?[indexPath.section].notice?[indexPath.row] {
+            cell.set(serverData)
+        }
+        cell.changeViewColor(serverData?[indexPath.section].date ?? "")
+        
+        return cell
+    }
+    
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
+    
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EventListHeaderCell.identifier) as? EventListHeaderCell else {
+        return UITableViewCell() }
+        
+        if let serverData = serverData?[section] {
+            cell.set(serverData)
+        }
+        
+        return cell
+    }
+    
+  func numberOfSections(in tableView: UITableView) -> Int {
+        return serverData?.count ?? 0
+    }
+    ```
+  - 디데이 계산
+  ```swift
+   func getDday(date: String) -> Int{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let myDay = dateFormatter.date(from: date)
+        
+        let start = cal.startOfDay(for: today)
+        let end = cal.startOfDay(for: myDay!)
+        
+        let components = cal.dateComponents([.day], from: start, to: end)
+        return components.day!
+    }
+  ```
+  - 오늘 날짜 공지 색 구별   
+    디데이 함수 이용~!    
+    디데이가 0이면 백그라운드 색 바꿔주기
+  
+  ```swift
+  func changeViewColor(_ dateInfo: String){
+        var dDay = getDday(date: dateInfo)
+        if (dDay == 0){
+            cellColorView.backgroundColor = UIColor.paleGreyTwo
+        }
+    }
+  ```
+  #### <여기까지 뷰 완성본>
+  <img src="./image/eventlist.png" width="40%">
+***
+
+## SearchView🏷
+<img src="https://emoji.slack-edge.com/T016U39U5K2/ulink-purple/2e44cf60188f40d7.png" width="2%"> 개발내용
+  
+- 입력 안하고 있을 때는 최근 검색, 입력할 때는 자동완성
+  - header 숨기기, cell 변경
+  ```swift
+  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.headerView.frame = CGRect(x: 0, y: 0, width: self.headerView.frame.width, height: 0)
+        headerView.isHidden = true
+        searchTableView.reloadData()
+        
+        return true
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchedCell.identifier) as? SearchedCell else {
+            return UITableViewCell() }
+            
+        guard let cell2 = tableView.dequeueReusableCell(withIdentifier: RealTimeSearchCell.identifier) as? RealTimeSearchCell else {
+        return UITableViewCell() }
+        
+        
+        if headerView.isHidden == true {
+            cell2.show(titleString: serverData[indexPath.row])
+            return cell2
+        } else {
+            cell.layer.addBorder(edge: [.bottom], color: UIColor.veryLightPinkTree, thickness: 1)
+            cell.set(indexPath.row)
+            cell.indexPathNum = indexPath.row
+            cell.delegate = self
+            return cell
+        }
+  }
+  ```
+- 최근 검색   
+  - realmSwift 데이터베이스 사용
+  ```swift
+  if (searchTextField.text != ""){
+            try! realm.write {
+                realm.add(searchedData)
+            }
+        }
+  ```
+  - 삭제 버튼 구현 위해서 delegate protocol 사용
+  ```swift
+  func didPressDeleteButton(_ tag: Int) {
+        let savedDatas = realm.objects(SearchedListData.self)
+        let predicate = NSPredicate(format: "searched = %@", savedDatas[tag].searched)
+
+        try! self.realm.write({
+            realm.delete(realm.objects(SearchedListData.self).filter(predicate))
+        })
+        
+        searchTableView.reloadData()
+    }
+  ```
+  - 전체 삭제 기능
+  #### <여기까지 뷰 완성본>
+  <img src="./image/searchedlist.png" width="40%">
+
+***
+- 검색 자동완성
+  - 사용자가 글자를 입력할 때마다 서버와 통신해서 tableview 업데이트 해주기
+  ```swift
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        currentText = textField.text! + string
+        getDataFromServer(currentString: currentText)
+        searchTableView.reloadData()
+        return true
+    }
+  ```
+  - 통신 코드
+  ```swift
+  func openRecommendData(word: String, completion: @escaping (CalendarNetworkResult<Any>) -> Void) {
+        if let userDefaultToken = UserDefaults.standard.string(forKey: "token") {
+            let header: HTTPHeaders = ["Content-Type": "application/json", "token": userDefaultToken]
+            
+            var query: String = ""
+            
+            var queryWord = word.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            
+            query = "?name=\(queryWord)"
+            
+            let dataRequest = Alamofire.request(APIConstants.searchURL + query, method: .get, encoding: JSONEncoding.default, headers: header)
+            
+            dataRequest.responseData { dataResponse in
+                switch dataResponse.result {
+                case .success:
+                    guard let statusCode = dataResponse.response?.statusCode else { return }
+                    guard let value = dataResponse.result.value else { return }
+                    let networkResult = self.judge(by: statusCode, value)
+                    completion(networkResult)
+                case .failure: completion(.networkFail)
+                }
+            }
+        }
+    }
+    ```
+    #### <여기까지 뷰 완성본>
+  <img src="./image/auto.png" width="40%">
+
+  __새로 배운 점__    
+   👉 ❗️쿼리문에 한글 넣기 위해서는 퍼센트 인코딩 해야함!!!
+
+## ColorPickerView🎨
+<img src="https://emoji.slack-edge.com/T016U39U5K2/ulink-purple/2e44cf60188f40d7.png" width="2%"> 개발내용
+
+- 색 선텍 컬렉션 뷰
+  - 컬렉션 뷰 페이징 & 페이지 컨트롤
+  ```swift
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let cellWidthIncludeSpacing = colorCollectionView.frame.width
+
+        var offset = targetContentOffset.pointee
+        let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludeSpacing
+        let roundedIndex: CGFloat = round(index)
+        
+        pageControl.currentPage = Int(roundedIndex)
+
+        offset = CGPoint(x: roundedIndex * cellWidthIncludeSpacing, y: scrollView.contentInset.top)
+        targetContentOffset.pointee = offset
+    }
+  ```
+  #### <여기까지 뷰 완성본>
+  <img src="./image/colorpicker.png" width="40%">

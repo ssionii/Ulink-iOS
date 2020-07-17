@@ -8,21 +8,21 @@
 
 import UIKit
 
+protocol NoticeEditVCDelegate{
+    func dismissAndReload()
+}
+
 class NoticeEditViewController: UIViewController {
     
-    
-    
-
+    public var delegate: NoticeEditVCDelegate?
     
     @IBAction func BackButtonClicked(_ sender: Any) {
         
-        
-        
-        
         self.navigationController?.popViewController(animated: true)
 
-        self.dismiss(animated: true)
-        
+        self.dismiss(animated: true){
+            self.delegate?.dismissAndReload()
+        }
     }
     @IBAction func EditButtonClicked(_ sender: Any) {
         

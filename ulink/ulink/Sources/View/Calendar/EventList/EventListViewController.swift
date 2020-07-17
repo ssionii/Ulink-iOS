@@ -100,11 +100,9 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell else {
         return UITableViewCell() }
         
-        //cell.set(dummyData[indexPath.section].event[indexPath.row])
         if let serverData = serverData?[indexPath.section].notice?[indexPath.row] {
             cell.set(serverData)
         }
-        //cell.changeViewColor(dummyData[indexPath.section].date)
         cell.changeViewColor(serverData?[indexPath.section].date ?? "")
         
         return cell

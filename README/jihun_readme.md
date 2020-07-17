@@ -122,7 +122,8 @@ let remoteConfig = RemoteConfig.remoteConfig()
 ```
 <br>
 
- ##### 로그인 후 메인뷰로 넘어가기
+
+ ####  로그인 후 메인뷰로 넘어가기
 
 
 ```Swift
@@ -248,7 +249,8 @@ DispatchQueue.main.async{
 ________________
 
 
-#### 3.Notice
+
+####  3.Notice
 ##### tableView를 활용해 공지사항을 보여줍니다.
 <br>
 
@@ -308,6 +310,110 @@ sideMenu 라이브러리를 활용해서 우측에서 나타나는 뷰를 구현
 ``` 
     
 
+--- 
+#### Notification Center 활용
+
+
+![공지 수정](https://user-images.githubusercontent.com/60260284/87797002-1a8ee780-c885-11ea-9201-a19b99fc150e.gif)
+
+(Notification Center 를 활용해서 수정된 데이터를 다른 뷰에서 갱신 하는 모습)
+
+Notification은 쉽게 말하면 하나의 '방송국' 형태이다!
+
+post를 이용해 notification을 방송을 하고 
+해당  이름을 가진 notication이 (방송) 인식이 되면 액션을 실행하는 방식이다.
+
+서로 다른 뷰컨 상에서 함수를 호출하고 데이터를 갱신 할 때 사용했다!
+
+
+
+```Swift
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+```
+"load"라는 이름을 가진 notificaiton을 만들어서 등록을 해둔다.
+
+
+```Swift     
+         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+```   
+'load' 라는 이름을 가진 notification 이 인식이 되면 loadlist 라는 함수를 실행하게 된다!! 
+
+
+
+--- 
+#### UserDeaults 활용
+
+ID를 앱에 저장하게 되면, 프로그램을 종료하고 다시 실행하게 되더라도 로그인창에 ID가 들어가게 된다!! 
+
+```Swift
+                    if UserDefaults.standard.integer(forKey: "isRememberID") == 1{ // 저장하기가 눌려있다면,
+                        
+                        UserDefaults.standard.set(self.nameTextField.text,forKey: "userID")
+
+                    }
+```
+
+isRemember 라는 데이터가 True 값이라면, userID를 UserDefaults에 저장하는 방식이다!!
+
+
+
+```Swift
+UserDefaults.standard.string(forKey: "userID"
+```
+나중에 ID가 필요하다면 string(forKey)로 꺼내와서 사용한다.
+정수값일 경우에는 .int로 접근해서 값을 들고온다 !! 
+
+
+
+--- 
+#### delegate를 활용한 데이터 전달
+
+다른 뷰컨에 있는 변수에 접근해서 변경해도 되지만,
+뷰컨 전환간에 데이터가 꼬일 수 있어서
+안전하게 delegate를 활용해서 데이터를 전달하는 방식을 사용한다!@
+
+``` Swift
+protocol normalFilterDelegate{
+    
+    
+    func sendFilter(day : [Int], dayOff : [Int], firstClass : Bool, grade : [Int]) }
+
+``` 
+
+프로토콜을 선언해둔 뒤에 
+
+
+```Swift
+
+
+        delegate?.sendFilter(day: dayIsSelected, dayOff: dayOffIsSelected, firstClass: firstClassOff, grade: gradeButtonSelected)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.delegate = CreateTimeTableViewController()
+
+    }
+
+
+```
+viewdidLoad 내에서 delegate 지정을 꼭 정해줘야 한다! 
+
+```Swift
+
+
+class CreateTimeTableViewController: normalFilterDelegate {
+
+       func sendFilter(day: [Int], dayOff: [Int], firstClass: Bool, grade: [Int]) {
+        print("현재 데이 : \(day)")
+    }
+
+```
+해당 delegate 를 선언해서 활용한다!
+
+  
+
+
+
 ________________
 
 
@@ -335,4 +441,24 @@ pod install
 팟을 전부 지워버리고 다시 재설치하면 문제가 해결됨
 
 
+--- 
+
+gif를 활용한 스플래시 뷰 및 로그인 애니메이션 만들기
+
+(활용 예시)
+
+![스플래시](https://user-images.githubusercontent.com/60260284/87797090-32666b80-c885-11ea-8d79-5127d025f539.gif)
+
+
+```Swift
+import GIFImageView
+
+    @IBOutlet weak var imageView: UIImageView!
+    
+    let image = UIImage.animatedImage(named: "io_ulink_splash")
+    
+    
+```
+같이 uiImageView를 선언한 뒤에 GIFImageView 라는 라이브러리를 활용해서 이미지를 넣어주면 된다!
+여기서 이미지는 asset 폴더에 넣으면 안되고, 프로젝트 폴더 상에 넣어서 add file를 해줘야 한다
 

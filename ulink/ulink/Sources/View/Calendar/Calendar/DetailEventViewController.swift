@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailEventViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DetailEventViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NoticeEditVCDelegate {
     
     
     
@@ -24,6 +24,7 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
     var currentWeekDay: Int?
     
     var noticeList: [NoticeData]?
+    var serverData: [SecondData]?
     
     //오늘 날짜 데이터
     let cal = Calendar(identifier: .gregorian)
@@ -59,6 +60,38 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
             explainLabel.textAlignment = .center
             self.popUpView.addSubview(explainLabel)
         }
+    }
+    
+    func getDataFromServer(){
+        
+        var queryString = String(currentYear!) + "-" + String(currentMonth!) + "-" + String(currentDate!)
+        
+        CalendarService.shared.openCalendarData(start: queryString, end: queryString){
+                    networkResult in
+                    switch networkResult {
+                    case .success(let tokenData):
+                        
+                        guard let token = tokenData as? [SecondData] else {return}
+                        self.serverData = token
+                        print(self.serverData)
+                        print("success")
+                        //self.detailEventTableView.reloadData()
+                        self.noticeList = self.serverData?[0].notice
+                        self.detailEventTableView.reloadData()
+                    case .requestErr:
+                        print("requestErr")
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+        }
+    }
+    
+    func dismissAndReload() {
+        getDataFromServer()
     }
     
     func setupGestureRecognizer() {
@@ -145,9 +178,9 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             popUpVC.cateogoryIdx = 3
         }
+        popUpVC.delegate = self
         
         popUpVC.noticeIdx = noticeList?[indexPath.row].noticeIdx as! Int
-        
         popUpVC.modalPresentationStyle = .overCurrentContext
         present(popUpVC, animated: true, completion: nil)
         
