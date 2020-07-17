@@ -171,8 +171,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioChattingImgMychat" translatesAutoresizingMaskIntoConstraints="NO" id="skd-St-hnY">
-                                                    <rect key="frame" x="299.5" y="5" width="60.5" height="41"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioChattingImgChatbox05" translatesAutoresizingMaskIntoConstraints="NO" id="skd-St-hnY">
+                                                    <rect key="frame" x="299.5" y="5" width="56.5" height="41"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pea-3A-fKV">
                                                     <rect key="frame" x="309.5" y="15" width="35.5" height="21"/>
@@ -200,7 +200,7 @@
                                                 <constraint firstItem="skd-St-hnY" firstAttribute="leading" secondItem="wGA-kY-4Sb" secondAttribute="trailing" constant="6" id="F3v-oq-KxL"/>
                                                 <constraint firstItem="skd-St-hnY" firstAttribute="bottom" secondItem="pea-3A-fKV" secondAttribute="bottom" constant="10" id="LQz-Ue-tU3"/>
                                                 <constraint firstItem="skd-St-hnY" firstAttribute="leading" secondItem="pea-3A-fKV" secondAttribute="leading" constant="-10" id="W1D-6J-x8L"/>
-                                                <constraint firstItem="skd-St-hnY" firstAttribute="trailing" secondItem="pea-3A-fKV" secondAttribute="trailing" constant="15" id="hNA-Kq-0Kb"/>
+                                                <constraint firstItem="skd-St-hnY" firstAttribute="trailing" secondItem="pea-3A-fKV" secondAttribute="trailing" constant="11" id="hNA-Kq-0Kb"/>
                                                 <constraint firstItem="wGA-kY-4Sb" firstAttribute="top" secondItem="nmh-83-SC2" secondAttribute="top" constant="15" id="jNU-T1-Je5"/>
                                                 <constraint firstItem="skd-St-hnY" firstAttribute="top" secondItem="pea-3A-fKV" secondAttribute="top" constant="-10" id="lCg-3l-O2q"/>
                                                 <constraint firstItem="30S-3D-Mup" firstAttribute="bottom" secondItem="nmh-83-SC2" secondAttribute="bottom" constant="-6" id="m8H-mo-0SF"/>
@@ -240,8 +240,8 @@
                                                         <constraint firstAttribute="height" constant="32" id="QA1-ix-0mE"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioChattingImgChat1" translatesAutoresizingMaskIntoConstraints="NO" id="GI1-AK-VHN">
-                                                    <rect key="frame" x="50" y="18" width="49.5" height="31"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioChattingImgChatbox02" translatesAutoresizingMaskIntoConstraints="NO" id="GI1-AK-VHN">
+                                                    <rect key="frame" x="54" y="18" width="45.5" height="31"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="과제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AA8-rr-3B3">
                                                     <rect key="frame" x="65" y="28" width="24.5" height="11"/>
@@ -273,7 +273,7 @@
                                                 <constraint firstItem="GI1-AK-VHN" firstAttribute="top" secondItem="AA8-rr-3B3" secondAttribute="top" constant="-10" id="UC0-Wp-WAK"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="AA8-rr-3B3" secondAttribute="trailing" constant="65" id="WU4-5F-hjz"/>
                                                 <constraint firstItem="Q5b-8U-pZP" firstAttribute="leading" secondItem="7J4-mr-Jzw" secondAttribute="trailing" constant="11" id="XK5-Ck-Fyv"/>
-                                                <constraint firstItem="GI1-AK-VHN" firstAttribute="leading" secondItem="AA8-rr-3B3" secondAttribute="leading" constant="-15" id="aoV-6p-NTY"/>
+                                                <constraint firstItem="GI1-AK-VHN" firstAttribute="leading" secondItem="AA8-rr-3B3" secondAttribute="leading" constant="-11" id="aoV-6p-NTY"/>
                                                 <constraint firstItem="GI1-AK-VHN" firstAttribute="bottom" secondItem="AA8-rr-3B3" secondAttribute="bottom" constant="10" id="eDE-mJ-tGQ"/>
                                                 <constraint firstItem="AA8-rr-3B3" firstAttribute="top" secondItem="Q5b-8U-pZP" secondAttribute="bottom" constant="10" id="eja-yA-Lcg"/>
                                                 <constraint firstItem="AA8-rr-3B3" firstAttribute="leading" secondItem="7J4-mr-Jzw" secondAttribute="trailing" constant="20" id="k8f-Ib-SOE"/>
@@ -2115,8 +2115,8 @@
         <image name="ioChattingBtnSend" width="20" height="20"/>
         <image name="ioChattingIcHambar" width="39" height="35"/>
         <image name="ioChattingIcSearch" width="39" height="35"/>
-        <image name="ioChattingImgChat1" width="25" height="10.5"/>
-        <image name="ioChattingImgMychat" width="28.5" height="9.5"/>
+        <image name="ioChattingImgChatbox02" width="16" height="11"/>
+        <image name="ioChattingImgChatbox05" width="12" height="9"/>
         <image name="ioChattingNoticClassMoreIcDday" width="25" height="14"/>
         <image name="ioChattingNoticeBgClass" width="344" height="154"/>
         <image name="ioChattingNoticeBgHw" width="344" height="150"/>

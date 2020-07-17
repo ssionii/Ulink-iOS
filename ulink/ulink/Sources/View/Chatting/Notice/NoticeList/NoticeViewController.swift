@@ -266,6 +266,10 @@ class NoticeViewController: UIViewController {
                         
                     }
                 }
+                else
+                {
+                    self.hideView1.isHidden = false
+                }
 
                 
                 if numberOfNotice[1] > 0
@@ -276,6 +280,10 @@ class NoticeViewController: UIViewController {
                         
                         self.testNoticeInfoArray.append(noticeData)
                     }
+                }
+                else
+                {
+                    self.hideView2.isHidden = false
                 }
 
                 
@@ -289,6 +297,10 @@ class NoticeViewController: UIViewController {
                             self.classNoticeInfoArray.append(noticeData)
                         }
                     
+                }
+                else
+                {
+                    self.hideView3.isHidden = false
                 }
                 
 

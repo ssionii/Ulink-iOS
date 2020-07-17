@@ -276,109 +276,34 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
 //        chattingCell.chattingUserCountLabel.text = "현재 인원 :" + String(dic.count - 1)
 //        }
         
+        var colorString : String = ""
         
-        switch chattingList[indexPath.row].color
+        if(chattingList[indexPath.row].color<9)
         {
-        case 1:
-            
-            
-            if let img = UIImage(named: "ioClassImgProfile1")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 2 :
-            
-            if let img = UIImage(named: "ioClassImgProfile2")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 3 :
-            
-            if let img = UIImage(named: "ioClassImgProfile3")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 4 :
-            
-            if let img = UIImage(named: "ioClassImgProfile4")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 5:
-            
-            if let img = UIImage(named: "ioClassImgProfile5")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 6:
-            
-            if let img = UIImage(named: "ioClassImgProfile6")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        case 7:
-            
-            if let img = UIImage(named: "ioClassImgProfile7")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-        case 8:
-            
-            
-            if let img = UIImage(named: "ioClassImgProfile2")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-        case 9:
-            
-            
-            if let img = UIImage(named: "ioClassImgProfile3")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-        case 10:
-            
-            
-            if let img = UIImage(named: "ioClassImgProfile4")
-            {
-                chattingCell.chattingImage.image = img
-            }
-            
-            break
-            
-        default:
-            
-            break
-            
-            
-            
-            
-            
+            colorString = "0" + String(chattingList[indexPath.row].color + 1)
         }
+        else
+        {
+            colorString = String(chattingList[indexPath.row].color + 1)
+        }
+
+        
+        
+        print("colorString = \(colorString)")
+        if let img = UIImage(named: "ioClassImg" + colorString)
+        {
+            chattingCell.chattingImage.image = img
+        }
+        
+        else
+        {
+            
+            chattingCell.chattingImage.image = UIImage(named: "ioClassImgProfile13")
+        }
+        
+        
+        
+
         
         
         
