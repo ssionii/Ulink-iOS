@@ -240,9 +240,16 @@
 
 
 ---
+### Splash
+![splash](https://user-images.githubusercontent.com/55864257/87797819-2fb84600-c886-11ea-8f75-8e9184e02429.gif)
 
 
+### 나만의 시간표 추가   
+![time_table](https://user-images.githubusercontent.com/55864257/87797546-ca645500-c885-11ea-8bcb-0a6ccd49d0dd.gif)
 
+### 수업 공지와 나의 캘린더 연동
+
+![calendar](https://user-images.githubusercontent.com/55864257/87797714-0bf50000-c886-11ea-9000-4c3012ccb226.gif)
 
 
 
