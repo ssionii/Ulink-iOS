@@ -161,7 +161,7 @@ extension MajorFilterViewController : UITableViewDelegate,UITableViewDataSource
                 
                 if indexPath.section == i
                 {
-                    cell.setData(name: majorList[i], check: true)
+                    cell.setData(name: majorList[i], check: false)
                 }
                 
             }
