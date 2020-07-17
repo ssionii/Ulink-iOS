@@ -46,10 +46,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var rememberIDButton: UIButton!
     
     
+    @IBOutlet weak var gifHeight: NSLayoutConstraint!
+    @IBOutlet weak var gitToLogo: NSLayoutConstraint!
+    
+    
     
 //MARK:- Life Cycle 부분
     
         override func viewDidLoad() {
+            
+            setHeightForDevice()
             
             checkCount()
         super.viewDidLoad()
@@ -68,6 +74,7 @@ class LoginViewController: UIViewController {
             let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
             
             view.addGestureRecognizer(tap)
+            
         
         
 //        Auth.auth().addStateDidChangeListener{ (auth, user) in
@@ -117,7 +124,7 @@ class LoginViewController: UIViewController {
         if let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue{
             
             self.mainLogoImage.alpha = 0
-            self.viewTopConstraint.constant = -15
+            self.viewTopConstraint.constant = 0 //-15
 
         
 
@@ -203,6 +210,52 @@ class LoginViewController: UIViewController {
         }
         
 
+    }
+    func setHeightForDevice()
+    {
+        
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+        
+        switch height{
+            
+        case 450.0 ... 667.0 : // 6 6s 7 8
+            
+            self.gifHeight.constant = 187
+            print(gifHeight.constant)
+            break
+            
+        case 730.0 ... 810.0: // 6s+, 7+ 8+
+            self.gifHeight.constant = 187
+            print(gifHeight.constant)
+            break
+            
+        case 812.0 ... 890.0: //X, XS
+            
+            
+            self.gifHeight.constant = 240
+            print(gifHeight.constant)
+            
+            break
+        
+        case 896.0 ... 1000.0:         // XS MAX
+            
+            self.gifHeight.constant = 240
+            print(gifHeight.constant)
+            break
+            
+            
+            
+            
+        
+            
+            
+            
+        default:
+            break
+            
+        }
+        
     }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
@@ -347,4 +400,8 @@ class LoginViewController: UIViewController {
     */
 
     }
+    
+    
 }
+
+
