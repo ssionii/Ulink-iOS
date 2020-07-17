@@ -88,8 +88,10 @@ class NoticeViewController: UIViewController {
     
     @objc func loadList(notification: NSNotification){
         //load data here
-        
-        print("LoastList!")
+         print("**********************************")
+        print("공지 메인뷰에서 데이터 불러오기 함수 호출!!!!")
+        print("**********************************")
+
         
         DispatchQueue.main.async {
             self.hwNoticeInfoArray.removeAll()
@@ -113,6 +115,14 @@ class NoticeViewController: UIViewController {
                
         
         chattingRoomViewController.categoryIdx = 1
+        
+        
+        print("=====================================")
+        print("더보기를 눌러서 공지 목록 뷰로 넘기는 정보")
+        print("현재 클릭한 공지의 과목 idx : \(self.subjectIDX)")
+        print("=====================================")
+        
+        
 
         self.navigationController?.pushViewController(chattingRoomViewController, animated: true)
     }
@@ -128,6 +138,13 @@ class NoticeViewController: UIViewController {
 
         chattingRoomViewController.categoryIdx = 2
         
+        
+        print("=====================================")
+        print("더보기를 눌러서 공지 목록 뷰로 넘기는 정보")
+        print("현재 클릭한 공지의 과목 idx : \(self.subjectIDX)")
+        print("=====================================")
+           
+        
         self.navigationController?.pushViewController(chattingRoomViewController, animated: true)
     }
     
@@ -140,6 +157,13 @@ class NoticeViewController: UIViewController {
 
         
         chattingRoomViewController.categoryIdx = 3
+        
+        
+        print("=====================================")
+        print("더보기를 눌러서 공지 목록 뷰로 넘기는 정보")
+        print("현재 클릭한 공지의 과목 idx : \(self.subjectIDX)")
+        print("=====================================")
+           
 
         
         self.navigationController?.pushViewController(chattingRoomViewController, animated: true)
@@ -178,7 +202,7 @@ class NoticeViewController: UIViewController {
         
         
         
-        NoticeService.shared.getSubjectNotice(subjectIdx: 3) { networkResult in
+        NoticeService.shared.getSubjectNotice(subjectIdx: self.subjectIDX) { networkResult in
             switch networkResult{
                 
             case .success(let noticeList, let numberOfNotice):
@@ -461,7 +485,7 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
 
             
-            noticeDetailVC.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
+            noticeDetailVC.subjectIdx = self.subjectIDX // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
             noticeViewController.noticeIdx = testNoticeInfoArray[indexPath.row].noticeIdx
             noticeViewController.cateogoryIdx = 2
             
@@ -479,7 +503,7 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
     
             
-            noticeDetailVC.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
+            noticeDetailVC.subjectIdx = self.subjectIDX // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
             noticeViewController.noticeIdx = classNoticeInfoArray[indexPath.row].noticeIdx
             noticeViewController.cateogoryIdx = 3
             

@@ -226,6 +226,9 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="onTintColor" red="0.40392156862745099" green="0.30980392156862746" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="touchFirstClass:" destination="klp-1s-egs" eventType="valueChanged" id="SvB-P0-4H7"/>
+                                        </connections>
                                     </switch>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cK-bE-VDM">
                                         <rect key="frame" x="81.5" y="293" width="60" height="20"/>
@@ -318,10 +321,15 @@
                         <outlet property="gradeOneButton" destination="lpx-Mg-Ubk" id="bUL-ml-G8G"/>
                         <outlet property="gradeThreeButton" destination="NBd-hX-6ky" id="3Ev-c9-UL7"/>
                         <outlet property="gradeTwoButton" destination="J4K-eq-Wlz" id="b9f-GX-jph"/>
+                        <outlet property="setFriButton" destination="Kxb-mn-0VT" id="7Bf-yD-qoG"/>
                         <outlet property="setFridayOffButton" destination="RPD-4c-kOE" id="Y2o-rr-0hR"/>
+                        <outlet property="setMonButton" destination="vK0-uP-BeG" id="w7J-Wa-4c5"/>
                         <outlet property="setMondayOffButton" destination="Dww-Na-m3W" id="eAJ-SQ-zFI"/>
+                        <outlet property="setThuButton" destination="4I0-e0-ngo" id="0rq-jw-VfS"/>
                         <outlet property="setThursdayOffButton" destination="Hue-GF-aNK" id="49c-PS-M5G"/>
+                        <outlet property="setTueButton" destination="MDO-Xu-6iW" id="WeQ-IB-DFp"/>
                         <outlet property="setTuesdayOffButton" destination="y78-9P-YPQ" id="nuy-Dt-M6h"/>
+                        <outlet property="setWedButton" destination="9gr-hI-sxx" id="p6n-qe-Emx"/>
                         <outlet property="setWednesdayOffButton" destination="1d2-Ca-VAH" id="7hU-61-sI7"/>
                         <outletCollection property="setDayButtonCollection" destination="vK0-uP-BeG" collectionClass="NSMutableArray" id="M78-HK-ceF"/>
                         <outletCollection property="setDayButtonCollection" destination="MDO-Xu-6iW" collectionClass="NSMutableArray" id="tdR-Z6-i3B"/>
@@ -363,6 +371,7 @@
                                         <state key="normal" image="ioMainFiltersettingBtnX"/>
                                         <connections>
                                             <action selector="closeButtonClicked:" destination="klp-1s-egs" eventType="touchUpInside" id="B6C-lZ-E79"/>
+                                            <action selector="closeButtonClicked:" destination="nSd-Ib-cRe" eventType="touchUpInside" id="EGe-4h-Hra"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRx-Gv-ztf">

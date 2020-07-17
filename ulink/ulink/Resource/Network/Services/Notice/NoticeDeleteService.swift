@@ -52,9 +52,9 @@ struct NoticeDeleteService {
     private func judge(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
         switch statusCode {
             
-        case 200: return isSubject(by: json)
-        case 400: return .pathErr
-        case 500: return .serverErr
+        case 200 ... 299: return isSubject(by: json)
+        case 400 ... 499: return .pathErr
+        case 500 ... 599: return .serverErr
         default: return .networkFail
         }
     }
