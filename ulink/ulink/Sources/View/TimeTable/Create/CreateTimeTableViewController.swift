@@ -349,9 +349,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                
             let data = timeTableList[indexPath.row]
             
-            print("subject![\(indexPath.row)]------------------")
-            print(data.subjectList)
-            
             createTimeTableCell.setCreateTimeTableCell(idx: data.scheduleIdx, name: data.name, subjectList:data.subjectList)
                
             return createTimeTableCell
