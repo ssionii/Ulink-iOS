@@ -28,7 +28,15 @@ class NoticeDetailViewController: UIViewController {
         
         setTableView()
         loadNoticeData()
-        print(categoryIdx)
+
+        
+        
+        
+        print("=====================================")
+        print("현재 공지사항 목록 뷰의 정보")
+        print("현재 공지의 카테고리 idx : \(self.categoryIdx)")
+        print("현재 클릭한 공지의 과목 idx : \(self.subjectIdx)")
+        print("=====================================")
         
         
     }

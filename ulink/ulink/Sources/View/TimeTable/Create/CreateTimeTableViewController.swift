@@ -1,6 +1,5 @@
 //
-//  CreateTimeTableViewController.swift
-//  ulink
+//  CreateTimeTableViewController.swift//  ulink
 //
 //  Created by 양시연 on 2020/07/07.
 //  Copyright © 2020 송지훈. All rights reserved.
@@ -8,7 +7,8 @@
 
 import UIKit
 
-class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource, SubjectInfoCellDelegate, GradeSelectVCDelegate, SearchVCDelegate {
+class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource, SubjectInfoCellDelegate, GradeSelectVCDelegate, SearchVCDelegate,normalFilterDelegate {
+
     
     
     @IBOutlet weak var backgroundView: UIView!
@@ -428,6 +428,13 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     func deleteSubject(idx: Int) {
         print("deleteSubject")
     }
+    
+    
+    // 노말 필터 값 전달해보자 한번~~~
+       func sendFilter(day: [Int], dayOff: [Int], firstClass: Bool, grade: [Int]) {
+        print("현재 데이 : \(day)")
+    }
+    
        
     func addCandidate(idx: Int) {
         postCandidate(semester : "2020-2", subjectIdx: idx)

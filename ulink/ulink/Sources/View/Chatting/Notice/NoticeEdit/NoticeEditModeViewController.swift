@@ -232,56 +232,7 @@ class NoticeEditModeViewController: UIViewController {
                                                                                 preferredStyle: .alert)
                                     let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                                     alertViewController.addAction(action)
-                                    self.present(alertViewController, animated: true) { // 이전뷰에 대해 테이블이 업데이트 되어있어야 한다
-                                        
-                                        
-                                        
-                                        
-                                        
-//                                        let sb = UIStoryboard(name: "Chatting", bundle: nil)
-                                        
-//                                        guard let popUpVC = sb.instantiateViewController(identifier: "NoticeViewController") as? NoticeViewController else {return}
-//
-//                                        let noticeData = noticeInformation(title: title , start: startTime, end: endTime, Date: date, idx: 3)
-//
-                                        //                                        if self.categoryIndex == 1
-                                        //                                        {
-                                        //
-                                        //
-                                        //
-                                        //                                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-                                        //
-                                        //                                        }
-                                        //
-                                        //                                        else if self.categoryIndex == 2
-                                        //                                        {
-                                        //
-                                        ////
-                                        //
-                                        //                                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-                                        //
-                                        ////                                            popUpVC.testNoticeInfoArray.append(noticeData)
-                                        ////
-                                        ////                                            popUpVC.testNoticeTableView.reloadData()
-                                        //
-                                        //                                        }
-                                        //
-                                        //                                        else
-                                        //                                        {
-                                        //
-                                        //
-                                        //                                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-                                        //
-                                        ////                                            popUpVC.classNoticeInfoArray.append(noticeData)
-                                        ////
-                                        ////                                            popUpVC.classNoticeTableView.reloadData()
-                                        //                                        }
-                      
-                                        
-                                        
-                                          self.dismiss(animated: true, completion: nil)
-                                    }
-                                    
+                                    self.present(alertViewController, animated: true)
                                   
                                     
                                     
@@ -315,6 +266,14 @@ class NoticeEditModeViewController: UIViewController {
                                 case .networkFail: print("networkFail")
                                 }
                                          
+                                
+                                
+                                
+                                
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load2"), object: nil)
+
+                                
+                                         
                                          
                                      }
                                      
@@ -333,11 +292,8 @@ class NoticeEditModeViewController: UIViewController {
                 print("현재 notice IDX :\(self.noticeIdx)")
                 print("==================================")
                 
-                
-  
 
-                
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+
 
 
                 

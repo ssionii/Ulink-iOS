@@ -71,7 +71,7 @@ class MyPageViewController: UIViewController {
         
 
         
-        let alert = UIAlertController(title: "상태 메세지 설정", message: "textField", preferredStyle: .alert)
+        let alert = UIAlertController(title: "상태 메세지 설정", message: "문장을 입력해주세요", preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "OK", style: .default) { (ok) in
             
