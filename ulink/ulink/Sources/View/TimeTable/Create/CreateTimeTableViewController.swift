@@ -319,6 +319,14 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
 //        timeTableCell?.timeTable.removeHintTable()
     }
     
+    private func alert(message: String){
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: { (_) in })
+           
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     // MARK: - protocol 구현
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -642,7 +650,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             switch networkResult {
                 case .success(_, _) :
                  print("후보 등록 성공")
-             
+                 self.alert(message: "후보에 등록되었습니다.")
                     break
                 case .requestErr(let message):
                         print("REQUEST ERROR")

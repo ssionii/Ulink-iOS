@@ -11,9 +11,6 @@ import UIKit
 
 class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate, TimeTableSettingViewControllerDelegate {
    
-    
-
-
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var topDayView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
@@ -76,7 +73,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        getMainTimeTable()
+//        getMainTimeTable()
     }
 
      override var preferredStatusBarStyle: UIStatusBarStyle {

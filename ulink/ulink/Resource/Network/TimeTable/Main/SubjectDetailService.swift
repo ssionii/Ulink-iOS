@@ -41,6 +41,24 @@ struct SubjectDetailService {
         }
     }
     
+    func deleteSubject(idx: Int, isSubject: Bool, completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        Alamofire.request(APIConstants.specificTimeTable + "/\(idx)?isSubject=\(isSubject)", method  : .get, encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let value = response.result.value else { return }
+                let json = JSON(value)
+                let networkResult = self.judge(by: statusCode, json)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     private func judge(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
         switch statusCode {
             
