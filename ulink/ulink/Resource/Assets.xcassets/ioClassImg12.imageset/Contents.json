@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "filename" : "ioClassImg12.png",
       "scale" : "1x",
-      "filename" : "ioMainIcLogo.png",
       "idiom" : "universal"
     },
     {
-      "scale" : "2x",
-      "filename" : "ioMainIcLogo@2x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "ioClassImg12@2x.png",
+      "scale" : "2x"
     },
     {
       "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "ioMainIcLogo@3x.png"
+      "filename" : "ioClassImg12@3x.png"
     }
   ],
   "info" : {

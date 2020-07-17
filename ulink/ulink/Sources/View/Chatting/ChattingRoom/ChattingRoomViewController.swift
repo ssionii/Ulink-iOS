@@ -95,56 +95,56 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         super.viewDidLoad()
         addObserver()
-        
+
 
 
         uid = UserDefaults.standard.string(forKey: "uid")
-        
-        
-        
+
+
+
         print("=====================================")
         print("현재 채팅방의 정보")
         print("과목 이름 : \(self.tempTitle!)")
         print("과목 인덱스 : \(self.subjectIdx)")
         print("=====================================")
-        
-        
-        
-  
-        
-       
-        
-        
-        
+
+
+
+
+
+
+
+
+
         sendButton.addTarget(self,action:#selector(createRoom), for:.touchUpInside)
-        
+
         chattingTableView.delegate = self
         chattingTableView.dataSource = self
 
-        
-        
+
+
         hideBar()
         checkChatRoom()
-        
+
         if self.comments.count > 0 {
 
-            
+
             print("comments count \(self.comments.count)")
 //            self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
 
         }
-        
-   
+
+
         print("현재 uid : \(self.uid ?? "uid 실패")")
-        
+
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
-        
+
         view.addGestureRecognizer(tap)
 
-        
-        
-        
-        
+
+
+
+
 
         // Do any additional setup after loading the view.
     }

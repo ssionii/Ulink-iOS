@@ -92,7 +92,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7b-me-NWz">
                                 <rect key="frame" x="0.0" y="44" width="375" height="67"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioMainImgLogo" translatesAutoresizingMaskIntoConstraints="NO" id="g85-Zq-ovt">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioMainIcLogo" translatesAutoresizingMaskIntoConstraints="NO" id="g85-Zq-ovt">
                                         <rect key="frame" x="16" y="22" width="86" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="86" id="EUs-Wb-eDs"/>
@@ -2037,7 +2037,7 @@
         <image name="ioChattingnoticeDetailpageBtnDelete" width="26" height="29"/>
         <image name="ioChattingnoticeDetailpageBtnRevise" width="62" height="36"/>
         <image name="ioClassImgProfile1" width="40" height="40"/>
-        <image name="ioMainImgLogo" width="86" height="30"/>
+        <image name="ioMainIcLogo" width="87" height="36"/>
         <image name="ioNotificationBtnBack" width="36" height="36"/>
         <image name="ioNotificationIcAssignmemt" width="28" height="28"/>
         <image name="tabbarIcClassSelected" width="30" height="24"/>

@@ -2,18 +2,18 @@
   "images" : [
     {
       "scale" : "1x",
-      "filename" : "ioMainIcLogo.png",
+      "filename" : "ioClassImg03.png",
       "idiom" : "universal"
     },
     {
-      "scale" : "2x",
-      "filename" : "ioMainIcLogo@2x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "ioClassImg03@2x.png",
+      "scale" : "2x"
     },
     {
       "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "ioMainIcLogo@3x.png"
+      "filename" : "ioClassImg03@3x.png"
     }
   ],
   "info" : {
