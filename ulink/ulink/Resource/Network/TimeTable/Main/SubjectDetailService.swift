@@ -59,6 +59,24 @@ struct SubjectDetailService {
         }
     }
     
+    func editSubjectColor(idx: Int, isSubject: Bool, color: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        Alamofire.request(APIConstants.specificTimeTable + "/\(idx)?isSubject=\(isSubject)", method  : .put, parameters: ["color" : color], encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let value = response.result.value else { return }
+                let json = JSON(value)
+                let networkResult = self.judge(by: statusCode, json)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     func deleteSchoolSubject(idx : Int, completion: @escaping (NetworkResult<Any>) -> Void) {
     
         Alamofire.request(APIConstants.schoolScheudle + "/\(idx)", method  : .delete, encoding: JSONEncoding.default, headers: header).responseJSON {
@@ -82,6 +100,7 @@ struct SubjectDetailService {
         switch statusCode {
             
         case 200: return setData(by: json)
+        case 201: return .success(0, 0)
         case 204: return .success(0, 0)
         case 400: return .pathErr
         case 500: return .serverErr

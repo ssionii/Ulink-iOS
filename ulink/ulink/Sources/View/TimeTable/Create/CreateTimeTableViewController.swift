@@ -21,6 +21,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var subjectInfoTableView: UITableView!
     
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var weekSpacing: NSLayoutConstraint!
+    
     
     // button
     @IBOutlet weak var filterAndSearchView: UIView!
@@ -160,7 +162,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+
         setupGestureRecognizer()
         
         setBackgroundView()
@@ -295,7 +297,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         let gradientLayer = CAGradientLayer()
         
-        gradientLayer.frame = self.backgroundView.bounds
+        gradientLayer.frame = self.view.bounds
         
         let colorLeft = UIColor(red: 127.0 / 255.0, green: 36.0 / 255.0, blue: 252.0 / 255.0, alpha: 1.0).cgColor
         let colorRight = UIColor(red: 95.0 / 255.0, green: 93.0 / 255.0, blue: 234.0 / 255.0, alpha: 1.0).cgColor
@@ -369,7 +371,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
            indexPath: IndexPath) -> CGSize {
-           return CGSize(width: collectionView.frame.width - 22, height: collectionView.frame.height)
+//           return CGSize(width: collectionView.frame.width - 22, height: collectionView.frame.height)
+        return CGSize(width: self.view.bounds.width - 22, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
