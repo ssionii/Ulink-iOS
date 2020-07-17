@@ -383,6 +383,7 @@
                                         <state key="normal" image="ioMainFiltersettingBtnConfirm"/>
                                         <connections>
                                             <action selector="confirmButtonClicked:" destination="klp-1s-egs" eventType="touchUpInside" id="OpG-7k-5jj"/>
+                                            <action selector="submitButtonClicked:" destination="nSd-Ib-cRe" eventType="touchUpInside" id="dCS-Cu-lV6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRY-ar-AaH">
