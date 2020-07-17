@@ -8,7 +8,10 @@
 
 import UIKit
 
-class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate {
+
+class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate, TimeTableSettingViewControllerDelegate {
+   
+    
 
 
     @IBOutlet weak var backgroundView: UIView!
@@ -24,9 +27,8 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     @IBAction func settingBtn(_ sender: UIButton) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableSettingViewController") as? TimeTableSettingViewController else { return }
         
-        // idx 셋
         nextVC.setTimeTableIdx(idx: timeTableInfo.scheduleIdx)
-//         nextVC.modalPresentationStyle = .fullScreen
+        nextVC.delegate = self
          self.present(nextVC, animated: true, completion: nil)
     }
     
@@ -54,6 +56,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         guard let nextVC = storyboard.instantiateViewController(identifier: "createTimeTableViewController") as? CreateTimeTableViewController else { return }
         
         nextVC.semester = timeTableInfo.semester
+        nextVC.scheduleIdx = timeTableInfo.scheduleIdx
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
         
@@ -69,6 +72,10 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         timeTable.dataSource = self
         
         setBackgroundView()
+      
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         getMainTimeTable()
     }
 
@@ -129,13 +136,16 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
            getTimeTableByIdx(idx: idx)
     }
     
+    func updateMainView() {
+        getTimeTableByIdx(idx: timeTableInfo.scheduleIdx)
+    }
     
-    // 통신
+    
+    // MARK:- 통신
     
     func getMainTimeTable(){
         
         print("getMainTimeTable")
-        
        MainTimeTableService.shared.getMainTimeTable { networkResult in
             switch networkResult {
                 case .success(let timeTable, let subjectList) :
@@ -175,4 +185,21 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
          }
     }
 
+}
+
+extension UIApplication {
+    class func topViewController(viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = viewController as? UINavigationController {
+            return topViewController(viewController: nav.visibleViewController)
+        }
+        if let tab = viewController as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(viewController: selected)
+            }
+        }
+        if let presented = viewController?.presentedViewController {
+            return topViewController(viewController: presented)
+        }
+        return viewController
+    }
 }

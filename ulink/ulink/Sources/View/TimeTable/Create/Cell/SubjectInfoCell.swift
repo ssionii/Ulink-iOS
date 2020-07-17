@@ -21,6 +21,8 @@ class SubjectInfoCell: UITableViewCell {
     
     public var delegate : SubjectInfoCellDelegate?
     
+    @IBOutlet weak var cellBackgroundView: UIView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var professorNameLabel: UILabel!
     @IBOutlet weak var timeInfoLabel: UILabel!
@@ -203,13 +205,16 @@ class SubjectInfoCell: UITableViewCell {
         if(selected){
             if isExpended {
                 smallBtn()
+                cellBackgroundView.backgroundColor = UIColor.white
                 isExpended = false
             }else{
                 bigBtn()
+                cellBackgroundView.backgroundColor = UIColor.paleGreyThree
                 isExpended = true
             }
         }else {
             smallBtn()
+            cellBackgroundView.backgroundColor = UIColor.white
             isExpended = false
         }
     

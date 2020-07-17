@@ -25,8 +25,7 @@ struct CartService {
     
     let header: HTTPHeaders = [
         "Content-Type" : "application/json",
-//        "token" : UserDefaults.standard.object(forKey: "token") as! String
-        "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoxLCJuYW1lIjoi6rmA67O067CwIiwic2Nob29sIjoi7ZWc7JaR64yA7ZWZ6rWQIiwibWFqb3IiOiLsnLXtlansoITsnpDqs7XtlZnrtoAiLCJpYXQiOjE1OTQ4MzkzOTEsImV4cCI6MTU5ODQzNTc5MSwiaXNzIjoiYm9iYWUifQ.jxont3bUINSAtQt_F90KeE376WX-cZJoB5rzM2K7Ccg"
+        "token" : UserDefaults.standard.object(forKey: "token") as! String
     ]
     
     func postCart(semester: String, subjectIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -67,18 +66,35 @@ struct CartService {
         }
     }
     
+    func deleteCartSubject(idx: Int, semester : String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        
+        Alamofire.request(APIConstants.cart + "/\(idx)", method : .delete,  parameters : ["semester" : semester], encoding: JSONEncoding.default, headers: header).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success:
+                
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let value = response.result.value else { return }
+                let json = JSON(value)
+                let networkResult = self.judge(by: statusCode, json)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
     private func judge(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
         switch statusCode {
             
         case 200: return setData(by: json)
-        case 201 : return .success(0, 0)
+        case 201, 204 : return .success(0, 0)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
         }
     }
-    
-
     
    private func setData(by json: JSON) -> NetworkResult<Any> {
     

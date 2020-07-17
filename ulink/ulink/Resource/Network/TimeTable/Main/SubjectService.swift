@@ -25,8 +25,7 @@ struct SubjectService{
     
     let header: HTTPHeaders = [
         "Content-Type" : "application/json",
-//        "token" : UserDefaults.standard.object(forKey: "token") as! String
-        "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoxLCJuYW1lIjoi6rmA67O067CwIiwic2Nob29sIjoi7ZWc7JaR64yA7ZWZ6rWQIiwibWFqb3IiOiLsnLXtlansoITsnpDqs7XtlZnrtoAiLCJpYXQiOjE1OTQ4MzkzOTEsImV4cCI6MTU5ODQzNTc5MSwiaXNzIjoiYm9iYWUifQ.jxont3bUINSAtQt_F90KeE376WX-cZJoB5rzM2K7Ccg"
+        "token" : UserDefaults.standard.object(forKey: "token") as! String
     ]
     
     
@@ -74,7 +73,6 @@ struct SubjectService{
     
     func enrollSubejct(subjectIdx: Int, color: Int, scheduleIdx : Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         
-         print("hello2")
         print(makeParameter(subjectIdx, color, scheduleIdx))
         
         Alamofire.request(APIConstants.schoolScheudle, method : .post, parameters: makeParameter(subjectIdx, color, scheduleIdx), encoding: JSONEncoding.default, headers: header).responseJSON {

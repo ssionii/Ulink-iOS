@@ -14,6 +14,8 @@ struct APIConstants {
     static let schoolScheudle = APIConstants.baseURL + "/schedule/school"
     static let subject = APIConstants.baseURL + "/subject"
     static let cart = APIConstants.baseURL + "/cart"
+    static let search = APIConstants.baseURL + "/subject/search"
+    static let name = APIConstants.baseURL + "/schedule/name"
     
     static let subjectNoticeURL = APIConstants.baseURL + "/notice/subject"
     static let subjectDetailNoticeURL = APIConstants.baseURL + "/notice"

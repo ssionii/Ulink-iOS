@@ -20,8 +20,7 @@ struct SubjectDetailService {
     
     let header: HTTPHeaders = [
         "Content-Type" : "application/json",
-//        "token" : UserDefaults.standard.object(forKey: "token") as! String
-      "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoxLCJuYW1lIjoi6rmA67O067CwIiwic2Nob29sIjoi7ZWc7JaR64yA7ZWZ6rWQIiwibWFqb3IiOiLshoztlITtirjsm6jslrQiLCJpYXQiOjE1OTQ3NzkxODAsImV4cCI6MTU5NjIxOTE4MCwiaXNzIjoiYm9iYWUifQ.BAOeiZ_uqtIVPzFJd2oZbfVz44A2_QSXLQliNhN6pv4"
+        "token" : UserDefaults.standard.object(forKey: "token") as! String
     ]
     
     func getMainTimeTable(idx: Int, isSubject: Bool, completion: @escaping (NetworkResult<Any>) -> Void) {

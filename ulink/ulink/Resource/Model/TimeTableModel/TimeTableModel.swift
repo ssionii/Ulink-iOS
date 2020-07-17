@@ -12,6 +12,7 @@ public struct TimeTableModel {
     public let scheduleIdx : Int
     public let name : String
     public let semester : String
+    public let semesterText : String
     public let isMain : Int
     public var subjectList : [SubjectModel]
     
@@ -19,6 +20,7 @@ public struct TimeTableModel {
     public init(scheduleIdx: Int, semester: String, name: String){
         
         self.scheduleIdx = scheduleIdx
+        self.semester = semester
         self.name = name
         
         var year : String = String(semester.split(separator: "-")[0])
@@ -34,7 +36,7 @@ public struct TimeTableModel {
         default:
             year.append(" 1학기")
         }
-        self.semester = year
+        self.semesterText = year
         
         self.isMain = 0
         self.subjectList = []
@@ -44,8 +46,9 @@ public struct TimeTableModel {
     // list에서 이용
     public init(scheduleIdx: Int, name: String, semesterInput: String, isMain: Int){
         self.scheduleIdx = scheduleIdx
-        self.name = name
+        self.semester = semesterInput
         self.isMain = isMain
+        self.name = name
         
         var year : String = String(semesterInput.split(separator: "-")[0])
         switch semesterInput.split(separator : "-")[1] {
@@ -60,7 +63,7 @@ public struct TimeTableModel {
         default:
             year.append(" 1학기")
         }
-        self.semester = year
+        self.semesterText = year
         
         self.subjectList = []
            
@@ -73,6 +76,7 @@ public struct TimeTableModel {
         
         self.semester = ""
         self.isMain = 0
+        self.semesterText = ""
     }
     
     public init(){
@@ -81,5 +85,6 @@ public struct TimeTableModel {
         self.subjectList = []
         self.semester = ""
         self.isMain = 0
+         self.semesterText = ""
     }
 }
