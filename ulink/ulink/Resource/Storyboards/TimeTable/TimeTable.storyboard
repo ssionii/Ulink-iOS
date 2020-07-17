@@ -652,6 +652,7 @@
                     <connections>
                         <outlet property="backgroundView" destination="tC1-e9-o93" id="Cdh-V4-DjW"/>
                         <outlet property="colorView" destination="E8z-wN-bdX" id="rcs-J4-Uqj"/>
+                        <outlet property="customizingView" destination="OAu-F9-ECs" id="1Y9-Ws-PIl"/>
                         <outlet property="detailBackgroundView" destination="mcL-cc-4xg" id="Rag-GQ-LNs"/>
                         <outlet property="editNameImageViewHeight" destination="mcY-LO-5Lj" id="Ukz-9E-Zlv"/>
                         <outlet property="editNameLabel" destination="zoM-4X-f4y" id="4Lw-kl-n4u"/>
@@ -670,7 +671,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwg-bE-tDy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1557.5999999999999" y="479.55665024630542"/>
+            <point key="canvasLocation" x="1497" y="479"/>
         </scene>
         <!--Time Table Setting View Controller-->
         <scene sceneID="aUV-WI-49u">
