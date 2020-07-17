@@ -112,23 +112,24 @@ class ChattingViewController: UIViewController {
                     guard let numberOfChatrooms = numberOfChatrooms as? Int else {return}
                     
 
-
-                        for i in 0...numberOfChatrooms - 1 // 채팅방 갯수만큼 리스트에 append 해야 함
+                        if numberOfChatrooms > 0
                         {
-                            let chatroomData = ChattingListData(
-                                idx: chatList[i].subjectIdx,
-                                name: chatList[i].name,
-                                color: chatList[i].color,
-                                total: chatList[i].total,
-                                current: chatList[i].current)
+                                for i in 0...numberOfChatrooms - 1 // 채팅방 갯수만큼 리스트에 append 해야 함
+                                {
+                                    let chatroomData = ChattingListData(
+                                        idx: chatList[i].subjectIdx,
+                                        name: chatList[i].name,
+                                        color: chatList[i].color,
+                                        total: chatList[i].total,
+                                        current: chatList[i].current)
+                                    
+                                    self.chattingList.append(chatroomData)
+                                }
                             
-                            self.chattingList.append(chatroomData)
                         }
+
                     
-                    
-                    print("asd")
-                    print(self.chattingList)
-                    
+
              
                     
                     

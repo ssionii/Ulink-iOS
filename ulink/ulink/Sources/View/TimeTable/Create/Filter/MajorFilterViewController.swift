@@ -37,15 +37,22 @@ class MajorFilterViewController: UIViewController {
     
     
     
+    @IBAction func submitButtonClicked(_ sender: Any) {
+        
+        
+        
+        
+    }
     
     
     @IBAction func closeButtonClicked(_ sender: Any) {
         
-        
-        
             dismiss(animated: true, completion: nil)
         
-        }
+    }
+    
+    
+    
     
     
     
@@ -152,6 +159,10 @@ extension MajorFilterViewController : UITableViewDelegate,UITableViewDataSource
         
         
         
+        
+        
+        
+        
         if numberOfSection > 0
         {
             
@@ -161,14 +172,33 @@ extension MajorFilterViewController : UITableViewDelegate,UITableViewDataSource
                 
                 if indexPath.section == i
                 {
-                    cell.setData(name: majorList[i], check: true)
+                    cell.setData(name: majorList[i], check: false)
                 }
+                
+                
+                
+                
                 
             }
             
             
             
+        
+            
+            
+         
+            
+            
+            
+            
+            
+            
+            
+            
         }
+        
+        
+        
 
         
         
