@@ -23,6 +23,7 @@ struct MainTimeTableService {
     
     func getMainTimeTable(completion: @escaping (NetworkResult<Any>) -> Void) {
         
+        print("token", UserDefaults.standard.object(forKey: "token") as! String)
         
         Alamofire.request(APIConstants.mainTimeTable, method  : .get, encoding: JSONEncoding.default, headers: header).responseJSON {
             response in
