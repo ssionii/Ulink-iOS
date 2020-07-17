@@ -20,6 +20,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     private var subjectList : [SubjectModel] = []
     private var subjectDummyList : [SubjectModel] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
+    private var isFirstOpen = true
     
     @IBAction func settingBtn(_ sender: UIButton) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableSettingViewController") as? TimeTableSettingViewController else { return }
@@ -69,11 +70,13 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         timeTable.dataSource = self
         
         setBackgroundView()
-      
     }
 
     override func viewWillAppear(_ animated: Bool) {
-//        getMainTimeTable()
+        if isFirstOpen {
+            getMainTimeTable()
+            isFirstOpen = false
+        }
     }
 
      override var preferredStatusBarStyle: UIStatusBarStyle {

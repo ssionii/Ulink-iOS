@@ -428,8 +428,8 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainTimetableclickIcTime" translatesAutoresizingMaskIntoConstraints="NO" id="W8y-1W-e5W">
                                                 <rect key="frame" x="23.999999999999996" y="56.000000000000028" width="16.000000000000004" height="16"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRg-Is-y6s">
-                                                <rect key="frame" x="50" y="55.333333333333343" width="0.0" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRg-Is-y6s">
+                                                <rect key="frame" x="50" y="55" width="257" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="buc-bk-4Pk"/>
                                                 </constraints>
@@ -609,6 +609,7 @@
                                             <constraint firstItem="LAS-Cc-Qul" firstAttribute="top" secondItem="ue0-01-vXY" secondAttribute="bottom" id="JfY-4t-bR4"/>
                                             <constraint firstItem="5NO-pQ-H51" firstAttribute="top" secondItem="LAS-Cc-Qul" secondAttribute="bottom" id="PMs-72-CiH"/>
                                             <constraint firstAttribute="trailing" secondItem="3r1-sW-2wt" secondAttribute="trailing" id="PoR-sl-E4s"/>
+                                            <constraint firstAttribute="trailing" secondItem="VRg-Is-y6s" secondAttribute="trailing" constant="21" id="R8n-fD-YBd"/>
                                             <constraint firstItem="OAu-F9-ECs" firstAttribute="leading" secondItem="mcL-cc-4xg" secondAttribute="leading" id="Tag-vQ-0uV"/>
                                             <constraint firstAttribute="trailing" secondItem="ue0-01-vXY" secondAttribute="trailing" id="UKf-SS-uDG"/>
                                             <constraint firstItem="E8z-wN-bdX" firstAttribute="leading" secondItem="mcL-cc-4xg" secondAttribute="leading" constant="21" id="YQi-Zi-8Sz"/>
@@ -671,7 +672,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwg-bE-tDy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="479"/>
+            <point key="canvasLocation" x="1496.8" y="478.81773399014781"/>
         </scene>
         <!--Time Table Setting View Controller-->
         <scene sceneID="aUV-WI-49u">
