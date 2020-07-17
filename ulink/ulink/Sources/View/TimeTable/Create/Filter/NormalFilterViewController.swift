@@ -8,11 +8,33 @@
 
 import UIKit
 
+protocol normalFilterDelegate{
+    
+    
+    func sendFilter(day : [Int], dayOff : [Int], firstClass : Bool, grade : [Int])
+    
+}
+
 class NormalFilterViewController: UIViewController {
+    
+    
+    var delegate : normalFilterDelegate?
 
     // MARK:- 요일 지정 부분 월~금 버튼 아울렛
 
+    
+    @IBOutlet weak var setMonButton: UIButton!
+    
+    @IBOutlet weak var setTueButton: UIButton!
+    
+    @IBOutlet weak var setWedButton: UIButton!
+    
+    @IBOutlet weak var setThuButton: UIButton!
+    @IBOutlet weak var setFriButton: UIButton!
     var dayIsSelected : [Int] = [0,0,0,0,0]
+    
+    
+    
     
     
     
@@ -56,6 +78,7 @@ class NormalFilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = CreateTimeTableViewController()
 
     }
     
@@ -78,6 +101,11 @@ class NormalFilterViewController: UIViewController {
     @IBAction func confirmButtonClicked(_ sender: Any) { // '확인' 버튼 눌렀을 때
         
         
+        delegate?.sendFilter(day: dayIsSelected, dayOff: dayOffIsSelected, firstClass: firstClassOff, grade: gradeButtonSelected)
+
+        
+        dismiss(animated: true, completion: nil)
+        
     }
     
     
@@ -92,6 +120,25 @@ class NormalFilterViewController: UIViewController {
         
         
         resetGrade()
+    }
+    
+    
+    
+    @IBAction func touchFirstClass(_ sender: Any) {
+        
+        
+        if firstClassDayOffSwitch.isOn == false
+        {
+            firstClassOff = false
+        }
+        
+        else
+        {
+            firstClassOff = true
+
+        }
+        
+        
     }
     
     
@@ -208,6 +255,8 @@ class NormalFilterViewController: UIViewController {
         {
             imageName = "ioMainFiltersettingGrade"
             
+            
+            self.gradeButtonSelected[count] = 0
             
             imageName = imageName + dayArray[count] + "Unselected"
             
@@ -327,7 +376,7 @@ class NormalFilterViewController: UIViewController {
         
         
 
-        if dayIsSelected[index] == 0
+        if dayIsSelected[index] == 0 && dayOffIsSelected[index] != 1 // 공강은 빼야 함
         {
              dayIsSelected[index] = 1
             imageTitle = imageTitle + "Selected"
@@ -359,6 +408,8 @@ class NormalFilterViewController: UIViewController {
         }
         
         
+        
+        print("현재 선택한 요일의 리스트 정보 : \(dayIsSelected)")
     }
     
     
@@ -368,9 +419,9 @@ class NormalFilterViewController: UIViewController {
     
     
     
-    @IBAction func setMondayOffButtonClicked(_ sender: Any) {
+    @IBAction func setMondayOffButtonClicked(_ sender: Any) { // 월요일 공강 부분 눌렀을 떄
         
-        
+
         
         if let button = sender as? UIButton {
 
@@ -381,6 +432,9 @@ class NormalFilterViewController: UIViewController {
     
     @IBAction func setTuesdayOffButtonClicked(_ sender: Any) {
         
+        dayOffIsSelected[1] = 1
+
+        
         if let button = sender as? UIButton {
 
                 setDayOffButtonClicked(button: button,index: 1)
@@ -390,6 +444,9 @@ class NormalFilterViewController: UIViewController {
     
     @IBAction func setWednesdayOffButtonClicked(_ sender: Any) {
         
+        dayOffIsSelected[2] = 1
+
+        
         if let button = sender as? UIButton {
 
                 setDayOffButtonClicked(button: button,index: 2)
@@ -398,6 +455,9 @@ class NormalFilterViewController: UIViewController {
     
     @IBAction func setThursdayOffButtonClicked(_ sender: Any) {
         
+        dayOffIsSelected[3] = 1
+
+        
         if let button = sender as? UIButton {
 
                 setDayOffButtonClicked(button: button,index: 3)
@@ -405,6 +465,10 @@ class NormalFilterViewController: UIViewController {
     }
     
     @IBAction func setFridayOffButtonClicked(_ sender: Any) {
+        
+        
+        dayOffIsSelected[4] = 1
+
         
         if let button = sender as? UIButton {
 
@@ -455,10 +519,69 @@ class NormalFilterViewController: UIViewController {
         imageTitle = imageTitle + day
         
         
+        self.dayIsSelected[index] = 0
+        
+        if(index == 0)
+        {
+            
+            print("?")
+            
+            if let image = UIImage(named: "ioMainFiltersettingMonUnselected"){
+                setMonButton.setImage(image, for: .normal)
+                
+                
+                
+                
+            }
+            
+
+        }
+        
+            
+        else if(index == 1)
+        {
+            if let image = UIImage(named: "ioMainFiltersettingTueUnselected"){
+                setTueButton.setImage(image, for: .normal)
+                
+                
+            }
+        }
+        else if(index == 2 )
+        {
+            if let image = UIImage(named: "ioMainFiltersettingWedUnselected"){
+                setWedButton.setImage(image, for: .normal)
+                
+                
+            }
+        }
+        else if(index == 3 )
+        {
+            if let image = UIImage(named: "ioMainFiltersettingThuUnselected"){
+                setThuButton.setImage(image, for: .normal)
+                
+                
+            }
+        }
+        
+        else if(index == 4 )
+        {
+            if let image = UIImage(named: "ioMainFiltersettingFriUnselected"){
+                setFriButton.setImage(image, for: .normal)
+                
+                
+            }
+        }
+        
 
         if dayOffIsSelected[index] == 0
         {
+            
+            
              dayOffIsSelected[index] = 1
+            
+            
+            
+            
             imageTitle = imageTitle + "emptySelected"
             if let image = UIImage(named: imageTitle){
                 button.setImage(image, for: .normal)
@@ -490,7 +613,7 @@ class NormalFilterViewController: UIViewController {
         
         
         
-        
+        print("현재 공강 지정 상태 : \(dayOffIsSelected)")
     }
     
     
@@ -606,7 +729,7 @@ class NormalFilterViewController: UIViewController {
               
           }
     
-    
+         print("현재 세팅된 학점 정보 : \(gradeButtonSelected) ")
     }
     
 }

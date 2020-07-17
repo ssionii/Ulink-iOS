@@ -27,8 +27,6 @@ struct SearchRecommendService {
             
             query = "?name=\(queryWord)"
             
-            print("query", APIConstants.searchURL + query)
-            
             let dataRequest = Alamofire.request(APIConstants.searchURL + query, method: .get, encoding: JSONEncoding.default, headers: header)
             
             dataRequest.responseData { dataResponse in

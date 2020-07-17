@@ -61,8 +61,13 @@ class MajorFilterTableViewCell: UITableViewCell {
     
     
     
+    
+    
+    
     @IBAction func checkButtonClicked(_ sender: Any) {
     
+        
+        
         if self.isChecked
         {
             if let img = UIImage(named: "ioMajorsettingBtnRoundUnselected")
@@ -74,9 +79,11 @@ class MajorFilterTableViewCell: UITableViewCell {
             
             self.isChecked = false
             
+ 
         }
-        
-        
+            
+            
+            
         else
         {
             if let img = UIImage(named: "ioMainMajorsettingBtnRoundSelected")

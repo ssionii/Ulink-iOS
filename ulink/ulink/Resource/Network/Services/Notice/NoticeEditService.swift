@@ -71,9 +71,9 @@ struct NoticeEditService {
     private func judge(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode {
             
-        case 200: return isSubject(by: data)
-        case 400: return .pathErr
-        case 500: return .serverErr
+        case 200 ... 299: return isSubject(by: data)
+        case 400 ... 499: return .pathErr
+        case 500 ... 599: return .serverErr
         default:
             do {
                 print("현재 networkFail로 떨어졌습니다 statusCODE : \(statusCode)")

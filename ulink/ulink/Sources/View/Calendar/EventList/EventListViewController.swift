@@ -51,7 +51,7 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         var startQuery = String(todayYear) + "-" + String(todayMonth) + "-" + String(todayDate)
         
-        let tenDaysLater = Calendar.current.date(byAdding: .day, value: 10, to: today) ?? today
+        let tenDaysLater = Calendar.current.date(byAdding: .day, value: 30, to: today) ?? today
         
         var endYear = Calendar.current.component(.year, from: tenDaysLater)
         var endMonth = Calendar.current.component(.month, from: tenDaysLater)
