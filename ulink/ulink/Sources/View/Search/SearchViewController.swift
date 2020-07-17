@@ -78,7 +78,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
     // MARK: DELEGATE FUNC
     
     func didPressDeleteButton(_ tag: Int) {
-        print("did")
         let savedDatas = realm.objects(SearchedListData.self)
         let predicate = NSPredicate(format: "searched = %@", savedDatas[tag].searched)
 
@@ -87,8 +86,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UITableViewDe
         })
         
         searchTableView.reloadData()
-        //realm.delete(savedDatas[tag])
-        //realm.delete(<#T##object: Object##Object#>)
     }
     
     

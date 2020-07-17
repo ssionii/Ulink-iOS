@@ -103,6 +103,7 @@ class ColorPickViewController: UIViewController, UICollectionViewDelegateFlowLay
         //통신~~
     }
     
+    //페이징
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let cellWidthIncludeSpacing = colorCollectionView.frame.width
 
