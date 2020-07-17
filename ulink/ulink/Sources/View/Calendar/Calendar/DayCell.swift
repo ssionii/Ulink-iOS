@@ -14,7 +14,9 @@ class DayCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var eventLabels: [UIButton]!
     
-    var colors = [UIColor.periwinkleBlueTwo, UIColor.babyPurple, UIColor.lightblue, UIColor.powderPink, UIColor.periwinkleBlue, UIColor.skyBlueTwo, UIColor.pink, UIColor.easterPurple, UIColor.robinSEgg, UIColor.skyBlue]
+    //var colors = [UIColor.periwinkleBlueTwo, UIColor.babyPurple, UIColor.lightblue, UIColor.powderPink, UIColor.periwinkleBlue, UIColor.skyBlueTwo, UIColor.pink, UIColor.easterPurple, UIColor.robinSEgg, UIColor.skyBlue]
+    
+    let colors = ColorPicker().getColorList()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,10 +49,23 @@ class DayCell: UICollectionViewCell {
     }
     
     func setEvent(eventName: [NoticeData]){
-        for i in 0...eventName.count-1 {
+//        for i in 0...eventName.count-1 {
+//            eventLabels[i].isHidden = false
+//            eventLabels[i].setTitle(eventName[i].name, for: .normal)
+//            eventLabels[i].backgroundColor = colors[eventName[i].color]
+//        }
+        
+        var eventCount: Int = 0
+        if eventName.count > 5 {
+            eventCount = 5
+        } else {
+            eventCount = eventName.count
+        }
+        
+        for i in 0...eventCount-1 {
             eventLabels[i].isHidden = false
             eventLabels[i].setTitle(eventName[i].name, for: .normal)
-            eventLabels[i].backgroundColor = colors[eventName[i].color]
+            eventLabels[i].backgroundColor = colors[eventName[i].color].color
         }
     }
     

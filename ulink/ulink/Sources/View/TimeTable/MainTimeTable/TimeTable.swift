@@ -21,6 +21,39 @@ public protocol TimeTableDataSource {
     func subjectItems(in timeTable: TimeTable) -> [SubjectModel]
 }
 
+public func getWidth() -> Int{
+    
+    let bounds = UIScreen.main.bounds
+    let height = bounds.size.height
+    
+    switch height{
+        
+    case 450.0 ... 667.0 : // 6 6s 7 8
+        
+        print("2번")
+        return 19
+        
+    case 730.0 ... 810.0: // 6s+, 7+ 8+
+        print("3번")
+        return 19
+        
+    case 812.0 ... 890.0: //X, XS
+        print("4번")
+        //11pro
+        return 19
+    
+    case 896.0:         // XS MAX
+        print("5번")
+        //11
+        return 32
+        
+    default:
+        print("6번")
+        return 19
+        
+    }
+}
+
 @IBDesignable public class TimeTable : UIView {
     public var controller = TimeTableController()
     public var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -36,7 +69,7 @@ public protocol TimeTableDataSource {
     public var dataSource : TimeTableDataSource?
 
     private var subjectCells = [SubjectCell]()
-    private var colorFilter = ColorFilter.init()
+    private var colorPicker = ColorPicker()
     
     public var tempUserScheduleList : [TimeInfoModel] = []
     
@@ -114,7 +147,12 @@ public protocol TimeTableDataSource {
         return daySymbolText
     }
     
-    @IBInspectable public var widthOfTimeAxis = CGFloat(19){
+    // 성은아 여기야
+    // 19 * 32
+    
+    
+    
+    @IBInspectable public var widthOfTimeAxis = CGFloat(getWidth()){
            didSet {
             makeTimeTable() }
        }
@@ -268,7 +306,7 @@ public protocol TimeTableDataSource {
             let height = averageHeight * CGFloat(subjectEndHour - subjectStartHour) + CGFloat((CGFloat(subjectEndMin - subjectStartMin) / 60) * averageHeight) - rectEdgeInsets.top - rectEdgeInsets.bottom
 
             let view = UIView(frame: CGRect(x: position_x, y: position_y, width: width, height: height))
-            view.backgroundColor = colorFilter.getColor(colorCode: subjectItem.backgroundColor)
+            view.backgroundColor = colorPicker.getColor(subjectItem.backgroundColor).color
             view.layer.cornerRadius = 8
 
             let label = PaddingLabel(frame: CGRect(x: textEdgeInsets.left, y: textEdgeInsets.top, width: view.frame.width - textEdgeInsets.right, height: view.frame.height - textEdgeInsets.top))
@@ -516,20 +554,24 @@ public protocol TimeTableDataSource {
     
     public func getColorCount() -> Int{
         
+        let mainColorList = [9, 12, 6, 13, 10, 7, 14, 1, 5, 8]
+        
         var colorCount = 0
         
         let sortedSubjectItems = subjectItems.sorted(by: {$0.subjectIdx < $1.subjectIdx})
         
         if(sortedSubjectItems.count > 1){
             for i in 0 ... sortedSubjectItems.count - 2 {
-                if sortedSubjectItems[i].subjectName != sortedSubjectItems[i + 1].subjectName {
+                if sortedSubjectItems[i].subjectIdx != sortedSubjectItems[i + 1].subjectIdx {
                     colorCount += 1
                 }
             }
+            colorCount += 1
         }else if (sortedSubjectItems.count == 1){
             colorCount = 1
         }
-        return colorCount
+        
+        return mainColorList[colorCount]
     }
 }
 

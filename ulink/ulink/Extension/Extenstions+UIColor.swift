@@ -31,16 +31,6 @@ extension UIColor {
     
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @nonobjc class var noticeColorOne: UIColor{
         return UIColor(red: 255.0 / 255.0, green: 245.0 / 255.0, blue: 253.0, alpha: 1.0)
     }
@@ -222,5 +212,9 @@ extension UIColor {
     @nonobjc class var dullYellowTwo: UIColor {
       return UIColor(red: 242.0 / 255.0, green: 225.0 / 255.0, blue: 91.0 / 255.0, alpha: 1.0)
     }
-}
+    
+    @nonobjc class var white: UIColor {
+        return UIColor(white: 255.0 / 255.0, alpha: 1.0)
+      }
 
+}

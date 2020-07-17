@@ -36,6 +36,8 @@ class LoginViewController: UIViewController {
     
 
     
+    @IBOutlet weak var textFieldImage1: UIImageView!
+    @IBOutlet weak var textFieldImage2: UIImageView!
     
     let remoteConfig = RemoteConfig.remoteConfig()
     
@@ -233,7 +235,7 @@ class LoginViewController: UIViewController {
         case 812.0 ... 890.0: //X, XS
             
             
-            self.gifHeight.constant = 240
+            self.gifHeight.constant = 220
             print(gifHeight.constant)
             
             break
@@ -241,6 +243,7 @@ class LoginViewController: UIViewController {
         case 896.0 ... 1000.0:         // XS MAX
             
             self.gifHeight.constant = 240
+            print(11)
             print(gifHeight.constant)
             break
             

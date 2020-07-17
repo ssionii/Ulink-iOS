@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CreateTimeTableViewControllerDelegate {
+    func updateMainFromEnrollSubject()
+}
+
 class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource, SubjectInfoCellDelegate, GradeSelectVCDelegate, SearchVCDelegate,normalFilterDelegate, AddSubjectByDragViewControllerDelegate, AddSubjectDetailDelegate {
    
     
@@ -37,7 +41,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var standardFilterHeight: NSLayoutConstraint!
     @IBOutlet weak var searchFilterBorderHeight: NSLayoutConstraint!
     
-    
+    public var delegate : CreateTimeTableViewControllerDelegate?
+
     @IBOutlet weak var searchLabel: UILabel!
     
     private var isCandidateView = false
@@ -488,7 +493,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             for (_, temp) in timeTableCell.subjectList.enumerated() {
                 let tstartHour = Int(temp.startTime[0].split(separator: ":")[0])
                 let tstartMin = Int(temp.startTime[0].split(separator: ":")[1])
-                print("index", index)
                 
                 let tempStart = (temp.subjectDay[0] * 10000) + (tstartHour! * 100 ) + tstartMin!
                 let tendHour = Int(temp.endTime[0].split(separator: ":")[0])
@@ -515,20 +519,21 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             if !candDraw {
                 break
             }
-            
+        
             item.backgroundColor = timeTableCell.timeTable.getColorCount()
             tempList.append(item)
         }
         
         
+        
+        
         if(candDraw){
             timeTableCell.subjectList.append(contentsOf: tempList)
+            
             timeTableCell.timeTable.reDrawTimeTable()
             
-            for temp in tempList {
-                enrollSubject(subjectIdx: subjectIdx , color: temp.backgroundColor, scheduleIdx: self.scheduleIdx)
-                // todo : scheduleIdx 바꿔!
-            }
+            enrollSubject(subjectIdx: subjectIdx , color: tempList[0].backgroundColor, scheduleIdx: self.scheduleIdx)
+       
         }else {
             let alert = UIAlertController(title: "", message: "시간이 겹쳐 추가할 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
 
@@ -664,6 +669,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                switch networkResult {
                    case .success(_, _) :
                     print("과목 등록 성공")
+                    self.delegate?.updateMainFromEnrollSubject()
+                    self.getTimeTableList(semester: self.semester)
                        break
                    case .requestErr(let message):
                            print("REQUEST ERROR")
@@ -737,6 +744,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             switch networkResult {
                 case .success(let containerList, _) :
                  print("시간표 리스트 조회 성공")
+                 self.delegate?.updateMainFromEnrollSubject()
                  let timeTableContainerList = containerList as! [TimeTableContainerModel]
                  
                  var tempTableList = [TimeTableModel]()
