@@ -157,7 +157,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
                 case .success(let timeTable, let subjectList) :
                     self.timeTableInfo = timeTable as! TimeTableModel
                     self.subjectList = subjectList as! [SubjectModel]
-                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).name
+                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).semesterText
                     self.timeTable.reloadData()
                     break
                 case .requestErr(let message):
@@ -178,7 +178,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
                  case .success(let timeTable, let subjectList) :
                     self.timeTableInfo = timeTable as! TimeTableModel
                      self.subjectList = subjectList as! [SubjectModel]
-                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).name
+                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).semesterText
                      self.timeTable.reloadData()
                      break
                  case .requestErr(let message):
