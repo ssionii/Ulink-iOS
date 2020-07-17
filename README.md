@@ -66,11 +66,6 @@
 
 --- 
 
-
-
-
- --- 
-## 기능 구현목록
 ### Splash
 ![splash](https://user-images.githubusercontent.com/55864257/87797819-2fb84600-c886-11ea-8f75-8e9184e02429.gif)
 
@@ -81,6 +76,11 @@
 ### 수업 공지와 나의 캘린더 연동
 
 ![calendar](https://user-images.githubusercontent.com/55864257/87797714-0bf50000-c886-11ea-9000-4c3012ccb226.gif)
+
+
+
+ --- 
+## 기능 구현목록
 
 
 
