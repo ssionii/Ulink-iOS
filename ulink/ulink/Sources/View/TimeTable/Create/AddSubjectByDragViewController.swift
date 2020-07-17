@@ -49,11 +49,8 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     var delegate : AddSubjectByDragViewControllerDelegate?
 
     var timeTableInfo = TimeTableModel.init()
-    var subjectList = [SubjectModel](){
-        didSet {
-            self.timeTable.reloadData()
-        }
-    }
+    var subjectList = [SubjectModel]()
+    
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     
     public var scheduleIdx = 1
@@ -140,6 +137,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         if isFromDrag {
         
         let colorCount = timeTable.getColorCount()
+    
         for timeInfo in timeInfoList {
             var temp = timeInfo
             temp.backgroundColor = colorCount
@@ -153,7 +151,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         
         // list에 추가
         for timeInfo in timeInfoList {
-            let personalSchedule = PersonalScheduleModel.init(name: timeInfo.subjectName, startTime: timeInfo.startTime[0], endTime: timeInfo.endTime[0], day: timeInfo.subjectDay[0], content: timeInfo.content[0], color: timeInfo.backgroundColor, scheudleIdx: self.scheduleIdx)
+            let personalSchedule = PersonalScheduleModel.init(name: timeInfo.subjectName, startTime: timeInfo.startTime[0], endTime: timeInfo.endTime[0], day: timeInfo.subjectDay[0], content: timeInfo.content[0], color: colorCount, scheudleIdx: self.scheduleIdx)
             
              personalList.append(personalSchedule)
         }

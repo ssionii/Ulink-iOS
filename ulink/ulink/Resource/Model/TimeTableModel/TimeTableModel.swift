@@ -9,7 +9,7 @@
 import Foundation
 
 public struct TimeTableModel {
-    public let scheduleIdx : Int
+    public var scheduleIdx : Int
     public let name : String
     public let semester : String
     public let semesterText : String

@@ -68,7 +68,7 @@ struct TimeTableService {
         switch statusCode {
             
         case 200: return setData(by: json)
-        case 201 : return .success(0, 0)
+        case 201 : return getIdx(by: json)
         case 400: return .pathErr
         case 500: return .serverErr
         default: return .networkFail
@@ -76,6 +76,12 @@ struct TimeTableService {
     }
     
 
+     private func getIdx(by json: JSON) -> NetworkResult<Any> {
+        let data = json["data"] as JSON
+    
+        let idx = data["idx"]
+        return .success(idx, 0)
+    }
     
    private func setData(by json: JSON) -> NetworkResult<Any> {
         
