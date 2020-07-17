@@ -36,7 +36,7 @@ class EventListHeaderCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func set(_ eventInfo: EventList){
+    func set(_ eventInfo: SecondData){
         dateLabel.text = getWeekDay(date: eventInfo.date)
         
         var dDay = getDday(date: eventInfo.date)

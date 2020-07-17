@@ -1,14 +1,14 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
       "filename" : "ioClassImgProfile3.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "idiom" : "universal"
     },
     {
-      "scale" : "2x",
+      "filename" : "ioClassImgProfile3@2x.png",
       "idiom" : "universal",
-      "filename" : "ioClassImgProfile3@2x.png"
+      "scale" : "2x"
     },
     {
       "filename" : "ioClassImgProfile3@3x.png",

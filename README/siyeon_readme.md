@@ -251,4 +251,288 @@ private func dismissVC(){
 메인에서 리스트 시간표로 전환을 할 때 navigation controller에서 push를 할 때 처럼 오른쪽에서 뷰컨이 나와야 해서 메인을 네비게이션으로 짜야하나,, 고민했다. 하지만 위에서 볼 수 있듯이 메인 뷰에 상단에 너무 많은 버튼과 라벨들이 있어서 그건 어렵다고 생각하였다. 그러다 CATransition을 구글링을 통해 알게 되었고, 해당 트랜지션 클래스를 통해 좀 더 편하게 원하는 것을 얻을 수 있었다.
 
 
--- 7/8까지의 내용 --
+<br>
+
+----
+
+<br>
+
+
+### 4. 시간표 생성
+
+#### 4-1. 시간표 리스트 띄우기
+
+
+유링크 시간표 생성 - 시간표 리스트 띄우기 기능은 단순히 시간표를 리스트 업 해주는 것이 아니라, 시간표를 스와이프로 넘겨서 볼 수 있게 하고 현재 보고 있는 시간표에 과목을 추가할 수 있도록 하는 기능이다. 개발 과정은 다음과 같다.
+
+
+**개발 과정**
+
+1. 시간표 리스트는 collectionView로 제작하였으며, 속성 중 Paging Enabled를 true로 설정하고 cell의 inset과 width를 적절히 설정하여 시간표 하나하나가 마치 책 페이지 하나 처럼 넘어가도록 설정한다.
+
+2. collectionViewCell은 시간표의 이름과 시간표 객체를 가지고 있다.
+
+3. collectionView의 가장 마지막  cell은 시간표 시트를 추가할 수 있는 cell이며 didSelectRowAt 함수를 적절히 처리 해준다.
+
+```swift
+func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+        if(indexPath.row < timeTableList.count){
+            guard let createTimeTableCell : CreateTimeTableCell = timeTableCollectionView.dequeueReusableCell(withReuseIdentifier: "createTimeTableCell", for: indexPath) as? CreateTimeTableCell else {return CreateTimeTableCell()}
+               
+            let data = timeTableList[indexPath.row]
+            
+            createTimeTableCell.setCreateTimeTableCell(idx: data.scheduleIdx, name: data.name, subjectList:data.subjectList)
+               
+            return createTimeTableCell
+        }else{
+            guard let addSheetCell : CreateNewSheetCell = timeTableCollectionView.dequeueReusableCell(withReuseIdentifier: "createNewSheetCell", for: indexPath) as? CreateNewSheetCell else {return CreateNewSheetCell()}
+                      
+                    
+            return addSheetCell
+        }
+    }
+
+func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == timeTableList.count {
+            
+            addTimeTable()
+
+        }
+    }
+```
+
+4. 상단 버튼을 통해서도 시간표 시트를 추가할 수 있으므로 해당 버튼을 클릭해서 이름을 받아오면 collectionView의 dataList에 새로운 시간표 객체를 추가해주고 collectionView를 reload한다.
+
+<br>
+
+**어려웠던 점/새로 배운 점**
+
+collectionView의 cell들은 한번에 N개씩 초기화가 및 생성이 되어서 데이터를 잘 가지고 있어도 reload를 제대로 해주지 않으면 N 단위로 같은 데이터를 가진 cell을 볼 수도 있다는 것을 알게 되었다. 따라서 새로 데이터가 업데이트될 때 마다 didSet을 이용해 계속 뷰를 업데이트 시켜 주었다.
+
+
+
+
+<br>
+
+#### 4-2. 과목 리스트 띄우기
+
+과목 리스트는 1) 필터 및 검색,  2) 후보 두가지로 구성되어 있다. 리스트를 띄우는 뷰는 같은 tableView를 사용하며 통신을 통해 받아온 사용자 전공/학년 맞춤 결과, 필터 결과, 검색 결과, 후보 결과 데이터에 따라 다르게 뿌려준다. 
+
+
+
+**개발 과정**
+
+1. 과목 리스트는 tableView로 제작하였으며, 항상 같은 tableViewCell을 이용한다. tableViewCell의 높이는 클릭하면 늘어나야 하기 때문에, 과목을 클릭하면 cell안의 setState 함수를 통해 숨겨져 있던 버튼의 크기를 조절한다.
+```swift
+private func setSubjectInfoTableView(){
+        subjectInfoTableView.bounces = false
+       
+        subjectInfoTableView.estimatedRowHeight = 86
+        subjectInfoTableView.rowHeight = UITableView.automaticDimension
+}
+    
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) 
+        tableView.beginUpdates()
+        tableView.endUpdates()
+}
+```
+
+2. 과목을 클릭했을 때 숨겨져 있던 강의평, 삭제, 후보에 담기, 시간표 등록 버튼이 나타나야 하고 해당 버튼이 클릭되었을 때는 이 tableView를 가지고 있는 ViewController에서 동작이 일어나야 하므로 tableViewCell에서 delegate패턴을 사용해서 액션을 처리한다.
+```swift
+protocol SubjectInfoCellDelegate {
+    func showReview(idx: Int)
+    func deleteSubject(idx: Int)
+    func addCandidate(idx: Int)
+    func enrollSubject(subjectIdx: Int, subjectItems: [SubjectModel])
+}
+
+```
+
+<br>
+
+**결과 화면**
+
+
+![1번 ](https://user-images.githubusercontent.com/37260938/87796254-10201e00-c884-11ea-87a7-04814c019d73.gif)
+
+![2번](https://user-images.githubusercontent.com/37260938/87796852-e3b8d180-c884-11ea-83a4-cb7ccf493d85.gif)
+
+
+
+<br>
+
+**어려웠던 점/새로 배운 점**
+
+원래는 버튼이 있는 cell과 없는 cell을 아예 다른 Class의 cell로 만들어 주었다. 하지만 그렇게 하니, 여러 자잘한 오류가 발생되었다. 그래서 동적으로 높이를 조절해주고 버튼을 보였다가 안보였다가 해줄 수 있게 estimatedRowHeight 를 이용하였다. 해당 속성을 이용하려면 기기가 자동으로 cell의 높이를 계산해줄 수 있게 autoLayout을 잘 잡아주어야 한다.
+
+<br>
+
+----
+
+<br>
+
+### 5. 개인 일정 추가하기
+
+개인 일정 추가는 1) 드래그로 추가, 2) 직접 입력해서 추가 두가지 형태가 있다.
+
+#### 5-1. 드래그로 추가
+
+
+**개발 과정**
+
+1. ViewController에 TimeTable 객체를 미리 추가하고, 사용자가 개인 일정을 추가하고 싶어하는 시간표를 불러온다.
+
+2. UILongPressGestureRecognizer를 timeTable CollectionView에 추가해서 0.5초 이상 클릭을 했을 때 드래그를 생성할 수 있도록 한다. 
+
+```swift
+public func setDrag(){	         collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPress)))
+    }
+    
+@objc func longPress(_ sender: UILongPressGestureRecognizer){
+    
+        let view = collectionView
+        let touchLocation = sender.location(in: view)
+               
+        let posiX = touchLocation.x
+        let posiY = touchLocation.y
+        
+        if(sender.state == .began){
+            self.timeTable.makeStartPointFromDrag(input_x: posiX, input_y: posiY)
+        }
+        
+        self.timeTable.makeHintTimeTableForDrag(input_x : posiX, input_y : posiY)
+       
+    }
+```
+드래그 시작점을 찍는 함수는 아래와 같다.
+```swift
+func makeStartPointFromDrag(input_x : CGFloat, input_y : CGFloat){
+        
+        var tempUserSchedule = TimeInfoModel.init()
+        
+        for weekdayIndex in 0 ... 6 {
+            let base_x = collectionView.bounds.minX + widthOfTimeAxis + averageWidth * CGFloat(weekdayIndex) + rectEdgeInsets.left
+            
+            self.baseXList.append(base_x)
+        }
+        
+        for i in 0 ... 6 {
+            if i != 6 && self.baseXList[i] <= input_x && self.baseXList[i + 1] >= input_x {
+                
+                startPositionX = self.baseXList[i]
+                tempUserSchedule.weekDay = i
+                break
+            }
+        }
+        
+        let averageHeight = subjectItemHeight
+        
+        for hour in 9 ... 21 {
+            for min in 0 ... 3 {
+                let base_y = collectionView.frame.minY + heightOfDaySection + averageHeight * CGFloat(hour - 9) +
+                    CGFloat((CGFloat(min * 15) / 60) * averageHeight)
+                    
+                let baseTime = String(hour) + ":" + String(min * 15)
+                baseTimeList.append(baseTime)
+    
+                baseYList.append(base_y)
+            }
+        }
+        
+        for i in 0 ... baseYList.count - 1 {
+                   
+            if i != baseYList.count - 1 && baseYList[i] <= input_y && baseYList[i + 1] >= input_y {
+                startPositionY = baseYList[i]
+                
+                tempUserSchedule.startTime = baseTimeList[i]
+                break
+            }
+        }
+        
+        tempUserScheduleList.append(tempUserSchedule)
+        delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
+    }
+```
+
+
+
+3. 시작점을 찍고 드래그한 제스쳐를 추적해서 x, y의 postition, width, height를 계산하고 계속 블록을 그려주고 업데이트 해준다. 과정은 아래 코드와 같다.
+
+```swift
+func makeHintTimeTableForDrag(input_x : CGFloat, input_y : CGFloat){
+        
+        let count = tempUserScheduleList.count
+        for subview in collectionView.subviews{
+        if (subview.tag == count){
+                subview.removeFromSuperview()
+            }
+        }
+        
+        let width = averageWidth - ( rectEdgeInsets.left + rectEdgeInsets.right )
+        
+        var position_y : CGFloat = 0
+        
+        for i in 0 ... baseYList.count - 1 {
+            if i != baseYList.count - 1 && baseYList[i] <= input_y && baseYList[i + 1] >= input_y {
+                position_y = baseYList[i]
+                tempUserScheduleList[count - 1].endTime = baseTimeList[i]
+                break
+            }
+        }
+        
+        tempUserScheduleList[count - 1].timeIdx = count
+        
+        let height = position_y - startPositionY
+
+        let view = UIView(frame: CGRect(x: startPositionX, y: startPositionY, width: width, height: height))
+        view.backgroundColor = UIColor.black
+        view.alpha = 0.3
+        view.tag = count
+        view.layer.cornerRadius = 8
+        
+        collectionView.addSubview(view)
+    
+    }
+```
+
+<br>
+
+
+#### 5-2. 직접 추가
+시간표 생성 뷰에서 직접 추가하기 버튼을 누르거나, 드래그가 끝나고 상세 정보를 설정하고 싶을 때 넘어오는 뷰이다.
+
+**개발 과정**
+
+1. 해당 뷰에서 가장 중요한 시간 정보는 드래그로 블록을 생성하는 View에서 값을 전달 받거나, 직접 추가 시 PickerView로 시간을 설정해준다. 해당 정보들은 tableView를 통해 개발한다.
+
+2.  개인 일정의 제목을 버튼을 통해 간편하게 설정하거나 textField에 입력을 받아서 설정한다. 단, 버튼을 클릭하면 textField의 값이 버튼의 값으로 바뀌고 textField의 값이 바뀌면 버튼이 해제 되어야 한다.
+
+```swift
+@objc func textFieldDidChange(textField: UITextField){
+        if textField.text != "" {
+            subjectName = textField.text!
+            
+            resetButton()
+        }
+    }
+```
+3. 정보를 모두 입력하고 확인 버튼을 누르면 드래그하는 뷰에서 온 경우 드래그 뷰에 개인 일정 블록을 생성할 수 있는 정보를 전달하고, 시간표 생성 뷰에서 온 경우 바로 다시 통신으로 시간표 리스트를 받아올 수 있게 한다.
+
+<br>
+
+**결과 화면**
+
+![4번](https://user-images.githubusercontent.com/37260938/87798712-4d39df80-c887-11ea-8710-f8e7f6334ba1.gif)
+
+
+
+
+<br>
+
+**어려웠던 점/새로 배운 점**
+한번에 요일, 시간 2개를 입력 받기 위해 pickerView를 사용해야 했다. 이를 위해 pickerView를 커스텀 했다. 
+
+<br>
+7/17 리드미
+

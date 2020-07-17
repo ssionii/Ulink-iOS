@@ -22,7 +22,7 @@ public class TimeTableController: UIViewController {
     }
     
     public func setDrag(){
-    collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPress)))
+        collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPress)))
     }
     
     @objc func longPress(_ sender: UILongPressGestureRecognizer){
@@ -54,8 +54,8 @@ extension TimeTableController : UICollectionViewDataSource {
             maxEndTimeHour = timeTable.defaultMaxHour
         }else {
             for(_, subjectItem) in timeTable.subjectItems.enumerated(){
-                let tempStartTimeHour = Int(subjectItem.startTime.split(separator: ":")[0]) ?? 24
-                let tempEndTimeHour = Int(subjectItem.endTime.split(separator: ":")[0]) ?? 00
+                let tempStartTimeHour = Int(subjectItem.startTime[0].split(separator: ":")[0]) ?? 24
+                let tempEndTimeHour = Int(subjectItem.endTime[0].split(separator: ":")[0]) ?? 00
 
 //                if index < 1 {
 //                    minStartTimeHour = tempStartTimeHour
@@ -154,8 +154,8 @@ extension TimeTableController : UICollectionViewDelegateFlowLayout {
             maxEndTimeHour = timeTable.defaultMaxHour
         } else {
             for (index, subjectItem) in timeTable.subjectItems.enumerated() {
-                let tempStartTimeHour = Int(subjectItem.startTime.split(separator : ":")[0]) ?? 24
-                let tempEndTimeHour = Int(subjectItem.endTime.split(separator : ":")[0]) ?? 00
+                let tempStartTimeHour = Int(subjectItem.startTime[0].split(separator : ":")[0]) ?? 24
+                let tempEndTimeHour = Int(subjectItem.endTime[0].split(separator : ":")[0]) ?? 00
 
                 if index < 1 {
                     minStartTimeHour = tempStartTimeHour

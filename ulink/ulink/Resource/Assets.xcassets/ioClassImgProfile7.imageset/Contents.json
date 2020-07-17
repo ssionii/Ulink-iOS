@@ -2,17 +2,17 @@
   "images" : [
     {
       "scale" : "1x",
-      "idiom" : "universal",
-      "filename" : "ioClassImgProfile7.png"
+      "filename" : "ioClassImgProfile7.png",
+      "idiom" : "universal"
     },
     {
-      "filename" : "ioClassImgProfile7@2x.png",
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "ioClassImgProfile7@2x.png"
     },
     {
+      "idiom" : "universal",
       "scale" : "3x",
-      "idiom" : "universal",
       "filename" : "ioClassImgProfile7@3x.png"
     }
   ],

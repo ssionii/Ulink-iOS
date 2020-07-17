@@ -32,12 +32,7 @@ class SubjectTimeInfoCell: UITableViewCell {
 
     }
     
-    @IBAction func editTimeInfo(_ sender: Any) {
-        self.delegate?.didPressEditButton(timeIdx)
-    }
-    
-    
-    public func setTimeInfoText(weekDay: TimeTableDay, start: String, end: String){
+    public func setTimeInfoText(weekDay: Int, start: String, end: String){
         
         var startTime = start
         var endTime = end
@@ -49,23 +44,23 @@ class SubjectTimeInfoCell: UITableViewCell {
             endTime = start
         }
         
-        switch weekDay.rawValue {
-        case 1:
+        switch weekDay {
+        case 0:
             resultText = "월 "
             break
-        case 2:
+        case 1:
             resultText = "화 "
             break
-        case 3:
+        case 2:
             resultText = "수 "
             break
-        case 4:
+        case 3:
             resultText = "목 "
             break
-        case 5:
+        case 4:
             resultText = "금 "
             break
-        case 6:
+        case 5:
             resultText = "토 "
             break
         default:
@@ -119,5 +114,19 @@ class SubjectTimeInfoCell: UITableViewCell {
     
     public func hideTrash(){
         trashButton.alpha = 0
+    }
+    public func showTrash(){
+        trashButton.alpha = 1
+    }
+    
+   override func awakeFromNib() {
+        super.awakeFromNib()
+    
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTimeInfoCell)))
+    
+    }
+    
+    @objc func tapTimeInfoCell(){
+         self.delegate?.didPressEditButton(timeIdx)
     }
 }

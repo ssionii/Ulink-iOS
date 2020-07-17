@@ -27,6 +27,10 @@ class ChattingViewController: UIViewController {
     var ref : DatabaseReference!
     var count : Int = 0
     var chattingListRef : DatabaseReference!
+    
+    
+    
+    var chattingList : [ChattingListData] = []
     var array_class : [ClassModel] = []
     
     @IBOutlet weak var chattingUserCountLabel: UILabel!
@@ -35,21 +39,116 @@ class ChattingViewController: UIViewController {
         
 
       
-        
-        setChattingData()
+
         
         super.viewDidLoad()
+        
+        
+
 
         chattingListTable.dataSource = self
         chattingListTable.delegate = self
         hideNaviBar()
         
+        loadUserData()
+        
+        
+        
+        
+        
+        
+        
+        setChattingData()
+
+
 
         
+        showIndicator()
+
+
 
     }
     
+      
+   
+    func showIndicator()
+    {
+
+        
+        let activityIndicator = ActivityIndicator(view: view, navigationController: self.navigationController, tabBarController: nil)
+
+        activityIndicator.showActivityIndicator(text: "로딩 중")
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+            
+            activityIndicator.stopActivityIndicator()
+            
+        
+        }
+
+        
+        
+    }
     
+
+      func loadUserData()
+      {
+          
+          
+
+            LoadChattingListService.shared.getSubjectDetailNotice() { networkResult in
+                switch networkResult{
+                    
+                case .success(let chatList, let numberOfChatrooms):
+                    
+                    print("SDS")
+                    print(chatList)
+                    print(numberOfChatrooms)
+                    
+          
+                    
+                    guard let chatList = chatList as? [ChattingListData] else { return }
+                    guard let numberOfChatrooms = numberOfChatrooms as? Int else {return}
+                    
+
+
+                        for i in 0...numberOfChatrooms - 1 // 채팅방 갯수만큼 리스트에 append 해야 함
+                        {
+                            let chatroomData = ChattingListData(
+                                idx: chatList[i].subjectIdx,
+                                name: chatList[i].name,
+                                color: chatList[i].color,
+                                total: chatList[i].total,
+                                current: chatList[i].current)
+                            
+                            self.chattingList.append(chatroomData)
+                        }
+                    
+                    
+                    print("asd")
+                    print(self.chattingList)
+                    
+             
+                    
+                    
+         
+                    
+                default:
+                    print("fail")
+
+                    
+                }
+                
+                
+    
+                
+            }
+          
+          
+      }
+          
+
     
     
     
@@ -60,7 +159,6 @@ class ChattingViewController: UIViewController {
         
         
 
-        
 //        Database.database().reference().child("chatrooms").observeSingleEvent(of: DataEventType.value)
         
 //        Database.database().reference().child("chatrooms").queryOrderedByKey().queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value)
@@ -69,10 +167,10 @@ class ChattingViewController: UIViewController {
         Database.database().reference().child("chatrooms").observeSingleEvent(of: DataEventType.value)
           { (snapshot) in
             
-            print("snapshot : \(snapshot)") // 여기는 순서대로 들어옵니다
-              
-        
-            
+//            print("snapshot : \(snapshot)") // 여기는 순서대로 들어옵니다
+//
+//
+//
          //   snapshot 자체는 정상적으로 들어온다
             
 
@@ -122,13 +220,12 @@ class ChattingViewController: UIViewController {
         
 
 
-        
-        
-
     }
     
 
     func hideNaviBar(){
+        
+        
         
         
         self.navigationController?.navigationBar.isHidden = true
@@ -145,7 +242,10 @@ class ChattingViewController: UIViewController {
 
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array_class.count
+        
+        
+        return chattingList.count
+//        return array_class.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -154,20 +254,141 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         
         
-        Database.database().reference().child("chatrooms").child(array_class[indexPath.row].key!).child("users").observe(.value) { (datasnapshot) in
-            
-            
-            let dic = datasnapshot.value as! [String:Any]
-            
         
         
+//        Database.database().reference().child("chatrooms").child(array_class[indexPath.row].key!).child("users").observe(.value) { (datasnapshot) in
+//
+//
+//            let dic = datasnapshot.value as! [String:Any]
+//
+//
+//
+//
+//        chattingCell.chattingUserCountLabel.text = "현재 인원 :" + String(dic.count - 1)
+//        }
         
-        chattingCell.chattingUserCountLabel.text = "현재 인원 :" + String(dic.count - 1)
+        
+        switch chattingList[indexPath.row].color
+        {
+        case 1:
+            
+            
+            if let img = UIImage(named: "ioClassImgProfile1")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+            
+        case 2 :
+            
+            if let img = UIImage(named: "ioClassImgProfile2")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+            
+        case 3 :
+            
+            if let img = UIImage(named: "ioClassImgProfile3")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+            
+        case 4 :
+            
+            if let img = UIImage(named: "ioClassImgProfile4")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+            
+        case 5:
+            
+            if let img = UIImage(named: "ioClassImgProfile5")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+            
+        case 6:
+            
+            if let img = UIImage(named: "ioClassImgProfile6")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+            
+        case 7:
+            
+            if let img = UIImage(named: "ioClassImgProfile7")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+        case 8:
+            
+            
+            if let img = UIImage(named: "ioClassImgProfile2")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+        case 9:
+            
+            
+            if let img = UIImage(named: "ioClassImgProfile3")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+        case 10:
+            
+            
+            if let img = UIImage(named: "ioClassImgProfile4")
+            {
+                chattingCell.chattingImage.image = img
+            }
+            
+            break
+            
+        default:
+            
+            break
+            
+            
+            
+            
+            
         }
-        chattingCell.chattingRoomTitle.text = array_class[indexPath.row].className
         
         
-
+        
+        
+        chattingCell.chattingUserCountLabel.text =
+            String(chattingList[indexPath.row].current) +
+            "/" +
+            String(chattingList[indexPath.row].total)
+        
+        
+        
+        
+        chattingCell.chattingRoomTitle.text = chattingList[indexPath.row].name
+        
+        
+        
+        
+        
+        
         
         
 
@@ -202,8 +423,23 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
 
 //        print("Array : \(array_class)")
         
-        chattingRoomViewController.destinationUid = self.array_class[indexPath.row].key
-        chattingRoomViewController.tempTitle = self.array_class[indexPath.row].className
+        chattingRoomViewController.destinationUid = "-MBcSPAQKDDOsT2u4UfX"
+        chattingRoomViewController.tempTitle = self.chattingList[indexPath.row].name
+        
+        
+        chattingRoomViewController.subjectIdx = self.chattingList[indexPath.row].subjectIdx
+        chattingRoomViewController.currentUserCount = self.chattingList[indexPath.row].current
+        
+        print("=====================================")
+        print("채팅목록에서 채팅방으로 전달되는 title과 idx")
+        print("name : \(self.chattingList[indexPath.row].name) ")
+        print("subjectIdx : \(self.chattingList[indexPath.row].subjectIdx)")
+        print("=====================================")
+        
+        
+    
+        print(chattingList[indexPath.row].subjectIdx)
+        
 //
 //                    self.count = 0
 //                    print("현재 선택한 row : \(indexPath.row)")
@@ -253,4 +489,60 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         return 80
     }
     
+}
+
+
+
+
+
+struct ActivityIndicator {
+    
+    let viewForActivityIndicator = UIView()
+    let backgroundView = UIView()
+    let view: UIView
+    let navigationController: UINavigationController?
+    let tabBarController: UITabBarController?
+    let activityIndicatorView = UIActivityIndicatorView()
+    let loadingTextLabel = UILabel()
+    
+    var navigationBarHeight: CGFloat { return navigationController?.navigationBar.frame.size.height ?? 0.0 }
+    var tabBarHeight: CGFloat { return tabBarController?.tabBar.frame.height ?? 0.0 }
+    
+    func showActivityIndicator(text: String) {
+        viewForActivityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 100, height: 100)
+        viewForActivityIndicator.center = CGPoint(x: self.view.frame.size.width / 2.0, y: (self.view.frame.size.height - tabBarHeight - navigationBarHeight) / 2.0)
+        viewForActivityIndicator.layer.cornerRadius = 10
+        viewForActivityIndicator.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.598483033)
+        backgroundView.addSubview(viewForActivityIndicator)
+        
+        activityIndicatorView.center = CGPoint(x: viewForActivityIndicator.frame.size.width / 2.0, y: (viewForActivityIndicator.frame.size.height - tabBarHeight - navigationBarHeight) / 2.0 + 10)
+        
+        loadingTextLabel.textColor = UIColor.black
+        loadingTextLabel.text = text
+        loadingTextLabel.font = UIFont(name: "Avenir Light", size: 14)
+        loadingTextLabel.sizeToFit()
+        loadingTextLabel.center = CGPoint(x: activityIndicatorView.center.x, y: activityIndicatorView.center.y + 40)
+        viewForActivityIndicator.addSubview(loadingTextLabel)
+        
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.style = .whiteLarge
+        activityIndicatorView.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        viewForActivityIndicator.addSubview(activityIndicatorView)
+        
+        backgroundView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        backgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        
+       view.addSubview(backgroundView)
+        
+        
+        
+        activityIndicatorView.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        viewForActivityIndicator.removeFromSuperview()
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.removeFromSuperview()
+        backgroundView.removeFromSuperview()
+    }
 }

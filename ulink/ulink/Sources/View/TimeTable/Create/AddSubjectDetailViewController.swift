@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddSubjectDetailDelegate {
-    func didPressOkButton(timeInfoList : [SubjectModel])
+    func didPressOkButton(timeInfoList : [SubjectModel], isFromDrag : Bool)
     func didDeleteTimeInfo(num : Int)
 }
 
@@ -17,7 +17,8 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
 
     public var delegate: AddSubjectDetailDelegate?
     
-    public var timeInfoList : [TimeInfoModel] = []
+    public var scheduleIdx = 0
+    public var timeInfoList = [TimeInfoModel]()
     public let defatulTimeInfoTableViewHeight = 46
     private var subjectName = ""
     private var editTimeInfoIdx = 0
@@ -47,14 +48,18 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         directNameTextField.text = ""
         subjectName = "동아리"
         
+        directNameTextField.text = subjectName
+        
         clubBtn.setImage(UIImage(named: "timetableaddTextfieldBtnCircleSelected"), for: .normal)
         
     }
     
     @IBAction func clickPartTime(_ sender: Any) {
         resetButton()
-         directNameTextField.text = ""
+        directNameTextField.text = ""
         subjectName = "알바"
+        
+        directNameTextField.text = subjectName
         
          partTimeBtn.setImage(UIImage(named: "timetableaddTextfieldBtnParttimejobSelected"), for: .normal)
     }
@@ -62,7 +67,9 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func clickStudy(_ sender: Any) {
         resetButton()
         directNameTextField.text = ""
-          subjectName = "스터디"
+        subjectName = "스터디"
+        
+        directNameTextField.text = subjectName
         
          studyBtn.setImage(UIImage(named: "timetableaddTextfieldBtnStudySelected"), for: .normal)
     }
@@ -70,7 +77,9 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func clickStudentClub(_ sender: Any) {
         resetButton()
         directNameTextField.text = ""
-          subjectName = "학생회"
+        subjectName = "학생회"
+        
+        directNameTextField.text = subjectName
         
         studentClubBtn.setImage(UIImage(named: "timetableaddTextfieldBtnStudentclubSelected"), for: .normal)
     }
@@ -78,7 +87,9 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func clickLesson(_ sender: Any) {
         resetButton()
         directNameTextField.text = ""
-          subjectName = "과외"
+        subjectName = "과외"
+        
+        directNameTextField.text = subjectName
         
         lessonBtn.setImage(UIImage(named: "timetableaddTextfieldBtnTutorSelected"), for: .normal)
     }
@@ -86,7 +97,9 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func clickAcademy(_ sender: Any) {
         resetButton()
         directNameTextField.text = ""
-          subjectName = "학원"
+        subjectName = "학원"
+        
+        directNameTextField.text = subjectName
         
         academyBtn.setImage(UIImage(named: "timetableaddTextfieldBtnAcademySelected"), for: .normal)
     }
@@ -94,7 +107,9 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func clickWork(_ sender: Any) {
         resetButton()
         directNameTextField.text = ""
-          subjectName = "근로"
+        subjectName = "근로"
+        
+        directNameTextField.text = subjectName
         
         workBtn.setImage(UIImage(named: "timetableaddTextfieldBtnWorkSelected"), for: .normal)
     }
@@ -102,7 +117,9 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func clickVolunteer(_ sender: Any) {
         resetButton()
         directNameTextField.text = ""
-          subjectName = "봉사"
+        subjectName = "봉사"
+        
+        directNameTextField.text = subjectName
         
         volunteerBtn.setImage(UIImage(named: "timetableaddTextfieldBtnVolunteerSelected"), for: .normal)
     }
@@ -120,19 +137,33 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         }else{
-            // Todo: 통신
-            
-            var subjectList = [SubjectModel]()
-            
-            for i in 0 ... timeInfoList.count - 1 {
+            if isFromDrag {
+                var subjectList = [SubjectModel]()
                 
-                let subject = SubjectModel(subjectName: subjectName, roomName:detailTextField.text ?? "" , subjectDay: timeInfoList[i].weekDay, startTime: timeInfoList[i].startTime, endTime: timeInfoList[i].endTime, textColor: UIColor.white, backgroundColor:1)
+                for i in 0 ... timeInfoList.count - 1 {
+                    
+                let subject = SubjectModel.init(subjectName: subjectName, content: [detailTextField.text ?? ""], subjectDay: [timeInfoList[i].weekDay], startTime: [timeInfoList[i].startTime], endTime: [timeInfoList[i].endTime], textColor: UIColor.white, backgroundColor: 1)
                 
                 subjectList.append(subject)
             }
             
-            delegate?.didPressOkButton(timeInfoList: subjectList)
-            dismiss(animated: true, completion: nil)
+                delegate?.didPressOkButton(timeInfoList: subjectList, isFromDrag: self.isFromDrag)
+                dismiss(animated: true, completion: nil)
+            }else {
+                
+               var personalList = [PersonalScheduleModel]()
+                
+                // list에 추가
+                for timeInfo in timeInfoList {
+                    let personalSchedule = PersonalScheduleModel.init(name: subjectName, startTime: timeInfo.startTime, endTime: timeInfo.endTime, day: timeInfo.weekDay, content: detailTextField.text ?? "", color: 5, scheudleIdx: self.scheduleIdx)
+                    
+                    // todo: 색 바꾸기
+                     personalList.append(personalSchedule)
+                }
+                
+                self.postPersonalSchedule(personalList: personalList)
+                dismiss(animated: true, completion: nil)
+            }
         }
         
         
@@ -144,6 +175,7 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
 
         subjectTimeInfoTableView.bounces = false
         directNameTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        directNameTextField.addTarget(self, action: #selector(textFieldEditStart(textField:)), for: .touchDown)
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard)))
 
@@ -183,9 +215,10 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         self.view.endEditing(true)
     }
     
+    
     public func setTimeInfo(list : [TimeInfoModel]){
         
-        timeInfoList = list.sorted(by: {$0.weekDay.rawValue < $1.weekDay.rawValue})
+        timeInfoList = list.sorted(by: {$0.weekDay < $1.weekDay})
         
     }
     
@@ -201,8 +234,6 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         
     }
     
-
-    
     // protocol
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFromDrag {
@@ -215,11 +246,10 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if !isFromDrag {
-            if timeInfoList.count == 0 || indexPath.row == timeInfoList.count - 1 {
+            if timeInfoList.count == 0 || indexPath.row == timeInfoList.count {
                 
                 guard let addTimeInfoCell : AddTimeInfoCell = subjectTimeInfoTableView.dequeueReusableCell(withIdentifier: "addTimeInfoCell", for: indexPath) as? AddTimeInfoCell else {return AddTimeInfoCell()}
-                     
-                addTimeInfoCell.selectionStyle = .none
+                
                 addTimeInfoCell.delegate = self
                 
                 return addTimeInfoCell
@@ -231,8 +261,10 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
                   
                 subjectTimeInfoCell.setTimeInfoText(weekDay: data.weekDay, start: data.startTime, end: data.endTime)
                 
-                if indexPath.row == 0 && timeInfoList.count == 1 {
+                if(timeInfoList.count == 1){
                     subjectTimeInfoCell.hideTrash()
+                }else {
+                    subjectTimeInfoCell.showTrash()
                 }
                 
                 if indexPath.row == timeInfoList.count - 1 {
@@ -241,7 +273,7 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
                 
                 subjectTimeInfoCell.selectionStyle = .none
                 subjectTimeInfoCell.delegate = self
-                subjectTimeInfoCell.setNum(num: timeInfoList[indexPath.row].timeIdx)
+                subjectTimeInfoCell.setNum(num: indexPath.row)
                 
                 return subjectTimeInfoCell
             }
@@ -252,8 +284,10 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
               
             subjectTimeInfoCell.setTimeInfoText(weekDay: data.weekDay, start: data.startTime, end: data.endTime)
             
-            if indexPath.row == 0 && timeInfoList.count == 1 {
+            if(timeInfoList.count == 1){
                 subjectTimeInfoCell.hideTrash()
+            }else {
+                subjectTimeInfoCell.showTrash()
             }
             
             if indexPath.row == timeInfoList.count - 1 {
@@ -262,7 +296,7 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
             
             subjectTimeInfoCell.selectionStyle = .none
             subjectTimeInfoCell.delegate = self
-            subjectTimeInfoCell.setNum(num: timeInfoList[indexPath.row].timeIdx)
+            subjectTimeInfoCell.setNum(num: indexPath.row)
             
             return subjectTimeInfoCell
         }
@@ -300,17 +334,21 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     func didPressEditButton(_ idx: Int) {
         
-        self.editTimeInfoIdx = idx - 1
+        print("edit 버튼에서 idx", idx)
+        self.editTimeInfoIdx = idx
         
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "customPickerViewController") as? CustomPickerViewController else { return }
         nextVC.delegate = self
+        nextVC.isEdit = true
 
         self.present(nextVC, animated: true, completion: nil)
     }
     
     func didPressAddBtn(idx: Int) {
+        
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "customPickerViewController") as? CustomPickerViewController else { return }
         nextVC.delegate = self
+         nextVC.isEdit = false
 
         self.present(nextVC, animated: true, completion: nil)
     }
@@ -319,34 +357,33 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     func removeTimeInfoCell(tag: Int){
     
         let indexPath = IndexPath(row: tag, section: 0)
-               print("tag: \(tag)")
+        print("tag: \(tag)")
 
-        var removeIdx = 0
+//        var removeIdx = 0
+//
+//        for i in 0 ... timeInfoList.count - 1 {
+//            if timeInfoList[i].timeIdx == tag {
+//                removeIdx = i
+//                 print("removeIdx : \(removeIdx)")
+//            }
+//        }
         
-        for i in 0 ... timeInfoList.count - 1 {
-            if timeInfoList[i].timeIdx == tag {
-                removeIdx = i
-                 print("removeIdx : \(removeIdx)")
-            }
-        }
-        
-        timeInfoList.remove(at: removeIdx)
+        timeInfoList.remove(at: tag)
         
         delegate?.didDeleteTimeInfo(num: tag)
         subjectTimeInfoTableView.deleteRows(at: [indexPath], with: .fade)
         subjectTimeInfoTableView.reloadData()
     }
     
-    func didPressOkBtn(selectWeekDay: Int?, startHour: String, startMin: String, endHour: String, endMin: String) {
+    func didPressOkBtn(selectWeekDay: Int?, startHour: String, startMin: String, endHour: String, endMin: String, isEdit: Bool) {
         
-        var timeTableDay = TimeTableDay.init(rawValue: selectWeekDay ?? 1) ?? TimeTableDay.init(rawValue: 1)
+        let timeInfo = TimeInfoModel(timeIdx: self.editTimeInfoIdx, weekDay: selectWeekDay!, startTime:startHour + ":" + startMin , endTime: endHour + ":" + endMin)
         
-        
-        self.timeInfoList[self.editTimeInfoIdx].weekDay = timeTableDay!
-        self.timeInfoList[self.editTimeInfoIdx].startTime = startHour + ":" + startMin
-        self.timeInfoList[self.editTimeInfoIdx].endTime = endHour + ":" + endMin
-        
-        print(self.editTimeInfoIdx)
+        if(isEdit) {
+            timeInfoList[self.editTimeInfoIdx] = timeInfo
+        }else {
+            timeInfoList.append(timeInfo)
+        }
         
         self.subjectTimeInfoTableView.reloadData()
     }
@@ -359,6 +396,31 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
             resetButton()
         }
     }
+    
+    @objc func textFieldEditStart(textField : UITextField){
+        resetButton()
+    }
+    
+    // MARK: - 통신
+    func postPersonalSchedule(personalList : [PersonalScheduleModel]){
+           print("postPersonalSchedule")
+               
+           PersonalScheduleService.shared.postPersonalScheudule(personalScheudleList: personalList){ networkResult in
+                switch networkResult {
+                    case .success(_, _) :
+                        print("개인 일정 추가 성공")
+                        self.delegate?.didPressOkButton(timeInfoList: [], isFromDrag: self.isFromDrag)
+                        break
+                    case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        break
+                    case .pathErr: break
+                    case .serverErr: print("serverErr")
+                    case .networkFail: print("networkFail")
+                   }
+               }
+          }
+       
     
 }
 

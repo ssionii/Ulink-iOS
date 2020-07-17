@@ -17,6 +17,7 @@ class ChattingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var chattingUserCountLabel: UILabel!
     
+    @IBOutlet weak var chattingImage: UIImageView!
     
     
     override func awakeFromNib() {

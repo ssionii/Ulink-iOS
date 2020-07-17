@@ -42,13 +42,17 @@ class EventCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func set(_ contentInfo: Event){
+    func set(_ contentInfo: NoticeData){
         
-        nameLabel.text = contentInfo.name
+        nameLabel.text = contentInfo.name + " " + contentInfo.title
         if (contentInfo.category == "과제"){
             categoryLabel.backgroundColor = UIColor.pink
             categoryLabel.setTitle("과제", for: .normal)
-            timeLabel.text = contentInfo.end_time
+            if contentInfo.endTime == "-1"{
+                timeLabel.text = ""
+            } else {
+                timeLabel.text = contentInfo.endTime
+            }
         } else if (contentInfo.category == "수업"){
             categoryLabel.backgroundColor = UIColor.robinSEgg
             categoryLabel.setTitle("수업", for: .normal)
@@ -56,7 +60,11 @@ class EventCell: UITableViewCell {
         } else {
             categoryLabel.backgroundColor = UIColor.periwinkleBlue
             categoryLabel.setTitle("시험", for: .normal)
-            timeLabel.text = contentInfo.start_time
+            if contentInfo.startTime == "-1"{
+                timeLabel.text = ""
+            } else {
+                timeLabel.text = contentInfo.startTime
+            }
         }
     }
 

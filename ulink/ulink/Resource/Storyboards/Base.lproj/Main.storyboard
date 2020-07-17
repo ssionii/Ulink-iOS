@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="anN-Xf-F1d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1VW-Rx-ozE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,7 +16,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zC-FM-ZEq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802" y="-442"/>
+            <point key="canvasLocation" x="845" y="775"/>
         </scene>
         <!--calendarStoryBoard-->
         <scene sceneID="D0W-R2-HGh">
@@ -26,7 +26,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuj-Lz-5bq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2774.4000000000001" y="-7.1964017991004505"/>
+            <point key="canvasLocation" x="2013" y="775"/>
         </scene>
         <!--Chatting-->
         <scene sceneID="3Kk-Q5-ubm">
@@ -36,28 +36,28 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vgi-H8-6yn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2768.8000000000002" y="170.91454272863569"/>
+            <point key="canvasLocation" x="1302" y="775"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="V8x-Xx-zDN">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="mypageStoryBoard" storyboardName="MyPage" id="9Ll-jr-7ZX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="마이 페이지" image="tabbarIcMypageUnselected" landscapeImage="square.and.arrow.up" catalog="system" selectedImage="tabbarIcMypageSelected" id="WYk-na-eMF"/>
+                    <tabBarItem key="tabBarItem" title="마이 페이지" landscapeImage="square.and.arrow.up" catalog="system" id="WYk-na-eMF"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cng-pS-yJO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2772" y="395.80209895052479"/>
+            <point key="canvasLocation" x="2466" y="775"/>
         </scene>
-        <!--Login View Controller-->
+        <!--MainLoginView-->
         <scene sceneID="PxO-bd-Kg0">
             <objects>
-                <viewController id="mLs-Gc-w1G" customClass="LoginViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainLoginView" title="MainLoginView" id="mLs-Gc-w1G" customClass="LoginViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lyi-Av-wpd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vje-mO-Tzd">
-                                <rect key="frame" x="20.5" y="267" width="334" height="280"/>
+                                <rect key="frame" x="20.5" y="223" width="334" height="280"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePx-cC-Gy6">
                                         <rect key="frame" x="40" y="13" width="12" height="15"/>
@@ -119,7 +119,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ZA4-kx-q2c" firstAttribute="centerX" secondItem="vje-mO-Tzd" secondAttribute="centerX" id="9LP-DY-Ing"/>
                                     <constraint firstItem="pj5-Jj-GdW" firstAttribute="leading" secondItem="vje-mO-Tzd" secondAttribute="leading" constant="39" id="9Up-xh-unq"/>
@@ -143,40 +143,27 @@
                                     <constraint firstItem="46E-Vt-268" firstAttribute="centerX" secondItem="vje-mO-Tzd" secondAttribute="centerX" id="vNU-7w-DVJ"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a44-fg-KoJ">
-                                <rect key="frame" x="132" y="617" width="39" height="30"/>
-                                <state key="normal" title="힘내자"/>
-                                <connections>
-                                    <segue destination="NJp-Du-GDt" kind="presentation" modalPresentationStyle="fullScreen" id="V76-Wv-zAE"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginIcUlink" translatesAutoresizingMaskIntoConstraints="NO" id="0jn-Hp-N5U">
-                                <rect key="frame" x="114.5" y="209" width="146" height="62"/>
+                                <rect key="frame" x="114.5" y="165" width="146" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="146" id="7rf-Im-ZPo"/>
                                     <constraint firstAttribute="height" constant="62" id="iMR-U1-qoG"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginImgBg" translatesAutoresizingMaskIntoConstraints="NO" id="QHt-Up-tby">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QHt-Up-tby">
+                                <rect key="frame" x="0.0" y="-44" width="375" height="187"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="187" id="NFF-xY-4gh"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhl-WN-qEF">
-                                <rect key="frame" x="288" y="594" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="7mq-ot-sFQ" kind="presentation" modalPresentationStyle="fullScreen" id="nLs-NH-50A"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vje-mO-Tzd" firstAttribute="top" secondItem="QHt-Up-tby" secondAttribute="bottom" constant="80" id="0qE-sK-swN"/>
                             <constraint firstItem="QHt-Up-tby" firstAttribute="leading" secondItem="ion-HE-PxW" secondAttribute="leading" id="DPm-FT-UT5"/>
                             <constraint firstItem="vje-mO-Tzd" firstAttribute="centerX" secondItem="Lyi-Av-wpd" secondAttribute="centerX" id="GEX-mP-4Ls"/>
-                            <constraint firstAttribute="bottom" secondItem="a44-fg-KoJ" secondAttribute="bottom" constant="20" symbolic="YES" id="he4-6m-NuA"/>
+                            <constraint firstItem="QHt-Up-tby" firstAttribute="centerX" secondItem="Lyi-Av-wpd" secondAttribute="centerX" id="gMO-WY-eeK"/>
                             <constraint firstItem="0jn-Hp-N5U" firstAttribute="top" secondItem="QHt-Up-tby" secondAttribute="bottom" constant="22" id="rDd-eG-lYL"/>
-                            <constraint firstItem="a44-fg-KoJ" firstAttribute="leading" secondItem="ion-HE-PxW" secondAttribute="leading" constant="132" id="t4l-Du-q6f"/>
                             <constraint firstItem="QHt-Up-tby" firstAttribute="top" secondItem="ion-HE-PxW" secondAttribute="top" constant="-44" id="uGP-9S-Y8b"/>
                             <constraint firstItem="0jn-Hp-N5U" firstAttribute="centerX" secondItem="Lyi-Av-wpd" secondAttribute="centerX" id="utm-JH-68h"/>
                         </constraints>
@@ -185,6 +172,7 @@
                     <navigationItem key="navigationItem" id="HnE-bn-xy3"/>
                     <connections>
                         <outlet property="loginButton" destination="xQx-Db-y3r" id="bpX-BJ-dcs"/>
+                        <outlet property="loginImage" destination="QHt-Up-tby" id="T7r-r3-bse"/>
                         <outlet property="mainLogoImage" destination="0jn-Hp-N5U" id="Tep-uV-gdj"/>
                         <outlet property="nameTextField" destination="ZA4-kx-q2c" id="WJV-qw-PI1"/>
                         <outlet property="pwTextField" destination="46E-Vt-268" id="cZS-ZU-6Gm"/>
@@ -194,7 +182,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZb-F8-Owz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-375.19999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="564" y="123.68815592203899"/>
+        </scene>
+        <!--majorFilterViewController-->
+        <scene sceneID="Dh7-gb-ovz">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="majorFilterViewController" storyboardName="Filter" referencedIdentifier="majorFilterViewController" id="zhz-qr-grh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCj-Sb-5hT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1270.4000000000001" y="303.14842578710648"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="GCn-MU-RFP">
@@ -310,35 +306,44 @@
                     </tabBar>
                     <connections>
                         <segue destination="6JW-BM-LTO" kind="relationship" relationship="viewControllers" id="nRU-7j-Moo"/>
-                        <segue destination="bCf-E7-h06" kind="relationship" relationship="viewControllers" id="Zft-8X-pVI"/>
-                        <segue destination="kKf-Z2-N5f" kind="relationship" relationship="viewControllers" id="SIA-mW-SKF"/>
-                        <segue destination="9Ll-jr-7ZX" kind="relationship" relationship="viewControllers" id="gvb-Jp-je7"/>
+                        <segue destination="kKf-Z2-N5f" kind="relationship" relationship="viewControllers" id="8sz-wq-6Ew"/>
+                        <segue destination="bCf-E7-h06" kind="relationship" relationship="viewControllers" id="Hoj-ym-lTA"/>
+                        <segue destination="9Ll-jr-7ZX" kind="relationship" relationship="viewControllers" id="7vR-oo-Omg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmD-Ko-UQx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069.5999999999999" y="137.18140929535232"/>
+            <point key="canvasLocation" x="2008.8" y="137.18140929535232"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="aEV-fJ-TKf">
+        <!--Splash View Controller-->
+        <scene sceneID="P0y-AC-Mcu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="anN-Xf-F1d" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q4Q-J2-sJB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                    </userDefinedRuntimeAttributes>
+                <viewController id="UsS-Kg-QaO" customClass="SplashViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eJC-Ah-Tlt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yub-7t-YVw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yub-7t-YVw" firstAttribute="leading" secondItem="Tgr-dQ-gJx" secondAttribute="leading" id="B90-r5-sxn"/>
+                            <constraint firstItem="yub-7t-YVw" firstAttribute="top" secondItem="eJC-Ah-Tlt" secondAttribute="top" id="YZf-Um-rp7"/>
+                            <constraint firstItem="yub-7t-YVw" firstAttribute="trailing" secondItem="Tgr-dQ-gJx" secondAttribute="trailing" id="l4I-5A-NL2"/>
+                            <constraint firstItem="yub-7t-YVw" firstAttribute="bottom" secondItem="eJC-Ah-Tlt" secondAttribute="bottom" id="vJ0-lS-a9u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tgr-dQ-gJx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fbh-i7-ce4"/>
                     <connections>
-                        <segue destination="mLs-Gc-w1G" kind="relationship" relationship="rootViewController" id="PNb-Hu-tWO"/>
+                        <outlet property="imageView" destination="yub-7t-YVw" id="LYg-Dg-kes"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tda-Ql-2m7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IjA-Bv-oN5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1314.4000000000001" y="123.68815592203899"/>
+            <point key="canvasLocation" x="-1511.2" y="-14.842578710644679"/>
         </scene>
         <!--NormalFilterViewController-->
         <scene sceneID="M54-8d-lGt">
@@ -346,7 +351,25 @@
                 <viewControllerPlaceholder storyboardIdentifier="NormalFilterViewController" storyboardName="Filter" referencedIdentifier="NormalFilterViewController" id="7mq-ot-sFQ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9n5-tV-xtg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="359" y="-36"/>
+            <point key="canvasLocation" x="1297.5999999999999" y="-36.881559220389811"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jhF-ej-2Kf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1VW-Rx-ozE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TXx-Yp-q7o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UsS-Kg-QaO" kind="relationship" relationship="rootViewController" id="vok-aj-xi4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DFM-Db-3iS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2450.4000000000001" y="-14.842578710644679"/>
         </scene>
     </scenes>
     <resources>
@@ -357,11 +380,8 @@
         <image name="loginBtnBottomrbox" width="256" height="35"/>
         <image name="loginBtnCheckboxUnselected" width="22" height="22"/>
         <image name="loginIcUlink" width="146" height="62"/>
-        <image name="loginImgBg" width="375" height="187"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="tabbarIcClassSelected" width="30" height="24"/>
         <image name="tabbarIcClassUnselected" width="30" height="24"/>
-        <image name="tabbarIcMypageSelected" width="22" height="23"/>
-        <image name="tabbarIcMypageUnselected" width="22" height="23"/>
     </resources>
 </document>

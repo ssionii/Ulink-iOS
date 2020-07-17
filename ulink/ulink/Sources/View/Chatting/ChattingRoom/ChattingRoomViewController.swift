@@ -8,8 +8,16 @@ import SideMenu
 
 
 
+extension NSNotification.Name {
+    static let goToSideMenu = NSNotification.Name(rawValue: "goToSideMenu")
+}
 class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
+    
+    
+    
+    @IBOutlet weak var topHeight: NSLayoutConstraint!
+    
 
     
     @IBOutlet weak var sendButton: UIButton!
@@ -23,14 +31,24 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     
     
+    var subjectIdx : Int = 0
+    var roomTitle : String = ""
+    var current : Int = 0
+    
+    
     
     var comments : [ChatModel.Comment] = []
     var userModel: UserModel?
+    
+    
     
     var messageArray : [MessageModel] = []
     
     var databaseRef : DatabaseReference?
     var observe : UInt?
+    
+    
+    var currentUserCount : Int = 3
     
     
     @IBOutlet weak var chattingTableView: UITableView!
@@ -39,22 +57,62 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     public var tempTitle : String?
     public var chattingRoomTitle : String?
 
-    var roomTitle : String = ""
+
+    //tempTitle
     
     
+        private func addObserver() {
+            NotificationCenter.default.addObserver(self, selector: #selector(goNextView(_:)), name: .clickSideButton, object: nil)
+        }
+        
+        @objc func goNextView(_ notification: NSNotification) {
+            let storyboard = UIStoryboard(name:"Chatting", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
+            
+            
+            
+            
+            print("=====================================")
+            print("현재 채팅방에서 공지방으로 넘기는 정보")
+            print("과목 이름 : \(self.tempTitle!)")
+            print("과목 인덱스 : \(self.subjectIdx)")
     
-    
-    
-    
+            print("=====================================")
+            
+            
+            vc.roomtitle = tempTitle ?? "공지"
+            vc.subjectIDX = subjectIdx
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     //MARK:- Life Cycle 부분
     override func viewDidLoad() {
-        
+            
+        setHeightForDevice()
         
         setBorder()
           
         
         super.viewDidLoad()
-        uid = Auth.auth().currentUser?.uid
+        addObserver()
+        
+
+
+        uid = UserDefaults.standard.string(forKey: "uid")
+        
+        
+        
+        print("=====================================")
+        print("현재 채팅방의 정보")
+        print("과목 이름 : \(self.tempTitle!)")
+        print("과목 인덱스 : \(self.subjectIdx)")
+        print("=====================================")
+        
+        
+        
+  
+        
+       
         
         
         
@@ -66,9 +124,16 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         
         hideBar()
-//        setChattingRoomInfo()
-
         checkChatRoom()
+        
+        
+        if self.comments.count > 0 {
+
+            
+            print("comments count \(self.comments.count)")
+            self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+
+        }
         
    
         print("현재 uid : \(self.uid ?? "uid 실패")")
@@ -100,6 +165,51 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
         databaseRef?.removeObserver(withHandle: observe!)
+        
+    }
+    
+    
+    func setHeightForDevice()
+    {
+        
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+        
+        switch height{
+            
+        case 450.0 ... 667.0 : // 6 6s 7 8
+            
+            self.topHeight.constant = 68
+            
+            break
+            
+        case 730.0 ... 810.0: // 6s+, 7+ 8+
+            self.topHeight.constant = 68
+            break
+            
+        case 812.0 ... 890.0: //X, XS
+            
+            
+            self.topHeight.constant = 48
+            
+            break
+        
+        case 896.0:         // XS MAX
+            
+            self.topHeight.constant = 48
+            break
+            
+            
+            
+            
+        
+            
+            
+            
+        default:
+            break
+            
+        }
         
     }
     
@@ -153,7 +263,6 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         self.view.endEditing(true)
     }
     
-        
 
 
     
@@ -199,18 +308,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
         if(messageArray[indexPath.row].uid == uid) // 이게 내 메세지면은
         {
-//            let view = tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
-//            view.label_message.text = self.comments[indexPath.row].message
-//            view.label_message.numberOfLines = 0
-//
-//            view.layer.borderColor = .none
-//
-//            return view
-            
-            
+
             let view =  tableView.dequeueReusableCell(withIdentifier: "myMessageCell", for: indexPath) as! MyMessageCell
             view.labelMessage.text = self.messageArray[indexPath.row].message
-            
             view.labelMessage.numberOfLines = 0
             
             if let time =
@@ -284,6 +384,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     @IBAction func sideMenuClicked(_ sender : Any) {
         
+//
+//
+//        NotificationCenter.default.post(name: .goToSideMenu, object: nil)
+        
         let vc = storyboard!.instantiateViewController(withIdentifier: "chattingSideViewController") as! rightSideMenuViewController                    // UIViewController 지정해주고
         let menu = SideMenuNavigationController(rootViewController: vc)     // rootViewController에 넣어준다
         
@@ -297,17 +401,42 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         menu.dismissDuration = 0.8 //  사라지는ep 보여주는데 걸리는 시간
         menu.completionCurve = .easeInOut
         
-  
-
+        
 
     
         
-
-        
+  
+//
+//
+//        let backView: UIView = {
+//            let view = UIView()
+//            view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+//            view.translatesAutoresizingMaskIntoConstraints = false
+//            return view
+//        }()
+//
+//
+//        self.view.addSubview(backView)
+//
+//
+//        NSLayoutConstraint.activate([
+//            backView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+//            backView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+//            backView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+//            backView.topAnchor.constraint(equalTo: self.view.topAnchor)
+//        ])
+//
+//
         
         self.present(menu, animated: true, completion: nil)
         
 
+    }
+    
+    
+    func protocolTitleData(data: String){
+        
+        
     }
     
     
@@ -351,12 +480,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         ]
         
         
-        
-        print("uid : \(uid!)")
-        print("Roomuid : \(chatRoomUid)")
-        print("message : \(messageTextField.text!)")
-        
-
+    
             // 방이 존재한다면..?
 
             let value :Dictionary<String,Any> = [
@@ -385,6 +509,15 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
  
                     self.checkChatRoom()
                     self.chattingTableView.reloadData()
+                    
+                    
+                    
+                    if self.comments.count > 0 {
+
+                        self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+
+                    }
+
                     
 //                    
 //                          let indexPath = IndexPath(row: self.chattingTableView.numberOfRows(inSection: 0), section: 0)
@@ -421,11 +554,11 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             let dic = datasnapshot.value as! [String:Any]
             
             let numberInChattingRoom = dic.count - 1 // 몇 명 있는지 나타내는 변수
-            self.chattingUserNumberLabel.text  = String(numberInChattingRoom)
+            self.chattingUserNumberLabel.text  = String(self.currentUserCount)
+//            String(numberInChattingRoom)
             
     
         
-            self.chattingUserNumberLabel.text = String(numberInChattingRoom)
             
             
             
@@ -464,7 +597,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                 
                 if self.destinationUid == item.key{     // 해당 방의 정보만 불러와야 한다!
                     
-                
+                    
+        
                     
                     
                     
@@ -474,43 +608,38 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                     var count : Int = 0
                     
                     
-                    
-                    print("datasnapshot : \(datasnapshot.value)")
-                    print("item : \(item)")
-                    
+                 
                     
                     
                     let dic = values as! [String: [String:Any]] // 애 또 순서 파괴된다...
-                    print("dic : \(dic)")
-                    
+            
                     
                     for index in dic { // 이걸 두번 도니까 순서 나가는거제..
                         
                     //여기서 무슨 느낌이냐면 바로 먹고 나가야됨
                         
                         
-                        if index.value["title"] as? String == self.tempTitle // 같은 제목에 있는 거만 불러와야됨
+                        if index.value["title"] as? String == "안드" // 같은 제목에 있는 거만 불러와야됨
                         {
                             
                             
-                            self.roomTitle = index.value["title"] as? String ?? "수업채팅방"
+//                            self.roomTitle = index.value["title"] as? String ?? "수업채팅방"
                             
                             
-                            self.chattingTitleLabel.text = self.roomTitle
+                            self.chattingTitleLabel.text = self.tempTitle
                             
                             
                             
                             if index.value["comments"] != nil{
                                 let message = index.value["comments"] as! [String: [String:Any]]
                                 
+//                                print(message.sorted { $0.key < $1.key }}
                                 
                                 self.messageArray.removeAll()
                                 for idx in message
                                 {
                                     count = 0
-                                    print("idx : \(idx)")
-                                    
-                                    
+                  
                                     let msg = MessageModel()
                                     msg.message = idx.value["message"] as? String ?? ""
                                     msg.time = idx.value["timestamp"] as? Int ?? -1
@@ -522,8 +651,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                                     {
                                         count = count + 1
                                     }
-                                    
-                                    print("현재 읽은 사람 수 : \(count)")
+                     
                                     msg.readCount = count
                                     
                                     
@@ -614,7 +742,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let noReadCount = dic.count - readCount! - 1
             
-            self.chattingUserNumberLabel.text  = String(dic.count - 1)
+            self.chattingUserNumberLabel.text  = String(self.currentUserCount)
 
             
             if(noReadCount > 0){
@@ -735,5 +863,9 @@ class destinationMessageCell : UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
 }
+
+
+
+
 
 

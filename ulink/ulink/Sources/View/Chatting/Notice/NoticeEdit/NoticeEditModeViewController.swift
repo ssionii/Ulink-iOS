@@ -27,31 +27,60 @@ class NoticeEditModeViewController: UIViewController {
     @IBOutlet weak var textAreaBorder: UIView!
     
     
+    @IBOutlet weak var contentMemoTextFIeld: UITextView!
+    
+    
     @IBOutlet weak var datePickerLabel: UITextField!
     
     let datePicker = UIDatePicker()
     let timePicker = UIPickerView()
     let timePicker2 = UIPickerView()
     var categoryIndex : Int = 0
+    var subjectIdx : Int = 1
+    var noticeIdx : Int = 1
     var hour : String = ""
     var minute : String = ""
     var checkNotTIme : Int = 0
+    var error : Int = 0 // error 0은 정상 , 1이 에러!!
+    var editModeOn : Int = 1 // 0이 그냥 추가, 1이 수정!!
+    var dateString : String = ""
+    
+    var dateClicked : Int = 0 // 수정을 할때 date 부분을 클릭했는지 아닌지를 판별하기 위한 변수
+    
+    
+    var dateStr : String = ""
+    
+    
     @IBAction func closeButtonClicked(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setBorder()
         setButttonClear()
+        getNoticeDetailData()
         setTimePicker()
         setDataPicker()
+        
+        
+        
+        
+        print("==================================")
+        print("현재 공지사항 수정 뷰의 정보 ")
+        print("현재 notice IDX :\(self.noticeIdx)")
+        print("현재 subject IDX : \(self.subjectIdx)")
+        print("현재 category IDX : \(self.categoryIndex)")
+        print("==================================")
 
     }
     
     
     @IBAction func submitButtonClicked(_ sender: Any) {
         
+        
+        error = 0
         
         // 여기에 내용 수정 된 코드가 들어가야 함
         if titleEditTextField.text == ""
@@ -64,7 +93,337 @@ class NoticeEditModeViewController: UIViewController {
 
             present(alert, animated: true, completion: nil)
             
+            error = 1
+            
+            
         }
+        
+        if categoryIndex == 0
+        {
+            
+            let alert = UIAlertController(title: "", message: "카테고리를 설정해주세요", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "확인", style: .default, handler : nil )
+
+            alert.addAction(okAction)
+
+            present(alert, animated: true, completion: nil)
+            
+            error = 1
+        }
+        
+        if datePickerLabel.text == ""
+        {
+            let alert = UIAlertController(title: "", message: "날짜를 선택해주세요", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "확인", style: .default, handler : nil )
+
+            alert.addAction(okAction)
+
+            present(alert, animated: true, completion: nil)
+            
+            error = 1
+        }
+        
+        
+        
+
+        
+        
+        
+        
+        
+        if error == 0 // 문제없으면 업로드를 해봅시다.
+        {
+            var categoryData : String = ""
+            
+            
+            if categoryIndex == 1
+            {
+                categoryData = "과제"
+            }
+            else if categoryIndex == 2
+            {
+                categoryData = "시험"
+                
+            }
+            else if categoryIndex == 3
+            {
+                categoryData = "수업"
+            }
+            
+            else
+            {
+                categoryData = "공지"
+                
+            }
+            
+            
+
+            
+            
+            
+
+            var startTime : String = startTimeTextField.text ?? "-1"
+            
+            if startTime == "시간정보없음"
+            {
+                startTime = "-1"
+            }
+            var endTime : String = endTImeTextField.text ?? "-1"
+            
+            if endTime == "시간정보없음"
+            {
+                endTime = "-1"
+            }
+            let title : String = titleEditTextField.text ?? ""
+            let content : String = contentMemoTextFIeld.text
+            
+            
+            if dateClicked == 0
+            {
+                let tempString = datePickerLabel.text?.components(separatedBy: "년 ")
+                let temp : String!
+                let temp1 : String!
+                
+                temp = tempString![0]
+                
+                let tempStringOne = tempString![1].components(separatedBy: "월 ")
+                
+                temp1 = tempStringOne[0]
+                
+                let tempStringTwo = tempStringOne[1].components(separatedBy: "일")
+                
+                
+                dateStr = temp + "-" + temp1 + "-" + tempStringTwo[0]
+                
+                print("수정된 DATASTR : \(dateStr)")
+                
+                
+                
+            }
+          
+
+        
+            
+
+            
+            
+            if editModeOn == 0
+            {
+
+                
+ 
+                
+                            
+                            NoticeEditService.shared.uploadNotice(category: categoryData, date: dateStr, startTime: startTime, endTime: endTime, title: title, content: content, subjectIdx: subjectIdx){ networkResult in // noticeIdx 정보 설정
+
+
+                                switch networkResult{
+                                    
+                                    
+                                    
+                                    
+                                // MARK:- 서버 접속 성공 했을때
+                                case .success(_,_) :
+                                    
+                                    
+                                    let alertViewController = UIAlertController(title: "", message: "공지사항이 등록되었습니다",
+                                                                                preferredStyle: .alert)
+                                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                                    alertViewController.addAction(action)
+                                    self.present(alertViewController, animated: true)
+                                  
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+
+                                    
+                                    
+                                    
+                                    
+                                case .requestErr(let message):
+                                    print("REQUEST ERROR")
+                                    guard let message = message as? String else { return }
+                                    let alertViewController = UIAlertController(title: "업로드 실패", message: message,
+                                                                                preferredStyle: .alert)
+                                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                                    alertViewController.addAction(action)
+                                    self.present(alertViewController, animated: true, completion: nil)
+                                    
+                                    
+                                    
+                                case .pathErr:
+                                    let alertViewController = UIAlertController(title: "공지 입력 실패", message: "공지사항 정보를 다시 확인해주세요",
+                                                                                preferredStyle: .alert)
+                                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                                    alertViewController.addAction(action)
+                                    self.present(alertViewController, animated: true, completion: nil)
+                                case .serverErr: print("serverErr")
+                                case .networkFail: print("networkFail")
+                                }
+                                         
+                                
+                                
+                                
+                                
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load2"), object: nil)
+
+                                
+                                         
+                                         
+                                     }
+                                     
+                                       
+                    
+                       
+                                       
+                print("==================================")
+                print("공지 생성 할 때 서버에  넘겨주는 정보 ")
+                print("categoryData : \(categoryData)")
+                print("날짜 String : \(dateStr)")
+                print("시작 시간 : \(startTime)")
+                print("종료 시간 : \(endTime)")
+                print("공지 제목 : \(title)")
+                print("메모 내용 : \(content)")
+                print("현재 notice IDX :\(self.noticeIdx)")
+                print("==================================")
+                
+
+
+
+
+                
+            }
+                
+                
+                
+            
+            else
+            {
+                
+        
+                NoticeModifyService.shared.uploadNotice(category: categoryData, date: dateStr, startTime: startTime, endTime: endTime, title: title, content: content, noticeIdx: noticeIdx){ networkResult in // noticeIdx 정보 설정
+     
+                    switch networkResult{
+                        
+                        
+                        
+                        
+                    // MARK:- 서버 접속 성공 했을때
+                    case .success(_,_) :
+                        
+                        
+                        let alertViewController = UIAlertController(title: "", message: "공지사항이 수정되었습니다",
+                                                                    preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true)  
+                        
+                        
+                        
+                        
+                        
+                        
+
+                        
+                        
+                        
+                        
+                    case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        guard let message = message as? String else { return }
+                        let alertViewController = UIAlertController(title: "업로드 실패", message: message,
+                                                                    preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
+                        
+                        
+                        
+                    case .pathErr:
+                        let alertViewController = UIAlertController(title: "공지 수정 실패", message: "공지사항 정보를 다시 확인해주세요",
+                                                                    preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
+                    case .serverErr:
+                        
+                        
+                        let alertViewController = UIAlertController(title: "서버 에러", message: "서버 상태를 확인해주세요",
+                                                                    preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
+                    case .networkFail:
+                        
+                        
+                        let alertViewController = UIAlertController(title: "", message: "업로드 완료",
+                                                                    preferredStyle: .alert)
+                        let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                        alertViewController.addAction(action)
+                        self.present(alertViewController, animated: true, completion: nil)
+                    }
+                    
+                    
+
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modifyLoad"), object: nil)
+
+
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load2"), object: nil)
+
+                    
+                             
+                             
+                         }
+                         
+                           
+                       
+
+                
+                
+                                       
+                print("==================================")
+                print("공지 수정 할 때 서버에  넘겨주는 정보 ")
+                print("categoryData : \(categoryData)")
+                print("날짜 String : \(dateStr)")
+                print("시작 시간 : \(startTime)")
+                print("종료 시간 : \(endTime)")
+                print("공지 제목 : \(title)")
+                print("메모 내용 : \(content)")
+                print("현재 공지의 idx : \(noticeIdx)")
+                print("==================================")
+            }
+
+
+                       
+                   }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
     
@@ -106,6 +465,8 @@ class NoticeEditModeViewController: UIViewController {
     
     
     
+
+    
     
     @objc func doneTimePicker(){
     //For date formate
@@ -120,6 +481,136 @@ class NoticeEditModeViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    
+    func getNoticeDetailData(){
+        
+        NoticeDetailService.shared.getSubjectDetailNotice(noticeIdx: self.noticeIdx) { networkResult in // noticeIdx 정보 설정
+            print("현재 notice IDX :\(self.noticeIdx)")
+
+            switch networkResult{
+                
+                
+            case .success(let noticeList, _):
+                
+                
+                
+                guard let noticeList = noticeList as? SubjectNoticeData else { return }
+                
+                //MARK:- 카테고리 설정
+                
+                self.setButttonClear()
+                
+                if self.editModeOn == 1
+                {
+                    if self.categoryIndex == 1
+                        
+                    {
+                        if let hwSelected = UIImage(named: "chattingnoticePlusSelectedBtnAssignment")
+                        {
+                            self.hwNoticeButton.setImage(hwSelected, for: .normal)
+                        }
+                    }
+                        
+                    else if self.categoryIndex == 2
+                    {
+                        if let testUnselected = UIImage(named: "chattingnoticePlusUnselectedBtnExam"){
+                            
+                            self.testNoticeButton.setImage(testUnselected, for: .normal)
+                            
+                        }
+                    }
+                        
+                    else
+                    {
+                        
+                        if let classUnselected = UIImage(named: "chattingnoticePlusUnselectedBtnClass"){
+                            
+                            self.classNoticeButton.setImage(classUnselected, for: .normal)
+                            
+                            
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    
+                    //MARK:- 타이틀 설정
+                    self.titleEditTextField.text = noticeList.title
+                    
+                    
+                    // MARK:- 날짜 정보 설정
+                    
+                    print("날짜 정보 받아오기 : \(noticeList.date)")
+                    let dateArray = noticeList.date.components(separatedBy: "-")
+                    print("dataArray : \(dateArray)")
+                    
+                    
+                    self.datePickerLabel.text = dateArray[0] + "년 " + dateArray[1] + "월 " + dateArray[2] + "일"
+                    self.dateString = dateArray[0] + "-" + dateArray[1] + "-" +  dateArray[2]
+                    
+                    // MARK:- 시간 정보 설정
+                    
+                    
+                    
+                    
+                    self.startTimeTextField.text = noticeList.startTime
+                    self.endTImeTextField.text = noticeList.endTime
+                    
+                    if noticeList.startTime == "-1"
+                    {
+                        self.startTimeTextField.text = "시간정보없음"
+                        
+                    }
+                    
+                    if noticeList.endTime == "-1"
+                    {
+                        self.endTImeTextField.text = "시간정보없음"
+                    }
+                    
+                    
+                    
+                    
+                    //MARK:- 메모 정보 설정
+                    
+                    self.contentMemoTextFIeld.text = noticeList.content
+                    
+                    
+                    
+                }
+                
+                else
+                {
+                    
+                    
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    self.dateString = formatter.string(from: self.datePicker.date)
+                    
+                }
+
+                
+                
+                
+                
+                
+            default:
+                print("fail")
+                
+                
+            }
+            
+              
+          
+
+
+              
+          }
+          
+        
+        
+    }
     
     
 
@@ -153,8 +644,12 @@ class NoticeEditModeViewController: UIViewController {
     @objc func donedatePicker(){
     //For date formate
      let formatter = DateFormatter()
+    let formatter1 = DateFormatter()
      formatter.dateFormat = "yyyy년 MM월 dd일"
+        formatter1.dateFormat = "yyyy-MM-dd"
+    self.dateStr = formatter1.string(from: datePicker.date)
      datePickerLabel.text = formatter.string(from: datePicker.date)
+        dateClicked = 1
      self.view.endEditing(true)
       }
     
@@ -186,7 +681,6 @@ class NoticeEditModeViewController: UIViewController {
     
     @IBAction func testButtonClicked(_ sender: Any) {
         
-      
         categoryIndex = 2
 
         setButttonClear()
@@ -315,6 +809,8 @@ extension NoticeEditModeViewController : UIPickerViewDelegate,UIPickerViewDataSo
             {
                 checkNotTIme = 1
             }
+            
+            minute = "00"
          
         }
         else

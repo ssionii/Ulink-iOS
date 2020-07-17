@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 public protocol TimeTableDelegate {
-    func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: SubjectModel)
+    
+    func timeTable(timeTable: TimeTable, selectedSubjectIdx: Int, isSubject : Bool)
+    func timeTableHintCount(hintCount : Int)
 }
 
 public protocol TimeTableDataSource {
@@ -107,7 +109,7 @@ public protocol TimeTableDataSource {
 
     //        daySymbolText = self.userDaySymbol ?? Calendar.current.shortStandaloneWeekdaySymbols
 
-        let startIndex = self.startDay.rawValue - 1
+        let startIndex = self.startDay.rawValue
         daySymbolText.rotate(shiftingToStart: startIndex)
         return daySymbolText
     }
@@ -227,8 +229,9 @@ public protocol TimeTableDataSource {
 
         if subjectItems.count >= 1 {
             for (index, subjectItem) in subjectItems.enumerated(){
-                let tempStartTimeHour = Int(subjectItem.startTime.split(separator : ":")[0]) ?? 24
-                let tempEndTimeHour = Int(subjectItem.endTime.split(separator : ":")[0]) ?? 00
+                
+                let tempStartTimeHour = Int(subjectItem.startTime[0].split(separator : ":")[0]) ?? 24
+                let tempEndTimeHour = Int(subjectItem.endTime[0].split(separator : ":")[0]) ?? 00
 
                 if index >= 1 {
                     if tempStartTimeHour < minStartTimeHour {
@@ -248,13 +251,13 @@ public protocol TimeTableDataSource {
         // subject 그리기
         for(index, subjectItem) in subjectItems.enumerated() {
             let dayCount = dataSource?.numberOfDays(in : self) ?? 6
-            let weekdayIndex = (subjectItem.subjectDay.rawValue - startDay.rawValue + dayCount) % dayCount
+            let weekdayIndex = (subjectItem.subjectDay[0] - startDay.rawValue + dayCount) % dayCount
 
-            let subjectStartHour = Int(subjectItem.startTime.split(separator: ":")[0]) ?? 09
-            let subjectStartMin = Int(subjectItem.startTime.split(separator: ":")[1]) ?? 00
+            let subjectStartHour = Int(subjectItem.startTime[0].split(separator: ":")[0]) ?? 09
+            let subjectStartMin = Int(subjectItem.startTime[0].split(separator: ":")[1]) ?? 00
 
-            let subjectEndHour = Int(subjectItem.endTime.split(separator: ":")[0]) ?? 21
-            let subjectEndMin = Int(subjectItem.endTime.split(separator: ":")[1]) ?? 00
+            let subjectEndHour = Int(subjectItem.endTime[0].split(separator: ":")[0]) ?? 21
+            let subjectEndMin = Int(subjectItem.endTime[0].split(separator: ":")[1]) ?? 00
             let averageHeight = subjectItemHeight
 
             // subject cell의 x position과 y position
@@ -271,7 +274,7 @@ public protocol TimeTableDataSource {
             let label = PaddingLabel(frame: CGRect(x: textEdgeInsets.left, y: textEdgeInsets.top, width: view.frame.width - textEdgeInsets.right, height: view.frame.height - textEdgeInsets.top))
             let name = subjectItem.subjectName
             
-            let attrStr = NSMutableAttributedString(string: name + "\n" + subjectItem.roomName, attributes: [NSAttributedString.Key.font: subjectRoomNameFont!])
+            let attrStr = NSMutableAttributedString(string: name + "\n" + subjectItem.content[0], attributes: [NSAttributedString.Key.font: subjectRoomNameFont!])
             attrStr.setAttributes([NSAttributedString.Key.font: subjectNameFont!], range: NSRange(0..<name.count))
 
             label.attributedText = attrStr
@@ -314,7 +317,7 @@ public protocol TimeTableDataSource {
             if i != 6 && self.baseXList[i] <= input_x && self.baseXList[i + 1] >= input_x {
                 
                 startPositionX = self.baseXList[i]
-                tempUserSchedule.weekDay = TimeTableDay(rawValue: i + 1)!
+                tempUserSchedule.weekDay = i
                 break
             }
         }
@@ -344,6 +347,7 @@ public protocol TimeTableDataSource {
         }
         
         tempUserScheduleList.append(tempUserSchedule)
+        delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
     }
         
 
@@ -382,7 +386,7 @@ public protocol TimeTableDataSource {
     
     }
 
-    func makeHintTimeTable(day: [Int], dateTime: [String]){
+    func makeHintTimeTable(day: [Int], startTime: [String], endTime : [String]){
         
         collectionView.reloadData()
         let minStartTimeHour : Int = defaultMinHour
@@ -392,8 +396,8 @@ public protocol TimeTableDataSource {
         if day.count > 0 {
             for i in 0 ... day.count - 1 {
                 
-                let startTime = dateTime[i].split(separator: "-")[0]
-                let endTime  = dateTime[i].split(separator: "-")[1]
+                let startTime = startTime[i]
+                let endTime  = endTime[i]
                 
                 let weekdayIndex = day[i]
                 
@@ -450,6 +454,7 @@ public protocol TimeTableDataSource {
                 subview.removeFromSuperview()
             }
         }
+        
     }
 
     @objc func lectureTapped(_ sender: UITapGestureRecognizer){
@@ -462,7 +467,7 @@ public protocol TimeTableDataSource {
     
         
         let subject = subjectItems[(sender.view!).tag]
-        self.delegate?.timeTable(timeTable: self, didSelectSubject: subject)
+        self.delegate?.timeTable(timeTable: self, selectedSubjectIdx: subject.subjectIdx, isSubject: subject.isSubject)
         
     }
     
@@ -477,12 +482,13 @@ public protocol TimeTableDataSource {
             }
             self.tempUserScheduleList.remove(at: count - 1 )
         }
+        
+        delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
     }
     
     public func removeSchedule(num : Int){
         for subview in collectionView.subviews{
             let tag = tempUserScheduleList[num - 1].timeIdx
-            
             
             if subview.tag == tag {
                 subview.removeFromSuperview()
@@ -491,6 +497,9 @@ public protocol TimeTableDataSource {
         
         print("시간표에서 schedule 삭제: \(num - 1)")
          self.tempUserScheduleList.remove(at: num - 1)
+        
+        delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
+        
     }
 
     public func reloadData() {
@@ -509,9 +518,7 @@ public protocol TimeTableDataSource {
         
         var colorCount = 0
         
-        let sortedSubjectItems = subjectItems.sorted(by: {$0.subjectName < $1.subjectName})
-        
-        print("sortedSubjectItems: \(sortedSubjectItems)")
+        let sortedSubjectItems = subjectItems.sorted(by: {$0.subjectIdx < $1.subjectIdx})
         
         if(sortedSubjectItems.count > 1){
             for i in 0 ... sortedSubjectItems.count - 2 {

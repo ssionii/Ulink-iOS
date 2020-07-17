@@ -26,7 +26,21 @@ extension UIColor {
         return UIColor(red: 127.0 / 255.0, green: 36.0 / 255.0, blue: 252.0, alpha: 1.0)
     }
     
+    
 
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @nonobjc class var noticeColorOne: UIColor{
         return UIColor(red: 255.0 / 255.0, green: 245.0 / 255.0, blue: 253.0, alpha: 1.0)
     }
@@ -42,14 +56,14 @@ extension UIColor {
       }
         
     @nonobjc class var noticeColorOneSelected: UIColor{
-        return UIColor(red: 248.0 / 255.0, green: 233.0 / 255.0, blue: 239.0, alpha: 1.0)
+        return UIColor(red: 248.0 / 255.0, green: 233.0 / 255.0, blue: 239.0/255.0, alpha: 1.0)
       }
     @nonobjc class var noticeColorTwoSelected: UIColor{
-        return UIColor(red: 242.0 / 255.0, green: 231.0 / 255.0, blue: 247.0, alpha: 1.0)
+        return UIColor(red: 242.0 / 255.0, green: 231.0 / 255.0, blue: 247.0/255.0, alpha: 1.0)
       }
 
     @nonobjc class var noticeColorThreeSelected: UIColor{
-        return UIColor(red: 223.0 / 255.0, green: 242.0 / 255.0, blue: 244.0, alpha: 1.0)
+        return UIColor(red: 223.0 / 255.0, green: 242.0 / 255.0, blue: 244.0/255.0, alpha: 1.0)
       }
 
 

@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "ioMajorsettingBtnRoundUnselected.png",
-      "scale" : "1x",
-      "idiom" : "universal"
-    },
-    {
-      "scale" : "2x",
-      "filename" : "ioMajorsettingBtnRoundUnselected@2x.png",
-      "idiom" : "universal"
-    },
-    {
-      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "ioMajorsettingBtnRoundUnselected@3x.png"
+      "filename" : "ioMajorsettingBtnRoundUnselected.png",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ioMajorsettingBtnRoundUnselected@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ioMajorsettingBtnRoundUnselected@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

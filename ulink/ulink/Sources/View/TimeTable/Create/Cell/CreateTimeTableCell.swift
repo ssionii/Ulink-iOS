@@ -9,6 +9,7 @@
 import UIKit
 
 class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTableDelegate {
+    
    
     static let identifier: String = "createTimeTableCell"
     
@@ -16,7 +17,11 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
     @IBOutlet weak var timeTable: TimeTable!
     
     var timeTableIdx : Int = 0
-    var subjectList : [SubjectModel] = []
+    var subjectList = [SubjectModel]() {
+        didSet {
+            self.timeTable.reloadData()
+        }
+    }
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     
     override func awakeFromNib() {
@@ -34,6 +39,8 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
         timeTableNameLabel.text = name
         self.timeTableIdx = idx
         self.subjectList = subjectList
+        
+        print("subjectList in cell", subjectList)
         
     }
     
@@ -56,9 +63,14 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
         return subjectList
     }
        
-    func timeTable(timeTable: TimeTable, didSelectSubject didSelectSubjectselectedSubject: SubjectModel) {
+     func timeTable(timeTable: TimeTable, selectedSubjectIdx: Int, isSubject : Bool){
+        
+    }
+    
+    func timeTableHintCount(hintCount: Int) {
            
     }
+       
 }
 
 extension UIView {

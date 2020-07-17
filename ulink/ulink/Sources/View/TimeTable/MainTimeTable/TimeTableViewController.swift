@@ -8,26 +8,32 @@
 
 import UIKit
 
-class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate{
 
+class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate, TimeTableSettingViewControllerDelegate {
+   
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var topDayView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
+    @IBOutlet weak var timeTableSemesterLabel: UILabel!
     
+    private var timeTableInfo = TimeTableModel.init()
     private var subjectList : [SubjectModel] = []
     private var subjectDummyList : [SubjectModel] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
+    private var isFirstOpen = true
     
     @IBAction func settingBtn(_ sender: UIButton) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableSettingViewController") as? TimeTableSettingViewController else { return }
         
-        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.setTimeTableIdx(idx: timeTableInfo.scheduleIdx)
+        nextVC.delegate = self
          self.present(nextVC, animated: true, completion: nil)
     }
     
     @IBAction func listBtn(_ sender: UIButton) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableListViewController") as? TimeTableListViewController else { return }
         
+        nextVC.delegate = self
         nextVC.modalPresentationStyle = .fullScreen
         
         let transition = CATransition()
@@ -41,6 +47,19 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         
     }
     
+    @IBAction func addBtn(_ sender: UIButton) {
+        
+        let storyboard = UIStoryboard(name:"CreateTimeTable", bundle: nil)
+        
+        guard let nextVC = storyboard.instantiateViewController(identifier: "createTimeTableViewController") as? CreateTimeTableViewController else { return }
+        
+        nextVC.semester = timeTableInfo.semester
+        nextVC.scheduleIdx = timeTableInfo.scheduleIdx
+        nextVC.modalPresentationStyle = .fullScreen
+        present(nextVC, animated: true, completion: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,7 +70,13 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         timeTable.dataSource = self
         
         setBackgroundView()
-        makeDummySubjectList()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        if isFirstOpen {
+            getMainTimeTable()
+            isFirstOpen = false
+        }
     }
 
      override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -77,47 +102,22 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         self.backgroundView.layer.addSublayer(gradientLayer)
         
     }
-
-    private func setSubjectList(){
-        
-        for (index, subject) in subjectDummyList.enumerated() {
-            for i in 0 ... subject.day.count - 1 {
-                let start = subject.dateTime[i].split(separator: "-")[0]
-                let end = subject.dateTime[i].split(separator: "-")[1]
-                
-                let subjectItem = SubjectModel(subjectName: subject.subjectName, roomName: subject.roomName, professorName: subject.professorName, subjectDay: subject.day[i], startTime: String(start), endTime: String(end), backgroundColor: subject.backgroundColor, day: subject.day, dateTime: subject.dateTime)
-                
-                subjectList.append(subjectItem)
-            }
-        }
-    }
     
-    private func makeDummySubjectList(){
-    
-        let dummy_1 = SubjectModel(subjectName: "영상처리", roomName: "제1공학관 404", professorName: "양시연", backgroundColor: 0, day: [1], dateTime: ["09:00-10:00"])
-        let dummy_2 = SubjectModel(subjectName: "전자회로", roomName: "제1공학관 601", professorName: "양시연", backgroundColor: 1, day: [1], dateTime: ["13:00-15:00"])
-        let dummy_3 = SubjectModel(subjectName: "전자기학", roomName: "제1공학관 303", professorName: "양시연", backgroundColor: 2, day: [2], dateTime: ["13:00-14:00"])
-        let dummy_4 = SubjectModel(subjectName: "소설과 영화", roomName: "제2공학관 204", professorName: "양시연", backgroundColor: 3, day: [2], dateTime: ["14:00-16:30"])
-        let dummy_5 = SubjectModel(subjectName: "캡스톤 디자인", roomName: "제2공학관 304", professorName: "양시연", backgroundColor: 4, day: [3], dateTime: ["10:00-13:00"])
-        let dummy_6 = SubjectModel(subjectName: "모션그래픽스1", roomName: "미술대학 407실", professorName: "양시연", backgroundColor: 5, day: [3, 4], dateTime: ["13:00-15:30", "08:00-12:00"])
-    
-        subjectDummyList = [dummy_1, dummy_2, dummy_3, dummy_4, dummy_5, dummy_6]
-        
-        setSubjectList()
-        
-        
-    }
-    
-    func timeTable(timeTable: TimeTable, didSelectSubject selectedSubject: SubjectModel) {
+    // protocol
+    func timeTable(timeTable: TimeTable, selectedSubjectIdx : Int, isSubject : Bool) {
         
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "subjectDetailViewController") as? SubjectDetailViewController else { return }
         
+        print(selectedSubjectIdx)
         
-        print(selectedSubject)
-        
-        nextVC.setDataForSubject(idx: 0, colorCode: selectedSubject.backgroundColor, name: selectedSubject.subjectName, day: selectedSubject.day, dateTime: selectedSubject.dateTime, room: selectedSubject.roomName, professor: selectedSubject.professorName)
+        nextVC.subjectIdx = selectedSubjectIdx
+        nextVC.isSubject = isSubject
         self.present(nextVC, animated: true, completion: nil)
         
+    }
+    
+    func timeTableHintCount(hintCount: Int) {
+    
     }
 
     func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {
@@ -131,6 +131,75 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     func timeTable(timeTable: TimeTable, at dayPerIndex: Int) -> String {
         return self.daySymbol[dayPerIndex]
     }
+    
+    func getTimeTable(idx: Int) {
+           getTimeTableByIdx(idx: idx)
+    }
+    
+    func updateMainView() {
+        getTimeTableByIdx(idx: timeTableInfo.scheduleIdx)
+    }
+    
+    
+    // MARK:- 통신
+    
+    func getMainTimeTable(){
+        
+        print("getMainTimeTable")
+       MainTimeTableService.shared.getMainTimeTable { networkResult in
+            switch networkResult {
+                case .success(let timeTable, let subjectList) :
+                    self.timeTableInfo = timeTable as! TimeTableModel
+                    self.subjectList = subjectList as! [SubjectModel]
+                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).name
+                    self.timeTable.reloadData()
+                    break
+                case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        break
+            case .pathErr: break
+            case .serverErr: print("serverErr")
+                case .networkFail: print("networkFail")
+            }
+        }
+    }
+    
+    func getTimeTableByIdx(idx: Int){
+        print("getTimeTable")
+         
+        TimeTableService.shared.getTimeTable(idx: idx) { networkResult in
+             switch networkResult {
+                 case .success(let timeTable, let subjectList) :
+                    self.timeTableInfo = timeTable as! TimeTableModel
+                     self.subjectList = subjectList as! [SubjectModel]
+                    self.timeTableSemesterLabel.text = (timeTable as! TimeTableModel).name
+                     self.timeTable.reloadData()
+                     break
+                 case .requestErr(let message):
+                         print("REQUEST ERROR")
+                         break
+             case .pathErr: break
+             case .serverErr: print("serverErr")
+                 case .networkFail: print("networkFail")
+             }
+         }
+    }
 
-   
+}
+
+extension UIApplication {
+    class func topViewController(viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = viewController as? UINavigationController {
+            return topViewController(viewController: nav.visibleViewController)
+        }
+        if let tab = viewController as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(viewController: selected)
+            }
+        }
+        if let presented = viewController?.presentedViewController {
+            return topViewController(viewController: presented)
+        }
+        return viewController
+    }
 }
