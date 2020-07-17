@@ -295,7 +295,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         let gradientLayer = CAGradientLayer()
         
-        gradientLayer.frame = self.backgroundView.bounds
+        gradientLayer.frame = self.view.bounds
         
         let colorLeft = UIColor(red: 127.0 / 255.0, green: 36.0 / 255.0, blue: 252.0 / 255.0, alpha: 1.0).cgColor
         let colorRight = UIColor(red: 95.0 / 255.0, green: 93.0 / 255.0, blue: 234.0 / 255.0, alpha: 1.0).cgColor
