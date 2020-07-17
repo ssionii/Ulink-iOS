@@ -32,6 +32,9 @@ class SubjectDetailViewController: UIViewController {
     @IBOutlet weak var editNameImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var editNameLabel: UILabel!
     
+    @IBOutlet weak var customizingView: UIView!
+    
+    
     private let defaultViewHeight = CGFloat(37.0)
     
     private var subjectColorCode = 0
@@ -112,7 +115,13 @@ class SubjectDetailViewController: UIViewController {
         // 통신
         getSubjectDetail()
         
+        putGesture()
+        
     }
+    
+    
+
+    
     
     private func setLabels(){
         colorView.backgroundColor = ColorFilter.init().getColor(colorCode: subjectColorCode)
@@ -213,6 +222,27 @@ class SubjectDetailViewController: UIViewController {
             case .serverErr: print("serverErr")
             case .networkFail: print("networkFail")
             }
+        }
+    }
+    
+    //성은 추가
+    private func putGesture(){
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.showCustomizing))
+        
+        self.customizingView.addGestureRecognizer(gesture)
+    }
+    
+    @objc func showCustomizing(sender : UITapGestureRecognizer) {
+        guard let presenting = self.presentingViewController else {return}
+        
+        let popStoryBoard = UIStoryboard(name: "ColorPick", bundle: nil)
+        let presentVC = popStoryBoard.instantiateViewController(withIdentifier: "colorPickVC")
+        presentVC.modalPresentationStyle = .overCurrentContext
+        
+        //subjectName
+        
+        self.dismiss(animated: true){
+            presenting.present(presentVC, animated: true, completion: nil)
         }
     }
 }

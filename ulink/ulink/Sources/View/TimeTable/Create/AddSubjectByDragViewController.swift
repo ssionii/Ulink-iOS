@@ -9,6 +9,10 @@
 import UIKit
 
 
+protocol AddSubjectByDragViewControllerDelegate {
+    func didPressConfirmBtn()
+}
+
 class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeTableDataSource, AddSubjectDetailDelegate {
     
     @IBOutlet weak var backgroundView: UIView!
@@ -41,9 +45,15 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         }
 
     }
+    
+    var delegate : AddSubjectByDragViewControllerDelegate?
 
     var timeTableInfo = TimeTableModel.init()
-    var subjectList : [SubjectModel] = []
+    var subjectList = [SubjectModel](){
+        didSet {
+            self.timeTable.reloadData()
+        }
+    }
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     
     public var scheduleIdx = 1
@@ -125,7 +135,9 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         return subjectList
     }
     
-    func didPressOkButton(timeInfoList: [SubjectModel]) {
+    func didPressOkButton(timeInfoList: [SubjectModel], isFromDrag : Bool) {
+        
+        if isFromDrag {
         
         let colorCount = timeTable.getColorCount()
         for timeInfo in timeInfoList {
@@ -145,6 +157,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
             
              personalList.append(personalSchedule)
         }
+        }
     }
     
     func didDeleteTimeInfo(num: Int) {
@@ -159,6 +172,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
                 switch networkResult {
                     case .success(_, _) :
                         print("개인 일정 추가 성공")
+                        self.delegate?.didPressConfirmBtn()
                         break
                     case .requestErr(let message):
                             print("REQUEST ERROR")
@@ -171,8 +185,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
        }
     
     func getTimeTableByIdx(idx: Int){
-        print("getTimeTable")
-         
+        print("getTimeTable From Drag idx : \(idx)")
         TimeTableService.shared.getTimeTable(idx: idx) { networkResult in
              switch networkResult {
                  case .success(let timeTable, let subjectList) :

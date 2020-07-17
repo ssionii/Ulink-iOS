@@ -51,7 +51,7 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         var startQuery = String(todayYear) + "-" + String(todayMonth) + "-" + String(todayDate)
         
-        let tenDaysLater = Calendar.current.date(byAdding: .day, value: 10, to: today) ?? today
+        let tenDaysLater = Calendar.current.date(byAdding: .day, value: 30, to: today) ?? today
         
         var endYear = Calendar.current.component(.year, from: tenDaysLater)
         var endMonth = Calendar.current.component(.month, from: tenDaysLater)
@@ -100,11 +100,9 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.identifier, for: indexPath) as? EventCell else {
         return UITableViewCell() }
         
-        //cell.set(dummyData[indexPath.section].event[indexPath.row])
         if let serverData = serverData?[indexPath.section].notice?[indexPath.row] {
             cell.set(serverData)
         }
-        //cell.changeViewColor(dummyData[indexPath.section].date)
         cell.changeViewColor(serverData?[indexPath.section].date ?? "")
         
         return cell

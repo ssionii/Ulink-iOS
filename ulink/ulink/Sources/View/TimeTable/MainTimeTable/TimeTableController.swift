@@ -22,7 +22,7 @@ public class TimeTableController: UIViewController {
     }
     
     public func setDrag(){
-    collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPress)))
+        collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPress)))
     }
     
     @objc func longPress(_ sender: UILongPressGestureRecognizer){
