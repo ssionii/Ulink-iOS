@@ -429,7 +429,7 @@
                                                 <rect key="frame" x="23.999999999999996" y="56.000000000000028" width="16.000000000000004" height="16"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRg-Is-y6s">
-                                                <rect key="frame" x="50" y="55" width="257" height="17"/>
+                                                <rect key="frame" x="50" y="55.333333333333343" width="257" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="buc-bk-4Pk"/>
                                                 </constraints>
@@ -654,6 +654,7 @@
                         <outlet property="backgroundView" destination="tC1-e9-o93" id="Cdh-V4-DjW"/>
                         <outlet property="colorView" destination="E8z-wN-bdX" id="rcs-J4-Uqj"/>
                         <outlet property="customizingView" destination="OAu-F9-ECs" id="1Y9-Ws-PIl"/>
+                        <outlet property="deleteView" destination="5NO-pQ-H51" id="j9J-yU-SuE"/>
                         <outlet property="detailBackgroundView" destination="mcL-cc-4xg" id="Rag-GQ-LNs"/>
                         <outlet property="editNameImageViewHeight" destination="mcY-LO-5Lj" id="Ukz-9E-Zlv"/>
                         <outlet property="editNameLabel" destination="zoM-4X-f4y" id="4Lw-kl-n4u"/>
