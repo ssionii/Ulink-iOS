@@ -36,7 +36,7 @@ public protocol TimeTableDataSource {
     public var dataSource : TimeTableDataSource?
 
     private var subjectCells = [SubjectCell]()
-    private var colorFilter = ColorFilter.init()
+    private var colorPicker = ColorPicker()
     
     public var tempUserScheduleList : [TimeInfoModel] = []
     
@@ -268,7 +268,7 @@ public protocol TimeTableDataSource {
             let height = averageHeight * CGFloat(subjectEndHour - subjectStartHour) + CGFloat((CGFloat(subjectEndMin - subjectStartMin) / 60) * averageHeight) - rectEdgeInsets.top - rectEdgeInsets.bottom
 
             let view = UIView(frame: CGRect(x: position_x, y: position_y, width: width, height: height))
-            view.backgroundColor = colorFilter.getColor(colorCode: subjectItem.backgroundColor)
+            view.backgroundColor = colorPicker.getColor(subjectItem.backgroundColor).color
             view.layer.cornerRadius = 8
 
             let label = PaddingLabel(frame: CGRect(x: textEdgeInsets.left, y: textEdgeInsets.top, width: view.frame.width - textEdgeInsets.right, height: view.frame.height - textEdgeInsets.top))
@@ -516,20 +516,24 @@ public protocol TimeTableDataSource {
     
     public func getColorCount() -> Int{
         
+        let mainColorList = [9, 12, 6, 13, 10, 7, 14, 1, 5, 8]
+        
         var colorCount = 0
         
         let sortedSubjectItems = subjectItems.sorted(by: {$0.subjectIdx < $1.subjectIdx})
         
         if(sortedSubjectItems.count > 1){
             for i in 0 ... sortedSubjectItems.count - 2 {
-                if sortedSubjectItems[i].subjectName != sortedSubjectItems[i + 1].subjectName {
+                if sortedSubjectItems[i].subjectIdx != sortedSubjectItems[i + 1].subjectIdx {
                     colorCount += 1
                 }
             }
+            colorCount += 1
         }else if (sortedSubjectItems.count == 1){
             colorCount = 1
         }
-        return colorCount
+        
+        return mainColorList[colorCount]
     }
 }
 

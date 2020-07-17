@@ -9,7 +9,8 @@
 import UIKit
 
 
-class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate, TimeTableSettingViewControllerDelegate {
+class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate, TimeTableSettingViewControllerDelegate,CreateTimeTableViewControllerDelegate{
+  
    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var topDayView: UIView!
@@ -55,6 +56,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         
         nextVC.semester = timeTableInfo.semester
         nextVC.scheduleIdx = timeTableInfo.scheduleIdx
+        nextVC.delegate = self
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
         
@@ -140,6 +142,10 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         getTimeTableByIdx(idx: timeTableInfo.scheduleIdx)
     }
     
+    func updateMainFromEnrollSubject() {
+          getTimeTableByIdx(idx: timeTableInfo.scheduleIdx)
+      }
+      
     
     // MARK:- 통신
     
