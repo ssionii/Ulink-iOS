@@ -24,7 +24,7 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate ,UIPick
     private let viewHeight: CGFloat = 350
     private let hideBotViewHeight : CGFloat = 294
     
-    private var selectedWeekDay = 1
+    private var selectedWeekDay = 0
     private var startHour = "09"
     private var startMin = "00"
     private var endHour = "10"
@@ -128,7 +128,7 @@ class CustomPickerViewController: UIViewController, UIPickerViewDelegate ,UIPick
         
         switch component {
             case 0:
-                selectedWeekDay = row + 1
+                selectedWeekDay = row
                 break
             case 2:
                 startHour = hour[row]

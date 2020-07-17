@@ -693,6 +693,8 @@
                         <outlet property="pageControlDots" destination="jCv-6v-wth" id="KxA-oI-Rvr"/>
                         <outlet property="searchBackgroundHeight" destination="HHc-48-0qu" id="EfH-ns-K3T"/>
                         <outlet property="searchFilteHeight" destination="9wK-kX-KjQ" id="6Dq-Nk-KUP"/>
+                        <outlet property="searchFilterBorderHeight" destination="PFt-a1-gTb" id="3Ob-Ud-F3N"/>
+                        <outlet property="searchFilterBottomBorder" destination="fFh-nn-3Hr" id="sCe-zi-Kqu"/>
                         <outlet property="searchIconHeight" destination="wpw-4x-Vk3" id="7av-YK-6Nb"/>
                         <outlet property="searchLabel" destination="adk-a5-brS" id="BsQ-cG-oni"/>
                         <outlet property="searchLabelHeight" destination="vic-eX-sk5" id="Dv7-AF-JeL"/>

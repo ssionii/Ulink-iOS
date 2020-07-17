@@ -317,7 +317,7 @@ public protocol TimeTableDataSource {
             if i != 6 && self.baseXList[i] <= input_x && self.baseXList[i + 1] >= input_x {
                 
                 startPositionX = self.baseXList[i]
-                tempUserSchedule.weekDay = i + 1
+                tempUserSchedule.weekDay = i
                 break
             }
         }
