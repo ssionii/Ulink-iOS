@@ -1,8 +1,8 @@
 //
-//  NoticeService.swift
+//  MajorFilterService.swift
 //  ulink
 //
-//  Created by 송지훈 on 2020/07/14.
+//  Created by 송지훈 on 2020/07/17.
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
@@ -11,24 +11,24 @@ import Alamofire
 import SwiftyJSON
 
 
-struct NoticeDetailService {
+struct MajorFilterService{
     
     
-    static let shared = NoticeDetailService()
-
-
-    func getSubjectDetailNotice(noticeIdx: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
-        
-        
+    
+    
+    
+    static let shared = MajorFilterService()
+    
+    
+    func getMajorFilter(completion: @escaping (NetworkResult<Any>) -> Void) {
         
         guard let userToken = UserDefaults.standard.string(forKey: "token") else {return}
         
         let header: HTTPHeaders = ["token" : userToken,
                                    "Content-Type": "application/json"]
-        let noticeURL : String = APIConstants.subjectDetailNoticeURL + "/" + String(noticeIdx)
-        let dataRequest = Alamofire.request(noticeURL, method  : .get, encoding:
+        let chatURL : String = APIConstants.courseURL
+        let dataRequest = Alamofire.request(chatURL, method  : .get, encoding:
             JSONEncoding.default, headers: header)
-        
         
         dataRequest.responseData { dataResponse in
             switch dataResponse.result {
@@ -63,24 +63,34 @@ struct NoticeDetailService {
         
         let data = json["data"] as JSON
         
-
+        var filterList : [String] = []
         
-     
-            
-            let noticeModel = SubjectNoticeData(
-            idx: data["noticeIdx"].intValue,
-            Title: data["title"].stringValue,
-            start: data["startTime"].stringValue,
-            end: data["endTime"].stringValue,
-            dateTime: data["date"].stringValue,
-            contents: data["content"].stringValue
-            )
-            
+        
+        if(data.count > 0)
+        {
+            for i in 0 ... data.count - 1
+            {
+                filterList.append(data[i].stringValue)
                 
+            }
+        }
+        
+        
+        
+
+        
 
         
         
-        return .success(noticeModel,1)
+        return .success(filterList,data.count ) // 채팅 목록 리스트랑 갯수를 success 인자로 넘길거임
+        
+        
     }
+    
+    
+    
+    
+    
 }
+
 

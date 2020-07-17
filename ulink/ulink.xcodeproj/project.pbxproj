@@ -78,6 +78,7 @@
 		FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */; };
 		FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A824C0469800C2B44C /* io_login_img.gif */; };
 		FD1398AB24C0646000C2B44C /* NoticeDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */; };
+		FD1398AE24C100CF00C2B44C /* MajorFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -208,6 +209,7 @@
 		FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = io_ulink_splash.gif; sourceTree = "<group>"; };
 		FD1398A824C0469800C2B44C /* io_login_img.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = io_login_img.gif; sourceTree = "<group>"; };
 		FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDeleteService.swift; sourceTree = "<group>"; };
+		FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorFilterService.swift; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 		B52F9DE324BDA7D500B57CA1 /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
+				FD1398AC24C100BE00C2B44C /* Filter */,
 				B590A31324C0BFE0006637D0 /* Create */,
 				B590A31224C0BFD5006637D0 /* Main */,
 			);
@@ -510,6 +513,14 @@
 				B595298E24BCD592008139E6 /* CustomPickerViewController.swift */,
 			);
 			path = Create;
+			sourceTree = "<group>";
+		};
+		FD1398AC24C100BE00C2B44C /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		FD19DC0224AD016E000C2AEC /* API */ = {
@@ -1046,6 +1057,7 @@
 				FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */,
 				FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */,
 				FD7E7BEE24BF37CE007CF404 /* LoadChattingListService.swift in Sources */,
+				FD1398AE24C100CF00C2B44C /* MajorFilterService.swift in Sources */,
 				B51EC8AA24B1C6F400F3833B /* TimeTableModel.swift in Sources */,
 				299DACF024B70AFF008181FA /* EventModel.swift in Sources */,
 				FD7C731424BCC70B003ADAE8 /* LoginSuccessData.swift in Sources */,

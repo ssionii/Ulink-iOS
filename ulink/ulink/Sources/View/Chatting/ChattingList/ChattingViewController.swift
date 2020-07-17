@@ -428,6 +428,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         
         chattingRoomViewController.subjectIdx = self.chattingList[indexPath.row].subjectIdx
+        chattingRoomViewController.currentUserCount = self.chattingList[indexPath.row].current
         
         print("=====================================")
         print("채팅목록에서 채팅방으로 전달되는 title과 idx")

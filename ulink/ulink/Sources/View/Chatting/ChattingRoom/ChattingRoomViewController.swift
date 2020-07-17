@@ -48,6 +48,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     var observe : UInt?
     
     
+    var currentUserCount : Int = 3
+    
+    
     @IBOutlet weak var chattingTableView: UITableView!
 
     public var destinationUid : String? // 나중에 내가 채팅할 대상의 uid
@@ -551,11 +554,11 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             let dic = datasnapshot.value as! [String:Any]
             
             let numberInChattingRoom = dic.count - 1 // 몇 명 있는지 나타내는 변수
-            self.chattingUserNumberLabel.text  = String(numberInChattingRoom)
+            self.chattingUserNumberLabel.text  = String(self.currentUserCount)
+//            String(numberInChattingRoom)
             
     
         
-            self.chattingUserNumberLabel.text = String(numberInChattingRoom)
             
             
             
@@ -739,7 +742,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let noReadCount = dic.count - readCount! - 1
             
-            self.chattingUserNumberLabel.text  = String(dic.count - 1)
+            self.chattingUserNumberLabel.text  = String(self.currentUserCount)
 
             
             if(noReadCount > 0){
