@@ -13,10 +13,12 @@ import FirebaseDatabase
 
 
 
+
     
 class ChattingViewController: UIViewController {
         
     
+    @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var chattingListTable: UITableView!
 
 
@@ -65,7 +67,9 @@ class ChattingViewController: UIViewController {
         
         showIndicator()
 
-
+        
+        
+        self.chattingListTable.tableFooterView = footerView
 
     }
     
@@ -96,7 +100,7 @@ class ChattingViewController: UIViewController {
       {
           
           
-
+        
             LoadChattingListService.shared.getSubjectDetailNotice() { networkResult in
                 switch networkResult{
                     
@@ -252,6 +256,10 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let chattingCell = tableView.dequeueReusableCell(withIdentifier: ChattingTableViewCell.identifiers, for: indexPath) as? ChattingTableViewCell else {return UITableViewCell()}
+        
+        
+        
+        chattingCell.separatorInset = UIEdgeInsets.zero
         
         
         

@@ -63,8 +63,8 @@ struct NoticeDeleteService {
     
     private func isSubject(by json: JSON) -> NetworkResult<Any> {
         
-        let data = json["data"] as JSON
-        
+//        let data = json["data"] as JSON
+//
 
         
             
