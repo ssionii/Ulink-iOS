@@ -12,6 +12,7 @@ import Firebase
 import FirebaseAuth
 import Alamofire
 import SwiftyJSON
+import GIFImageView
 
 
 
@@ -23,9 +24,16 @@ import SwiftyJSON
 class LoginViewController: UIViewController {
     
 
-
+    @IBOutlet weak var loginImage: UIImageView!
+    
     @IBOutlet weak var mainLogoImage: UIImageView!
     @IBOutlet weak var viewTopConstraint: NSLayoutConstraint!
+    
+    
+    let image = UIImage.animatedImage(named: "io_login_img")
+     
+     
+    
 
     
     
@@ -52,6 +60,8 @@ class LoginViewController: UIViewController {
             
             self.navigationController?.navigationBar.isHidden = true
             
+            
+            self.loginImage.image = image
 
             
             
@@ -285,9 +295,24 @@ class LoginViewController: UIViewController {
                     let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                     alertViewController.addAction(action)
                     self.present(alertViewController, animated: true, completion: nil)
-                case .serverErr: print("serverErr")
-                case .networkFail: print("networkFail")
-                }
+                case .serverErr:
+                    
+                    let alertViewController = UIAlertController(title: "서버 오류", message: "서버 상태를 확인해주세요",
+                                                                preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
+                    
+                    
+                    
+                case .networkFail:
+                    
+                    
+                    let alertViewController = UIAlertController(title: "네트워크 오류", message: "네트워크 상태를 확인해주세요",
+                                                                preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    alertViewController.addAction(action)
+                    self.present(alertViewController, animated: true, completion: nil)
         }
         
         
@@ -321,4 +346,5 @@ class LoginViewController: UIViewController {
     }
     */
 
+    }
 }

@@ -229,6 +229,7 @@ public protocol TimeTableDataSource {
 
         if subjectItems.count >= 1 {
             for (index, subjectItem) in subjectItems.enumerated(){
+                
                 let tempStartTimeHour = Int(subjectItem.startTime[0].split(separator : ":")[0]) ?? 24
                 let tempEndTimeHour = Int(subjectItem.endTime[0].split(separator : ":")[0]) ?? 00
 
@@ -250,7 +251,7 @@ public protocol TimeTableDataSource {
         // subject 그리기
         for(index, subjectItem) in subjectItems.enumerated() {
             let dayCount = dataSource?.numberOfDays(in : self) ?? 6
-            let weekdayIndex = (subjectItem.subjectDay[0].rawValue - startDay.rawValue + dayCount) % dayCount
+            let weekdayIndex = (subjectItem.subjectDay[0] - startDay.rawValue + dayCount) % dayCount
 
             let subjectStartHour = Int(subjectItem.startTime[0].split(separator: ":")[0]) ?? 09
             let subjectStartMin = Int(subjectItem.startTime[0].split(separator: ":")[1]) ?? 00
@@ -316,7 +317,7 @@ public protocol TimeTableDataSource {
             if i != 6 && self.baseXList[i] <= input_x && self.baseXList[i + 1] >= input_x {
                 
                 startPositionX = self.baseXList[i]
-                tempUserSchedule.weekDay = TimeTableDay(rawValue: i + 1)!
+                tempUserSchedule.weekDay = i + 1
                 break
             }
         }
@@ -518,8 +519,6 @@ public protocol TimeTableDataSource {
         var colorCount = 0
         
         let sortedSubjectItems = subjectItems.sorted(by: {$0.subjectIdx < $1.subjectIdx})
-        
-        print("sortedSubjectItems: \(sortedSubjectItems)")
         
         if(sortedSubjectItems.count > 1){
             for i in 0 ... sortedSubjectItems.count - 2 {

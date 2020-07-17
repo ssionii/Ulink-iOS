@@ -32,7 +32,7 @@ class SubjectTimeInfoCell: UITableViewCell {
 
     }
     
-    public func setTimeInfoText(weekDay: TimeTableDay, start: String, end: String){
+    public func setTimeInfoText(weekDay: Int, start: String, end: String){
         
         var startTime = start
         var endTime = end
@@ -44,7 +44,7 @@ class SubjectTimeInfoCell: UITableViewCell {
             endTime = start
         }
         
-        switch weekDay.rawValue {
+        switch weekDay {
         case 1:
             resultText = "월 "
             break

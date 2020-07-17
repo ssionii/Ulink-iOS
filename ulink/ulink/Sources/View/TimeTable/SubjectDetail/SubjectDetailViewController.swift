@@ -129,12 +129,12 @@ class SubjectDetailViewController: UIViewController {
          dismiss(animated: true, completion: nil)
     }
     
-    private func makeTimeInfo(day : [TimeTableDay], startTime : [String], endTime : [String]) -> String {
+    private func makeTimeInfo(day : [Int], startTime : [String], endTime : [String]) -> String {
         
         var result = ""
         
         for (index, d) in day.enumerated() {
-            switch d.rawValue {
+            switch d {
             case 0:
                 result += "월 "
                 break

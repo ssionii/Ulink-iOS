@@ -7,6 +7,7 @@ class NoticeViewController: UIViewController {
     @IBOutlet weak var noticeScrollView: UIScrollView!
     @IBOutlet weak var hwNoticeTableView: UITableView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var testNoticeTableView: UITableView!
     
     @IBOutlet weak var classNoticeTableView: UITableView!
@@ -22,9 +23,14 @@ class NoticeViewController: UIViewController {
         loadNoticeData()
         super.viewDidLoad()
         
+        
+        self.titleLabel.text = roomtitle + " 공지"
+        
     
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load2"), object: nil)
+        
  
         
 
@@ -42,6 +48,17 @@ class NoticeViewController: UIViewController {
         
         classNoticeTableView.delegate = self
         classNoticeTableView.dataSource = self
+        
+        
+//        vc.roomtitle = tempTitle ?? "공지"
+//        vc.subjectIDX = subjectIdx
+        print("=====================================")
+        print("현재 공지뷰에 있는 정보")
+        print("subject IDX : \(self.subjectIDX)")
+        print("과목 이름 : \(self.roomtitle)")
+        print("=====================================")
+        
+        
 //        classNoticeTableView.register(UITableViewCell.self, forCellReuseIdentifier: "noticeCellThree")
 //
 
@@ -92,7 +109,7 @@ class NoticeViewController: UIViewController {
         guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else { return }
         
 
-        chattingRoomViewController.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
+        chattingRoomViewController.subjectIdx = self.subjectIDX // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
                
         
         chattingRoomViewController.categoryIdx = 1
@@ -107,7 +124,7 @@ class NoticeViewController: UIViewController {
         
         
         
-        chattingRoomViewController.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
+        chattingRoomViewController.subjectIdx = self.subjectIDX // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
 
         chattingRoomViewController.categoryIdx = 2
         
@@ -119,7 +136,7 @@ class NoticeViewController: UIViewController {
         
         guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "NoticeDetailViewController") as? NoticeDetailViewController else { return }
         
-        chattingRoomViewController.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
+        chattingRoomViewController.subjectIdx = self.subjectIDX // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!!
 
         
         chattingRoomViewController.categoryIdx = 3
@@ -152,9 +169,8 @@ class NoticeViewController: UIViewController {
     @IBAction func homeButtonClicked(_ sender: Any) {
         
         
-     let homevc = self.storyboard?.instantiateViewController(identifier: "homeTabBarController")
-        
-        present(homevc!, animated: true, completion: nil)
+                self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.selectedIndex = 2
     }
     
     
@@ -162,7 +178,7 @@ class NoticeViewController: UIViewController {
         
         
         
-        NoticeService.shared.getSubjectNotice(subjectIdx: 1) { networkResult in
+        NoticeService.shared.getSubjectNotice(subjectIdx: 3) { networkResult in
             switch networkResult{
                 
             case .success(let noticeList, let numberOfNotice):
@@ -344,7 +360,6 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
                 
                 else { return UITableViewCell() }
             
-            print(testNoticeInfoArray)
             
             
             noticeCell.setInformation(
@@ -428,11 +443,14 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
             noticeViewController.noticeIdx = hwNoticeInfoArray[indexPath.row].noticeIdx
             
-            noticeDetailVC.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
+            noticeViewController.subjectIDX = self.subjectIDX
             
-            print("지금 뭐여")
-            print(hwNoticeInfoArray[indexPath.row].noticeIdx)
-            noticeViewController.cateogoryIdx = hwNoticeInfoArray[indexPath.row].noticeIdx
+            print("=====================================")
+            print("셀을 눌러서 공지 상세보기로 넘기는 정보")
+            print("현재 클릭한 공지의 idx : \(hwNoticeInfoArray[indexPath.row].noticeIdx)")
+            print("현재 클릭한 공지의 과목 idx : \(self.subjectIDX)")
+            print("=====================================")
+            noticeViewController.cateogoryIdx = 1
             
             
             
@@ -441,11 +459,17 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
         else if tableView == testNoticeTableView{
             
-            print("지금 뭐여2")
+
             
             noticeDetailVC.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
             noticeViewController.noticeIdx = testNoticeInfoArray[indexPath.row].noticeIdx
             noticeViewController.cateogoryIdx = 2
+            
+            print("=====================================")
+            print("셀을 눌러서 공지 상세보기로 넘기는 정보")
+            print("현재 클릭한 공지의 idx : \(testNoticeInfoArray[indexPath.row].noticeIdx)")
+            print("현재 클릭한 공지의 과목 idx : \(self.subjectIDX)")
+            print("=====================================")
             
         }
         
@@ -453,13 +477,18 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         else{
             
             
-            
-            print("지금 뭐여3")
-            
+    
             
             noticeDetailVC.subjectIdx = 1 // 과목 idx 부분인데 나중에 채팅창이랑 연동하면서 수정해야함!!
             noticeViewController.noticeIdx = classNoticeInfoArray[indexPath.row].noticeIdx
             noticeViewController.cateogoryIdx = 3
+            
+            
+            print("=====================================")
+            print("셀을 눌러서 공지 상세보기로 넘기는 정보")
+            print("현재 클릭한 공지의 idx : \(classNoticeInfoArray[indexPath.row].noticeIdx)")
+            print("현재 클릭한 공지의 과목 idx : \(self.subjectIDX)")
+            print("=====================================")
             
         }
         

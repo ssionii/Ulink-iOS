@@ -1,9 +1,9 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
       "filename" : "ioMainSettingIcEdit.png",
-      "scale" : "1x",
-      "idiom" : "universal"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

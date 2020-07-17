@@ -8,6 +8,9 @@ import SideMenu
 
 
 
+extension NSNotification.Name {
+    static let goToSideMenu = NSNotification.Name(rawValue: "goToSideMenu")
+}
 class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     
@@ -52,23 +55,33 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     public var chattingRoomTitle : String?
 
 
+    //tempTitle
     
     
-    
-    private func addObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(goNextView(_:)), name: .clickSideButton, object: nil)
-    }
-    
-    @objc func goNextView(_ notification: NSNotification) {
-        let storyboard = UIStoryboard(name:"Chatting", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
+        private func addObserver() {
+            NotificationCenter.default.addObserver(self, selector: #selector(goNextView(_:)), name: .clickSideButton, object: nil)
+        }
         
-        
-        vc.roomtitle = tempTitle ?? "공지"
-        vc.subjectIDX = subjectIdx
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+        @objc func goNextView(_ notification: NSNotification) {
+            let storyboard = UIStoryboard(name:"Chatting", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
+            
+            
+            
+            
+            print("=====================================")
+            print("현재 채팅방에서 공지방으로 넘기는 정보")
+            print("과목 이름 : \(self.tempTitle!)")
+            print("과목 인덱스 : \(self.subjectIdx)")
     
+            print("=====================================")
+            
+            
+            vc.roomtitle = tempTitle ?? "공지"
+            vc.subjectIDX = subjectIdx
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     //MARK:- Life Cycle 부분
     override func viewDidLoad() {
             
@@ -83,6 +96,15 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
 
         uid = UserDefaults.standard.string(forKey: "uid")
+        
+        
+        
+        print("=====================================")
+        print("현재 채팅방의 정보")
+        print("과목 이름 : \(self.tempTitle!)")
+        print("과목 인덱스 : \(self.subjectIdx)")
+        print("=====================================")
+        
         
         
   
@@ -359,6 +381,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
     @IBAction func sideMenuClicked(_ sender : Any) {
         
+//
+//
+//        NotificationCenter.default.post(name: .goToSideMenu, object: nil)
+        
         let vc = storyboard!.instantiateViewController(withIdentifier: "chattingSideViewController") as! rightSideMenuViewController                    // UIViewController 지정해주고
         let menu = SideMenuNavigationController(rootViewController: vc)     // rootViewController에 넣어준다
         
@@ -371,6 +397,10 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         menu.presentDuration = 0.8 //  나타내는거 보여주는데 걸리는 시간
         menu.dismissDuration = 0.8 //  사라지는ep 보여주는데 걸리는 시간
         menu.completionCurve = .easeInOut
+        
+        
+
+    
         
   
 //
@@ -398,6 +428,12 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         self.present(menu, animated: true, completion: nil)
         
 
+    }
+    
+    
+    func protocolTitleData(data: String){
+        
+        
     }
     
     
