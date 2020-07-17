@@ -21,6 +21,39 @@ public protocol TimeTableDataSource {
     func subjectItems(in timeTable: TimeTable) -> [SubjectModel]
 }
 
+public func getWidth() -> Int{
+    
+    let bounds = UIScreen.main.bounds
+    let height = bounds.size.height
+    
+    switch height{
+        
+    case 450.0 ... 667.0 : // 6 6s 7 8
+        
+        print("2번")
+        return 19
+        
+    case 730.0 ... 810.0: // 6s+, 7+ 8+
+        print("3번")
+        return 19
+        
+    case 812.0 ... 890.0: //X, XS
+        print("4번")
+        //11pro
+        return 19
+    
+    case 896.0:         // XS MAX
+        print("5번")
+        //11
+        return 32
+        
+    default:
+        print("6번")
+        return 19
+        
+    }
+}
+
 @IBDesignable public class TimeTable : UIView {
     public var controller = TimeTableController()
     public var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -114,7 +147,12 @@ public protocol TimeTableDataSource {
         return daySymbolText
     }
     
-    @IBInspectable public var widthOfTimeAxis = CGFloat(19){
+    // 성은아 여기야
+    // 19 * 32
+    
+    
+    
+    @IBInspectable public var widthOfTimeAxis = CGFloat(getWidth()){
            didSet {
             makeTimeTable() }
        }

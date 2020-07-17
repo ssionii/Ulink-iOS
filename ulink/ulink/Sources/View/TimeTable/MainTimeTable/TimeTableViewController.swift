@@ -23,6 +23,8 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     private var isFirstOpen = true
     
+    @IBOutlet weak var weekSpacing: NSLayoutConstraint!
+    
     @IBAction func settingBtn(_ sender: UIButton) {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "timeTableSettingViewController") as? TimeTableSettingViewController else { return }
         
@@ -65,7 +67,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        setSpacingForDevice()
         // Do any additional setup after loading the view.
         
         timeTable.delegate = self
@@ -89,7 +91,8 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         
         let gradientLayer = CAGradientLayer()
         
-        gradientLayer.frame = self.backgroundView.bounds
+        //gradientLayer.frame = self.backgroundView.bounds
+        gradientLayer.frame = self.view.bounds
         
         let colorLeft = UIColor(red: 127.0 / 255.0, green: 36.0 / 255.0, blue: 252.0 / 255.0, alpha: 1.0).cgColor
         let colorRight = UIColor(red: 95.0 / 255.0, green: 93.0 / 255.0, blue: 234.0 / 255.0, alpha: 1.0).cgColor
@@ -146,6 +149,42 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
           getTimeTableByIdx(idx: timeTableInfo.scheduleIdx)
       }
       
+    func setSpacingForDevice()
+    {
+        
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+        
+        switch height{
+            
+        case 450.0 ... 667.0 : // 6 6s 7 8
+            
+            self.weekSpacing.constant = 53
+            
+            break
+            
+        case 730.0 ... 810.0: // 6s+, 7+ 8+
+            self.weekSpacing.constant = 53
+            break
+            
+        case 812.0 ... 890.0: //X, XS
+            
+            //11pro
+            self.weekSpacing.constant = 53
+            
+            break
+        
+        case 896.0:         // XS MAX
+            //11
+            self.weekSpacing.constant = 65
+            break
+           
+        default:
+            break
+            
+        }
+        
+    }
     
     // MARK:- 통신
     
