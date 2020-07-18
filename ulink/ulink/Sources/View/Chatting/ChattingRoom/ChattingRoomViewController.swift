@@ -26,6 +26,8 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     @IBOutlet weak var chattingUserNumberLabel: UILabel! // 현재 채팅방에 몇명 있는지 나타내는 라벨
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var textFieldWidth: NSLayoutConstraint!
+    
     var uid : String?
     var chatRoomUid : String?
 
@@ -92,6 +94,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         
         setBorder()
           
+        setTFwidth()
         
         super.viewDidLoad()
         addObserver()
@@ -149,7 +152,46 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         // Do any additional setup after loading the view.
     }
     
-    
+    func setHeightForDevice()
+    {
+        
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+        
+        switch height{
+            
+        case 450.0 ... 667.0 : // 6 6s 7 8
+            
+            self.textFieldWidth.constant = 310
+            break
+            
+        case 730.0 ... 810.0: // 6s+, 7+ 8+
+            self.textFieldWidth.constant = 310
+            break
+            
+        case 812.0 ... 890.0: //X, XS
+            
+            self.textFieldWidth.constant = 310
+            break
+        
+        case 896.0:         // XS MAX
+            
+            self.textFieldWidth.constant = 350
+            break
+            
+            
+            
+            
+        
+            
+            
+            
+        default:
+            break
+            
+        }
+        
+    }
     
     
     
@@ -168,7 +210,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
-    func setHeightForDevice()
+    func setTFwidth()
     {
         
         let bounds = UIScreen.main.bounds

@@ -43,6 +43,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var standardFilterHeight: NSLayoutConstraint!
     @IBOutlet weak var searchFilterBorderHeight: NSLayoutConstraint!
     
+    
     public var delegate : CreateTimeTableViewControllerDelegate?
 
     @IBOutlet weak var searchLabel: UILabel!
@@ -175,6 +176,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         subjectInfoTableView.dataSource = self
         subjectInfoTableView.delegate = self
+        
        
     }
     
@@ -371,8 +373,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
            indexPath: IndexPath) -> CGSize {
-//           return CGSize(width: collectionView.frame.width - 22, height: collectionView.frame.height)
-        return CGSize(width: self.view.bounds.width - 22, height: collectionView.frame.height)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        //return CGSize(width: self.view.bounds.width - 22, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
