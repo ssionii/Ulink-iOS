@@ -94,7 +94,24 @@ class NoticeEditViewController: UIViewController {
               }
             
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+     
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                       
+                       self.dismiss(animated: true, completion: nil)
+                   
+                   }
+                   
+                   
+                   
+                   DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    
+             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+
+                    self.navigationController?.popViewController(animated: true)
+                   
+                   }
 
               
                 

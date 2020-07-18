@@ -268,9 +268,25 @@ class NoticeEditModeViewController: UIViewController {
                                          
                                 
                                 
+
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                                    
+                                    self.dismiss(animated: true, completion: nil)
+                                
+                                }
                                 
                                 
-                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load2"), object: nil)
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    
+                                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load2"), object: nil)
+                                    
+                                    self.dismiss(animated: true, completion: nil)
+                                
+                                }
+
+                                
+                                
 
                                 
                                          
@@ -369,14 +385,34 @@ class NoticeEditModeViewController: UIViewController {
                     }
                     
                     
-
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modifyLoad"), object: nil)
-
+//
+//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modifyLoad"), object: nil)
+//
+//
+//                    
+//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load2"), object: nil)
 
                     
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load2"), object: nil)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                               
+                               self.dismiss(animated: true, completion: nil)
+                           
+                           }
+                           
+                           
+                           
+                           DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modifyLoad"), object: nil)
 
-                    
+                               
+                               NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load2"), object: nil)
+                               
+                               self.dismiss(animated: true, completion: nil)
+                           
+                           }
+
+                           
                              
                              
                          }
@@ -453,7 +489,7 @@ class NoticeEditModeViewController: UIViewController {
         let doneButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(doneTimePicker))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancleTimePicker))
-        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: true)
+        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: true)
         
         toolbar.tintColor = .mainColor
         
@@ -629,7 +665,7 @@ class NoticeEditModeViewController: UIViewController {
         let doneButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(donedatePicker))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelDatePicker))
-        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
         
         toolbar.tintColor = .mainColor
         

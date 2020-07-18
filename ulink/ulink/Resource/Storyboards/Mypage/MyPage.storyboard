@@ -10,7 +10,7 @@
         <!--내정보-->
         <scene sceneID="y03-cf-sBI">
             <objects>
-                <viewController storyboardIdentifier="mypageStoryBoard" id="iGr-js-AHK" customClass="MyPageViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mypageStoryBoard" id="iGr-js-AHK" customClass="MyPageViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vGA-CM-lyi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,14 +52,14 @@
                                                             <constraint firstAttribute="width" constant="90" id="dFw-Nb-ts6"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김철수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbg-aJ-g7d">
-                                                        <rect key="frame" x="145.5" y="137" width="52" height="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="혜화동 불주먹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbg-aJ-g7d">
+                                                        <rect key="frame" x="117.5" y="137" width="108.5" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱잼 화이팅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntb-2c-QP7">
-                                                        <rect key="frame" x="139.5" y="172" width="64.5" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다들 앱잼 고생하셨습니당" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntb-2c-QP7">
+                                                        <rect key="frame" x="101" y="172" width="141" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -126,7 +126,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fO-lc-P2Y">
-                                                        <rect key="frame" x="207" y="162" width="30" height="36"/>
+                                                        <rect key="frame" x="245" y="162" width="30" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="cH5-sM-dLQ"/>
                                                             <constraint firstAttribute="height" constant="36" id="eKN-1D-qp3"/>
