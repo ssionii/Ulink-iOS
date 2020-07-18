@@ -259,7 +259,18 @@ class NoticeViewController: UIViewController {
     
     
     @IBAction func backButtonClicked(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        
+        
+                self.tabBarController?.tabBar.isHidden = false
+        
+        let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+
+
+
+        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 3 ], animated: false)
+
+        
+
     }
     
     @IBAction func AddNoticeButtonClicked(_ sender: Any) {

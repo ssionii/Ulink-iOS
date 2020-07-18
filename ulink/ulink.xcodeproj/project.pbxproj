@@ -19,7 +19,6 @@
 		299DA9FA24C0327F00F023FD /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F524C0327F00F023FD /* Search.storyboard */; };
 		299DA9FB24C0327F00F023FD /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F624C0327F00F023FD /* Review.storyboard */; };
 		299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9FC24C0328E00F023FD /* MyPage.storyboard */; };
-		299DA9FF24C0329500F023FD /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9FE24C0329500F023FD /* Chatting.storyboard */; };
 		299DACF024B70AFF008181FA /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACEF24B70AFF008181FA /* EventModel.swift */; };
 		299DACF224B785FE008181FA /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF124B785FE008181FA /* EventListViewController.swift */; };
 		299DACF424B78785008181FA /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF324B78785008181FA /* EventCell.swift */; };
@@ -79,6 +78,7 @@
 		FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A824C0469800C2B44C /* io_login_img.gif */; };
 		FD1398AB24C0646000C2B44C /* NoticeDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */; };
 		FD1398AE24C100CF00C2B44C /* MajorFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */; };
+		FD1398B024C28A8A00C2B44C /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1398AF24C28A8A00C2B44C /* Chatting.storyboard */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -148,7 +148,6 @@
 		299DA9F524C0327F00F023FD /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		299DA9F624C0327F00F023FD /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		299DA9FC24C0328E00F023FD /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
-		299DA9FE24C0329500F023FD /* Chatting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		299DACEF24B70AFF008181FA /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventModel.swift; path = ulink/Sources/View/Calendar/EventModel.swift; sourceTree = SOURCE_ROOT; };
 		299DACF124B785FE008181FA /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		299DACF324B78785008181FA /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		FD1398A824C0469800C2B44C /* io_login_img.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = io_login_img.gif; sourceTree = "<group>"; };
 		FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDeleteService.swift; sourceTree = "<group>"; };
 		FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorFilterService.swift; sourceTree = "<group>"; };
+		FD1398AF24C28A8A00C2B44C /* Chatting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -846,7 +846,7 @@
 		FD7E7C0224C0005D007CF404 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
-				299DA9FE24C0329500F023FD /* Chatting.storyboard */,
+				FD1398AF24C28A8A00C2B44C /* Chatting.storyboard */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -985,6 +985,7 @@
 				299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */,
 				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
 				FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */,
+				FD1398B024C28A8A00C2B44C /* Chatting.storyboard in Resources */,
 				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
 				299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */,
 				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
@@ -993,7 +994,6 @@
 				299DA9F824C0327F00F023FD /* Filter.storyboard in Resources */,
 				299DA9F924C0327F00F023FD /* CreateTimeTable.storyboard in Resources */,
 				FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */,
-				299DA9FF24C0329500F023FD /* Chatting.storyboard in Resources */,
 				299DA9F724C0327F00F023FD /* Alarm.storyboard in Resources */,
 				FD45F25624AA591300F304BD /* Main.storyboard in Resources */,
 				299DA9FA24C0327F00F023FD /* Search.storyboard in Resources */,

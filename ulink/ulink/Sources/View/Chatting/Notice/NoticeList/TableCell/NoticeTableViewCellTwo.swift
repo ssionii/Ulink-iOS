@@ -43,7 +43,7 @@ class NoticeTableViewCellTwo: UITableViewCell {
          
          if end == "-1"
          {
-             subtitle = ""
+             subtitle = start
          }
          
     

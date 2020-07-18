@@ -286,8 +286,6 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         {
             colorString = String(chattingList[indexPath.row].color + 1)
         }
-
-        
         
         print("colorString = \(colorString)")
         if let img = UIImage(named: "ioClassImg" + colorString)
@@ -355,8 +353,11 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         self.array_class = self.array_class.sorted(by: {$0.className! < $1.className!})
 
-//        print("Array : \(array_class)")
-    
+        
+        
+        
+        
+            // 1번1번 여기서 채팅방 주소 변경
         chattingRoomViewController.destinationUid = "-MBcSPAQKDDOsT2u4UfX"
         chattingRoomViewController.tempTitle = self.chattingList[indexPath.row].name
         
@@ -372,44 +373,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
         
         
     
-        print(chattingList[indexPath.row].subjectIdx)
-        
-//
-//                    self.count = 0
-//                    print("현재 선택한 row : \(indexPath.row)")
-//
-//                    for index in dic{
-//
-//                        if indexPath.row == self.count{
-//                            print("uid 전달!!")
-//                            print("Current Count : \(self.count)")
-//                            print("전달된 key 값 : \(index.key)")
-//
-//
-//                            chattingRoomViewController.chattingRoomTitle = index.value["title"] as? String ?? "title 전달이 안됩니다.."
-//                            print("전달된 title 값:  \(index.value["title"] as? String ?? "title 전달이 안됩니다..")")
-//                            chattingRoomViewController.destinationUid = index.key
-//
-//
-//                            self.count = self.count + 1
-//
-//                        }
-//                       else{
-//                            self.count = self.count + 1
-//                        }
-//
-//                    }
-//
-//
-//
-//
-//
-//                }
 
-        
-
-//        chattingRoomViewController.destinationUid = self.array[indexPath.row].uid
-        
         
         
         self.navigationController?.pushViewController(chattingRoomViewController, animated: true)

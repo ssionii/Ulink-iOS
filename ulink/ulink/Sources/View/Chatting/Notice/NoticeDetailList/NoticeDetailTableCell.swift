@@ -93,7 +93,7 @@ class NoticeDetailTableCell: UITableViewCell {
         
         if end == "-1"
         {
-            subtitle = ""
+            subtitle = start
         }
         
         
