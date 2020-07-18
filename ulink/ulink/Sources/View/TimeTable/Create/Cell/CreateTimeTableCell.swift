@@ -34,9 +34,9 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
         
         setSpacingForDevice()
         contentBackgroundView.layer.cornerRadius = 30
-        contentBackgroundWidth.constant = UIScreen.main.bounds.size.width - 22
+        //contentBackgroundWidth.constant = UIScreen.main.bounds.size.width - 22
         
-        timeTableWidthConstant.constant = UIScreen.main.bounds.size.width - 22
+        //timeTableWidthConstant.constant = UIScreen.main.bounds.size.width - 22
            setTimeTable()
         
            timeTable.delegate = self

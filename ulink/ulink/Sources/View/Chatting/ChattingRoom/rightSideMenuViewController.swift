@@ -37,6 +37,41 @@ class rightSideMenuViewController: UIViewController {
     
     
     
+    @IBAction func setButtonClicked(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "", message: "이후 릴리즈 단계에서 구현될 기능입니다", preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func setAlarmclicked(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "", message: "이후 릴리즈 단계에서 구현될 기능입니다", preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func exitButtonClicked(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "", message: "이후 릴리즈 단계에서 구현될 기능입니다", preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    
+    
     @objc func setTitleLabel(_ notification: NSNotification) {
         
 
@@ -76,8 +111,32 @@ class rightSideMenuViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(goToNoticePage(sender:)))
         self.noticeBlock.addGestureRecognizer(gesture)
         
+        let gesture1 = UITapGestureRecognizer(target: self, action: #selector(alertMessage(sender:)))
+        
+        let gesture2 = UITapGestureRecognizer(target: self, action: #selector(alertMessage(sender:)))
+        
+        let gesture3 = UITapGestureRecognizer(target: self, action: #selector(alertMessage(sender:)))
+        
+        self.fileBlock.addGestureRecognizer(gesture1)
+        self.photoBlock.addGestureRecognizer(gesture2)
+        self.QnABlock.addGestureRecognizer(gesture3)
+        
         
     }
+    
+    
+    
+    @objc func alertMessage(sender:UIGestureRecognizer)
+    {
+        let alert = UIAlertController(title: "", message: "이후 릴리즈 단계에서 구현될 기능입니다", preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
     
     
     @objc func goToNoticePage(sender:UIGestureRecognizer)

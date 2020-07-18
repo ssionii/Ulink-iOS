@@ -11,7 +11,7 @@
         <!--createTimeTableViewController-->
         <scene sceneID="s78-4N-S9P">
             <objects>
-                <viewController storyboardIdentifier="createTimeTableViewController" title="createTimeTableViewController" modalPresentationStyle="fullScreen" id="xxJ-Km-bp8" customClass="CreateTimeTableViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createTimeTableViewController" title="createTimeTableViewController" modalPresentationStyle="fullScreen" id="xxJ-Km-bp8" customClass="CreateTimeTableViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6hc-1W-0U7" userLabel="Top View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="createNewSheetCell" reuseIdentifier="createNewSheetCell" id="b7U-El-0iL" customClass="CreateNewSheetCell" customModule="ulink" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="createNewSheetCell" reuseIdentifier="createNewSheetCell" id="b7U-El-0iL" customClass="CreateNewSheetCell" customModule="유링크" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="324"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="a3c-JG-Q5M">
@@ -93,57 +93,57 @@
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                             </collectionViewCell>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createTimeTableCell" id="amV-Yx-bbi" userLabel="TimeTable Cell" customClass="CreateTimeTableCell" customModule="ulink" customModuleProvider="target">
-                                                <rect key="frame" x="375" y="0.0" width="375" height="324"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createTimeTableCell" id="amV-Yx-bbi" userLabel="TimeTable Cell" customClass="CreateTimeTableCell" customModule="유링크" customModuleProvider="target">
+                                                <rect key="frame" x="363" y="0.0" width="353" height="324"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TaW-H7-lQe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="324"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLV-GJ-L0c">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="353" height="324"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간표 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkf-q7-J0U">
-                                                                    <rect key="frame" x="151" y="13" width="73.5" height="19.5"/>
+                                                                    <rect key="frame" x="140" y="13" width="73.5" height="19.5"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                                     <color key="textColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYP-yr-fMY" userLabel="TopDayView">
-                                                                    <rect key="frame" x="0.0" y="36.5" width="375" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="36.5" width="353" height="38"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioMainBgTop" translatesAutoresizingMaskIntoConstraints="NO" id="SAn-wx-uSE">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="353" height="38"/>
                                                                         </imageView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-QP-9hT">
-                                                                            <rect key="frame" x="36" y="0.0" width="286" height="38"/>
+                                                                            <rect key="frame" x="53" y="0.0" width="264" height="38"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBe-AJ-DM2">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="17" height="38"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="13" height="38"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                                     <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIt-h9-XoT">
-                                                                                    <rect key="frame" x="67" y="0.0" width="17.5" height="38"/>
+                                                                                    <rect key="frame" x="63" y="0.0" width="12.5" height="38"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                                     <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4D-YY-7SB">
-                                                                                    <rect key="frame" x="134.5" y="0.0" width="17" height="38"/>
+                                                                                    <rect key="frame" x="125.5" y="0.0" width="13" height="38"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                                     <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSU-Oi-bEe">
-                                                                                    <rect key="frame" x="201.5" y="0.0" width="17.5" height="38"/>
+                                                                                    <rect key="frame" x="188.5" y="0.0" width="12.5" height="38"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                                     <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAE-KE-KhA">
-                                                                                    <rect key="frame" x="269" y="0.0" width="17" height="38"/>
+                                                                                    <rect key="frame" x="251" y="0.0" width="13" height="38"/>
                                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                                     <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
@@ -157,27 +157,24 @@
                                                                         <constraint firstAttribute="height" constant="38" id="A9i-Pq-UcV"/>
                                                                         <constraint firstAttribute="bottom" secondItem="SAn-wx-uSE" secondAttribute="bottom" id="NlJ-Yy-Bba"/>
                                                                         <constraint firstAttribute="bottom" secondItem="QTp-QP-9hT" secondAttribute="bottom" id="TBv-Ud-ioy"/>
-                                                                        <constraint firstItem="QTp-QP-9hT" firstAttribute="leading" secondItem="GYP-yr-fMY" secondAttribute="leading" constant="36" id="UO2-SN-PdS"/>
+                                                                        <constraint firstItem="QTp-QP-9hT" firstAttribute="leading" secondItem="GYP-yr-fMY" secondAttribute="leading" constant="53" id="UO2-SN-PdS"/>
                                                                         <constraint firstAttribute="trailing" secondItem="SAn-wx-uSE" secondAttribute="trailing" id="ie5-hq-zXz"/>
                                                                         <constraint firstItem="SAn-wx-uSE" firstAttribute="leading" secondItem="GYP-yr-fMY" secondAttribute="leading" id="ive-Bp-mh7"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="QTp-QP-9hT" secondAttribute="trailing" constant="53" id="mo9-U8-NLJ"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="QTp-QP-9hT" secondAttribute="trailing" constant="36" id="mo9-U8-NLJ"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAd-PV-1qt" customClass="TimeTable" customModule="ulink" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="74.5" width="375" height="249.5"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAd-PV-1qt" customClass="TimeTable" customModule="유링크" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="74.5" width="353" height="249.5"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="375" id="ept-DX-uOu"/>
-                                                                    </constraints>
                                                                 </view>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="324" id="0Mx-rL-VMe"/>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="5jh-a4-v7O"/>
                                                                 <constraint firstItem="BAd-PV-1qt" firstAttribute="top" secondItem="GYP-yr-fMY" secondAttribute="bottom" id="8sM-ZE-cMk"/>
                                                                 <constraint firstItem="Nkf-q7-J0U" firstAttribute="centerX" secondItem="oLV-GJ-L0c" secondAttribute="centerX" id="A5u-9y-lWL"/>
                                                                 <constraint firstItem="BAd-PV-1qt" firstAttribute="leading" secondItem="oLV-GJ-L0c" secondAttribute="leading" id="AY1-kw-8Cy"/>
+                                                                <constraint firstAttribute="width" constant="353" id="Ldi-iF-bqT"/>
                                                                 <constraint firstAttribute="bottom" secondItem="BAd-PV-1qt" secondAttribute="bottom" id="ULt-z6-fZs"/>
                                                                 <constraint firstAttribute="trailing" secondItem="BAd-PV-1qt" secondAttribute="trailing" id="Wfg-Ee-Ehx"/>
                                                                 <constraint firstItem="Nkf-q7-J0U" firstAttribute="top" secondItem="oLV-GJ-L0c" secondAttribute="top" constant="13" id="arP-2g-EDS"/>
@@ -190,16 +187,16 @@
                                                     <constraints>
                                                         <constraint firstItem="oLV-GJ-L0c" firstAttribute="leading" secondItem="TaW-H7-lQe" secondAttribute="leading" id="0dc-Ii-aa8"/>
                                                         <constraint firstItem="oLV-GJ-L0c" firstAttribute="top" secondItem="TaW-H7-lQe" secondAttribute="top" id="JRJ-aL-h5S"/>
+                                                        <constraint firstItem="oLV-GJ-L0c" firstAttribute="width" secondItem="TaW-H7-lQe" secondAttribute="width" id="Y2j-6i-y4M"/>
                                                         <constraint firstAttribute="bottom" secondItem="oLV-GJ-L0c" secondAttribute="bottom" id="a3G-3b-K6z"/>
+                                                        <constraint firstItem="BAd-PV-1qt" firstAttribute="width" secondItem="TaW-H7-lQe" secondAttribute="width" id="dUB-79-PfH"/>
                                                         <constraint firstAttribute="trailing" secondItem="oLV-GJ-L0c" secondAttribute="trailing" id="f6y-qN-kVF"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <connections>
                                                     <outlet property="contentBackgroundView" destination="oLV-GJ-L0c" id="Zld-cz-la3"/>
-                                                    <outlet property="contentBackgroundWidth" destination="5jh-a4-v7O" id="hPP-qM-bua"/>
                                                     <outlet property="timeTable" destination="BAd-PV-1qt" id="kMT-vz-s7L"/>
                                                     <outlet property="timeTableNameLabel" destination="Nkf-q7-J0U" id="Ebg-7S-5dt"/>
-                                                    <outlet property="timeTableWidthConstant" destination="ept-DX-uOu" id="OZr-hG-ytS"/>
                                                     <outlet property="weekSpacing" destination="UO2-SN-PdS" id="dnq-hL-J4O"/>
                                                 </connections>
                                             </collectionViewCell>
@@ -217,7 +214,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEf-RB-OBB">
                                         <rect key="frame" x="11" y="376" width="392" height="41"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timetableaddFilterandsearchBadakbg" translatesAutoresizingMaskIntoConstraints="NO" id="re6-0b-V6W">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timetableaddFilterandsearchBadakbg" translatesAutoresizingMaskIntoConstraints="NO" id="re6-0b-V6W">
                                                 <rect key="frame" x="0.0" y="0.0" width="392" height="41"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pqw-wC-fRS">
@@ -441,7 +438,7 @@
                                                 <color key="separatorColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <inset key="separatorInset" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="subjectInfoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="subjectInfoCell" id="oq9-k7-Abk" userLabel="Subject Info Cell" customClass="SubjectInfoCell" customModule="ulink" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="subjectInfoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="subjectInfoCell" id="oq9-k7-Abk" userLabel="Subject Info Cell" customClass="SubjectInfoCell" customModule="유링크" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="392" height="113"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oq9-k7-Abk" id="Gt8-p8-wEo">
@@ -715,12 +712,12 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-186.95652173913044" y="97.767857142857139"/>
+            <point key="canvasLocation" x="-267" y="73"/>
         </scene>
         <!--Add Subject By Drag View Controller-->
         <scene sceneID="jHB-lW-m1l">
             <objects>
-                <viewController storyboardIdentifier="addSubjectByDragViewController" id="2tG-54-TeJ" customClass="AddSubjectByDragViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addSubjectByDragViewController" id="2tG-54-TeJ" customClass="AddSubjectByDragViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oZ3-2Y-JXJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -826,7 +823,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBz-ix-PgK">
                                         <rect key="frame" x="11" y="78" width="392" height="774"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joy-QX-Gzv" customClass="TimeTable" customModule="ulink" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joy-QX-Gzv" customClass="TimeTable" customModule="유링크" customModuleProvider="target">
                                                 <rect key="frame" x="4" y="0.0" width="374" height="774"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             </view>
@@ -885,7 +882,7 @@
         <!--Add Subject Detail View Controller-->
         <scene sceneID="uwD-TB-bnA">
             <objects>
-                <viewController storyboardIdentifier="addSubjectDetailViewController" id="fim-0f-MFk" customClass="AddSubjectDetailViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addSubjectDetailViewController" id="fim-0f-MFk" customClass="AddSubjectDetailViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WNx-Vi-LuV" userLabel="Top View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1145,7 +1142,7 @@
                                             </constraints>
                                         </view>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="subjectTimeInfoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectTimeInfoCell" rowHeight="46" id="dDn-cO-d3J" customClass="SubjectTimeInfoCell" customModule="ulink" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="subjectTimeInfoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subjectTimeInfoCell" rowHeight="46" id="dDn-cO-d3J" customClass="SubjectTimeInfoCell" customModule="유링크" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="46"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dDn-cO-d3J" id="Whq-cC-8ZC">
@@ -1198,7 +1195,7 @@
                                                     <outlet property="trashButton" destination="VuQ-X8-yZe" id="WNO-SL-raO"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addTimeInfoCell" rowHeight="46" id="BSS-mF-sQM" customClass="AddTimeInfoCell" customModule="ulink" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addTimeInfoCell" rowHeight="46" id="BSS-mF-sQM" customClass="AddTimeInfoCell" customModule="유링크" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="74" width="414" height="46"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BSS-mF-sQM" id="u2z-cR-p6f">
@@ -1293,7 +1290,7 @@
         <!--Custom Picker View Controller-->
         <scene sceneID="luL-Fh-aJj">
             <objects>
-                <viewController storyboardIdentifier="customPickerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="ghu-PK-qm6" customClass="CustomPickerViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="customPickerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="ghu-PK-qm6" customClass="CustomPickerViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OYB-8k-FjF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
