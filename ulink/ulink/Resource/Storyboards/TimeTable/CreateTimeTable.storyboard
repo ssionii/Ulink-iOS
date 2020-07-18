@@ -72,26 +72,47 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="324"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timetableaddFilterandsearchBg" translatesAutoresizingMaskIntoConstraints="NO" id="3qq-iC-eL4">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PkB-Po-wes">
                                                             <rect key="frame" x="0.0" y="0.0" width="353" height="324"/>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timetableaddFilterandsearchIcPlus" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-9U-tKe">
-                                                            <rect key="frame" x="141.5" y="127" width="70" height="70"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timetableaddFilterandsearchBg" translatesAutoresizingMaskIntoConstraints="NO" id="3qq-iC-eL4">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="324"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="353" id="6U3-lN-mH8"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timetableaddFilterandsearchIcPlus" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-9U-tKe">
+                                                                    <rect key="frame" x="141.5" y="127" width="70" height="70"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="70" id="Lbq-dz-tFT"/>
+                                                                        <constraint firstAttribute="width" constant="70" id="THe-cp-l7P"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="70" id="Lbq-dz-tFT"/>
-                                                                <constraint firstAttribute="width" constant="70" id="THe-cp-l7P"/>
+                                                                <constraint firstAttribute="bottom" secondItem="3qq-iC-eL4" secondAttribute="bottom" id="2SE-Sr-LLt"/>
+                                                                <constraint firstAttribute="trailing" secondItem="3qq-iC-eL4" secondAttribute="trailing" id="6O7-wp-36m"/>
+                                                                <constraint firstAttribute="width" constant="353" id="LTl-il-eW6"/>
+                                                                <constraint firstItem="3qq-iC-eL4" firstAttribute="top" secondItem="PkB-Po-wes" secondAttribute="top" id="Vkl-Nz-s1A"/>
+                                                                <constraint firstItem="3qq-iC-eL4" firstAttribute="leading" secondItem="PkB-Po-wes" secondAttribute="leading" id="iIH-kW-ejk"/>
+                                                                <constraint firstItem="cpY-9U-tKe" firstAttribute="centerY" secondItem="PkB-Po-wes" secondAttribute="centerY" id="qFj-6L-wK5"/>
+                                                                <constraint firstItem="cpY-9U-tKe" firstAttribute="centerX" secondItem="PkB-Po-wes" secondAttribute="centerX" id="tD2-nP-cVx"/>
                                                             </constraints>
-                                                        </imageView>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="cpY-9U-tKe" firstAttribute="centerY" secondItem="a3c-JG-Q5M" secondAttribute="centerY" id="DkF-cj-3Du"/>
-                                                        <constraint firstItem="3qq-iC-eL4" firstAttribute="top" secondItem="a3c-JG-Q5M" secondAttribute="top" id="I85-2m-WRo"/>
-                                                        <constraint firstItem="3qq-iC-eL4" firstAttribute="leading" secondItem="a3c-JG-Q5M" secondAttribute="leading" id="KKl-PR-2Yc"/>
-                                                        <constraint firstAttribute="bottom" secondItem="3qq-iC-eL4" secondAttribute="bottom" id="izJ-u8-nbc"/>
-                                                        <constraint firstItem="cpY-9U-tKe" firstAttribute="centerX" secondItem="a3c-JG-Q5M" secondAttribute="centerX" id="miH-ss-Ah6"/>
-                                                        <constraint firstAttribute="trailing" secondItem="3qq-iC-eL4" secondAttribute="trailing" id="vlx-Mn-Dam"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PkB-Po-wes" secondAttribute="bottom" id="40a-8l-Aka"/>
+                                                        <constraint firstAttribute="trailing" secondItem="PkB-Po-wes" secondAttribute="trailing" id="BJC-0K-ANL"/>
+                                                        <constraint firstItem="PkB-Po-wes" firstAttribute="top" secondItem="a3c-JG-Q5M" secondAttribute="top" id="LBt-N5-k3X"/>
+                                                        <constraint firstItem="PkB-Po-wes" firstAttribute="leading" secondItem="a3c-JG-Q5M" secondAttribute="leading" id="mbP-c8-y9Z"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
+                                                <connections>
+                                                    <outlet property="backgroundImageView" destination="3qq-iC-eL4" id="Inv-Wu-6ys"/>
+                                                    <outlet property="constatn" destination="LTl-il-eW6" id="tRU-aY-qK1"/>
+                                                    <outlet property="contentBView" destination="a3c-JG-Q5M" id="KyI-Dj-BKd"/>
+                                                </connections>
                                             </collectionViewCell>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createTimeTableCell" id="amV-Yx-bbi" userLabel="TimeTable Cell" customClass="CreateTimeTableCell" customModule="유링크" customModuleProvider="target">
                                                 <rect key="frame" x="363" y="0.0" width="353" height="324"/>
@@ -166,6 +187,9 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAd-PV-1qt" customClass="TimeTable" customModule="유링크" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="74.5" width="353" height="249.5"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="353" id="2UC-1c-gcU"/>
+                                                                    </constraints>
                                                                 </view>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -187,16 +211,17 @@
                                                     <constraints>
                                                         <constraint firstItem="oLV-GJ-L0c" firstAttribute="leading" secondItem="TaW-H7-lQe" secondAttribute="leading" id="0dc-Ii-aa8"/>
                                                         <constraint firstItem="oLV-GJ-L0c" firstAttribute="top" secondItem="TaW-H7-lQe" secondAttribute="top" id="JRJ-aL-h5S"/>
-                                                        <constraint firstItem="oLV-GJ-L0c" firstAttribute="width" secondItem="TaW-H7-lQe" secondAttribute="width" id="Y2j-6i-y4M"/>
                                                         <constraint firstAttribute="bottom" secondItem="oLV-GJ-L0c" secondAttribute="bottom" id="a3G-3b-K6z"/>
                                                         <constraint firstItem="BAd-PV-1qt" firstAttribute="width" secondItem="TaW-H7-lQe" secondAttribute="width" id="dUB-79-PfH"/>
                                                         <constraint firstAttribute="trailing" secondItem="oLV-GJ-L0c" secondAttribute="trailing" id="f6y-qN-kVF"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <connections>
-                                                    <outlet property="contentBackgroundView" destination="oLV-GJ-L0c" id="Zld-cz-la3"/>
+                                                    <outlet property="ContentBackgroundViewConstant" destination="Ldi-iF-bqT" id="EIs-Tt-FD2"/>
+                                                    <outlet property="contentBackgroundView" destination="oLV-GJ-L0c" id="aKK-gd-zW6"/>
                                                     <outlet property="timeTable" destination="BAd-PV-1qt" id="kMT-vz-s7L"/>
                                                     <outlet property="timeTableNameLabel" destination="Nkf-q7-J0U" id="Ebg-7S-5dt"/>
+                                                    <outlet property="timeTableWidthConstant" destination="2UC-1c-gcU" id="YZ0-1L-opf"/>
                                                     <outlet property="weekSpacing" destination="UO2-SN-PdS" id="dnq-hL-J4O"/>
                                                 </connections>
                                             </collectionViewCell>
@@ -712,7 +737,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-267" y="73"/>
+            <point key="canvasLocation" x="-43.478260869565219" y="68.973214285714278"/>
         </scene>
         <!--Add Subject By Drag View Controller-->
         <scene sceneID="jHB-lW-m1l">

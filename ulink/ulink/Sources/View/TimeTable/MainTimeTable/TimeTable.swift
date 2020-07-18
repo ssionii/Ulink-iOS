@@ -230,6 +230,8 @@ public func getWidth() -> Int{
 
     public override func layoutSubviews(){
         super.layoutSubviews()
+        
+        print("bounds", bounds)
 
         collectionView.frame = bounds
         collectionView.reloadData()
