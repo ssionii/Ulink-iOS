@@ -9,7 +9,7 @@
 import Foundation
 
 public struct TimeTableModel {
-    public let scheduleIdx : Int
+    public var scheduleIdx : Int
     public let name : String
     public let semester : String
     public let semesterText : String
@@ -25,16 +25,16 @@ public struct TimeTableModel {
         
         var year : String = String(semester.split(separator: "-")[0])
         switch semester.split(separator : "-")[1] {
-        case "0":
-            year.append(" 1학기")
         case "1":
-            year.append(" 여름학기")
+            year.append("년 1학기")
         case "2":
-            year.append(" 2학기")
+            year.append("년 여름학기")
         case "3":
-            year.append(" 겨울학기")
+            year.append("년 2학기")
+        case "4":
+            year.append("년 겨울학기")
         default:
-            year.append(" 1학기")
+            year.append("년 1학기")
         }
         self.semesterText = year
         

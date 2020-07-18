@@ -9,7 +9,12 @@
 import UIKit
 
 
-class SubjectDetailViewController: UIViewController {
+protocol SubjectDetailViewControllerDelegate {
+    func updateSubjectDetail()
+}
+
+class SubjectDetailViewController: UIViewController, ColorPickerViewControllerDelegate {
+   
     
     @IBOutlet var topView: UIView!
     @IBOutlet weak var backgroundView: UIView!
@@ -38,6 +43,8 @@ class SubjectDetailViewController: UIViewController {
     
     
     private let defaultViewHeight = CGFloat(37.0)
+    
+    public var delegate : SubjectDetailViewControllerDelegate?
     
     private var subjectColorCode = 0
     private var subjectName = ""
@@ -126,7 +133,7 @@ class SubjectDetailViewController: UIViewController {
     
     
     private func setLabels(){
-        colorView.backgroundColor = ColorFilter.init().getColor(colorCode: subjectColorCode)
+        colorView.backgroundColor = ColorPicker.init().getColor(subjectColorCode).color
         subjectNameLabel.text = subjectName
         subjectTimeInfoLabel.text = subjectTimeInfo
         subjectMemoInfoLabel.text = subjectMemo
@@ -239,14 +246,16 @@ class SubjectDetailViewController: UIViewController {
         guard let presenting = self.presentingViewController else {return}
         
         let popStoryBoard = UIStoryboard(name: "ColorPick", bundle: nil)
-        let presentVC = popStoryBoard.instantiateViewController(withIdentifier: "colorPickVC")
+        let presentVC  : ColorPickViewController = popStoryBoard.instantiateViewController(withIdentifier: "colorPickVC") as! ColorPickViewController
         presentVC.modalPresentationStyle = .overCurrentContext
         
-        //subjectName
+        presentVC.delegate = self
+        presentVC.subjectName = subjectName
+        presentVC.subjectIdx = subjectIdx
+        presentVC.isSubject = isSubject
         
-        self.dismiss(animated: true){
-            presenting.present(presentVC, animated: true, completion: nil)
-        }
+        self.present(presentVC, animated: false, completion: nil)
+        
     }
     
     @objc func showDeleteSubjectAlert(sender : UITapGestureRecognizer) {
@@ -282,6 +291,8 @@ class SubjectDetailViewController: UIViewController {
                        
                         self.present(alert, animated: true, completion: nil)
                     
+                    self.delegate?.updateSubjectDetail()
+                    
                     break
                 case .requestErr(let message):
                         print("REQUEST ERROR")
@@ -292,6 +303,14 @@ class SubjectDetailViewController: UIViewController {
             }
         }
     }
+    
+    func colorUpdate(color: Int) {
+        self.subjectColorCode = color
+         colorView.backgroundColor = ColorPicker.init().getColor(subjectColorCode).color
+        
+            delegate?.updateSubjectDetail()
+    }
+       
     
     
 }

@@ -17,6 +17,9 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var timeTable: TimeTable!
+    
+    @IBOutlet weak var weekSpacing: NSLayoutConstraint!
+    
     @IBAction func dismissBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -49,11 +52,8 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     var delegate : AddSubjectByDragViewControllerDelegate?
 
     var timeTableInfo = TimeTableModel.init()
-    var subjectList = [SubjectModel](){
-        didSet {
-            self.timeTable.reloadData()
-        }
-    }
+    var subjectList = [SubjectModel]()
+    
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     
     public var scheduleIdx = 1
@@ -64,8 +64,11 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setSpacingForDevice()
+        
         setBackgroundView()
         setTimeTableView()
+        
         
         timeTable.delegate = self
         timeTable.dataSource = self
@@ -79,10 +82,46 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         return .darkContent
     }
     
+    
+    func setSpacingForDevice(){
+           
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+           
+        switch height {
+               
+           case 450.0 ... 667.0 : // 6 6s 7 8
+               
+               self.weekSpacing.constant = 53
+               
+               break
+               
+           case 730.0 ... 810.0: // 6s+, 7+ 8+
+               self.weekSpacing.constant = 53
+               break
+               
+           case 812.0 ... 890.0: //X, XS
+               
+               //11pro
+               self.weekSpacing.constant = 53
+               
+               break
+           
+           case 896.0:         // XS MAX
+               //11
+               self.weekSpacing.constant = 65
+               break
+              
+           default:
+               break
+               
+           }
+           
+       }
+    
     private func setTimeTableView(){
 
-        timeTable.widthOfTimeAxis = 20
-        timeTable.defaultMaxHour = 20
+        timeTable.defaultMaxHour = 23
 
         timeTable.controller.setDrag()
         
@@ -140,6 +179,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         if isFromDrag {
         
         let colorCount = timeTable.getColorCount()
+    
         for timeInfo in timeInfoList {
             var temp = timeInfo
             temp.backgroundColor = colorCount
@@ -153,7 +193,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
         
         // list에 추가
         for timeInfo in timeInfoList {
-            let personalSchedule = PersonalScheduleModel.init(name: timeInfo.subjectName, startTime: timeInfo.startTime[0], endTime: timeInfo.endTime[0], day: timeInfo.subjectDay[0], content: timeInfo.content[0], color: timeInfo.backgroundColor, scheudleIdx: self.scheduleIdx)
+            let personalSchedule = PersonalScheduleModel.init(name: timeInfo.subjectName, startTime: timeInfo.startTime[0], endTime: timeInfo.endTime[0], day: timeInfo.subjectDay[0], content: timeInfo.content[0], color: colorCount, scheudleIdx: self.scheduleIdx)
             
              personalList.append(personalSchedule)
         }
