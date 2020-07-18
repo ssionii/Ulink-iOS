@@ -50,7 +50,7 @@ class NoticeViewController: UIViewController {
     @IBOutlet weak var hideView1: UIView!
     
     @IBOutlet weak var hideView2: UIView!
-    
+
     @IBOutlet weak var hideView3: UIView!
     
     
@@ -62,7 +62,11 @@ class NoticeViewController: UIViewController {
     var roomtitle : String = ""
     
     override func viewDidLoad() {
-        loadNoticeData()
+
+            self.loadNoticeData()
+
+        
+        showEmptyView()
         super.viewDidLoad()
         
         
@@ -143,6 +147,47 @@ class NoticeViewController: UIViewController {
             self.loadNoticeData()
         }
 
+    }
+    
+    func showEmptyView()
+    {
+        
+        
+        if hwNoticeInfoArray.count > 0
+        {
+            print("ZZ")
+            hideView1.isHidden = true
+        }
+        else
+        {
+            print("ZZZ")
+             hideView1.isHidden = false
+        }
+        
+        
+        
+        if testNoticeInfoArray.count > 0
+        {
+            print("XX")
+            hideView2.isHidden = true
+        }
+        else
+        {
+             print("XXX")
+             hideView2.isHidden = false
+        }
+        
+        
+        if testNoticeInfoArray.count > 0
+        {
+            print("OO")
+            hideView3.isHidden = true
+        }
+        else
+        {
+            print("OOO")
+             hideView3.isHidden = false
+        }
     }
     
     @IBAction func goToHwDetail(_ sender: Any) {
@@ -442,10 +487,14 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
             
             if testNoticeInfoArray.count == 0
             {
+                
+                print("안보여야 하는데...")
                 self.hideView2.isHidden = false
             }
 
             else {
+                
+                print("안봄안봄")
                 self.hideView2.isHidden = true
             }
             
