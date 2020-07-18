@@ -259,7 +259,7 @@ class NoticeEditViewController: UIViewController {
                 
                 if noticeList.endTime == "-1"
                 {
-                    subtitle = ""
+                    subtitle = noticeList.startTime  + "~"
                 }
                 
                 
