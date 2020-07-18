@@ -47,7 +47,7 @@ class NoticeTableViewCell: UITableViewCell {
         
         if end == "-1"
         {
-            subtitle = ""
+            subtitle = start
         }
         
         var dateString : String = ""

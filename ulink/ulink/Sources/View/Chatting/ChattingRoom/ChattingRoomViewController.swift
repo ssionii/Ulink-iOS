@@ -129,13 +129,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
         hideBar()
         checkChatRoom()
 
-        if self.comments.count > 0 {
 
-
-            print("comments count \(self.comments.count)")
-//            self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
-
-        }
 
 
         print("현재 uid : \(self.uid ?? "uid 실패")")
@@ -210,6 +204,25 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     
+
+    
+    
+    func scrollToBottom()
+    {
+        
+        
+        
+        if self.messageArray.count > 0 {
+
+            self.chattingTableView.scrollToRow(at: IndexPath(item: self.messageArray.count - 1 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+
+        }
+
+        
+    }
+    
+    
+    
     func setTFwidth()
     {
         
@@ -278,9 +291,9 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
 
             
 
-            if self.comments.count > 0 {
+            if self.messageArray.count > 0 {
 
-                self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 1 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+                self.chattingTableView.scrollToRow(at: IndexPath(item: self.messageArray.count - 1 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
 
             }
 
@@ -387,7 +400,6 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             }
             else if self.uid == "7tANYqkrZmhjPklKGISMIGwTlEC3"
             {
-                
                 view.labelName.text = "혜화동 불주먹" // 일단 유저 이름 구분은 나중에 해보자
             }
             else
@@ -569,23 +581,25 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
                     
                     
                     
-//                    if self.comments.count > 0 {
-//
-//                        self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
-//
-//                    }
-
                     
-//                    
-//                          let indexPath = IndexPath(row: self.chattingTableView.numberOfRows(inSection: 0), section: 0)
-//
-//                          self.chattingTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                    
+                    print("프린트되는 현재 어레이 카운트1 : \(self.messageArray.count)")
+                    if self.messageArray.count > 0 {
 
+
+                        print("comments count \(self.messageArray.count)")
+                        self.chattingTableView.scrollToRow(at: IndexPath(item: self.messageArray.count - 2 , section: 0), at: UITableView.ScrollPosition.bottom, animated: true)
+
+                    }
+                    
+                    
+
+                    self.messageTextField.text = ""
 
                 }
                 
 
-                self.messageTextField.text = ""
+
             })
         
 
@@ -860,11 +874,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             datasnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any]) { (err, ref) in
                     self.chattingTableView.reloadData()
-                    
-//                    if self.messageArray.count > 0 {
-//                        print("밑으로 스크롤 해~~~")
-//                        self.chattingTableView.scrollToRow(at: IndexPath(item: self.comments.count - 1, section: 0), at: .bottom, animated: true)
-//                    }
+
 
 
             }
