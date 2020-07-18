@@ -1,0 +1,37 @@
+{
+  "images" : [
+    {
+      "filename" : "ioChattingImgChatbox03.png",
+      "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 1,
+          "left" : 8,
+          "right" : 4,
+          "top" : 0
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 151
+        },
+        "mode" : "9-part"
+      },
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ioChattingImgChatbox03@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ioChattingImgChatbox03@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

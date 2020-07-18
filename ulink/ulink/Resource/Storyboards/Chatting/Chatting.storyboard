@@ -1879,6 +1879,13 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9j-47-h70">
                                                                 <rect key="frame" x="0.0" y="195" width="375" height="87"/>
                                                                 <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvR-94-fdS">
+                                                                        <rect key="frame" x="17" y="74.5" width="341" height="1"/>
+                                                                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="1" id="qKj-T7-EXU"/>
+                                                                        </constraints>
+                                                                    </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-Hb-Zac">
                                                                         <rect key="frame" x="0.0" y="86" width="375" height="1"/>
                                                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1901,21 +1908,15 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akk-iY-tH1">
-                                                                        <rect key="frame" x="185.5" y="44.5" width="4" height="30"/>
+                                                                        <rect key="frame" x="22.5" y="44.5" width="330" height="30"/>
                                                                         <constraints>
+                                                                            <constraint firstAttribute="width" constant="330" id="hPN-ey-ogy"/>
                                                                             <constraint firstAttribute="height" constant="30" id="r9R-wl-ZkA"/>
                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="x0y-AJ-aeJ"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvR-94-fdS">
-                                                                        <rect key="frame" x="17" y="74.5" width="341" height="1"/>
-                                                                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="1" id="qKj-T7-EXU"/>
-                                                                        </constraints>
-                                                                    </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
