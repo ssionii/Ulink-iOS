@@ -337,7 +337,23 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let view = tableView.dequeueReusableCell(withIdentifier: "destinationMessageCell", for: indexPath) as! destinationMessageCell
 
-            view.labelName.text = "뜨거운 감자" // 일단 유저 이름 구분은 나중에 해보자
+            
+            
+            if self.uid == "3k8fAO73dmXDUlcO0U9QJU4AqRD3"
+            {
+                view.labelName.text = "청파동 몽둥이" // 일단 유저 이름 구분은 나중에 해보자
+            }
+            else if self.uid == "7tANYqkrZmhjPklKGISMIGwTlEC3"
+            {
+                
+                view.labelName.text = "혜화동 불주먹" // 일단 유저 이름 구분은 나중에 해보자
+            }
+            else
+            {
+                
+                view.labelName.text = "차욕심없다" // 일단 유저 이름 구분은 나중에 해보자
+            }
+
 
             view.labelMessage.text = self.messageArray[indexPath.row].message
             
@@ -739,7 +755,7 @@ class ChattingRoomViewController: UIViewController,UITableViewDelegate,UITableVi
             
             let dic = datasnapshot.value as! [String:Any]
             
-            let noReadCount = dic.count - readCount! - 1
+            let noReadCount = self.currentUserCount - readCount! 
             
             self.chattingUserNumberLabel.text  = String(self.currentUserCount)
 
@@ -854,7 +870,7 @@ class MyMessageCell : UITableViewCell {
 
 class destinationMessageCell : UITableViewCell {
     @IBOutlet weak var labelMessage:UILabel!
-    @IBOutlet weak var labelName:UILabel!
+    @IBOutlet weak var labelName:UILabel! // 사용자 이름
     
 
     @IBOutlet weak var readCountLabel: UILabel!

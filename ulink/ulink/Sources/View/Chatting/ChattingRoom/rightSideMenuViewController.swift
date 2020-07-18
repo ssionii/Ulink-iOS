@@ -82,10 +82,10 @@ class rightSideMenuViewController: UIViewController {
     
     @objc func goToNoticePage(sender:UIGestureRecognizer)
     {
-        NotificationCenter.default.post(name: .clickSideButton, object: nil)
+
 
         self.dismiss(animated: true) {
-//            NotificationCenter.default.post(name: .clickSideButton, object: nil)
+            NotificationCenter.default.post(name: .clickSideButton, object: nil)
         }
     }
     
