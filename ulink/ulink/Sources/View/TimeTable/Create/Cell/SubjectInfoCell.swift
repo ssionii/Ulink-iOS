@@ -83,6 +83,8 @@ class SubjectInfoCell: UITableViewCell {
             subjectList.append(subject)
         }
         
+        print("endrollSubject cell안에서 전달", subjectList)
+        
         delegate?.enrollSubject(subjectIdx: subjectIdx, subjectItems: subjectList)
         
     }
