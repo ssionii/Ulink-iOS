@@ -120,7 +120,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                 
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectByDragViewController") as? AddSubjectByDragViewController else { return }
                    
-                nextVC.modalPresentationStyle = .fullScreen
+            nextVC.modalPresentationStyle = .fullScreen
             nextVC.scheduleIdx = self.timeTableList[self.pageControlDots.currentPage].scheduleIdx
             nextVC.subjectList = self.timeTableList[self.pageControlDots.currentPage].subjectList
                 self.present(nextVC, animated: true, completion: nil)
@@ -373,8 +373,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
            indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-        //return CGSize(width: self.view.bounds.width - 22, height: collectionView.frame.height)
+//        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        return CGSize(width: self.view.bounds.width - 22, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -491,7 +491,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         for (_, subjectItem) in subjectItems.enumerated() {
            
             var item = subjectItem
-            print(timeTableCell.subjectList)
           
             for (_, temp) in timeTableCell.subjectList.enumerated() {
                 let tstartHour = Int(temp.startTime[0].split(separator: ":")[0])
@@ -533,6 +532,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         if(candDraw){
             timeTableCell.subjectList.append(contentsOf: tempList)
             
+            print("그리는 enroll", timeTableCell.subjectList)
             timeTableCell.timeTable.reDrawTimeTable()
             
             enrollSubject(subjectIdx: subjectIdx , color: tempList[0].backgroundColor, scheduleIdx: self.scheduleIdx)
@@ -564,7 +564,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
     
     func didPressConfirmBtn() {
-        getTimeTableList(semester: semester)
+//        getTimeTableList(semester: semester)
+         self.delegate?.updateMainFromEnrollSubject()
     }
     
     func didPressOkButton(timeInfoList: [SubjectModel], isFromDrag: Bool) {
@@ -693,7 +694,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                    case .success(_, _) :
                     print("과목 등록 성공")
                     self.delegate?.updateMainFromEnrollSubject()
-                    self.getTimeTableList(semester: self.semester)
+//                    self.getTimeTableList(semester: self.semester)
                        break
                    case .requestErr(let message):
                            print("REQUEST ERROR")

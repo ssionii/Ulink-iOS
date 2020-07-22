@@ -15,7 +15,7 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
     
     @IBOutlet weak var timeTableNameLabel: UILabel!
     @IBOutlet weak var timeTable: TimeTable!
-    @IBOutlet weak var ContentBackgroundViewConstant: NSLayoutConstraint!
+//    @IBOutlet weak var ContentBackgroundViewConstant: NSLayoutConstraint!
     
     @IBOutlet weak var contentBackgroundView: UIView!
     
@@ -36,14 +36,10 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
         
         setSpacingForDevice()
         contentBackgroundView.layer.cornerRadius = 30
-        //contentBackgroundWidth.constant = UIScreen.main.bounds.size.width - 22
         
-//        timeTableWidthConstant.constant = UIScreen.main.bounds.size.width - 22
-        
-        ContentBackgroundViewConstant.constant = UIScreen.main.bounds.size.width - 22
+//        ContentBackgroundViewConstant.constant = UIScreen.main.bounds.size.width - 22
         timeTableWidthConstant.constant = UIScreen.main.bounds.size.width - 22
-//        timeTable.collectionView.frame = CGSize(UIScreen.main.bounds.size.width - 22, 324)
-//        print("constant!!!!!", contentBackgroundWidth.constant)
+
            setTimeTable()
         
            timeTable.delegate = self

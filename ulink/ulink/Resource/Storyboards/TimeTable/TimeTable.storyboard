@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Thb-Ua-YU9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Thb-Ua-YU9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -11,7 +11,7 @@
         <!--시간표-->
         <scene sceneID="teL-e9-HR4">
             <objects>
-                <viewController storyboardIdentifier="timetableStoryBoard" wantsFullScreenLayout="YES" interfaceStyle="light" id="Thb-Ua-YU9" customClass="TimeTableViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timetableStoryBoard" wantsFullScreenLayout="YES" interfaceStyle="light" id="Thb-Ua-YU9" customClass="TimeTableViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L8F-oZ-oe7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eW-mo-Q4R">
                                 <rect key="frame" x="0.0" y="44" width="375" height="873"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioMainIcLogo" translatesAutoresizingMaskIntoConstraints="NO" id="FbF-nH-4QZ">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ioMainIcLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="FbF-nH-4QZ">
                                         <rect key="frame" x="16" y="10" width="86" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="86" id="muN-8d-q7o"/>
@@ -124,7 +124,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0e-ZK-8xh">
                                         <rect key="frame" x="11" y="125" width="353" height="748"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kh7-XQ-Qqa" customClass="TimeTable" customModule="ulink" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kh7-XQ-Qqa" customClass="TimeTable" customModule="유링크" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="334" height="748"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <gestureRecognizers/>
@@ -205,7 +205,7 @@
         <!--Time Table List View Controller-->
         <scene sceneID="G9v-29-0JG">
             <objects>
-                <viewController storyboardIdentifier="timeTableListViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Rno-69-eSf" customClass="TimeTableListViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeTableListViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="Rno-69-eSf" customClass="TimeTableListViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H1R-G6-G5K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,7 +264,7 @@
                                             <color key="backgroundColor" red="0.9686403871" green="0.9686041474" blue="0.96862870450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </view>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="timeTableListCell" reuseIdentifier="timeTableListCell" id="02y-bw-2js" customClass="TimeTableListCell" customModule="ulink" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="timeTableListCell" reuseIdentifier="timeTableListCell" id="02y-bw-2js" customClass="TimeTableListCell" customModule="유링크" customModuleProvider="target">
                                                 <rect key="frame" x="-16" y="57" width="446" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1dk-Hk-cFm">
@@ -301,7 +301,7 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
-                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="timeTableListHeader" id="mF3-OO-2su" customClass="TimeTableListHeader" customModule="ulink" customModuleProvider="target">
+                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="timeTableListHeader" id="mF3-OO-2su" customClass="TimeTableListHeader" customModule="유링크" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
@@ -321,7 +321,7 @@
                                                 <outlet property="semesterLabel" destination="wd7-sF-1on" id="uWW-0d-qiI"/>
                                             </connections>
                                         </collectionReusableView>
-                                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="timeTableListFooter" id="YBi-EZ-CeU" customClass="TimeTableListFooter" customModule="ulink" customModuleProvider="target">
+                                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="timeTableListFooter" id="YBi-EZ-CeU" customClass="TimeTableListFooter" customModule="유링크" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="91" width="414" height="26"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -399,7 +399,7 @@
         <!--Subject Detail View Controller-->
         <scene sceneID="kVt-kF-uBU">
             <objects>
-                <viewController storyboardIdentifier="subjectDetailViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="QQU-97-y3r" customClass="SubjectDetailViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="subjectDetailViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="QQU-97-y3r" customClass="SubjectDetailViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0U6-XS-7jg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -679,7 +679,7 @@
         <!--Time Table Setting View Controller-->
         <scene sceneID="aUV-WI-49u">
             <objects>
-                <viewController storyboardIdentifier="timeTableSettingViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="JIM-sb-gX5" customClass="TimeTableSettingViewController" customModule="ulink" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeTableSettingViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="JIM-sb-gX5" customClass="TimeTableSettingViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bKU-E0-T59">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -865,7 +865,7 @@
         <image name="ioMainBgTop" width="353" height="38"/>
         <image name="ioMainIcAlarm" width="48" height="29"/>
         <image name="ioMainIcList" width="34" height="38"/>
-        <image name="ioMainIcLogo" width="87" height="36"/>
+        <image name="ioMainIcLogoWhite" width="87" height="36"/>
         <image name="ioMainIcPlus" width="31" height="38"/>
         <image name="ioMainIcSetting" width="34" height="38"/>
         <image name="ioMainListIcMainTimetable" width="22" height="14"/>

@@ -52,7 +52,11 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
     var delegate : AddSubjectByDragViewControllerDelegate?
 
     var timeTableInfo = TimeTableModel.init()
-    var subjectList = [SubjectModel]()
+    var subjectList = [SubjectModel](){
+        didSet {
+            print(subjectList)
+        }
+    }
     
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     

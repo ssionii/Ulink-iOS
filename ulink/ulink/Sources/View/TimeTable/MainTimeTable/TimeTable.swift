@@ -55,7 +55,7 @@ public func getWidth() -> Int{
 
 @IBDesignable public class TimeTable : UIView {
     public var controller = TimeTableController()
-    public var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    public var collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 22, height: 324), collectionViewLayout: UICollectionViewFlowLayout())
     
     public var defaultMinHour : Int = 9
     public var defaultMaxHour : Int = 19
@@ -307,9 +307,7 @@ public func getWidth() -> Int{
             let height = averageHeight * CGFloat(subjectEndHour - subjectStartHour) + CGFloat((CGFloat(subjectEndMin - subjectStartMin) / 60) * averageHeight) - rectEdgeInsets.top - rectEdgeInsets.bottom
 
             let view = UIView(frame: CGRect(x: position_x, y: position_y, width: width, height: height))
-            
-            print("backgroundColor",subjectItem.backgroundColor )
-            
+             
             view.backgroundColor = colorPicker.getColor(subjectItem.backgroundColor).color
             view.layer.cornerRadius = 8
 
