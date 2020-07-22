@@ -225,7 +225,7 @@
 		FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTimeTableViewController.swift; sourceTree = "<group>"; };
 		FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailTableCell.swift; sourceTree = "<group>"; };
-		FD45F24B24AA591300F304BD /* 유링크.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "유링크.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD45F24B24AA591300F304BD /* Ulink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ulink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD45F25024AA591300F304BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FD45F25224AA591300F304BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -665,7 +665,7 @@
 		FD45F24C24AA591300F304BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD45F24B24AA591300F304BD /* 유링크.app */,
+				FD45F24B24AA591300F304BD /* Ulink.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -939,7 +939,7 @@
 			);
 			name = ulink;
 			productName = ulink;
-			productReference = FD45F24B24AA591300F304BD /* 유링크.app */;
+			productReference = FD45F24B24AA591300F304BD /* Ulink.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1308,8 +1308,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink;
-				PRODUCT_NAME = "유링크";
+				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_NAME = Ulink;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1327,8 +1327,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink;
-				PRODUCT_NAME = "유링크";
+				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_NAME = Ulink;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

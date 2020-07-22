@@ -674,7 +674,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                         self.subjectInfoList = list as! [SubjectModel]
                         self.subjectInfoTableView.reloadData()
                            break
-                       case .requestErr(let message):
+                   case .requestErr(let _):
                                print("REQUEST ERROR")
                                break
                    case .pathErr: break
