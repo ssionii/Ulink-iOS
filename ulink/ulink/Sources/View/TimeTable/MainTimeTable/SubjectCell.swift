@@ -8,6 +8,14 @@
 
 import UIKit
 
+/*
+ 
+ timeTable 클래스에서 쓰는 SubjectCell
+ 얘 cell인데 왜 여깄냐 ;;
+ 
+ */
+
+
 class SubjectCell: UICollectionViewCell {
     let textLabel = PaddingLabel()
     var borderLayer = CALayer()

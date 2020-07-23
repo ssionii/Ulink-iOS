@@ -123,6 +123,7 @@ class AddSubjectByDragViewController: UIViewController, TimeTableDelegate, TimeT
 
         timeTable.defaultMaxHour = 23
 
+        // 드래그 가능하도록 설정
         timeTable.controller.setDrag()
         
     }

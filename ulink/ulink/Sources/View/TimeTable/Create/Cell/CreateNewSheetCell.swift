@@ -6,6 +6,12 @@
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
+/*
+
+시간표 생성 뷰에서 collectionView의 맨 마지막 cell
+
+*/
+
 import UIKit
 
 class CreateNewSheetCell: UICollectionViewCell {

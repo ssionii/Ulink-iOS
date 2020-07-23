@@ -6,6 +6,12 @@
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
+/*
+ 
+ 메인에서 과목을 클릭했을 때 나오는 detail 뷰
+ 
+ */
+
 import UIKit
 
 

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// 초반에 쓰다가 이제 안씀
 public enum TimeTableDay : Int {
     case monday = 0
     case tuesday = 1

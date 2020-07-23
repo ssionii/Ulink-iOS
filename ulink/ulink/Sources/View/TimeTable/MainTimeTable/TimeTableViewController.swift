@@ -9,6 +9,14 @@
 import UIKit
 
 
+/*
+ 
+ 메인뷰 뷰콘트롤러
+ 채택한 delegate가 줠라게 많다... 하지만 해당 delegate를 호출하는 뷰컨이나 아이템 이름을 delegate 앞에 달아 뒀으므로,, 참고 바랍니다,,
+ extension으로 나눠서 정리해주려고 했는데,, ㅎ 시간 부족
+ 
+ */
+
 class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableDelegate, TimeTableListViewControllerDelegate, TimeTableSettingViewControllerDelegate,CreateTimeTableViewControllerDelegate, SubjectDetailViewControllerDelegate{
  
   
@@ -19,9 +27,11 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     @IBOutlet weak var timeTableSemesterLabel: UILabel!
     
     private var timeTableInfo = TimeTableModel.init()
+    // 시간표에 뿌려줄 과목 리스트
     private var subjectList : [SubjectModel] = []
-    private var subjectDummyList : [SubjectModel] = []
     private let daySymbol = [ "월", "화", "수", "목", "금"]
+    
+    // 앱을 처음 킨거면 무조건 main 시간표를 불러와야 함
     private var isFirstOpen = true
     
     @IBOutlet weak var weekSpacing: NSLayoutConstraint!
@@ -84,10 +94,12 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         }
     }
 
+    // 뷰 배경이 어두운 색이라 statusbar 글자색 white로 하기 위해 .dark로 설정
      override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
     }
     
+   // 그라데이션 배경 만들어 줌
     private func setBackgroundView(){
         
         let gradientLayer = CAGradientLayer()
@@ -108,6 +120,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         self.backgroundView.layer.addSublayer(gradientLayer)
         
     }
+    
     
     func setSpacingForDevice()
     {
@@ -161,7 +174,8 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
     }
     
     func timeTableHintCount(hintCount: Int) {
-    
+        // 여기서 필요 없음..
+        // optional로 만들걸,,
     }
 
     func subjectItems(in timeTable: TimeTable) -> [SubjectModel] {
@@ -176,8 +190,9 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
         return self.daySymbol[dayPerIndex]
     }
     
+    // 요기는 다 다른 뷰컨에서 업데이트가 일어났을 때 메인 뷰도 업데이트 시켜주는 delegate!
     func getTimeTable(idx: Int) {
-           getTimeTableByIdx(idx: idx)
+        getTimeTableByIdx(idx: idx)
     }
     
     func updateMainView() {
@@ -195,7 +210,7 @@ class TimeTableViewController: UIViewController, TimeTableDataSource, TimeTableD
       
     
     
-    // MARK:- 통신
+    // MARK:- 통신 (제가 네이밍을 나름 열심히 해봤습니다)
     
     func getMainTimeTable(){
         
