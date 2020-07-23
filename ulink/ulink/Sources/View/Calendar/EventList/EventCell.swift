@@ -82,7 +82,7 @@ class EventCell: UITableViewCell {
     }
     
     func changeViewColor(_ dateInfo: String){
-        var dDay = getDday(date: dateInfo)
+        let dDay = getDday(date: dateInfo)
         if (dDay == 0){
             cellColorView.backgroundColor = UIColor.paleGreyTwo
         }

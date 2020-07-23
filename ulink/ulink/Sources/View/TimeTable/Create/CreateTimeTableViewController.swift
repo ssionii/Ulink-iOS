@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CreateTimeTableViewControllerDelegate {
+    func updateMainFromEnrollSubject()
+}
+
 class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource, SubjectInfoCellDelegate, GradeSelectVCDelegate, SearchVCDelegate,normalFilterDelegate, AddSubjectByDragViewControllerDelegate, AddSubjectDetailDelegate {
    
     
@@ -17,6 +21,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var subjectInfoTableView: UITableView!
     
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var weekSpacing: NSLayoutConstraint!
+    
     
     // button
     @IBOutlet weak var filterAndSearchView: UIView!
@@ -38,6 +44,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     @IBOutlet weak var searchFilterBorderHeight: NSLayoutConstraint!
     
     
+    public var delegate : CreateTimeTableViewControllerDelegate?
+
     @IBOutlet weak var searchLabel: UILabel!
     
     private var isCandidateView = false
@@ -45,11 +53,14 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     private var timeTableList : [TimeTableModel] = [] {
         didSet {
-            print("timeTable", timeTableList)
             self.timeTableCollectionView.reloadData()
         }
     }
-    private var subjectInfoList : [SubjectModel] = []
+    private var subjectInfoList = [SubjectModel](){
+        didSet {
+            subjectInfoTableView?.reloadData()
+        }
+    }
        
     private let daySymbol = [ "월", "화", "수", "목", "금"]
     
@@ -80,6 +91,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         let storyboard = UIStoryboard(name:"Filter", bundle: nil)
                       
         guard let nextVC = storyboard.instantiateViewController(identifier: "NormalFilterViewController") as? NormalFilterViewController else { return }
+        nextVC.delegate = self
                       
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
@@ -99,6 +111,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     @IBAction func addSubjectDirect(_ sender: UIButton) {
         
+        print("추가할 idx", timeTableList[pageControlDots.currentPage].scheduleIdx)
+        
         if pageControlDots.currentPage != timeTableList.count {
         
         let alert = UIAlertController(title: nil , message: "과목추가 방식을 선택해주세요.", preferredStyle: .actionSheet)
@@ -106,8 +120,9 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                 
             guard let nextVC = self.storyboard?.instantiateViewController(identifier: "addSubjectByDragViewController") as? AddSubjectByDragViewController else { return }
                    
-                nextVC.modalPresentationStyle = .fullScreen
+            nextVC.modalPresentationStyle = .fullScreen
             nextVC.scheduleIdx = self.timeTableList[self.pageControlDots.currentPage].scheduleIdx
+            nextVC.subjectList = self.timeTableList[self.pageControlDots.currentPage].subjectList
                 self.present(nextVC, animated: true, completion: nil)
             
             
@@ -148,7 +163,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+
         setupGestureRecognizer()
         
         setBackgroundView()
@@ -161,6 +176,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         subjectInfoTableView.dataSource = self
         subjectInfoTableView.delegate = self
+        
        
     }
     
@@ -265,15 +281,10 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
               let confirmAction = UIAlertAction(title: "확인", style: .default) { (_) in
                   if let txtField = alertController.textFields?.first, let text = txtField.text {
               
-                    let newTimeTableSheet = TimeTableModel(idx: self.timeTableList.count - 1, name: text, subjectList: [])
-                    self.timeTableList.append(newTimeTableSheet)
-                    self.makeTimeTable(semester: self.semester, name: text)
-                    
-                      
-                print("이동할 곳", self.timeTableList.count - 1)
-                self.timeTableCollectionView.scrollToItem(at: IndexPath(item: self.timeTableList.count - 1, section: 0), at: .centeredHorizontally, animated: true)
-                      
-                  }
+                let newTimeTableSheet = TimeTableModel(idx: self.timeTableList.count - 1, name: text, subjectList: [])
+                self.timeTableList.append(newTimeTableSheet)
+                self.makeTimeTable(semester: self.semester, name: text)
+                }
               }
               let cancelAction = UIAlertAction(title: "취소", style: .destructive) { (_) in }
               alertController.addTextField { (textField) in
@@ -288,7 +299,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         let gradientLayer = CAGradientLayer()
         
-        gradientLayer.frame = self.backgroundView.bounds
+        gradientLayer.frame = self.view.bounds
         
         let colorLeft = UIColor(red: 127.0 / 255.0, green: 36.0 / 255.0, blue: 252.0 / 255.0, alpha: 1.0).cgColor
         let colorRight = UIColor(red: 95.0 / 255.0, green: 93.0 / 255.0, blue: 234.0 / 255.0, alpha: 1.0).cgColor
@@ -362,7 +373,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt
            indexPath: IndexPath) -> CGSize {
-           return CGSize(width: collectionView.frame.width - 22, height: collectionView.frame.height)
+//        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        return CGSize(width: self.view.bounds.width - 22, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -460,11 +472,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
     
     
-    // 노말 필터 값 전달해보자 한번~~~
-       func sendFilter(day: [Int], dayOff: [Int], firstClass: Bool, grade: [Int]) {
-        print("현재 데이 : \(day)")
-    }
-    
+   
        
     func addCandidate(idx: Int) {
         postCandidate(semester : semester, subjectIdx: idx)
@@ -483,12 +491,10 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         for (_, subjectItem) in subjectItems.enumerated() {
            
             var item = subjectItem
-            print(timeTableCell.subjectList)
           
             for (_, temp) in timeTableCell.subjectList.enumerated() {
                 let tstartHour = Int(temp.startTime[0].split(separator: ":")[0])
                 let tstartMin = Int(temp.startTime[0].split(separator: ":")[1])
-                print("index", index)
                 
                 let tempStart = (temp.subjectDay[0] * 10000) + (tstartHour! * 100 ) + tstartMin!
                 let tendHour = Int(temp.endTime[0].split(separator: ":")[0])
@@ -515,20 +521,22 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             if !candDraw {
                 break
             }
-            
+        
             item.backgroundColor = timeTableCell.timeTable.getColorCount()
             tempList.append(item)
         }
         
         
+        
+        
         if(candDraw){
             timeTableCell.subjectList.append(contentsOf: tempList)
+            
+            print("그리는 enroll", timeTableCell.subjectList)
             timeTableCell.timeTable.reDrawTimeTable()
             
-            for temp in tempList {
-                enrollSubject(subjectIdx: subjectIdx , color: temp.backgroundColor, scheduleIdx: self.scheduleIdx)
-                // todo : scheduleIdx 바꿔!
-            }
+            enrollSubject(subjectIdx: subjectIdx , color: tempList[0].backgroundColor, scheduleIdx: self.scheduleIdx)
+       
         }else {
             let alert = UIAlertController(title: "", message: "시간이 겹쳐 추가할 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
 
@@ -556,7 +564,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     }
     
     func didPressConfirmBtn() {
-        getTimeTableList(semester: semester)
+//        getTimeTableList(semester: semester)
+         self.delegate?.updateMainFromEnrollSubject()
     }
     
     func didPressOkButton(timeInfoList: [SubjectModel], isFromDrag: Bool) {
@@ -569,6 +578,26 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     func didDeleteTimeInfo(num: Int) {
         
     }
+    
+    // 노말 필터 값 전달해보자 한번~~~
+    func sendFilter(day: [Int], dayOff: [Int], firstClass: Bool, grade: [Int]) {
+        self.onday = []
+        self.offDay = []
+        
+        
+        for (index, on) in day.enumerated() {
+            if on == 1 {
+                self.onday.append(index)
+            }
+            
+            if dayOff[index] == 1 {
+                self.offDay.append(index)
+            }
+        }
+        
+//        self.getSubject()
+    }
+       
     
     
     // MARK:- gestureRecognize
@@ -623,7 +652,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                    switch networkResult {
                        case .success(let list, _) :
                         print("과목 불러오기 성공")
-                        self.subjectInfoList = list as! [SubjectModel]
+                        self.subjectInfoList = list as? [SubjectModel] ?? []
                         self.subjectInfoTableView.reloadData()
                            break
                        case .requestErr(let message):
@@ -646,7 +675,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                         self.subjectInfoList = list as! [SubjectModel]
                         self.subjectInfoTableView.reloadData()
                            break
-                       case .requestErr(let message):
+                   case .requestErr(let _):
                                print("REQUEST ERROR")
                                break
                    case .pathErr: break
@@ -664,6 +693,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
                switch networkResult {
                    case .success(_, _) :
                     print("과목 등록 성공")
+                    self.delegate?.updateMainFromEnrollSubject()
+//                    self.getTimeTableList(semester: self.semester)
                        break
                    case .requestErr(let message):
                            print("REQUEST ERROR")
@@ -737,6 +768,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
             switch networkResult {
                 case .success(let containerList, _) :
                  print("시간표 리스트 조회 성공")
+                 self.delegate?.updateMainFromEnrollSubject()
                  let timeTableContainerList = containerList as! [TimeTableContainerModel]
                  
                  var tempTableList = [TimeTableModel]()
@@ -764,9 +796,13 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
          print("makeTimeTable")
         TimeTableService.shared.makeTimeTable(semester: semester, name: name){ networkResult in
             switch networkResult {
-                case .success(_, _) :
+                case .success(let idx, _) :
                  print("시간표 추가 성공")
                  self.getTimeTableList(semester: semester)
+                 
+                 self.timeTableCollectionView.scrollToItem(at: IndexPath(item: self.timeTableList.count - 1, section: 0), at: .centeredHorizontally, animated: true)
+                
+                
                 case .requestErr(let message):
                         print("REQUEST ERROR")
                         break

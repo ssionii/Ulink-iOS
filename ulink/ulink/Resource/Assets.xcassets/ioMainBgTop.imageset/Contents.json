@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "filename" : "ioMainBgTop.png",
       "idiom" : "universal",
-      "filename" : "ioMainBgTop.png"
+      "scale" : "1x"
     },
     {
       "filename" : "ioMainBgTop@2x.png",
@@ -12,12 +12,12 @@
     },
     {
       "filename" : "ioMainBgTop@3x.png",
-      "scale" : "3x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

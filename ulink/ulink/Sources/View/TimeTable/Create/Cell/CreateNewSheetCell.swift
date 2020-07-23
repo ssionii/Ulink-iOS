@@ -12,11 +12,19 @@ class CreateNewSheetCell: UICollectionViewCell {
     
    static let identifier: String = "createNewSheetCell"
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    @IBOutlet weak var contentBView: UIView!
+    
+    @IBOutlet weak var constatn: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        contentBView.layer.cornerRadius = 30
+        constatn.constant = UIScreen.main.bounds.size.width - 22
+        
     }
-    
-    
+  
     func makeCell(){
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 353, height: 324))
         view.layer.cornerRadius = 30
