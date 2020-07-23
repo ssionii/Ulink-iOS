@@ -94,6 +94,7 @@
 		FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */; };
 		FD1A4AFD24B60427000120A6 /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */; };
 		FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */; };
+		FD408FCA24C96B4600691B9D /* Board.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD408FC924C96B4600691B9D /* Board.storyboard */; };
 		FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F24E24AA591300F304BD /* AppDelegate.swift */; };
 		FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25024AA591300F304BD /* SceneDelegate.swift */; };
 		FD45F25324AA591300F304BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25224AA591300F304BD /* ViewController.swift */; };
@@ -225,6 +226,7 @@
 		FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTimeTableViewController.swift; sourceTree = "<group>"; };
 		FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailTableCell.swift; sourceTree = "<group>"; };
+		FD408FC924C96B4600691B9D /* Board.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Board.storyboard; sourceTree = "<group>"; };
 		FD45F24B24AA591300F304BD /* 유링크.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "유링크.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD45F25024AA591300F304BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -651,6 +653,14 @@
 			path = CalendarModel;
 			sourceTree = "<group>";
 		};
+		FD408FC824C96B3000691B9D /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				FD408FC924C96B4600691B9D /* Board.storyboard */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
 		FD45F24224AA591300F304BD = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +722,7 @@
 		FD616D0024AA5D3F007D54B5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FD408FC824C96B3000691B9D /* Board */,
 				FD7E7C0324C00091007CF404 /* Mypage */,
 				FD7E7C0224C0005D007CF404 /* Chatting */,
 				FD7E7C0124C00056007CF404 /* TimeTable */,
@@ -981,6 +992,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */,
+				FD408FCA24C96B4600691B9D /* Board.storyboard in Resources */,
 				29970E6D24BF662F0034840E /* ColorPick.storyboard in Resources */,
 				299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */,
 				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
@@ -1302,7 +1314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3AM7R7TW97;
+				DEVELOPMENT_TEAM = L9D5M5DM3Y;
 				INFOPLIST_FILE = ulink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1310,7 +1322,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = ssionii.ulink;
+				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
 				PRODUCT_NAME = "유링크";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1322,8 +1334,9 @@
 			baseConfigurationReference = 55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9D5M5DM3Y;
 				INFOPLIST_FILE = ulink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1331,7 +1344,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink;
+				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
 				PRODUCT_NAME = "유링크";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
