@@ -15,10 +15,12 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
     
     @IBOutlet weak var timeTableNameLabel: UILabel!
     @IBOutlet weak var timeTable: TimeTable!
+//    @IBOutlet weak var ContentBackgroundViewConstant: NSLayoutConstraint!
+    
     @IBOutlet weak var contentBackgroundView: UIView!
-    @IBOutlet weak var contentBackgroundWidth: NSLayoutConstraint!
-    @IBOutlet weak var weekSpacing: NSLayoutConstraint!
+    
     @IBOutlet weak var timeTableWidthConstant: NSLayoutConstraint!
+    @IBOutlet weak var weekSpacing: NSLayoutConstraint!
     
     var timeTableIdx : Int = 0
     var subjectList = [SubjectModel]() {
@@ -34,9 +36,10 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
         
         setSpacingForDevice()
         contentBackgroundView.layer.cornerRadius = 30
-        //contentBackgroundWidth.constant = UIScreen.main.bounds.size.width - 22
         
-        //timeTableWidthConstant.constant = UIScreen.main.bounds.size.width - 22
+//        ContentBackgroundViewConstant.constant = UIScreen.main.bounds.size.width - 22
+        timeTableWidthConstant.constant = UIScreen.main.bounds.size.width - 22
+
            setTimeTable()
         
            timeTable.delegate = self
@@ -93,6 +96,29 @@ class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTable
     }
     
     func setTimeTable(){
+        
+        let bounds = UIScreen.main.bounds
+        let height = bounds.size.height
+        
+        switch height{
+            
+        case 450.0 ... 667.0 : // 6 6s 7 8
+            
+            timeTable.widthOfTimeAxis = 16
+            
+        case 730.0 ... 810.0: // 6s+, 7+ 8+
+               timeTable.widthOfTimeAxis = 16
+            
+        case 812.0 ... 890.0: //X, XS
+               timeTable.widthOfTimeAxis = 16
+        
+        case 896.0:         // XS MAX
+                timeTable.widthOfTimeAxis = 19
+        default:
+                timeTable.widthOfTimeAxis = 16
+            
+        }
+        
         
         timeTable.roundCorners([.bottomLeft, .bottomRight], radius: 30)
         

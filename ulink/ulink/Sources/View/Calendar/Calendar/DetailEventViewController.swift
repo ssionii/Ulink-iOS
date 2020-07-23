@@ -53,7 +53,7 @@ class DetailEventViewController: UIViewController, UITableViewDataSource, UITabl
         if noticeList == nil {
             print(noticeList)
             let explainLabel =
-                UILabel(frame: CGRect(x: 0, y: 0 + popUpView.frame.height / 3, width:popUpView.frame.width, height: 20))
+                UILabel(frame: CGRect(x: popUpView.frame.minX, y: 0 + popUpView.frame.height / 3, width:popUpView.frame.width, height: 20))
             //explainLabel.center = CGPoint(x: popUpView.center.x, y: popUpView.center.y)
             explainLabel.text = "일정이 없습니다."
             explainLabel.textColor = UIColor.gray
