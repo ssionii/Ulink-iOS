@@ -42,12 +42,23 @@ class NoticeTableViewCell: UITableViewCell {
         
         if start == "-1"
         {
-            subtitle =  "~ " + end
+            
+            if end == "-1"
+            {
+                subtitle = ""
+            }
+            else
+            {
+                subtitle =  "~ " + end
+
+            }
+            
+            
         }
         
-        if end == "-1"
+        else if end == "-1"
         {
-            subtitle = ""
+            subtitle = start + "~"
         }
         
         var dateString : String = ""

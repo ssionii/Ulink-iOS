@@ -1,23 +1,23 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "filename" : "ioMainMajorsettingBtnRoundSelected.png",
       "idiom" : "universal",
-      "filename" : "ioMainMajorsettingBtnRoundSelected.png"
+      "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "filename" : "ioMainMajorsettingBtnRoundSelected@2x.png",
+      "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "scale" : "3x",
       "filename" : "ioMainMajorsettingBtnRoundSelected@3x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

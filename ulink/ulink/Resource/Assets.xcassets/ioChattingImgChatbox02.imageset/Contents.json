@@ -1,0 +1,100 @@
+{
+  "images" : [
+    {
+      "filename" : "ioChattingImgChatbox02.png",
+      "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 6,
+          "left" : 7,
+          "right" : 8,
+          "top" : 5
+        },
+        "center" : {
+          "height" : 2,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ioChattingImgChatbox02@2x.png",
+      "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 10,
+          "left" : 14,
+          "right" : 17,
+          "top" : 8
+        },
+        "center" : {
+          "height" : 2,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ioChattingImgChatbox02@3x.png",
+      "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 10,
+          "left" : 11,
+          "right" : 54,
+          "top" : 10
+        },
+        "center" : {
+          "height" : 4,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
+      "scale" : "3x"
+    },
+    {
+      "filename" : "ioChattingImgChatbox02 2.png",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 4,
+          "left" : 4,
+          "right" : 1,
+          "top" : 6
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      }
+    },
+    {
+      "filename" : "ioChattingImgChatbox02@2x 2.png",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 35,
+          "left" : 162,
+          "right" : 163,
+          "top" : 13
+        },
+        "center" : {
+          "height" : 22,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
+      "unassigned" : true
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

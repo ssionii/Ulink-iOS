@@ -31,16 +31,6 @@ extension UIColor {
     
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @nonobjc class var noticeColorOne: UIColor{
         return UIColor(red: 255.0 / 255.0, green: 245.0 / 255.0, blue: 253.0, alpha: 1.0)
     }
@@ -182,5 +172,49 @@ extension UIColor {
     @nonobjc class var brownGreySix: UIColor {
       return UIColor(white: 172.0 / 255.0, alpha: 1.0)
     }
-}
+    
+    @nonobjc class var dullYellow: UIColor {
+      return UIColor(red: 229.0 / 255.0, green: 224.0 / 255.0, blue: 98.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var greenishBeige: UIColor {
+      return UIColor(red: 198.0 / 255.0, green: 221.0 / 255.0, blue: 122.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var paleOliveGreen: UIColor {
+      return UIColor(red: 156.0 / 255.0, green: 221.0 / 255.0, blue: 122.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var paleTeal: UIColor {
+      return UIColor(red: 127.0 / 255.0, green: 221.0 / 255.0, blue: 157.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var seafoamBlue: UIColor {
+      return UIColor(red: 105.0 / 255.0, green: 224.0 / 255.0, blue: 202.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var peachyPink: UIColor {
+      return UIColor(red: 1.0, green: 149.0 / 255.0, blue: 149.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var peachyPinkTwo: UIColor {
+      return UIColor(red: 1.0, green: 166.0 / 255.0, blue: 133.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var apricot: UIColor {
+      return UIColor(red: 1.0, green: 187.0 / 255.0, blue: 108.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var paleGold: UIColor {
+      return UIColor(red: 252.0 / 255.0, green: 212.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var dullYellowTwo: UIColor {
+      return UIColor(red: 242.0 / 255.0, green: 225.0 / 255.0, blue: 91.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var white: UIColor {
+        return UIColor(white: 255.0 / 255.0, alpha: 1.0)
+      }
 
+}

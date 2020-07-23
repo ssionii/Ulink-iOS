@@ -94,7 +94,24 @@ class NoticeEditViewController: UIViewController {
               }
             
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+     
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                       
+                       self.dismiss(animated: true, completion: nil)
+                   
+                   }
+                   
+                   
+                   
+                   DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    
+             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+
+                    self.navigationController?.popViewController(animated: true)
+                   
+                   }
 
               
                 
@@ -237,12 +254,22 @@ class NoticeEditViewController: UIViewController {
                 
                 if noticeList.startTime == "-1"
                 {
-                    subtitle =  "~ " + noticeList.endTime
+                    
+                    if noticeList.endTime == "-1"
+                    {
+                        subtitle = ""
+                    }
+                    else // 끝 시간만 존재한다면
+                    {
+                        subtitle =  "~ " + noticeList.endTime
+
+                    }
+                    
                 }
                 
-                if noticeList.endTime == "-1"
+                else if noticeList.endTime == "-1"
                 {
-                    subtitle = ""
+                    subtitle = noticeList.startTime  + "~"
                 }
                 
                 

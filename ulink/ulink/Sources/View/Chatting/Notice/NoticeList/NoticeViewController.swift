@@ -2,6 +2,41 @@
 import UIKit
 import Alamofire
 
+
+
+extension UITableView {
+    func setEmptyView(title: String, message: String) {
+        let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
+        let titleLabel = UILabel()
+        let messageLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = UIColor.black
+        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+        messageLabel.textColor = UIColor.lightGray
+        messageLabel.font = UIFont(name: "HelveticaNeue-Regular", size: 17)
+        emptyView.addSubview(titleLabel)
+        emptyView.addSubview(messageLabel)
+        titleLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor).isActive = true
+        messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        messageLabel.leftAnchor.constraint(equalTo: emptyView.leftAnchor, constant: 20).isActive = true
+        messageLabel.rightAnchor.constraint(equalTo: emptyView.rightAnchor, constant: -20).isActive = true
+        titleLabel.text = title
+        messageLabel.text = message
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        // The only tricky part is here:
+        self.backgroundView = emptyView
+        self.separatorStyle = .none
+    }
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
+    }
+}
+
+
 class NoticeViewController: UIViewController {
 
     @IBOutlet weak var noticeScrollView: UIScrollView!
@@ -12,7 +47,14 @@ class NoticeViewController: UIViewController {
     
     @IBOutlet weak var classNoticeTableView: UITableView!
     
-     var hwNoticeInfoArray : [noticeInformation] = []
+    @IBOutlet weak var hideView1: UIView!
+    
+    @IBOutlet weak var hideView2: UIView!
+
+    @IBOutlet weak var hideView3: UIView!
+    
+    
+    var hwNoticeInfoArray : [noticeInformation] = []
      var testNoticeInfoArray : [noticeInformation] = []
      var classNoticeInfoArray : [noticeInformation] = []
     
@@ -20,7 +62,11 @@ class NoticeViewController: UIViewController {
     var roomtitle : String = ""
     
     override func viewDidLoad() {
-        loadNoticeData()
+
+            self.loadNoticeData()
+
+        
+        showEmptyView()
         super.viewDidLoad()
         
         
@@ -103,6 +149,47 @@ class NoticeViewController: UIViewController {
 
     }
     
+    func showEmptyView()
+    {
+        
+        
+        if hwNoticeInfoArray.count > 0
+        {
+            print("ZZ")
+            hideView1.isHidden = true
+        }
+        else
+        {
+            print("ZZZ")
+             hideView1.isHidden = false
+        }
+        
+        
+        
+        if testNoticeInfoArray.count > 0
+        {
+            print("XX")
+            hideView2.isHidden = true
+        }
+        else
+        {
+             print("XXX")
+             hideView2.isHidden = false
+        }
+        
+        
+        if testNoticeInfoArray.count > 0
+        {
+            print("OO")
+            hideView3.isHidden = true
+        }
+        else
+        {
+            print("OOO")
+             hideView3.isHidden = false
+        }
+    }
+    
     @IBAction func goToHwDetail(_ sender: Any) {
         
         // 더보기 탭으로 넘어가야 한다구~~~~~
@@ -172,7 +259,18 @@ class NoticeViewController: UIViewController {
     
     
     @IBAction func backButtonClicked(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        
+        
+                self.tabBarController?.tabBar.isHidden = false
+        
+        let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+
+
+
+        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 3 ], animated: false)
+
+        
+
     }
     
     @IBAction func AddNoticeButtonClicked(_ sender: Any) {
@@ -224,6 +322,10 @@ class NoticeViewController: UIViewController {
                         
                     }
                 }
+                else
+                {
+                    self.hideView1.isHidden = false
+                }
 
                 
                 if numberOfNotice[1] > 0
@@ -234,6 +336,10 @@ class NoticeViewController: UIViewController {
                         
                         self.testNoticeInfoArray.append(noticeData)
                     }
+                }
+                else
+                {
+                    self.hideView2.isHidden = false
                 }
 
                 
@@ -247,6 +353,10 @@ class NoticeViewController: UIViewController {
                             self.classNoticeInfoArray.append(noticeData)
                         }
                     
+                }
+                else
+                {
+                    self.hideView3.isHidden = false
                 }
                 
 
@@ -348,7 +458,14 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         if tableView == hwNoticeTableView{
 
 
+            if hwNoticeInfoArray.count == 0
+            {
+                self.hideView1.isHidden = false
+            }
 
+            else {
+                self.hideView1.isHidden = true
+            }
 
             guard let noticeCell = tableView.dequeueReusableCell(withIdentifier: "noticeCell", for: indexPath) as? NoticeTableViewCell
                 else { return UITableViewCell() }
@@ -377,6 +494,20 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         }
             
         if tableView == testNoticeTableView{
+            
+            
+            if testNoticeInfoArray.count == 0
+            {
+                
+                print("안보여야 하는데...")
+                self.hideView2.isHidden = false
+            }
+
+            else {
+                
+                print("안봄안봄")
+                self.hideView2.isHidden = true
+            }
             
 
             
@@ -407,6 +538,16 @@ extension NoticeViewController: UITableViewDelegate,UITableViewDataSource{
         }
             
         else{
+            
+            
+            if classNoticeInfoArray.count == 0
+            {
+                self.hideView3.isHidden = false
+            }
+
+            else {
+                self.hideView3.isHidden = true
+            }
             
             
 

@@ -48,7 +48,7 @@ class NoticeDetailTableCell: UITableViewCell {
             
         else if(imageIdx == 2)
         {
-            if let image = UIImage(named: "ioChattingNoticClassMoreIcDday"){
+            if let image = UIImage(named: "chattingNoticeLabelExamBg"){
                 
                 dDayLabelImage.image = image
                 
@@ -88,12 +88,23 @@ class NoticeDetailTableCell: UITableViewCell {
         
         if start == "-1"
         {
-            subtitle =  "~ " + end
+            
+            if end == "-1"
+            {
+                subtitle = ""
+            }
+            else
+            {
+                subtitle =  "~ " + end
+
+            }
+            
+            
         }
         
-        if end == "-1"
+        else if end == "-1"
         {
-            subtitle = ""
+            subtitle = start + "~"
         }
         
         

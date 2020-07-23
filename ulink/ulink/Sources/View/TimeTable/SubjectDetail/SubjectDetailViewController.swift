@@ -8,7 +8,13 @@
 
 import UIKit
 
-class SubjectDetailViewController: UIViewController {
+
+protocol SubjectDetailViewControllerDelegate {
+    func updateSubjectDetail()
+}
+
+class SubjectDetailViewController: UIViewController, ColorPickerViewControllerDelegate {
+   
     
     @IBOutlet var topView: UIView!
     @IBOutlet weak var backgroundView: UIView!
@@ -33,9 +39,12 @@ class SubjectDetailViewController: UIViewController {
     @IBOutlet weak var editNameLabel: UILabel!
     
     @IBOutlet weak var customizingView: UIView!
+    @IBOutlet weak var deleteView: UIView!
     
     
     private let defaultViewHeight = CGFloat(37.0)
+    
+    public var delegate : SubjectDetailViewControllerDelegate?
     
     private var subjectColorCode = 0
     private var subjectName = ""
@@ -124,7 +133,7 @@ class SubjectDetailViewController: UIViewController {
     
     
     private func setLabels(){
-        colorView.backgroundColor = ColorFilter.init().getColor(colorCode: subjectColorCode)
+        colorView.backgroundColor = ColorPicker.init().getColor(subjectColorCode).color
         subjectNameLabel.text = subjectName
         subjectTimeInfoLabel.text = subjectTimeInfo
         subjectMemoInfoLabel.text = subjectMemo
@@ -230,19 +239,78 @@ class SubjectDetailViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.showCustomizing))
         
         self.customizingView.addGestureRecognizer(gesture)
+        self.deleteView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showDeleteSubjectAlert)))
     }
     
     @objc func showCustomizing(sender : UITapGestureRecognizer) {
         guard let presenting = self.presentingViewController else {return}
         
         let popStoryBoard = UIStoryboard(name: "ColorPick", bundle: nil)
-        let presentVC = popStoryBoard.instantiateViewController(withIdentifier: "colorPickVC")
+        let presentVC  : ColorPickViewController = popStoryBoard.instantiateViewController(withIdentifier: "colorPickVC") as! ColorPickViewController
         presentVC.modalPresentationStyle = .overCurrentContext
         
-        //subjectName
+        presentVC.delegate = self
+        presentVC.subjectName = subjectName
+        presentVC.subjectIdx = subjectIdx
+        presentVC.isSubject = isSubject
         
-        self.dismiss(animated: true){
-            presenting.present(presentVC, animated: true, completion: nil)
+        self.present(presentVC, animated: false, completion: nil)
+        
+    }
+    
+    @objc func showDeleteSubjectAlert(sender : UITapGestureRecognizer) {
+          
+        let alert = UIAlertController(title: "", message: "일정을 삭제하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+
+              alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: { (_) in
+                  
+                  // todo 통신
+                self.deleteSubject(idx: self.subjectIdx)
+              }))
+        
+        alert.addAction(UIAlertAction(title: "취소",style: UIAlertAction.Style.destructive, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    // MARK:- 통신
+    
+    func deleteSubject(idx: Int){
+        
+        print("deleteSubject")
+        SubjectDetailService.shared.deleteSchoolSubject(idx: idx) { networkResult in
+            switch networkResult {
+                case .success(_, _) :
+                    let alert = UIAlertController(title: "", message: "삭제가 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)
+
+                        alert.addAction(UIAlertAction(title: "확인",style: UIAlertAction.Style.default, handler: { (_) in
+                             self.dismiss(animated: true, completion: nil)
+                        }))
+                                     
+                       
+                        self.present(alert, animated: true, completion: nil)
+                    
+                    self.delegate?.updateSubjectDetail()
+                    
+                    break
+                case .requestErr(let message):
+                        print("REQUEST ERROR")
+                        break
+            case .pathErr: break
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
         }
     }
+    
+    func colorUpdate(color: Int) {
+        self.subjectColorCode = color
+         colorView.backgroundColor = ColorPicker.init().getColor(subjectColorCode).color
+        
+            delegate?.updateSubjectDetail()
+    }
+       
+    
+    
 }

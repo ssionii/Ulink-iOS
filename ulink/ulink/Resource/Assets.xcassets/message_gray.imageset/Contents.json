@@ -56,57 +56,6 @@
         "mode" : "9-part"
       },
       "scale" : "3x"
-    },
-    {
-      "filename" : "message_gray 4.png",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 4,
-          "left" : 10,
-          "right" : 3,
-          "top" : 7
-        },
-        "center" : {
-          "height" : 1,
-          "mode" : "tile",
-          "width" : 1
-        },
-        "mode" : "9-part"
-      }
-    },
-    {
-      "filename" : "message_gray@2x 4.png",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 5,
-          "left" : 18,
-          "right" : 5,
-          "top" : 11
-        },
-        "center" : {
-          "height" : 1,
-          "mode" : "tile",
-          "width" : 1
-        },
-        "mode" : "9-part"
-      }
-    },
-    {
-      "filename" : "message_gray@3x 4.png",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 8,
-          "left" : 27,
-          "right" : 8,
-          "top" : 15
-        },
-        "center" : {
-          "height" : 1,
-          "mode" : "tile",
-          "width" : 1
-        },
-        "mode" : "9-part"
-      }
     }
   ],
   "info" : {
