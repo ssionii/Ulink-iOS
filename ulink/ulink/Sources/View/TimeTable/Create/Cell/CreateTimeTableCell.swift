@@ -6,6 +6,12 @@
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
+/*
+ 
+ 시간표 생성 뷰에서 띄워지는 시간표
+ 
+ */
+
 import UIKit
 
 class CreateTimeTableCell: UICollectionViewCell , TimeTableDataSource, TimeTableDelegate {

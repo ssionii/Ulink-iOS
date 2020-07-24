@@ -138,6 +138,19 @@
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		29D7E6E824CAABAB008397D3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		292B1CEC24AF0AA700B4EC79 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		29970E4824BEB1F10034840E /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -168,6 +181,10 @@
 		29C6BB5E24BD9EF20026747C /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarData.swift; path = ulink/Resource/Network/Calendar/CalendarData.swift; sourceTree = SOURCE_ROOT; };
 		29C6BB6124BE3DFE0026747C /* SearchRecommendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendData.swift; sourceTree = "<group>"; };
 		29C6BB6424BE3F080026747C /* SearchRecommendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendService.swift; sourceTree = "<group>"; };
+		29D7E6DC24CAABAB008397D3 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		29D7E6DF24CAABAB008397D3 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		29D7E6E224CAABAB008397D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		29D7E6E424CAABAB008397D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		925CCBD7FDB6FCC72DBB5D65 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -384,10 +401,21 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		29D7E6DE24CAABAB008397D3 /* UlinkWidget */ = {
+			isa = PBXGroup;
+			children = (
+				29D7E6DF24CAABAB008397D3 /* TodayViewController.swift */,
+				29D7E6E124CAABAB008397D3 /* MainInterface.storyboard */,
+				29D7E6E424CAABAB008397D3 /* Info.plist */,
+			);
+			path = UlinkWidget;
+			sourceTree = "<group>";
+		};
 		41A1ADDA0FE96FE18C4B1BB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */,
+				29D7E6DC24CAABAB008397D3 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -690,6 +718,7 @@
 			isa = PBXGroup;
 			children = (
 				FD45F24D24AA591300F304BD /* ulink */,
+				29D7E6DE24CAABAB008397D3 /* UlinkWidget */,
 				FD45F24C24AA591300F304BD /* Products */,
 				674E96E3FC3FBA517F3C1116 /* Pods */,
 				41A1ADDA0FE96FE18C4B1BB4 /* Frameworks */,
@@ -967,6 +996,7 @@
 				FD45F24824AA591300F304BD /* Frameworks */,
 				FD45F24924AA591300F304BD /* Resources */,
 				9F38C775004615FEBDA21D26 /* [CP] Embed Pods Frameworks */,
+				29D7E6E824CAABAB008397D3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -983,7 +1013,7 @@
 		FD45F24324AA591300F304BD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "송지훈";
 				TargetAttributes = {
@@ -1201,6 +1231,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		29D7E6E124CAABAB008397D3 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29D7E6E224CAABAB008397D3 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		FD45F25424AA591300F304BD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1340,10 +1378,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 925CCBD7FDB6FCC72DBB5D65 /* Pods-ulink.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L9D5M5DM3Y;
+				DEVELOPMENT_TEAM = 4JPTB87CQ5;
 				INFOPLIST_FILE = ulink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1363,6 +1402,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;

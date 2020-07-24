@@ -5,6 +5,13 @@
 //  Created by 양시연 on 2020/07/10.
 //  Copyright © 2020 송지훈. All rights reserved.
 //
+
+/*
+
+과목 직접 추가 뷰에서 시간 정보를 보여주는 cell
+
+*/
+
 import UIKit
 
 protocol SubjectTimeInfoCellDelegate {

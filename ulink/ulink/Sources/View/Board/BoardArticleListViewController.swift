@@ -18,19 +18,40 @@ class BoardArticleListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideNaviBar()
 
         // Do any additional setup after loading the view.
     }
+     
+    func hideNaviBar()
+    {
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func goToNoticeView(_ sender: Any) {
+        
+                    let storyboard = UIStoryboard(name:"Chatting", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "NoticeViewController") as! NoticeViewController
+        
+        
+        
+        
+//                    print("=====================================")
+//                    print("현재 게시판에서 공지방으로 넘기는 정보")
+//                    print("과목 이름 : \(self.tempTitle!)")
+//                    print("과목 인덱스 : \(self.subjectIdx)")
+//
+//                    print("=====================================")
+        
+        
+                    vc.roomtitle = "공지방"
+                    vc.subjectIDX = 3
+                    self.navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
-    */
+    
 
 }

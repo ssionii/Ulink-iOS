@@ -18,10 +18,12 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     public var delegate: AddSubjectDetailDelegate?
     
     public var scheduleIdx = 0
+    // 시간 정보에 대한 리스트
     public var timeInfoList = [TimeInfoModel]()
     public let defatulTimeInfoTableViewHeight = 46
     private var subjectName = ""
     private var editTimeInfoIdx = 0
+    // 드래그에서 왔는지 아니면 바로 왔는지에 따라 뷰가 다르므로 이 분기를 위한 변수
     public var isFromDrag = false
 
     
@@ -243,8 +245,10 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
+    // 길어서 어려워 보이지만 찬찬히 읽으면 쉽다.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // 드래그에서 오지 않았을 때, 시간 추가가 있어야 함)
         if !isFromDrag {
             if timeInfoList.count == 0 || indexPath.row == timeInfoList.count {
                 
@@ -357,16 +361,6 @@ class AddSubjectDetailViewController: UIViewController, UITableViewDelegate, UIT
     func removeTimeInfoCell(tag: Int){
     
         let indexPath = IndexPath(row: tag, section: 0)
-        print("tag: \(tag)")
-
-//        var removeIdx = 0
-//
-//        for i in 0 ... timeInfoList.count - 1 {
-//            if timeInfoList[i].timeIdx == tag {
-//                removeIdx = i
-//                 print("removeIdx : \(removeIdx)")
-//            }
-//        }
         
         timeInfoList.remove(at: tag)
         
