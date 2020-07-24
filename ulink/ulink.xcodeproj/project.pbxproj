@@ -8,21 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B1CEC24AF0AA700B4EC79 /* DayCell.swift */; };
-		29970E4924BEB1F10034840E /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E4824BEB1F10034840E /* LoginService.swift */; };
-		29970E6D24BF662F0034840E /* ColorPick.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29970E6C24BF662F0034840E /* ColorPick.storyboard */; };
 		29970E7224BF90390034840E /* ColorPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E7124BF90390034840E /* ColorPickViewController.swift */; };
 		29970E7424BF915F0034840E /* ColorPickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E7324BF915F0034840E /* ColorPickCell.swift */; };
 		29970E7624BF9EC70034840E /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E7524BF9EC70034840E /* ColorModel.swift */; };
-		299DA9F724C0327F00F023FD /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F224C0327F00F023FD /* Alarm.storyboard */; };
-		299DA9F824C0327F00F023FD /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F324C0327F00F023FD /* Filter.storyboard */; };
-		299DA9F924C0327F00F023FD /* CreateTimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F424C0327F00F023FD /* CreateTimeTable.storyboard */; };
-		299DA9FA24C0327F00F023FD /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F524C0327F00F023FD /* Search.storyboard */; };
-		299DA9FB24C0327F00F023FD /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F624C0327F00F023FD /* Review.storyboard */; };
-		299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9FC24C0328E00F023FD /* MyPage.storyboard */; };
 		299DACF024B70AFF008181FA /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACEF24B70AFF008181FA /* EventModel.swift */; };
 		299DACF224B785FE008181FA /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF124B785FE008181FA /* EventListViewController.swift */; };
 		299DACF424B78785008181FA /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF324B78785008181FA /* EventCell.swift */; };
-		299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DACFD24B813FE008181FA /* Calendar.storyboard */; };
 		299DAD0224B837B7008181FA /* EventListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0124B837B7008181FA /* EventListHeaderCell.swift */; };
 		299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0D24BABC93008181FA /* AlarmViewController.swift */; };
 		299DAD1224BAF26D008181FA /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD1124BAF26C008181FA /* DetailEventViewController.swift */; };
@@ -74,11 +65,8 @@
 		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
-		FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */; };
-		FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A824C0469800C2B44C /* io_login_img.gif */; };
 		FD1398AB24C0646000C2B44C /* NoticeDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */; };
 		FD1398AE24C100CF00C2B44C /* MajorFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */; };
-		FD1398B024C28A8A00C2B44C /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1398AF24C28A8A00C2B44C /* Chatting.storyboard */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
 		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
@@ -88,13 +76,11 @@
 		FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1324AD03FB000C2AEC /* ChattingViewController.swift */; };
 		FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1524AD04A2000C2AEC /* NetworkResult.swift */; };
 		FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */; };
-		FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */; };
 		FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC3024AE0B44000C2AEC /* ClassModel.swift */; };
 		FD1A4AFA24B5A0B7000120A6 /* CreateTimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */; };
 		FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */; };
 		FD1A4AFD24B60427000120A6 /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */; };
 		FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */; };
-		FD408FCA24C96B4600691B9D /* Board.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD408FC924C96B4600691B9D /* Board.storyboard */; };
 		FD408FCD24C9C80E00691B9D /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FCC24C9C80E00691B9D /* BoardListViewController.swift */; };
 		FD408FCF24C9CCBE00691B9D /* BoardArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FCE24C9CCBE00691B9D /* BoardArticleListViewController.swift */; };
 		FD408FD124C9CCC800691B9D /* BoardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FD024C9CCC800691B9D /* BoardEditViewController.swift */; };
@@ -104,12 +90,7 @@
 		FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F24E24AA591300F304BD /* AppDelegate.swift */; };
 		FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25024AA591300F304BD /* SceneDelegate.swift */; };
 		FD45F25324AA591300F304BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25224AA591300F304BD /* ViewController.swift */; };
-		FD45F25624AA591300F304BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25424AA591300F304BD /* Main.storyboard */; };
-		FD45F25824AA591500F304BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25724AA591500F304BD /* Assets.xcassets */; };
-		FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25924AA591500F304BD /* LaunchScreen.storyboard */; };
-		FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */; };
 		FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */; };
-		FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */; };
 		FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */; };
 		FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */; };
 		FD717F0C24BC22AE005C81AE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD717F0B24BC22AE005C81AE /* MyPageViewController.swift */; };
@@ -1025,24 +1006,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */,
-				FD408FCA24C96B4600691B9D /* Board.storyboard in Resources */,
-				29970E6D24BF662F0034840E /* ColorPick.storyboard in Resources */,
-				299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */,
-				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
-				FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */,
-				FD1398B024C28A8A00C2B44C /* Chatting.storyboard in Resources */,
-				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
-				299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */,
-				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
-				299DA9FB24C0327F00F023FD /* Review.storyboard in Resources */,
-				FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */,
-				299DA9F824C0327F00F023FD /* Filter.storyboard in Resources */,
-				299DA9F924C0327F00F023FD /* CreateTimeTable.storyboard in Resources */,
-				FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */,
-				299DA9F724C0327F00F023FD /* Alarm.storyboard in Resources */,
-				FD45F25624AA591300F304BD /* Main.storyboard in Resources */,
-				299DA9FA24C0327F00F023FD /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1138,7 +1101,6 @@
 				B590A31524C0BFF8006637D0 /* CartService.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */,
-				29970E4924BEB1F10034840E /* LoginService.swift in Sources */,
 				FDFA3A8724BD7DD100CB8939 /* MajorFilterTableViewCell.swift in Sources */,
 				29C6BB5D24BD92F80026747C /* CalendarService.swift in Sources */,
 				B5DBF3E224C04BBA0013BB33 /* PersonalScheduleModel.swift in Sources */,
