@@ -6,8 +6,8 @@
       "resizing" : {
         "cap-insets" : {
           "bottom" : 5,
-          "left" : 21,
-          "right" : 20,
+          "left" : 54,
+          "right" : 52,
           "top" : 7
         },
         "center" : {
@@ -25,8 +25,8 @@
       "resizing" : {
         "cap-insets" : {
           "bottom" : 9,
-          "left" : 78,
-          "right" : 71,
+          "left" : 38,
+          "right" : 32,
           "top" : 10
         },
         "center" : {
@@ -44,8 +44,8 @@
       "resizing" : {
         "cap-insets" : {
           "bottom" : 12,
-          "left" : 81,
-          "right" : 73,
+          "left" : 9,
+          "right" : 12,
           "top" : 13
         },
         "center" : {

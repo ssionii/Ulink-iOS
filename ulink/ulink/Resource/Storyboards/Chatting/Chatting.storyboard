@@ -746,7 +746,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0a-tR-pVU">
-                                        <rect key="frame" x="173" y="36" width="29.5" height="21"/>
+                                        <rect key="frame" x="172.5" y="36" width="30" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Jmd-La-BMH"/>
                                         </constraints>
@@ -1272,7 +1272,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="과제 공지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnO-sD-DeK">
-                                        <rect key="frame" x="156" y="78" width="63.5" height="21"/>
+                                        <rect key="frame" x="155.5" y="78" width="64" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="FrU-lR-CWA"/>
                                         </constraints>
@@ -1646,7 +1646,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="과제 공지" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxJ-e2-bip">
-                                                <rect key="frame" x="156" y="36.5" width="63.5" height="21"/>
+                                                <rect key="frame" x="155.5" y="36.5" width="64" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
