@@ -95,6 +95,12 @@
 		FD1A4AFD24B60427000120A6 /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */; };
 		FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */; };
 		FD408FCA24C96B4600691B9D /* Board.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD408FC924C96B4600691B9D /* Board.storyboard */; };
+		FD408FCD24C9C80E00691B9D /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FCC24C9C80E00691B9D /* BoardListViewController.swift */; };
+		FD408FCF24C9CCBE00691B9D /* BoardArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FCE24C9CCBE00691B9D /* BoardArticleListViewController.swift */; };
+		FD408FD124C9CCC800691B9D /* BoardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FD024C9CCC800691B9D /* BoardEditViewController.swift */; };
+		FD408FD324C9CCD800691B9D /* BoardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FD224C9CCD800691B9D /* BoardDetailViewController.swift */; };
+		FD408FD624C9D02400691B9D /* BoardListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FD524C9D02400691B9D /* BoardListTableCell.swift */; };
+		FD408FD824C9D05B00691B9D /* BoardArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FD724C9D05B00691B9D /* BoardArticleCollectionViewCell.swift */; };
 		FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F24E24AA591300F304BD /* AppDelegate.swift */; };
 		FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25024AA591300F304BD /* SceneDelegate.swift */; };
 		FD45F25324AA591300F304BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25224AA591300F304BD /* ViewController.swift */; };
@@ -227,7 +233,13 @@
 		FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailTableCell.swift; sourceTree = "<group>"; };
 		FD408FC924C96B4600691B9D /* Board.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Board.storyboard; sourceTree = "<group>"; };
-		FD45F24B24AA591300F304BD /* 유링크.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "유링크.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD408FCC24C9C80E00691B9D /* BoardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListViewController.swift; sourceTree = "<group>"; };
+		FD408FCE24C9CCBE00691B9D /* BoardArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardArticleListViewController.swift; sourceTree = "<group>"; };
+		FD408FD024C9CCC800691B9D /* BoardEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEditViewController.swift; sourceTree = "<group>"; };
+		FD408FD224C9CCD800691B9D /* BoardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDetailViewController.swift; sourceTree = "<group>"; };
+		FD408FD524C9D02400691B9D /* BoardListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListTableCell.swift; sourceTree = "<group>"; };
+		FD408FD724C9D05B00691B9D /* BoardArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		FD45F24B24AA591300F304BD /* .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = .app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD45F25024AA591300F304BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FD45F25224AA591300F304BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -661,6 +673,27 @@
 			path = Board;
 			sourceTree = "<group>";
 		};
+		FD408FCB24C9C7FC00691B9D /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				FD408FD424C9CFEC00691B9D /* Cell */,
+				FD408FCC24C9C80E00691B9D /* BoardListViewController.swift */,
+				FD408FCE24C9CCBE00691B9D /* BoardArticleListViewController.swift */,
+				FD408FD024C9CCC800691B9D /* BoardEditViewController.swift */,
+				FD408FD224C9CCD800691B9D /* BoardDetailViewController.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		FD408FD424C9CFEC00691B9D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FD408FD524C9D02400691B9D /* BoardListTableCell.swift */,
+				FD408FD724C9D05B00691B9D /* BoardArticleCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		FD45F24224AA591300F304BD = {
 			isa = PBXGroup;
 			children = (
@@ -675,7 +708,7 @@
 		FD45F24C24AA591300F304BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD45F24B24AA591300F304BD /* 유링크.app */,
+				FD45F24B24AA591300F304BD /* .app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -736,6 +769,7 @@
 		FD616D0124AA6631007D54B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD408FCB24C9C7FC00691B9D /* Board */,
 				FD7E7BF324BF4EBD007CF404 /* Splash */,
 				29AC521824BC60780007E019 /* Review */,
 				29AC520F24BB9DC60007E019 /* Search */,
@@ -950,7 +984,7 @@
 			);
 			name = ulink;
 			productName = ulink;
-			productReference = FD45F24B24AA591300F304BD /* 유링크.app */;
+			productReference = FD45F24B24AA591300F304BD /* .app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1097,8 +1131,10 @@
 				FD7C730E24BCA4C4003ADAE8 /* SignInData.swift in Sources */,
 				B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */,
 				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
+				FD408FD324C9CCD800691B9D /* BoardDetailViewController.swift in Sources */,
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				29970E7224BF90390034840E /* ColorPickViewController.swift in Sources */,
+				FD408FD624C9D02400691B9D /* BoardListTableCell.swift in Sources */,
 				B590A31524C0BFF8006637D0 /* CartService.swift in Sources */,
 				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */,
@@ -1120,8 +1156,10 @@
 				292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */,
 				B513512324B8BCD100BD219B /* TimeInfoModel.swift in Sources */,
 				29C6BB6224BE3DFE0026747C /* SearchRecommendData.swift in Sources */,
+				FD408FCD24C9C80E00691B9D /* BoardListViewController.swift in Sources */,
 				29AC521E24BCF8B50007E019 /* GradeSelectViewController.swift in Sources */,
 				FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */,
+				FD408FD124C9CCC800691B9D /* BoardEditViewController.swift in Sources */,
 				B595299224BCFCF3008139E6 /* SubjectDetailViewController.swift in Sources */,
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
 				B590A30F24C05133006637D0 /* PersonalScheduleService.swift in Sources */,
@@ -1132,10 +1170,12 @@
 				B52F9DE824BDA94800B57CA1 /* TimeTableResponse.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
 				B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */,
+				FD408FCF24C9CCBE00691B9D /* BoardArticleListViewController.swift in Sources */,
 				FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
 				FDFA3A8F24BDA83300CB8939 /* NoticeService.swift in Sources */,
 				299DACF224B785FE008181FA /* EventListViewController.swift in Sources */,
+				FD408FD824C9D05B00691B9D /* BoardArticleCollectionViewCell.swift in Sources */,
 				B5DBF3DE24BF7CAF0013BB33 /* ListTimeTableService.swift in Sources */,
 				29AC521324BB9E5D0007E019 /* SearchedCell.swift in Sources */,
 				FDFA3A9C24BEB4DD00CB8939 /* NoticeUploadData.swift in Sources */,
@@ -1323,7 +1363,6 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
-				PRODUCT_NAME = "유링크";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1345,7 +1384,6 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
-				PRODUCT_NAME = "유링크";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
