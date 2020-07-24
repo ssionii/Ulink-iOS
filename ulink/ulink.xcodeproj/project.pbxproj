@@ -36,6 +36,10 @@
 		29C6BB5F24BD9EF20026747C /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB5E24BD9EF20026747C /* CalendarData.swift */; };
 		29C6BB6224BE3DFE0026747C /* SearchRecommendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB6124BE3DFE0026747C /* SearchRecommendData.swift */; };
 		29C6BB6524BE3F080026747C /* SearchRecommendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB6424BE3F080026747C /* SearchRecommendService.swift */; };
+		29D7E6DD24CAABAB008397D3 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D7E6DC24CAABAB008397D3 /* NotificationCenter.framework */; };
+		29D7E6E024CAABAB008397D3 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7E6DF24CAABAB008397D3 /* TodayViewController.swift */; };
+		29D7E6E324CAABAB008397D3 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D7E6E124CAABAB008397D3 /* MainInterface.storyboard */; };
+		29D7E6E724CAABAB008397D3 /* UlinkWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 29D7E6DB24CAABAB008397D3 /* UlinkWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8F83FB66AD3FD38DC68E8A6E /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */; };
 		B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */; };
 		B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511E24B86BE700BD219B /* AddSubjectDetailViewController.swift */; };
@@ -135,6 +139,30 @@
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		29D7E6E524CAABAB008397D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD45F24324AA591300F304BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29D7E6DA24CAABAB008397D3;
+			remoteInfo = UlinkWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		29D7E6E824CAABAB008397D3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				29D7E6E724CAABAB008397D3 /* UlinkWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		292B1CEC24AF0AA700B4EC79 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		29970E4824BEB1F10034840E /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -165,6 +193,11 @@
 		29C6BB5E24BD9EF20026747C /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarData.swift; path = ulink/Resource/Network/Calendar/CalendarData.swift; sourceTree = SOURCE_ROOT; };
 		29C6BB6124BE3DFE0026747C /* SearchRecommendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendData.swift; sourceTree = "<group>"; };
 		29C6BB6424BE3F080026747C /* SearchRecommendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendService.swift; sourceTree = "<group>"; };
+		29D7E6DB24CAABAB008397D3 /* UlinkWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UlinkWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		29D7E6DC24CAABAB008397D3 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		29D7E6DF24CAABAB008397D3 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		29D7E6E224CAABAB008397D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		29D7E6E424CAABAB008397D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.release.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.release.xcconfig"; sourceTree = "<group>"; };
 		925CCBD7FDB6FCC72DBB5D65 /* Pods-ulink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ulink.debug.xcconfig"; path = "Target Support Files/Pods-ulink/Pods-ulink.debug.xcconfig"; sourceTree = "<group>"; };
 		9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ulink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +302,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		29D7E6D824CAABAB008397D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29D7E6DD24CAABAB008397D3 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD45F24824AA591300F304BD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -377,10 +418,21 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		29D7E6DE24CAABAB008397D3 /* UlinkWidget */ = {
+			isa = PBXGroup;
+			children = (
+				29D7E6DF24CAABAB008397D3 /* TodayViewController.swift */,
+				29D7E6E124CAABAB008397D3 /* MainInterface.storyboard */,
+				29D7E6E424CAABAB008397D3 /* Info.plist */,
+			);
+			path = UlinkWidget;
+			sourceTree = "<group>";
+		};
 		41A1ADDA0FE96FE18C4B1BB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */,
+				29D7E6DC24CAABAB008397D3 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -655,6 +707,7 @@
 			isa = PBXGroup;
 			children = (
 				FD45F24D24AA591300F304BD /* ulink */,
+				29D7E6DE24CAABAB008397D3 /* UlinkWidget */,
 				FD45F24C24AA591300F304BD /* Products */,
 				674E96E3FC3FBA517F3C1116 /* Pods */,
 				41A1ADDA0FE96FE18C4B1BB4 /* Frameworks */,
@@ -666,6 +719,7 @@
 			isa = PBXGroup;
 			children = (
 				FD45F24B24AA591300F304BD /* 유링크.app */,
+				29D7E6DB24CAABAB008397D3 /* UlinkWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -923,6 +977,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		29D7E6DA24CAABAB008397D3 /* UlinkWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29D7E6EB24CAABAB008397D3 /* Build configuration list for PBXNativeTarget "UlinkWidget" */;
+			buildPhases = (
+				29D7E6D724CAABAB008397D3 /* Sources */,
+				29D7E6D824CAABAB008397D3 /* Frameworks */,
+				29D7E6D924CAABAB008397D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UlinkWidget;
+			productName = UlinkWidget;
+			productReference = 29D7E6DB24CAABAB008397D3 /* UlinkWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		FD45F24A24AA591300F304BD /* ulink */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD45F25F24AA591500F304BD /* Build configuration list for PBXNativeTarget "ulink" */;
@@ -932,10 +1003,12 @@
 				FD45F24824AA591300F304BD /* Frameworks */,
 				FD45F24924AA591300F304BD /* Resources */,
 				9F38C775004615FEBDA21D26 /* [CP] Embed Pods Frameworks */,
+				29D7E6E824CAABAB008397D3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				29D7E6E624CAABAB008397D3 /* PBXTargetDependency */,
 			);
 			name = ulink;
 			productName = ulink;
@@ -948,10 +1021,13 @@
 		FD45F24324AA591300F304BD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "송지훈";
 				TargetAttributes = {
+					29D7E6DA24CAABAB008397D3 = {
+						CreatedOnToolsVersion = 11.6;
+					};
 					FD45F24A24AA591300F304BD = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -971,11 +1047,20 @@
 			projectRoot = "";
 			targets = (
 				FD45F24A24AA591300F304BD /* ulink */,
+				29D7E6DA24CAABAB008397D3 /* UlinkWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		29D7E6D924CAABAB008397D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29D7E6E324CAABAB008397D3 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD45F24924AA591300F304BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1045,6 +1130,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		29D7E6D724CAABAB008397D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29D7E6E024CAABAB008397D3 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FD45F24724AA591300F304BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1162,7 +1255,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		29D7E6E624CAABAB008397D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29D7E6DA24CAABAB008397D3 /* UlinkWidget */;
+			targetProxy = 29D7E6E524CAABAB008397D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		29D7E6E124CAABAB008397D3 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29D7E6E224CAABAB008397D3 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		FD45F25424AA591300F304BD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1182,6 +1291,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		29D7E6E924CAABAB008397D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4JPTB87CQ5;
+				INFOPLIST_FILE = UlinkWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink.UlinkWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29D7E6EA24CAABAB008397D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = UlinkWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink.UlinkWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		FD45F25D24AA591500F304BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1300,9 +1449,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 925CCBD7FDB6FCC72DBB5D65 /* Pods-ulink.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3AM7R7TW97;
+				DEVELOPMENT_TEAM = 4JPTB87CQ5;
 				INFOPLIST_FILE = ulink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1310,7 +1460,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = ssionii.ulink;
+				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink;
 				PRODUCT_NAME = "유링크";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1321,6 +1471,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55811ECF95B6405A848C7F0E /* Pods-ulink.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -1342,6 +1493,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		29D7E6EB24CAABAB008397D3 /* Build configuration list for PBXNativeTarget "UlinkWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29D7E6E924CAABAB008397D3 /* Debug */,
+				29D7E6EA24CAABAB008397D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FD45F24624AA591300F304BD /* Build configuration list for PBXProject "ulink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

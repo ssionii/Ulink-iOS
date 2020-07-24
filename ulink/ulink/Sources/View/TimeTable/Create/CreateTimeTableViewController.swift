@@ -5,8 +5,19 @@
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
+
+/*
+ 
+ 시간표 생성 뷰... 여긴 메인뷰보다 delegate 더 많음 ^^,,
+ 많이 헷갈릴 수 있음 주의
+ 
+ */
+
+
+
 import UIKit
 
+// 시간표에 과목을 추가(enroll)했을 때 메인 시간표 업데이트를 위한 protocol
 protocol CreateTimeTableViewControllerDelegate {
     func updateMainFromEnrollSubject()
 }
@@ -16,8 +27,10 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
 
     @IBOutlet weak var backgroundView: UIView!
+    // 상단 시간표들을 보여주는 collectionView
     @IBOutlet weak var timeTableCollectionView: UICollectionView!
     @IBOutlet weak var pageControlDots: UIPageControl!
+    // 하단 과목들을 보여주는 tableView
     @IBOutlet weak var subjectInfoTableView: UITableView!
     
     @IBOutlet weak var searchView: UIView!
@@ -25,6 +38,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     
     // button
+    // 여기는 내가 숨겼다가 없앴다가 할라고 다 outlet으로 지정해놨는데, 사실 얘네들의 높이를 0으로 지정하는 거 보다 더 좋은 숨김 방법이 있을 것 같숩니다..
     @IBOutlet weak var filterAndSearchView: UIView!
     @IBOutlet weak var filterLabel: UILabel!
     @IBOutlet weak var filterImageView: UIImageView!
@@ -48,14 +62,18 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
 
     @IBOutlet weak var searchLabel: UILabel!
     
+    // 하단 과목을 띄워 줄 때 검색 및 필터인지, 후보인지에 따라 뷰가 달라야 해서 isCandidateView 변수를 만들어 놓음
     private var isCandidateView = false
     private var didGradeSelect = false
     
+    // 상단에 띄워질 시간표 리스트 (idx, 이름, 학기, 과목리스트 포함)
     private var timeTableList : [TimeTableModel] = [] {
         didSet {
             self.timeTableCollectionView.reloadData()
         }
     }
+    
+    // 하단에 띄워질 과목 리스트
     private var subjectInfoList = [SubjectModel](){
         didSet {
             subjectInfoTableView?.reloadData()
@@ -75,6 +93,8 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     var scheduleIdx = 0
     
     
+    
+    // IBAction
     @IBAction func tapMajorFilter(_ sender: UIButton) {
         
          let storyboard = UIStoryboard(name:"Filter", bundle: nil)
@@ -98,9 +118,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
     }
     
-    
-    
-
     @IBAction func finishVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -228,10 +245,9 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     private func setSubjectInfoTableView(){
         subjectInfoTableView.bounces = false
        
+        // 밑에 과목 띄워주는 tableView의 cell의 높이가 동적으로 늘어났다 줄어났다 해야하므로 estimatedRowHeight와 UITableView.auto - 를 설정
         subjectInfoTableView.estimatedRowHeight = 86
         subjectInfoTableView.rowHeight = UITableView.automaticDimension
-    
-       
     }
     
     private func setButton(){
@@ -242,6 +258,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
       
     }
     
+    // 얘네 필요 없음
     @IBAction func swipeLeft(_ sender: Any) {
         let x = self.timeTableCollectionView.bounds.origin.x
         if x < (self.timeTableCollectionView.frame.width - 11) * 2 {
@@ -276,6 +293,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         searchFilterBorderHeight.constant = 0
     }
     
+    // 시간표 추가해주는 함수
     private func addTimeTable(){
         let alertController = UIAlertController(title: "시간표 이름을 입력해 주세요.", message: nil, preferredStyle: .alert)
               let confirmAction = UIAlertAction(title: "확인", style: .default) { (_) in
@@ -295,6 +313,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
               self.present(alertController, animated: true, completion: nil)
     }
     
+    // 그라데이션 배경 설정
     private func setBackgroundView(){
         
         let gradientLayer = CAGradientLayer()
@@ -314,6 +333,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
     }
     
+    // 하단 과목을 클릭했을 때 지금 보고 있는 시간표에 음영 띄워주기
     func drawHintTimeTable(row: Int, day: [Int], startTime: [String], endTime : [String]){
     
         let indexPath = IndexPath(row: row, section: 0)
@@ -326,6 +346,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
     }
     
+    // 하단 과목을 다시 한번 클릭했을 때 띄워져있던 음영 지워주기
     func removeHintTimeTable(row: Int){
         let indexPath = IndexPath(row: row, section: 0)
         
@@ -353,6 +374,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         return count
     }
     
+    // 시간표 cell 들을 지나 맨 마지막에는 시간표를 추가할 수 있는 cell이 나옵니다요.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
         if(indexPath.row < timeTableList.count){
@@ -393,6 +415,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         }
     }
     
+    // collectionView 스크롤하면 pageControlDots 상태 변경
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let temp = pageControlDots.currentPage
         pageControlDots.currentPage = Int(
@@ -447,6 +470,7 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        // 이게 있어야 높이가 동적으로 조절 됨
         tableView.beginUpdates()
         tableView.endUpdates()
 
@@ -463,21 +487,22 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         }
     }
 
+    // 강평 보기
     func showReview(idx: Int) {
         print("showReview")
     }
-       
+    
+    // 후보군에서 삭제
     func deleteSubject(idx: Int) {
         deleteCandidate(idx: idx, semester: self.semester)
     }
     
-    
-   
-       
+    // 후보군에 추가
     func addCandidate(idx: Int) {
         postCandidate(semester : semester, subjectIdx: idx)
     }
        
+    // 과목 추가
     func enrollSubject(subjectIdx: Int, subjectItems: [SubjectModel]) {
         
         let indexPath = IndexPath(row: pageControlDots.currentPage, section: 0)
@@ -528,7 +553,6 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
         
         
-        
         if(candDraw){
             timeTableCell.subjectList.append(contentsOf: tempList)
             
@@ -563,18 +587,22 @@ class CreateTimeTableViewController: UIViewController, UICollectionViewDelegate,
         
     }
     
+    // 여기서 부터 delegate
+    
+    // 과목 직접 추가 한 뒤 update
     func didPressConfirmBtn() {
 //        getTimeTableList(semester: semester)
          self.delegate?.updateMainFromEnrollSubject()
     }
     
+    // 과목 직접 추가 한 뒤 update
     func didPressOkButton(timeInfoList: [SubjectModel], isFromDrag: Bool) {
         if !isFromDrag {
             self.getTimeTableList(semester: self.semester)
         }
     }
      
-       
+    // ..?
     func didDeleteTimeInfo(num: Int) {
         
     }

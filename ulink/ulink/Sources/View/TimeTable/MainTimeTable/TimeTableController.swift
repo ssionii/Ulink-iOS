@@ -6,9 +6,18 @@
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
+/*
+ 
+ timeTable의 ViewController
+ 
+ */
+
+
+
 import UIKit
 
 private let reuseIdentifier = "Cell"
+
 
 public class TimeTableController: UIViewController {
     weak var timeTable: TimeTable!
@@ -21,10 +30,12 @@ public class TimeTableController: UIViewController {
         }
     }
     
+    // 드래그를 할 수 있게 설정해주는 함수
     public func setDrag(){
         collectionView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longPress)))
     }
     
+    // 길게 눌러서 드래그 시작! (기본 값 0.5초)
     @objc func longPress(_ sender: UILongPressGestureRecognizer){
     
         let view = collectionView
@@ -57,6 +68,7 @@ extension TimeTableController : UICollectionViewDataSource {
                 let tempStartTimeHour = Int(subjectItem.startTime[0].split(separator: ":")[0]) ?? 24
                 let tempEndTimeHour = Int(subjectItem.endTime[0].split(separator: ":")[0]) ?? 00
 
+                
 //                if index < 1 {
 //                    minStartTimeHour = tempStartTimeHour
 //                    maxEndTimeHour = tempEndTimeHour
@@ -82,11 +94,12 @@ extension TimeTableController : UICollectionViewDataSource {
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
         let titleLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
 
+        
+        // border 없애 놓음
 //        backgroundView.layer.addBorder(edge: UIRectEdge.bottom, color: timeTable.borderColor, thickness: timeTable.borderWidth)
         backgroundView.backgroundColor = .clear
         backgroundView.tag = 9
 
-        // 이게 뭘까?
         for view in cell.subviews {
             if view.tag == 9 {
                 view.removeFromSuperview()
@@ -100,6 +113,7 @@ extension TimeTableController : UICollectionViewDataSource {
             cell.setNeedsDisplay()
             backgroundView.backgroundColor = UIColor.clear
 
+            // 월,화,,,금 을 뿌려주는 코드
         }else if indexPath.row < (timeTable.daySymbols.count + 1){
 //            if indexPath.row < timeTable.daySymbols.count {
 //                backgroundView.layer.addBorder(edge: UIRectEdge.top, color: timeTable.borderColor, thickness: timeTable.borderWidth)
@@ -113,6 +127,7 @@ extension TimeTableController : UICollectionViewDataSource {
 //            titleLabel.textColor = timeTable.symbolFontColor
 //            backgroundView.backgroundColor = UIColor.white
 
+            // 왼쪽 시간 뿌려주는 코드
         } else if indexPath.row % (timeTable.daySymbols.count + 1) == 0 {
         
             let time = (timeTable.minimumSubjectStartTime ?? 9) - 1 + (indexPath.row / (timeTable.daySymbols.count + 1 ))
@@ -128,6 +143,7 @@ extension TimeTableController : UICollectionViewDataSource {
             titleLabel.font = timeTable.symbolTimeFont
             titleLabel.textColor = timeTable.symbolTimeFontColor
 
+            
         } else {
             cell.textLabel.text = ""
             cell.setNeedsDisplay()
