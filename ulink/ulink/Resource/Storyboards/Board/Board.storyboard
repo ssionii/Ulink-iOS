@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Board List View Controller-->
+        <!--수업-->
         <scene sceneID="Txw-FP-nyr">
             <objects>
-                <viewController id="lil-jd-xkh" customClass="BoardListViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lil-jd-xkh" customClass="BoardListViewController" customModule="Ulink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yzY-XC-w8s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oq1-az-gmr">
-                                <rect key="frame" x="0.0" y="298" width="375" height="369"/>
+                                <rect key="frame" x="0.0" y="298" width="375" height="280"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
@@ -44,7 +44,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="7mg-32-doe"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="수업" image="tabbarIcClassUnselected" selectedImage="tabbarIcClassSelected" id="D3P-PG-8hi"/>
                     <navigationItem key="navigationItem" id="gWO-jD-c47"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5lA-Ml-GPO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,7 +55,7 @@
         <!--Board Article List View Controller-->
         <scene sceneID="h0g-Pd-BCd">
             <objects>
-                <viewController id="cEV-u7-Vqf" customClass="BoardArticleListViewController" customModule="유링크" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cEV-u7-Vqf" customClass="BoardArticleListViewController" customModule="Ulink" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZZj-6o-ec2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="4684" y="-503"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--BoardStoryBoard-->
         <scene sceneID="551-6T-HRV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g9F-VM-fbP" sceneMemberID="viewController">
+                <navigationController title="BoardStoryBoard" automaticallyAdjustsScrollViewInsets="NO" id="g9F-VM-fbP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1g1-mm-ch1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -114,4 +116,8 @@
             <point key="canvasLocation" x="1808.8" y="-250.52473763118442"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbarIcClassSelected" width="30" height="24"/>
+        <image name="tabbarIcClassUnselected" width="30" height="24"/>
+    </resources>
 </document>

@@ -68,7 +68,6 @@
 		FD1398AB24C0646000C2B44C /* NoticeDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */; };
 		FD1398AE24C100CF00C2B44C /* MajorFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
-		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
 		FD19DC0D24AD0356000C2AEC /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0C24AD0356000C2AEC /* APIConstant.swift */; };
 		FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0E24AD0365000C2AEC /* ChatModel.swift */; };
@@ -106,6 +105,22 @@
 		FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90824B7820F000E5A48 /* timeModel.swift */; };
 		FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */; };
 		FD8EE90E24B83744000E5A48 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90D24B83744000E5A48 /* MessageModel.swift */; };
+		FDAEFDAF24CB20EB00C7D013 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25424AA591300F304BD /* Main.storyboard */; };
+		FDAEFDB024CB220200C7D013 /* CreateTimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F424C0327F00F023FD /* CreateTimeTable.storyboard */; };
+		FDAEFDB124CB220B00C7D013 /* ColorPick.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29970E6C24BF662F0034840E /* ColorPick.storyboard */; };
+		FDAEFDB224CB220E00C7D013 /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */; };
+		FDAEFDB324CB221000C7D013 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F524C0327F00F023FD /* Search.storyboard */; };
+		FDAEFDB424CB221300C7D013 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F624C0327F00F023FD /* Review.storyboard */; };
+		FDAEFDB524CB221500C7D013 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F324C0327F00F023FD /* Filter.storyboard */; };
+		FDAEFDB624CB221B00C7D013 /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F224C0327F00F023FD /* Alarm.storyboard */; };
+		FDAEFDB724CB222100C7D013 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1398AF24C28A8A00C2B44C /* Chatting.storyboard */; };
+		FDAEFDB824CB222500C7D013 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9FC24C0328E00F023FD /* MyPage.storyboard */; };
+		FDAEFDB924CB222900C7D013 /* Board.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD408FC924C96B4600691B9D /* Board.storyboard */; };
+		FDAEFDBA24CB222D00C7D013 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25924AA591500F304BD /* LaunchScreen.storyboard */; };
+		FDAEFDBB24CB227500C7D013 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DACFD24B813FE008181FA /* Calendar.storyboard */; };
+		FDAEFDBC24CB22AB00C7D013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25724AA591500F304BD /* Assets.xcassets */; };
+		FDAEFDBD24CB22C800C7D013 /* io_login_img.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A824C0469800C2B44C /* io_login_img.gif */; };
+		FDAEFDBE24CB22CA00C7D013 /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */; };
 		FDFA3A8324BCE7B700CB8939 /* NormalFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8224BCE7B700CB8939 /* NormalFilterViewController.swift */; };
 		FDFA3A8524BCF27600CB8939 /* MajorFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8424BCF27600CB8939 /* MajorFilterViewController.swift */; };
 		FDFA3A8724BD7DD100CB8939 /* MajorFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8624BD7DD100CB8939 /* MajorFilterTableViewCell.swift */; };
@@ -199,7 +214,6 @@
 		FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorFilterService.swift; sourceTree = "<group>"; };
 		FD1398AF24C28A8A00C2B44C /* Chatting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		FD19DC0C24AD0356000C2AEC /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		FD19DC0E24AD0365000C2AEC /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -207,7 +221,6 @@
 		FD19DC1324AD03FB000C2AEC /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		FD19DC1524AD04A2000C2AEC /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
-		FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		FD19DC3024AE0B44000C2AEC /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTimeTableCell.swift; sourceTree = "<group>"; };
 		FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTimeTableViewController.swift; sourceTree = "<group>"; };
@@ -220,14 +233,13 @@
 		FD408FD224C9CCD800691B9D /* BoardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDetailViewController.swift; sourceTree = "<group>"; };
 		FD408FD524C9D02400691B9D /* BoardListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListTableCell.swift; sourceTree = "<group>"; };
 		FD408FD724C9D05B00691B9D /* BoardArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardArticleCollectionViewCell.swift; sourceTree = "<group>"; };
-		FD45F24B24AA591300F304BD /* .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = .app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD45F24B24AA591300F304BD /* Ulink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ulink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD45F25024AA591300F304BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FD45F25224AA591300F304BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD45F25524AA591300F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD45F25724AA591500F304BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD45F25A24AA591500F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFilter.swift; sourceTree = "<group>"; };
 		FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
@@ -553,7 +565,6 @@
 			isa = PBXGroup;
 			children = (
 				FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */,
-				FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */,
 			);
 			path = UserLogin;
 			sourceTree = "<group>";
@@ -689,7 +700,7 @@
 		FD45F24C24AA591300F304BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD45F24B24AA591300F304BD /* .app */,
+				FD45F24B24AA591300F304BD /* Ulink.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -703,8 +714,6 @@
 				B5A2784024ADE0C600A0F4A4 /* Extension */,
 				FD616CFF24AA5D2F007D54B5 /* Sources */,
 				FD616CFE24AA5A91007D54B5 /* Resource */,
-				FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */,
-				FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */,
 			);
 			path = ulink;
 			sourceTree = "<group>";
@@ -965,7 +974,7 @@
 			);
 			name = ulink;
 			productName = ulink;
-			productReference = FD45F24B24AA591300F304BD /* .app */;
+			productReference = FD45F24B24AA591300F304BD /* Ulink.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1006,6 +1015,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAEFDB424CB221300C7D013 /* Review.storyboard in Resources */,
+				FDAEFDB824CB222500C7D013 /* MyPage.storyboard in Resources */,
+				FDAEFDB524CB221500C7D013 /* Filter.storyboard in Resources */,
+				FDAEFDB924CB222900C7D013 /* Board.storyboard in Resources */,
+				FDAEFDBC24CB22AB00C7D013 /* Assets.xcassets in Resources */,
+				FDAEFDBD24CB22C800C7D013 /* io_login_img.gif in Resources */,
+				FDAEFDB124CB220B00C7D013 /* ColorPick.storyboard in Resources */,
+				FDAEFDB024CB220200C7D013 /* CreateTimeTable.storyboard in Resources */,
+				FDAEFDB624CB221B00C7D013 /* Alarm.storyboard in Resources */,
+				FDAEFDB224CB220E00C7D013 /* TimeTable.storyboard in Resources */,
+				FDAEFDB724CB222100C7D013 /* Chatting.storyboard in Resources */,
+				FDAEFDBE24CB22CA00C7D013 /* io_ulink_splash.gif in Resources */,
+				FDAEFDBA24CB222D00C7D013 /* LaunchScreen.storyboard in Resources */,
+				FDAEFDAF24CB20EB00C7D013 /* Main.storyboard in Resources */,
+				FDAEFDBB24CB227500C7D013 /* Calendar.storyboard in Resources */,
+				FDAEFDB324CB221000C7D013 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,7 +1124,6 @@
 				29970E7224BF90390034840E /* ColorPickViewController.swift in Sources */,
 				FD408FD624C9D02400691B9D /* BoardListTableCell.swift in Sources */,
 				B590A31524C0BFF8006637D0 /* CartService.swift in Sources */,
-				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */,
 				FDFA3A8724BD7DD100CB8939 /* MajorFilterTableViewCell.swift in Sources */,
 				29C6BB5D24BD92F80026747C /* CalendarService.swift in Sources */,
@@ -1250,6 +1274,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Ulink;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1303,6 +1328,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = Ulink;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1325,6 +1351,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
+				PRODUCT_NAME = Ulink;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1346,6 +1373,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
+				PRODUCT_NAME = Ulink;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
