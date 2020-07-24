@@ -6,12 +6,26 @@
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
+
+/*
+ 
+ 시간표 클래스
+ 우리가 보는 시간표에 관한 모든 것을 여기서 관리!
+ ex) 관리할 수 있는 속성 및 메소드는 이름을 보면 알 겁니다!
+ 
+ */
+
+
+
+
+
 import Foundation
 import UIKit
 
 public protocol TimeTableDelegate {
     
     func timeTable(timeTable: TimeTable, selectedSubjectIdx: Int, isSubject : Bool)
+    
     func timeTableHintCount(hintCount : Int)
 }
 
@@ -53,6 +67,7 @@ public func getWidth() -> Int{
     }
 }
 
+
 @IBDesignable public class TimeTable : UIView {
     public var controller = TimeTableController()
     public var collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 22, height: 324), collectionViewLayout: UICollectionViewFlowLayout())
@@ -70,6 +85,7 @@ public func getWidth() -> Int{
     private var subjectCells = [SubjectCell]()
     private var colorPicker = ColorPicker()
     
+    // 드래그로 시간표 추가시 그 시간표를 잠시 저장해 놓는 리스트
     public var tempUserScheduleList : [TimeInfoModel] = []
     
     private var startPositionX : CGFloat = 0
@@ -81,14 +97,13 @@ public func getWidth() -> Int{
         }
     }
     
+    // 시간표에 그려질 과목들
     public var subjectItems = [SubjectModel](){
         didSet{ makeTimeTable() }
     }
 
 
     // option setter
-   
-    
     public var timeTableBackgroundColor = UIColor.black{
         didSet{
             collectionView.backgroundColor = backgroundColor
@@ -107,7 +122,6 @@ public func getWidth() -> Int{
         didSet { makeTimeTable() }
     }
 
-    // top symbol
     @IBInspectable public var symbolFontColor = UIColor.brownGrey {
         
         didSet { makeTimeTable() }
@@ -121,6 +135,7 @@ public func getWidth() -> Int{
         didSet { makeTimeTable() }
     }
 
+    // 이거 개발 못할 때 위에 월,화,,,금 써져있는거 배경으로 radius 들어가 있는 배경을 이미지로 박을라고 위 DaySection 높이 0으로 만들고 스토리 보드에서 label로 월,화,,,금 써줌. 근데 이거 고쳐야 댐
     @IBInspectable public var heightOfDaySection = CGFloat(0){
         didSet { makeTimeTable() }
     }
@@ -145,11 +160,6 @@ public func getWidth() -> Int{
         daySymbolText.rotate(shiftingToStart: startIndex)
         return daySymbolText
     }
-    
-    // 성은아 여기야
-    // 19 * 32
-    
-    
     
     @IBInspectable public var widthOfTimeAxis = CGFloat(getWidth()){
            didSet {
@@ -240,11 +250,11 @@ public func getWidth() -> Int{
         makeTimeTable()
     }
 
+    // 제일 중요한 timeTable을 그려주는 함수!
+    // 찬찬히 읽으면 다 이해 됩니다!
     private func makeTimeTable(){
         var minStartTimeHour : Int = 24
         var maxEndTimeHour : Int = 0
-
-//        collectionView.scrollToItem(at: IndexPath(row: 0, section : 0), at: .top, animated: false)
 
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
@@ -307,7 +317,7 @@ public func getWidth() -> Int{
             let height = averageHeight * CGFloat(subjectEndHour - subjectStartHour) + CGFloat((CGFloat(subjectEndMin - subjectStartMin) / 60) * averageHeight) - rectEdgeInsets.top - rectEdgeInsets.bottom
 
             let view = UIView(frame: CGRect(x: position_x, y: position_y, width: width, height: height))
-             
+
             view.backgroundColor = colorPicker.getColor(subjectItem.backgroundColor).color
             view.layer.cornerRadius = 8
 
@@ -338,11 +348,13 @@ public func getWidth() -> Int{
         }
     }
     
-    // 드래그 부분
+    // 여기서 부터 드래그로 직접 추가를 위한 부분
     var baseXList : [CGFloat] = []
     var baseYList : [CGFloat] = []
     var baseTimeList : [String] = []
     
+    // 드래그시 어두운 음영처리 되는 부분을 timeTableHint라고 명명하였음
+    // 드래그로 직접 추가 기능에서 long press로 시작점 찍었을 때 호출되는 함수
     func makeStartPointFromDrag(input_x : CGFloat, input_y : CGFloat){
         
         var tempUserSchedule = TimeInfoModel.init()
@@ -386,20 +398,19 @@ public func getWidth() -> Int{
             }
         }
         
-        print("tempUserList", tempUserScheduleList)
         
         tempUserScheduleList.append(tempUserSchedule)
-            print("tempUserList", tempUserScheduleList)
+        
+        // 드래그 시작하면 오른쪽 상단 버튼 확정 -> 추가로 변경
         delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
     }
         
-
+    // 드래그 시 음영을 그려주는 부분
     func makeHintTimeTableForDrag(input_x : CGFloat, input_y : CGFloat){
         
         let count = tempUserScheduleList.count
         for subview in collectionView.subviews{
             if (subview.tag == count * 100){
-                print("removed Tag", subview.tag)
                 subview.removeFromSuperview()
             }
         }
@@ -430,6 +441,8 @@ public func getWidth() -> Int{
     
     }
 
+    
+    // 시간표 생성 뷰에서 과목을 클릭했을 때 위 시간표에 음영을 그려주는 함수
     func makeHintTimeTable(day: [Int], startTime: [String], endTime : [String]){
         
         collectionView.reloadData()
@@ -482,6 +495,7 @@ public func getWidth() -> Int{
         
     }
     
+    // hintTable 지워주는 함수. hintTable은 UICollectionViewCell이 아니므로 얘가 아닌 애들을 다 지운다.
     func removeHintTable(){
         
         collectionView.reloadData()
@@ -500,38 +514,36 @@ public func getWidth() -> Int{
         }
         
     }
+    
+    // 드래그로 직접 추가시 되돌리기 버튼을 통해 가장 마지막으로 드래그된 hintTable을 지워줌
+       public func removeLastSchedule(){
+           let count = tempUserScheduleList.count
+           if count > 0 {
+               for subview in collectionView.subviews{
+                   if subview.tag == count * 100 {
+                       subview.removeFromSuperview()
+                   }
+               }
+               self.tempUserScheduleList.remove(at: count - 1 )
+           }
+           
+           delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
+       }
+       
 
+    // 시간표안의 과목을 클릭했을 때 호출되는 함수
+    // 메인뷰에서 과목 detail을 볼 때 쓰임
     @objc func lectureTapped(_ sender: UITapGestureRecognizer){
     
         reloadData()
-        
-        print((sender.view!).tag)
-        print(subjectItems.count)
-        
-    
         
         let subject = subjectItems[(sender.view!).tag]
         self.delegate?.timeTable(timeTable: self, selectedSubjectIdx: subject.subjectIdx, isSubject: subject.isSubject)
         
     }
     
-
-    public func removeLastSchedule(){
-        let count = tempUserScheduleList.count
-        if count > 0 {
-            for subview in collectionView.subviews{
-                if subview.tag == count * 100 {
-                    subview.removeFromSuperview()
-                }
-            }
-            self.tempUserScheduleList.remove(at: count - 1 )
-        }
-        
-        delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
-    }
-    
+    // 과목 지우기
     public func removeSchedule(num : Int){
-           print("removeSchedule")
         for subview in collectionView.subviews{
             let tag = tempUserScheduleList[num - 1].timeIdx
             
@@ -540,18 +552,19 @@ public func getWidth() -> Int{
             }
         }
         
-        print("시간표에서 schedule 삭제: \(num - 1)")
          self.tempUserScheduleList.remove(at: num - 1)
         
         delegate?.timeTableHintCount(hintCount: tempUserScheduleList.count)
         
     }
 
+    // subjectItems를 초기화 (새로고침 느낌)
     public func reloadData() {
         subjectItems = self.dataSource?.subjectItems(in: self) ?? [SubjectModel]()
         
     }
     
+    // timeTable 다시 그리기
     public func reDrawTimeTable(){
     
         self.tempUserScheduleList.removeAll()
@@ -559,6 +572,7 @@ public func getWidth() -> Int{
 
     }
     
+    // 이번에 쓰일 과목의 background 색 뽑아주는 함수
     public func getColorCount() -> Int{
         
         let mainColorList = [9, 12, 6, 13, 10, 7, 14, 1, 5, 8]

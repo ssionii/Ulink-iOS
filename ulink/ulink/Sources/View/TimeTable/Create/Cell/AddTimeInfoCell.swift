@@ -6,6 +6,14 @@
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
+
+/*
+
+과목 직접 추가 뷰에서 시간을 추가할 수 있는 cell
+
+*/
+
+
 import UIKit
 
 protocol AddTimeInfoCellDelegate {

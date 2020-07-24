@@ -6,6 +6,14 @@
 //  Copyright © 2020 송지훈. All rights reserved.
 //
 
+
+/*
+
+시간표 추가 뷰에서 과목 정보를 보여주는 cell
+
+*/
+
+
 import UIKit
 
 protocol SubjectInfoCellDelegate {
