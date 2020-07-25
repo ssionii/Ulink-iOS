@@ -240,7 +240,6 @@ class LoginViewController: UIViewController {
         case 896.0 ... 1000.0:         // XS MAX
             
             self.gifHeight.constant = 240
-            print(11)
             print(gifHeight.constant)
             break
             
