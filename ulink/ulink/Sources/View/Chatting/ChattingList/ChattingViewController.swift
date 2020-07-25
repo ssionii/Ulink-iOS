@@ -12,107 +12,107 @@
 //
 //
 //
-//    
+//
 //class ChattingViewController: UIViewController {
-//        
-//    
+//
+//
 //    @IBOutlet weak var footerView: UIView!
 //    @IBOutlet weak var chattingListTable: UITableView!
 //
 //
-//    
+//
 //    static let identifiers : String = "ChattingCell"
 //
 //
 //    var ref : DatabaseReference!
 //    var count : Int = 0
 //    var chattingListRef : DatabaseReference!
-//    
-//    
-//    
+//
+//
+//
 //    var chattingList : [ChattingListData] = []
 //    var array_class : [ClassModel] = []
-//    
+//
 //    @IBOutlet weak var chattingUserCountLabel: UILabel!
-//    
+//
 //    override func viewDidLoad(){
-//        
 //
-//      
 //
-//        
+//
+//
+//
 //        super.viewDidLoad()
-//        
-//        
+//
+//
 //
 //
 //        chattingListTable.dataSource = self
 //        chattingListTable.delegate = self
 //        hideNaviBar()
-//        
+//
 //        loadUserData()
-//        
-//        
-//        
-//        
-//        
-//        
-//        
+//
+//
+//
+//
+//
+//
+//
 //        setChattingData()
 //
 //
 //
-//        
+//
 //        showIndicator()
 //
-//        
-//        
+//
+//
 //        self.chattingListTable.tableFooterView = footerView
 //
 //    }
-//    
-//      
-//   
+//
+//
+//
 //    func showIndicator()
 //    {
 //
-//        
+//
 //        let activityIndicator = ActivityIndicator(view: view, navigationController: self.navigationController, tabBarController: nil)
 //
 //        activityIndicator.showActivityIndicator(text: "로딩 중")
-//        
-//        
+//
+//
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
-//            
+//
 //            activityIndicator.stopActivityIndicator()
-//            
-//        
+//
+//
 //        }
 //
-//        
-//        
+//
+//
 //    }
-//    
+//
 //
 //      func loadUserData()
 //      {
-//          
-//          
-//        
+//
+//
+//
 //            LoadChattingListService.shared.getSubjectDetailNotice() { networkResult in
 //                switch networkResult{
-//                    
+//
 //                case .success(let chatList, let numberOfChatrooms):
-//                    
+//
 //                    print("SDS")
 //                    print(chatList)
 //                    print(numberOfChatrooms)
-//                    
-//          
-//                    
+//
+//
+//
 //                    guard let chatList = chatList as? [ChattingListData] else { return }
 //                    guard let numberOfChatrooms = numberOfChatrooms as? Int else {return}
-//                    
+//
 //
 //                        if numberOfChatrooms > 0
 //                        {
@@ -124,71 +124,71 @@
 //                                        color: chatList[i].color,
 //                                        total: chatList[i].total,
 //                                        current: chatList[i].current)
-//                                    
+//
 //                                    self.chattingList.append(chatroomData)
 //                                }
-//                            
+//
 //                        }
 //
-//                    
 //
-//             
-//                    
-//                    
-//         
-//                    
+//
+//
+//
+//
+//
+//
 //                default:
 //                    print("fail")
 //
-//                    
-//                }
-//                
-//                
-//    
-//                
-//            }
-//          
-//          
-//      }
-//          
 //
-//    
-//    
-//    
-//    
-//    
-//    
+//                }
+//
+//
+//
+//
+//            }
+//
+//
+//      }
+//
+//
+//
+//
+//
+//
+//
+//
 //    func setChattingData(){
-//        
-//        
+//
+//
 //
 ////        Database.database().reference().child("chatrooms").observeSingleEvent(of: DataEventType.value)
-//        
+//
 ////        Database.database().reference().child("chatrooms").queryOrderedByKey().queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value)
-//        
-//        
+//
+//
 //        Database.database().reference().child("chatrooms").observeSingleEvent(of: DataEventType.value)
 //          { (snapshot) in
-//            
+//
 ////            print("snapshot : \(snapshot)") // 여기는 순서대로 들어옵니다
 ////
 ////
 ////
 //         //   snapshot 자체는 정상적으로 들어온다
-//            
+//
 //
 //                let values = snapshot.value
-//            
+//
 //
 //                let dic = values as! [String: [String:Any]] // 여기서 순서가 망가지는거임
-//            
+//
 //                // 그러면 어떻게 해야할까
 //                //
 //                let dicOrdered = dic.keys.sorted(by: <)
-//            
-//            
+//
+//
 //                print("ordered DIC : \(dicOrdered)")
-//                
+//
 //                print("DIC 을 자세히 보자 : \(dic)") // Dictionary로 저장될때 달라지는거임... d여기를 건드려야 한다!
 //
 //
@@ -201,68 +201,68 @@
 //
 //                        let data = ClassModel(name: index.value["title"] as! String, key: index.key , image:.one)
 //
-//                        
+//
 //                        print("1: \(index.value["title"] as! String)")
 //                        self.array_class.append(data)
-//                        
-//                                                
+//
+//
 //
 //                        DispatchQueue.main.async{
 //                            self.chattingListTable.reloadData()
-//                            
+//
 //                        }           // chattingListtable을 다시 reload 해줘서 메인에서 채팅방 목록이 뜨게 해야 한다!!!
 //
-//                        
-//                        
-//                        
+//
+//
+//
 //
 //                    }
-//                    
+//
 //                }
 //        }
-//        
+//
 //
 //
 //    }
-//    
+//
 //
 //    func hideNaviBar(){
-//        
-//        
-//        
-//        
+//
+//
+//
+//
 //        self.navigationController?.navigationBar.isHidden = true
 //    }
-//    
+//
 //}
-//    
-//    
-//    
-//    
-//        
-//   
+//
+//
+//
+//
+//
+//
 //
 //
 //extension ChattingViewController: UITableViewDelegate, UITableViewDataSource{
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//        
+//
+//
 //        return chattingList.count
 ////        return array_class.count
 //    }
-//    
+//
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //
 //        guard let chattingCell = tableView.dequeueReusableCell(withIdentifier: ChattingTableViewCell.identifiers, for: indexPath) as? ChattingTableViewCell else {return UITableViewCell()}
-//        
-//        
-//        
+//
+//
+//
 //        chattingCell.separatorInset = UIEdgeInsets.zero
-//        
-//        
-//        
-//        
-//        
+//
+//
+//
+//
+//
 ////        Database.database().reference().child("chatrooms").child(array_class[indexPath.row].key!).child("users").observe(.value) { (datasnapshot) in
 ////
 ////
@@ -273,9 +273,9 @@
 ////
 ////        chattingCell.chattingUserCountLabel.text = "현재 인원 :" + String(dic.count - 1)
 ////        }
-//        
+//
 //        var colorString : String = ""
-//        
+//
 //        if(chattingList[indexPath.row].color<9)
 //        {
 //            colorString = "0" + String(chattingList[indexPath.row].color + 1)
@@ -284,43 +284,43 @@
 //        {
 //            colorString = String(chattingList[indexPath.row].color + 1)
 //        }
-//        
+//
 //        print("colorString = \(colorString)")
 //        if let img = UIImage(named: "ioClassImg" + colorString)
 //        {
 //            chattingCell.chattingImage.image = img
 //        }
-//        
+//
 //        else
 //        {
-//            
+//
 //            chattingCell.chattingImage.image = UIImage(named: "ioClassImgProfile13")
 //        }
-//        
-//        
-//        
 //
-//        
-//        
-//        
-//        
+//
+//
+//
+//
+//
+//
+//
 //        chattingCell.chattingUserCountLabel.text =
 //            String(chattingList[indexPath.row].current) +
 //            "/" +
 //            String(chattingList[indexPath.row].total)
-//        
-//        
-//        
-//        
+//
+//
+//
+//
 //        chattingCell.chattingRoomTitle.text = chattingList[indexPath.row].name
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //        chattingCell.chattingNumberBadge.clipsToBounds = true
@@ -331,60 +331,60 @@
 //
 //
 //
-//        
-//        
 //
-//        
-//        
-//  
-//        
+//
+//
+//
+//
+//
+//
 //        return chattingCell
-//        
-//    
+//
+//
 //    }
-//    
-//    
-//    
+//
+//
+//
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        guard let chattingRoomViewController = self.storyboard?.instantiateViewController(identifier: "ChattingRoomViewController") as? ChattingRoomViewController else { return }
-//        
-//        
+//
+//
 //        self.array_class = self.array_class.sorted(by: {$0.className! < $1.className!})
 //
-//        
-//        
-//        
-//        
+//
+//
+//
+//
 //            // 1번1번 여기서 채팅방 주소 변경
 //        chattingRoomViewController.destinationUid = "-MBcSPAQKDDOsT2u4UfX"
 //        chattingRoomViewController.tempTitle = self.chattingList[indexPath.row].name
-//        
-//        
+//
+//
 //        chattingRoomViewController.subjectIdx = self.chattingList[indexPath.row].subjectIdx
 //        chattingRoomViewController.currentUserCount = self.chattingList[indexPath.row].current
-//        
+//
 //        print("=====================================")
 //        print("채팅목록에서 채팅방으로 전달되는 title과 idx")
 //        print("name : \(self.chattingList[indexPath.row].name) ")
 //        print("subjectIdx : \(self.chattingList[indexPath.row].subjectIdx)")
 //        print("=====================================")
-//        
-//        
-//    
 //
-//        
-//        
+//
+//
+//
+//
+//
 //        self.navigationController?.pushViewController(chattingRoomViewController, animated: true)
 //
-//        
+//
 //    }
-//    
-//    
-//    
+//
+//
+//
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 80
 //    }
-//    
+//
 //}
 //
 //
@@ -392,7 +392,7 @@
 //
 //
 //struct ActivityIndicator {
-//    
+//
 //    let viewForActivityIndicator = UIView()
 //    let backgroundView = UIView()
 //    let view: UIView
@@ -400,41 +400,41 @@
 //    let tabBarController: UITabBarController?
 //    let activityIndicatorView = UIActivityIndicatorView()
 //    let loadingTextLabel = UILabel()
-//    
+//
 //    var navigationBarHeight: CGFloat { return navigationController?.navigationBar.frame.size.height ?? 0.0 }
 //    var tabBarHeight: CGFloat { return tabBarController?.tabBar.frame.height ?? 0.0 }
-//    
+//
 //    func showActivityIndicator(text: String) {
 //        viewForActivityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 100, height: 100)
 //        viewForActivityIndicator.center = CGPoint(x: self.view.frame.size.width / 2.0, y: (self.view.frame.size.height - tabBarHeight - navigationBarHeight) / 2.0)
 //        viewForActivityIndicator.layer.cornerRadius = 10
 //        viewForActivityIndicator.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.598483033)
 //        backgroundView.addSubview(viewForActivityIndicator)
-//        
+//
 //        activityIndicatorView.center = CGPoint(x: viewForActivityIndicator.frame.size.width / 2.0, y: (viewForActivityIndicator.frame.size.height - tabBarHeight - navigationBarHeight) / 2.0 + 10)
-//        
+//
 //        loadingTextLabel.textColor = UIColor.black
 //        loadingTextLabel.text = text
 //        loadingTextLabel.font = UIFont(name: "Avenir Light", size: 14)
 //        loadingTextLabel.sizeToFit()
 //        loadingTextLabel.center = CGPoint(x: activityIndicatorView.center.x, y: activityIndicatorView.center.y + 40)
 //        viewForActivityIndicator.addSubview(loadingTextLabel)
-//        
+//
 //        activityIndicatorView.hidesWhenStopped = true
 //        activityIndicatorView.style = .whiteLarge
 //        activityIndicatorView.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
 //        viewForActivityIndicator.addSubview(activityIndicatorView)
-//        
+//
 //        backgroundView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
 //        backgroundView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-//        
+//
 //       view.addSubview(backgroundView)
-//        
-//        
-//        
+//
+//
+//
 //        activityIndicatorView.startAnimating()
 //    }
-//    
+//
 //    func stopActivityIndicator() {
 //        viewForActivityIndicator.removeFromSuperview()
 //        activityIndicatorView.stopAnimating()
