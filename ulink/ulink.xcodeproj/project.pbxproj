@@ -8,21 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292B1CEC24AF0AA700B4EC79 /* DayCell.swift */; };
-		29970E4924BEB1F10034840E /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E4824BEB1F10034840E /* LoginService.swift */; };
-		29970E6D24BF662F0034840E /* ColorPick.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29970E6C24BF662F0034840E /* ColorPick.storyboard */; };
 		29970E7224BF90390034840E /* ColorPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E7124BF90390034840E /* ColorPickViewController.swift */; };
 		29970E7424BF915F0034840E /* ColorPickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E7324BF915F0034840E /* ColorPickCell.swift */; };
 		29970E7624BF9EC70034840E /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29970E7524BF9EC70034840E /* ColorModel.swift */; };
-		299DA9F724C0327F00F023FD /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F224C0327F00F023FD /* Alarm.storyboard */; };
-		299DA9F824C0327F00F023FD /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F324C0327F00F023FD /* Filter.storyboard */; };
-		299DA9F924C0327F00F023FD /* CreateTimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F424C0327F00F023FD /* CreateTimeTable.storyboard */; };
-		299DA9FA24C0327F00F023FD /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F524C0327F00F023FD /* Search.storyboard */; };
-		299DA9FB24C0327F00F023FD /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F624C0327F00F023FD /* Review.storyboard */; };
-		299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9FC24C0328E00F023FD /* MyPage.storyboard */; };
 		299DACF024B70AFF008181FA /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACEF24B70AFF008181FA /* EventModel.swift */; };
 		299DACF224B785FE008181FA /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF124B785FE008181FA /* EventListViewController.swift */; };
 		299DACF424B78785008181FA /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DACF324B78785008181FA /* EventCell.swift */; };
-		299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DACFD24B813FE008181FA /* Calendar.storyboard */; };
 		299DAD0224B837B7008181FA /* EventListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0124B837B7008181FA /* EventListHeaderCell.swift */; };
 		299DAD0E24BABC93008181FA /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD0D24BABC93008181FA /* AlarmViewController.swift */; };
 		299DAD1224BAF26D008181FA /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299DAD1124BAF26C008181FA /* DetailEventViewController.swift */; };
@@ -36,10 +27,6 @@
 		29C6BB5F24BD9EF20026747C /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB5E24BD9EF20026747C /* CalendarData.swift */; };
 		29C6BB6224BE3DFE0026747C /* SearchRecommendData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB6124BE3DFE0026747C /* SearchRecommendData.swift */; };
 		29C6BB6524BE3F080026747C /* SearchRecommendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6BB6424BE3F080026747C /* SearchRecommendService.swift */; };
-		29D7E6DD24CAABAB008397D3 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D7E6DC24CAABAB008397D3 /* NotificationCenter.framework */; };
-		29D7E6E024CAABAB008397D3 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7E6DF24CAABAB008397D3 /* TodayViewController.swift */; };
-		29D7E6E324CAABAB008397D3 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D7E6E124CAABAB008397D3 /* MainInterface.storyboard */; };
-		29D7E6E724CAABAB008397D3 /* UlinkWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 29D7E6DB24CAABAB008397D3 /* UlinkWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8F83FB66AD3FD38DC68E8A6E /* Pods_ulink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9577339BBFCE6C2E3AD044C7 /* Pods_ulink.framework */; };
 		B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511B24B7BA5300BD219B /* AddSubjectByDragViewController.swift */; };
 		B513511F24B86BE700BD219B /* AddSubjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B513511E24B86BE700BD219B /* AddSubjectDetailViewController.swift */; };
@@ -78,13 +65,9 @@
 		B5F0E41B24B1E4CF001AAFA6 /* TimeTableListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41A24B1E4CF001AAFA6 /* TimeTableListCell.swift */; };
 		B5F0E41D24B214DB001AAFA6 /* TimeTableListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41C24B214DB001AAFA6 /* TimeTableListHeader.swift */; };
 		B5F0E41F24B21FFF001AAFA6 /* TimeTableListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F0E41E24B21FFF001AAFA6 /* TimeTableListFooter.swift */; };
-		FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */; };
-		FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A824C0469800C2B44C /* io_login_img.gif */; };
 		FD1398AB24C0646000C2B44C /* NoticeDeleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AA24C0646000C2B44C /* NoticeDeleteService.swift */; };
 		FD1398AE24C100CF00C2B44C /* MajorFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */; };
-		FD1398B024C28A8A00C2B44C /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1398AF24C28A8A00C2B44C /* Chatting.storyboard */; };
 		FD19DC0724AD01C5000C2AEC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */; };
-		FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */; };
 		FD19DC0B24AD02ED000C2AEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0A24AD02ED000C2AEC /* UserModel.swift */; };
 		FD19DC0D24AD0356000C2AEC /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0C24AD0356000C2AEC /* APIConstant.swift */; };
 		FD19DC0F24AD0365000C2AEC /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC0E24AD0365000C2AEC /* ChatModel.swift */; };
@@ -92,22 +75,21 @@
 		FD19DC1424AD03FB000C2AEC /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1324AD03FB000C2AEC /* ChattingViewController.swift */; };
 		FD19DC1624AD04A2000C2AEC /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1524AD04A2000C2AEC /* NetworkResult.swift */; };
 		FD19DC1824AD061D000C2AEC /* ChattingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */; };
-		FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */; };
 		FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19DC3024AE0B44000C2AEC /* ClassModel.swift */; };
 		FD1A4AFA24B5A0B7000120A6 /* CreateTimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */; };
 		FD1A4AFB24B5A0B7000120A6 /* CreateTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */; };
 		FD1A4AFD24B60427000120A6 /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */; };
 		FD1A4B0124B604B1000120A6 /* NoticeDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */; };
-		FD408FCA24C96B4600691B9D /* Board.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD408FC924C96B4600691B9D /* Board.storyboard */; };
+		FD408FCD24C9C80E00691B9D /* BoardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FCC24C9C80E00691B9D /* BoardListViewController.swift */; };
+		FD408FCF24C9CCBE00691B9D /* BoardArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FCE24C9CCBE00691B9D /* BoardArticleListViewController.swift */; };
+		FD408FD124C9CCC800691B9D /* BoardEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FD024C9CCC800691B9D /* BoardEditViewController.swift */; };
+		FD408FD324C9CCD800691B9D /* BoardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FD224C9CCD800691B9D /* BoardDetailViewController.swift */; };
+		FD408FD624C9D02400691B9D /* BoardListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FD524C9D02400691B9D /* BoardListTableCell.swift */; };
+		FD408FD824C9D05B00691B9D /* BoardArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD408FD724C9D05B00691B9D /* BoardArticleCollectionViewCell.swift */; };
 		FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F24E24AA591300F304BD /* AppDelegate.swift */; };
 		FD45F25124AA591300F304BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25024AA591300F304BD /* SceneDelegate.swift */; };
 		FD45F25324AA591300F304BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45F25224AA591300F304BD /* ViewController.swift */; };
-		FD45F25624AA591300F304BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25424AA591300F304BD /* Main.storyboard */; };
-		FD45F25824AA591500F304BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25724AA591500F304BD /* Assets.xcassets */; };
-		FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25924AA591500F304BD /* LaunchScreen.storyboard */; };
-		FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */; };
 		FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */; };
-		FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */; };
 		FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */; };
 		FD6B17AD24B1A2BC00E8B9A8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6B17AC24B1A2BC00E8B9A8 /* PopupViewController.swift */; };
 		FD717F0C24BC22AE005C81AE /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD717F0B24BC22AE005C81AE /* MyPageViewController.swift */; };
@@ -123,6 +105,22 @@
 		FD8EE90924B7820F000E5A48 /* timeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90824B7820F000E5A48 /* timeModel.swift */; };
 		FD8EE90C24B80918000E5A48 /* pickerTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90B24B80918000E5A48 /* pickerTimeModel.swift */; };
 		FD8EE90E24B83744000E5A48 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8EE90D24B83744000E5A48 /* MessageModel.swift */; };
+		FDAEFDAF24CB20EB00C7D013 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25424AA591300F304BD /* Main.storyboard */; };
+		FDAEFDB024CB220200C7D013 /* CreateTimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F424C0327F00F023FD /* CreateTimeTable.storyboard */; };
+		FDAEFDB124CB220B00C7D013 /* ColorPick.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29970E6C24BF662F0034840E /* ColorPick.storyboard */; };
+		FDAEFDB224CB220E00C7D013 /* TimeTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */; };
+		FDAEFDB324CB221000C7D013 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F524C0327F00F023FD /* Search.storyboard */; };
+		FDAEFDB424CB221300C7D013 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F624C0327F00F023FD /* Review.storyboard */; };
+		FDAEFDB524CB221500C7D013 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F324C0327F00F023FD /* Filter.storyboard */; };
+		FDAEFDB624CB221B00C7D013 /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9F224C0327F00F023FD /* Alarm.storyboard */; };
+		FDAEFDB724CB222100C7D013 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1398AF24C28A8A00C2B44C /* Chatting.storyboard */; };
+		FDAEFDB824CB222500C7D013 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DA9FC24C0328E00F023FD /* MyPage.storyboard */; };
+		FDAEFDB924CB222900C7D013 /* Board.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD408FC924C96B4600691B9D /* Board.storyboard */; };
+		FDAEFDBA24CB222D00C7D013 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25924AA591500F304BD /* LaunchScreen.storyboard */; };
+		FDAEFDBB24CB227500C7D013 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299DACFD24B813FE008181FA /* Calendar.storyboard */; };
+		FDAEFDBC24CB22AB00C7D013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD45F25724AA591500F304BD /* Assets.xcassets */; };
+		FDAEFDBD24CB22C800C7D013 /* io_login_img.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A824C0469800C2B44C /* io_login_img.gif */; };
+		FDAEFDBE24CB22CA00C7D013 /* io_ulink_splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = FD1398A624C02A4300C2B44C /* io_ulink_splash.gif */; };
 		FDFA3A8324BCE7B700CB8939 /* NormalFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8224BCE7B700CB8939 /* NormalFilterViewController.swift */; };
 		FDFA3A8524BCF27600CB8939 /* MajorFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8424BCF27600CB8939 /* MajorFilterViewController.swift */; };
 		FDFA3A8724BD7DD100CB8939 /* MajorFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFA3A8624BD7DD100CB8939 /* MajorFilterTableViewCell.swift */; };
@@ -140,16 +138,6 @@
 		FDFAA0F724B0E0A400D22EAD /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFAA0F624B0E0A400D22EAD /* NoticeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		29D7E6E524CAABAB008397D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FD45F24324AA591300F304BD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 29D7E6DA24CAABAB008397D3;
-			remoteInfo = UlinkWidget;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		29D7E6E824CAABAB008397D3 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -157,7 +145,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				29D7E6E724CAABAB008397D3 /* UlinkWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,7 +181,6 @@
 		29C6BB5E24BD9EF20026747C /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarData.swift; path = ulink/Resource/Network/Calendar/CalendarData.swift; sourceTree = SOURCE_ROOT; };
 		29C6BB6124BE3DFE0026747C /* SearchRecommendData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendData.swift; sourceTree = "<group>"; };
 		29C6BB6424BE3F080026747C /* SearchRecommendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendService.swift; sourceTree = "<group>"; };
-		29D7E6DB24CAABAB008397D3 /* UlinkWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UlinkWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D7E6DC24CAABAB008397D3 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		29D7E6DF24CAABAB008397D3 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		29D7E6E224CAABAB008397D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -245,7 +231,6 @@
 		FD1398AD24C100CF00C2B44C /* MajorFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorFilterService.swift; sourceTree = "<group>"; };
 		FD1398AF24C28A8A00C2B44C /* Chatting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FD19DC0A24AD02ED000C2AEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		FD19DC0C24AD0356000C2AEC /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		FD19DC0E24AD0365000C2AEC /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
@@ -253,21 +238,25 @@
 		FD19DC1324AD03FB000C2AEC /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		FD19DC1524AD04A2000C2AEC /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		FD19DC1724AD061D000C2AEC /* ChattingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingRoomViewController.swift; sourceTree = "<group>"; };
-		FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		FD19DC3024AE0B44000C2AEC /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		FD1A4AF824B5A0B6000120A6 /* CreateTimeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTimeTableCell.swift; sourceTree = "<group>"; };
 		FD1A4AF924B5A0B7000120A6 /* CreateTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTimeTableViewController.swift; sourceTree = "<group>"; };
 		FD1A4AFC24B60427000120A6 /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		FD1A4B0024B604B1000120A6 /* NoticeDetailTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailTableCell.swift; sourceTree = "<group>"; };
 		FD408FC924C96B4600691B9D /* Board.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Board.storyboard; sourceTree = "<group>"; };
-		FD45F24B24AA591300F304BD /* 유링크.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "유링크.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD408FCC24C9C80E00691B9D /* BoardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListViewController.swift; sourceTree = "<group>"; };
+		FD408FCE24C9CCBE00691B9D /* BoardArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardArticleListViewController.swift; sourceTree = "<group>"; };
+		FD408FD024C9CCC800691B9D /* BoardEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEditViewController.swift; sourceTree = "<group>"; };
+		FD408FD224C9CCD800691B9D /* BoardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardDetailViewController.swift; sourceTree = "<group>"; };
+		FD408FD524C9D02400691B9D /* BoardListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListTableCell.swift; sourceTree = "<group>"; };
+		FD408FD724C9D05B00691B9D /* BoardArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		FD45F24B24AA591300F304BD /* Ulink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ulink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD45F24E24AA591300F304BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD45F25024AA591300F304BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FD45F25224AA591300F304BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD45F25524AA591300F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD45F25724AA591500F304BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD45F25A24AA591500F304BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD6B17A124B0F85000E8B9A8 /* ColorFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFilter.swift; sourceTree = "<group>"; };
 		FD6B17A324B0F8BA00E8B9A8 /* TimeTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TimeTable.storyboard; sourceTree = "<group>"; };
 		FD6B17AA24B195BE00E8B9A8 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
@@ -304,14 +293,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		29D7E6D824CAABAB008397D3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29D7E6DD24CAABAB008397D3 /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FD45F24824AA591300F304BD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -612,7 +593,6 @@
 			isa = PBXGroup;
 			children = (
 				FD19DC0624AD01C5000C2AEC /* LoginViewController.swift */,
-				FD19DC0824AD02C8000C2AEC /* SignupViewController.swift */,
 			);
 			path = UserLogin;
 			sourceTree = "<group>";
@@ -713,6 +693,27 @@
 			path = Board;
 			sourceTree = "<group>";
 		};
+		FD408FCB24C9C7FC00691B9D /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				FD408FD424C9CFEC00691B9D /* Cell */,
+				FD408FCC24C9C80E00691B9D /* BoardListViewController.swift */,
+				FD408FCE24C9CCBE00691B9D /* BoardArticleListViewController.swift */,
+				FD408FD024C9CCC800691B9D /* BoardEditViewController.swift */,
+				FD408FD224C9CCD800691B9D /* BoardDetailViewController.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		FD408FD424C9CFEC00691B9D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FD408FD524C9D02400691B9D /* BoardListTableCell.swift */,
+				FD408FD724C9D05B00691B9D /* BoardArticleCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		FD45F24224AA591300F304BD = {
 			isa = PBXGroup;
 			children = (
@@ -728,8 +729,7 @@
 		FD45F24C24AA591300F304BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD45F24B24AA591300F304BD /* 유링크.app */,
-				29D7E6DB24CAABAB008397D3 /* UlinkWidget.appex */,
+				FD45F24B24AA591300F304BD /* Ulink.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -743,8 +743,6 @@
 				B5A2784024ADE0C600A0F4A4 /* Extension */,
 				FD616CFF24AA5D2F007D54B5 /* Sources */,
 				FD616CFE24AA5A91007D54B5 /* Resource */,
-				FD5CCBDE24AAF4AE009FCDDB /* GoogleService-Info.plist */,
-				FD19DC1924AD1121000C2AEC /* RemoteConfigDefaults.plist */,
 			);
 			path = ulink;
 			sourceTree = "<group>";
@@ -790,6 +788,7 @@
 		FD616D0124AA6631007D54B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD408FCB24C9C7FC00691B9D /* Board */,
 				FD7E7BF324BF4EBD007CF404 /* Splash */,
 				29AC521824BC60780007E019 /* Review */,
 				29AC520F24BB9DC60007E019 /* Search */,
@@ -988,23 +987,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		29D7E6DA24CAABAB008397D3 /* UlinkWidget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 29D7E6EB24CAABAB008397D3 /* Build configuration list for PBXNativeTarget "UlinkWidget" */;
-			buildPhases = (
-				29D7E6D724CAABAB008397D3 /* Sources */,
-				29D7E6D824CAABAB008397D3 /* Frameworks */,
-				29D7E6D924CAABAB008397D3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = UlinkWidget;
-			productName = UlinkWidget;
-			productReference = 29D7E6DB24CAABAB008397D3 /* UlinkWidget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		FD45F24A24AA591300F304BD /* ulink */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD45F25F24AA591500F304BD /* Build configuration list for PBXNativeTarget "ulink" */;
@@ -1019,11 +1001,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				29D7E6E624CAABAB008397D3 /* PBXTargetDependency */,
 			);
 			name = ulink;
 			productName = ulink;
-			productReference = FD45F24B24AA591300F304BD /* 유링크.app */;
+			productReference = FD45F24B24AA591300F304BD /* Ulink.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1036,9 +1017,6 @@
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "송지훈";
 				TargetAttributes = {
-					29D7E6DA24CAABAB008397D3 = {
-						CreatedOnToolsVersion = 11.6;
-					};
 					FD45F24A24AA591300F304BD = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -1058,42 +1036,31 @@
 			projectRoot = "";
 			targets = (
 				FD45F24A24AA591300F304BD /* ulink */,
-				29D7E6DA24CAABAB008397D3 /* UlinkWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		29D7E6D924CAABAB008397D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29D7E6E324CAABAB008397D3 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FD45F24924AA591300F304BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD1398A924C0469900C2B44C /* io_login_img.gif in Resources */,
-				FD408FCA24C96B4600691B9D /* Board.storyboard in Resources */,
-				29970E6D24BF662F0034840E /* ColorPick.storyboard in Resources */,
-				299DA9FD24C0328E00F023FD /* MyPage.storyboard in Resources */,
-				FD5CCBDF24AAF4AE009FCDDB /* GoogleService-Info.plist in Resources */,
-				FD6B17A424B0F8BB00E8B9A8 /* TimeTable.storyboard in Resources */,
-				FD1398B024C28A8A00C2B44C /* Chatting.storyboard in Resources */,
-				FD45F25B24AA591500F304BD /* LaunchScreen.storyboard in Resources */,
-				299DACFE24B813FE008181FA /* Calendar.storyboard in Resources */,
-				FD45F25824AA591500F304BD /* Assets.xcassets in Resources */,
-				299DA9FB24C0327F00F023FD /* Review.storyboard in Resources */,
-				FD19DC1A24AD1121000C2AEC /* RemoteConfigDefaults.plist in Resources */,
-				299DA9F824C0327F00F023FD /* Filter.storyboard in Resources */,
-				299DA9F924C0327F00F023FD /* CreateTimeTable.storyboard in Resources */,
-				FD1398A724C02A4300C2B44C /* io_ulink_splash.gif in Resources */,
-				299DA9F724C0327F00F023FD /* Alarm.storyboard in Resources */,
-				FD45F25624AA591300F304BD /* Main.storyboard in Resources */,
-				299DA9FA24C0327F00F023FD /* Search.storyboard in Resources */,
+				FDAEFDB424CB221300C7D013 /* Review.storyboard in Resources */,
+				FDAEFDB824CB222500C7D013 /* MyPage.storyboard in Resources */,
+				FDAEFDB524CB221500C7D013 /* Filter.storyboard in Resources */,
+				FDAEFDB924CB222900C7D013 /* Board.storyboard in Resources */,
+				FDAEFDBC24CB22AB00C7D013 /* Assets.xcassets in Resources */,
+				FDAEFDBD24CB22C800C7D013 /* io_login_img.gif in Resources */,
+				FDAEFDB124CB220B00C7D013 /* ColorPick.storyboard in Resources */,
+				FDAEFDB024CB220200C7D013 /* CreateTimeTable.storyboard in Resources */,
+				FDAEFDB624CB221B00C7D013 /* Alarm.storyboard in Resources */,
+				FDAEFDB224CB220E00C7D013 /* TimeTable.storyboard in Resources */,
+				FDAEFDB724CB222100C7D013 /* Chatting.storyboard in Resources */,
+				FDAEFDBE24CB22CA00C7D013 /* io_ulink_splash.gif in Resources */,
+				FDAEFDBA24CB222D00C7D013 /* LaunchScreen.storyboard in Resources */,
+				FDAEFDAF24CB20EB00C7D013 /* Main.storyboard in Resources */,
+				FDAEFDBB24CB227500C7D013 /* Calendar.storyboard in Resources */,
+				FDAEFDB324CB221000C7D013 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1142,14 +1109,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		29D7E6D724CAABAB008397D3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29D7E6E024CAABAB008397D3 /* TodayViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FD45F24724AA591300F304BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1190,12 +1149,12 @@
 				FD7C730E24BCA4C4003ADAE8 /* SignInData.swift in Sources */,
 				B513511C24B7BA5300BD219B /* AddSubjectByDragViewController.swift in Sources */,
 				FD6B17AB24B195BE00E8B9A8 /* NoticeModel.swift in Sources */,
+				FD408FD324C9CCD800691B9D /* BoardDetailViewController.swift in Sources */,
 				B5A2784224ADE0E500A0F4A4 /* Extenstions+UIColor.swift in Sources */,
 				29970E7224BF90390034840E /* ColorPickViewController.swift in Sources */,
+				FD408FD624C9D02400691B9D /* BoardListTableCell.swift in Sources */,
 				B590A31524C0BFF8006637D0 /* CartService.swift in Sources */,
-				FD19DC0924AD02C8000C2AEC /* SignupViewController.swift in Sources */,
 				FDFA3A9824BEA7DA00CB8939 /* NoticeEditService.swift in Sources */,
-				29970E4924BEB1F10034840E /* LoginService.swift in Sources */,
 				FDFA3A8724BD7DD100CB8939 /* MajorFilterTableViewCell.swift in Sources */,
 				29C6BB5D24BD92F80026747C /* CalendarService.swift in Sources */,
 				B5DBF3E224C04BBA0013BB33 /* PersonalScheduleModel.swift in Sources */,
@@ -1213,8 +1172,10 @@
 				292B1CED24AF0AA700B4EC79 /* DayCell.swift in Sources */,
 				B513512324B8BCD100BD219B /* TimeInfoModel.swift in Sources */,
 				29C6BB6224BE3DFE0026747C /* SearchRecommendData.swift in Sources */,
+				FD408FCD24C9C80E00691B9D /* BoardListViewController.swift in Sources */,
 				29AC521E24BCF8B50007E019 /* GradeSelectViewController.swift in Sources */,
 				FD79B5D324B7148B00020118 /* NoticeEditTableViewCell.swift in Sources */,
+				FD408FD124C9CCC800691B9D /* BoardEditViewController.swift in Sources */,
 				B595299224BCFCF3008139E6 /* SubjectDetailViewController.swift in Sources */,
 				FD19DC3124AE0B44000C2AEC /* ClassModel.swift in Sources */,
 				B590A30F24C05133006637D0 /* PersonalScheduleService.swift in Sources */,
@@ -1225,10 +1186,12 @@
 				B52F9DE824BDA94800B57CA1 /* TimeTableResponse.swift in Sources */,
 				FD45F24F24AA591300F304BD /* AppDelegate.swift in Sources */,
 				B51EC8A324B1099700F3833B /* TimeTableSettingViewController.swift in Sources */,
+				FD408FCF24C9CCBE00691B9D /* BoardArticleListViewController.swift in Sources */,
 				FD6B17A224B0F85000E8B9A8 /* ColorFilter.swift in Sources */,
 				B599E63224ADAA7F0067C112 /* TimeTable.swift in Sources */,
 				FDFA3A8F24BDA83300CB8939 /* NoticeService.swift in Sources */,
 				299DACF224B785FE008181FA /* EventListViewController.swift in Sources */,
+				FD408FD824C9D05B00691B9D /* BoardArticleCollectionViewCell.swift in Sources */,
 				B5DBF3DE24BF7CAF0013BB33 /* ListTimeTableService.swift in Sources */,
 				29AC521324BB9E5D0007E019 /* SearchedCell.swift in Sources */,
 				FDFA3A9C24BEB4DD00CB8939 /* NoticeUploadData.swift in Sources */,
@@ -1267,14 +1230,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		29D7E6E624CAABAB008397D3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 29D7E6DA24CAABAB008397D3 /* UlinkWidget */;
-			targetProxy = 29D7E6E524CAABAB008397D3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		29D7E6E124CAABAB008397D3 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1303,46 +1258,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		29D7E6E924CAABAB008397D3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4JPTB87CQ5;
-				INFOPLIST_FILE = UlinkWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink.UlinkWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		29D7E6EA24CAABAB008397D3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = UlinkWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink.UlinkWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		FD45F25D24AA591500F304BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1397,6 +1312,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Ulink;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1450,6 +1366,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = Ulink;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1463,6 +1380,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4JPTB87CQ5;
 				INFOPLIST_FILE = ulink/Info.plist;
@@ -1472,8 +1390,9 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = nkrang.ulink;
-				PRODUCT_NAME = "유링크";
+				PRODUCT_BUNDLE_IDENTIFIER = kone.release.ulink;
+				PRODUCT_NAME = Ulink;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1495,8 +1414,8 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = kone.ulink;
-				PRODUCT_NAME = "유링크";
+				PRODUCT_BUNDLE_IDENTIFIER = kone.release.ulink;
+				PRODUCT_NAME = Ulink;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1506,15 +1425,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		29D7E6EB24CAABAB008397D3 /* Build configuration list for PBXNativeTarget "UlinkWidget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				29D7E6E924CAABAB008397D3 /* Debug */,
-				29D7E6EA24CAABAB008397D3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		FD45F24624AA591300F304BD /* Build configuration list for PBXProject "ulink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
-import Firebase
-import FirebaseAuth
 import Alamofire
 import SwiftyJSON
 import GIFImageView
@@ -39,7 +36,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldImage1: UIImageView!
     @IBOutlet weak var textFieldImage2: UIImageView!
     
-    let remoteConfig = RemoteConfig.remoteConfig()
+
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
@@ -243,7 +240,6 @@ class LoginViewController: UIViewController {
         case 896.0 ... 1000.0:         // XS MAX
             
             self.gifHeight.constant = 240
-            print(11)
             print(gifHeight.constant)
             break
             
